@@ -1,19 +1,16 @@
 package fi.otavanopisto.kuntaapi.server.rest;
 
 import fi.otavanopisto.kuntaapi.server.rest.model.BadRequest;
-import fi.otavanopisto.kuntaapi.server.rest.model.Service;
+import fi.otavanopisto.kuntaapi.server.rest.model.OrganizationService;
+import fi.otavanopisto.kuntaapi.server.rest.model.Organization;
 import fi.otavanopisto.kuntaapi.server.rest.model.Forbidden;
-import fi.otavanopisto.kuntaapi.server.rest.model.NotImplemented;
 import fi.otavanopisto.kuntaapi.server.rest.model.InternalServerError;
-import fi.otavanopisto.kuntaapi.server.rest.model.NotFound;
 import fi.otavanopisto.kuntaapi.server.rest.model.NewsArticle;
 import fi.otavanopisto.kuntaapi.server.rest.model.Attachment;
 import fi.otavanopisto.kuntaapi.server.rest.model.Event;
+import fi.otavanopisto.kuntaapi.server.rest.model.NotFound;
 import fi.otavanopisto.kuntaapi.server.rest.model.Tile;
 import fi.otavanopisto.kuntaapi.server.rest.model.Banner;
-import fi.otavanopisto.kuntaapi.server.rest.model.Organization;
-import fi.otavanopisto.kuntaapi.server.rest.model.ServiceClass;
-import fi.otavanopisto.kuntaapi.server.rest.model.ServiceElectronicChannel;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
@@ -27,36 +24,21 @@ import java.util.List;
 @Api(description = "the organizations API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2016-10-13T06:44:59.547+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2016-10-13T14:46:34.687+03:00")
 
 public abstract class OrganizationsApi extends AbstractApi {
 
     @POST
-    @Path("/{organizationId}/services")
+    @Path("/{organizationId}/organizationServices")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Create a service", notes = "Creates new service for the organization ", response = Service.class, responseContainer = "List", tags={ "Services",  })
+    @ApiOperation(value = "Create organization service", notes = "Create organization service", response = Organization.class, tags={ "Organizations", "OrganizationServices",  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "An array of services", response = Service.class, responseContainer = "List"),
-        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Service.class, responseContainer = "List"),
-        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Service.class, responseContainer = "List"),
-        @ApiResponse(code = 404, message = "Not found", response = Service.class, responseContainer = "List"),
-        @ApiResponse(code = 500, message = "Internal server error", response = Service.class, responseContainer = "List"),
-        @ApiResponse(code = 501, message = "Returned when selected service does support modification of data", response = Service.class, responseContainer = "List") })
-    public abstract Response createService(@PathParam("organizationId") String organizationId,Service body);
-
-    @DELETE
-    @Path("/{organizationId}/services/{serviceId}")
-    @Consumes({ "application/json;charset=utf-8" })
-    @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Delete a service", notes = "Delete a single municipal service ", response = void.class, tags={ "Services",  })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 204, message = "Empty response indicating a succesfull removal", response = void.class),
-        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = void.class),
-        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = void.class),
-        @ApiResponse(code = 404, message = "Not found", response = void.class),
-        @ApiResponse(code = 500, message = "Internal server error", response = void.class) })
-    public abstract Response deleteService(@PathParam("organizationId") String organizationId,@PathParam("serviceId") String serviceId);
+        @ApiResponse(code = 200, message = "Created organization service", response = Organization.class),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Organization.class),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Organization.class),
+        @ApiResponse(code = 500, message = "Internal server error", response = Organization.class) })
+    public abstract Response createOrganizationService(@PathParam("organizationId") String organizationId,OrganizationService body);
 
     @GET
     @Path("/{organizationId}/banners/{bannerId}")
@@ -131,6 +113,19 @@ public abstract class OrganizationsApi extends AbstractApi {
     public abstract Response findOrganizationNewsArticleImage(@PathParam("organizationId") String organizationId,@PathParam("newsArticleId") String newsArticleId,@PathParam("imageId") String imageId);
 
     @GET
+    @Path("/{organizationId}/organizationServices/{organizationServiceId}")
+    @Consumes({ "application/json;charset=utf-8" })
+    @Produces({ "application/json;charset=utf-8" })
+    @ApiOperation(value = "Finds a organization service by id", notes = "Find an organization service", response = OrganizationService.class, tags={ "Organizations", "OrganizationServices",  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "An organization service", response = OrganizationService.class),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = OrganizationService.class),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = OrganizationService.class),
+        @ApiResponse(code = 404, message = "Resource was not found from the server", response = OrganizationService.class),
+        @ApiResponse(code = 500, message = "Internal server error", response = OrganizationService.class) })
+    public abstract Response findOrganizationService(@PathParam("organizationId") String organizationId,@PathParam("organizationServiceId") String organizationServiceId);
+
+    @GET
     @Path("/{organizationId}/tiles/{tileId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
@@ -153,19 +148,6 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Attachment.class),
         @ApiResponse(code = 500, message = "Internal server error", response = Attachment.class) })
     public abstract Response findOrganizationTileImage(@PathParam("organizationId") String organizationId,@PathParam("tileId") String tileId,@PathParam("imageId") String imageId);
-
-    @GET
-    @Path("/{organizationId}/services/{serviceId}")
-    @Consumes({ "application/json;charset=utf-8" })
-    @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Find a service by id", notes = "Returns single service by it's unique id. ", response = Service.class, tags={ "Services",  })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Returns a single municipal service", response = Service.class),
-        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Service.class),
-        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Service.class),
-        @ApiResponse(code = 404, message = "Not found", response = Service.class),
-        @ApiResponse(code = 500, message = "Internal server error", response = Service.class) })
-    public abstract Response findService(@PathParam("organizationId") String organizationId,@PathParam("serviceId") String serviceId);
 
     @GET
     @Path("/{organizationId}/banners/{bannerId}/images/{imageId}/data")
@@ -288,6 +270,19 @@ public abstract class OrganizationsApi extends AbstractApi {
     public abstract Response listOrganizationNewsArticleImages(@PathParam("organizationId") String organizationId,@PathParam("newsArticleId") String newsArticleId);
 
     @GET
+    @Path("/{organizationId}/organizationServices")
+    @Consumes({ "application/json;charset=utf-8" })
+    @Produces({ "application/json;charset=utf-8" })
+    @ApiOperation(value = "Organization organization service list", notes = "Lists organization's organization services", response = OrganizationService.class, responseContainer = "List", tags={ "Organizations", "OrganizationServices",  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "An array of organization services", response = OrganizationService.class, responseContainer = "List"),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = OrganizationService.class, responseContainer = "List"),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = OrganizationService.class, responseContainer = "List"),
+        @ApiResponse(code = 404, message = "Resource was not found from the server", response = OrganizationService.class, responseContainer = "List"),
+        @ApiResponse(code = 500, message = "Internal server error", response = OrganizationService.class, responseContainer = "List") })
+    public abstract Response listOrganizationOrganizationServices(@PathParam("organizationId") String organizationId,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults);
+
+    @GET
     @Path("/{organizationId}/tiles/{tileId}/images")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
@@ -323,58 +318,18 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 500, message = "Internal server error", response = Organization.class, responseContainer = "List") })
     public abstract Response listOrganizations(@QueryParam("businessName") String businessName,@QueryParam("businessCode") String businessCode);
 
-    @GET
-    @Path("/{organizationId}/serviceClasses/")
-    @Consumes({ "application/json;charset=utf-8" })
-    @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "List service classes for an organization", notes = "Returns list of organization's service classes ", response = ServiceClass.class, responseContainer = "List", tags={ "Services", "Service Categories",  })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Returns a list of organization's service classes", response = ServiceClass.class, responseContainer = "List"),
-        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = ServiceClass.class, responseContainer = "List"),
-        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = ServiceClass.class, responseContainer = "List"),
-        @ApiResponse(code = 404, message = "Not found", response = ServiceClass.class, responseContainer = "List"),
-        @ApiResponse(code = 500, message = "Internal server error", response = ServiceClass.class, responseContainer = "List") })
-    public abstract Response listServiceClasses(@PathParam("organizationId") String organizationId);
-
-    @GET
-    @Path("/{organizationId}/services/{serviceId}/electronicChannels")
-    @Consumes({ "application/json;charset=utf-8" })
-    @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "List service electornic channels", notes = "Lists service electronic channels ", response = ServiceElectronicChannel.class, tags={ "Services", "ServiceChannels",  })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "List of service electornic channels", response = ServiceElectronicChannel.class),
-        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = ServiceElectronicChannel.class),
-        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = ServiceElectronicChannel.class),
-        @ApiResponse(code = 404, message = "Not found", response = ServiceElectronicChannel.class),
-        @ApiResponse(code = 500, message = "Internal server error", response = ServiceElectronicChannel.class) })
-    public abstract Response listServiceElectornicChannels(@PathParam("organizationId") String organizationId,@PathParam("serviceId") String serviceId);
-
-    @GET
-    @Path("/{organizationId}/services")
-    @Consumes({ "application/json;charset=utf-8" })
-    @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "List services", notes = "Lists organization's services ", response = Service.class, responseContainer = "List", tags={ "Services",  })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "An array of services", response = Service.class, responseContainer = "List"),
-        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Service.class, responseContainer = "List"),
-        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Service.class, responseContainer = "List"),
-        @ApiResponse(code = 404, message = "Not found", response = Service.class, responseContainer = "List"),
-        @ApiResponse(code = 500, message = "Internal server error", response = Service.class, responseContainer = "List") })
-    public abstract Response listServices(@PathParam("organizationId") String organizationId,@QueryParam("serviceClassId") String serviceClassId);
-
     @PUT
-    @Path("/{organizationId}/services/{serviceId}")
+    @Path("/{organizationId}/organizationServices/{organizationServiceId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Update a service", notes = "Updates a single municipal service ", response = Service.class, tags={ "Services" })
+    @ApiOperation(value = "Updates an organization service", notes = "Updates organization service", response = OrganizationService.class, tags={ "Organizations", "OrganizationServices" })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Created service", response = Service.class),
-        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Service.class),
-        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Service.class),
-        @ApiResponse(code = 404, message = "Not found", response = Service.class),
-        @ApiResponse(code = 500, message = "Internal server error", response = Service.class),
-        @ApiResponse(code = 501, message = "Returned when endpoint does support modification of data", response = Service.class) })
-    public abstract Response updateService(@PathParam("organizationId") String organizationId,@PathParam("serviceId") String serviceId);
+        @ApiResponse(code = 200, message = "An updated organization service", response = OrganizationService.class),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = OrganizationService.class),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = OrganizationService.class),
+        @ApiResponse(code = 404, message = "Resource was not found from the server", response = OrganizationService.class),
+        @ApiResponse(code = 500, message = "Internal server error", response = OrganizationService.class) })
+    public abstract Response updateOrganizationService(@PathParam("organizationId") String organizationId,@PathParam("organizationServiceId") String organizationServiceId,OrganizationService body);
 
 }
 

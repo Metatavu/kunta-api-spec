@@ -7,9 +7,10 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class ServiceClass   {
+public class OntologyItem   {
   
   private String id = null;
+  private String system = null;
   private String name = null;
   private String code = null;
   private String ontologyType = null;
@@ -19,7 +20,7 @@ public class ServiceClass   {
 
   /**
    **/
-  public ServiceClass id(String id) {
+  public OntologyItem id(String id) {
     this.id = id;
     return this;
   }
@@ -35,7 +36,23 @@ public class ServiceClass   {
 
   /**
    **/
-  public ServiceClass name(String name) {
+  public OntologyItem system(String system) {
+    this.system = system;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "")
+  public String getSystem() {
+    return system;
+  }
+  public void setSystem(String system) {
+    this.system = system;
+  }
+
+  /**
+   **/
+  public OntologyItem name(String name) {
     this.name = name;
     return this;
   }
@@ -51,7 +68,7 @@ public class ServiceClass   {
 
   /**
    **/
-  public ServiceClass code(String code) {
+  public OntologyItem code(String code) {
     this.code = code;
     return this;
   }
@@ -67,7 +84,7 @@ public class ServiceClass   {
 
   /**
    **/
-  public ServiceClass ontologyType(String ontologyType) {
+  public OntologyItem ontologyType(String ontologyType) {
     this.ontologyType = ontologyType;
     return this;
   }
@@ -83,7 +100,7 @@ public class ServiceClass   {
 
   /**
    **/
-  public ServiceClass uri(String uri) {
+  public OntologyItem uri(String uri) {
     this.uri = uri;
     return this;
   }
@@ -99,7 +116,7 @@ public class ServiceClass   {
 
   /**
    **/
-  public ServiceClass parentId(String parentId) {
+  public OntologyItem parentId(String parentId) {
     this.parentId = parentId;
     return this;
   }
@@ -115,7 +132,7 @@ public class ServiceClass   {
 
   /**
    **/
-  public ServiceClass parentUri(String parentUri) {
+  public OntologyItem parentUri(String parentUri) {
     this.parentUri = parentUri;
     return this;
   }
@@ -138,27 +155,29 @@ public class ServiceClass   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ServiceClass serviceClass = (ServiceClass) o;
-    return Objects.equals(id, serviceClass.id) &&
-        Objects.equals(name, serviceClass.name) &&
-        Objects.equals(code, serviceClass.code) &&
-        Objects.equals(ontologyType, serviceClass.ontologyType) &&
-        Objects.equals(uri, serviceClass.uri) &&
-        Objects.equals(parentId, serviceClass.parentId) &&
-        Objects.equals(parentUri, serviceClass.parentUri);
+    OntologyItem ontologyItem = (OntologyItem) o;
+    return Objects.equals(id, ontologyItem.id) &&
+        Objects.equals(system, ontologyItem.system) &&
+        Objects.equals(name, ontologyItem.name) &&
+        Objects.equals(code, ontologyItem.code) &&
+        Objects.equals(ontologyType, ontologyItem.ontologyType) &&
+        Objects.equals(uri, ontologyItem.uri) &&
+        Objects.equals(parentId, ontologyItem.parentId) &&
+        Objects.equals(parentUri, ontologyItem.parentUri);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, code, ontologyType, uri, parentId, parentUri);
+    return Objects.hash(id, system, name, code, ontologyType, uri, parentId, parentUri);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ServiceClass {\n");
+    sb.append("class OntologyItem {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    system: ").append(toIndentedString(system)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    ontologyType: ").append(toIndentedString(ontologyType)).append("\n");

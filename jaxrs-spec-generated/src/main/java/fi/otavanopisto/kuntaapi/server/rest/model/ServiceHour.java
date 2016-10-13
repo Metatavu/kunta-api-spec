@@ -1,5 +1,6 @@
 package fi.otavanopisto.kuntaapi.server.rest.model;
 
+import fi.otavanopisto.kuntaapi.server.rest.model.LocalizedValue;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +11,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class ServiceChannelServiceHour   {
+public class ServiceHour   {
   
   private String type = null;
   private OffsetDateTime validFrom = null;
@@ -19,10 +20,11 @@ public class ServiceChannelServiceHour   {
   private String closes = null;
   private List<Integer> days = new ArrayList<Integer>();
   private String status = null;
+  private List<LocalizedValue> additionalInformation = new ArrayList<LocalizedValue>();
 
   /**
    **/
-  public ServiceChannelServiceHour type(String type) {
+  public ServiceHour type(String type) {
     this.type = type;
     return this;
   }
@@ -38,7 +40,7 @@ public class ServiceChannelServiceHour   {
 
   /**
    **/
-  public ServiceChannelServiceHour validFrom(OffsetDateTime validFrom) {
+  public ServiceHour validFrom(OffsetDateTime validFrom) {
     this.validFrom = validFrom;
     return this;
   }
@@ -54,7 +56,7 @@ public class ServiceChannelServiceHour   {
 
   /**
    **/
-  public ServiceChannelServiceHour validTo(OffsetDateTime validTo) {
+  public ServiceHour validTo(OffsetDateTime validTo) {
     this.validTo = validTo;
     return this;
   }
@@ -70,7 +72,7 @@ public class ServiceChannelServiceHour   {
 
   /**
    **/
-  public ServiceChannelServiceHour opens(String opens) {
+  public ServiceHour opens(String opens) {
     this.opens = opens;
     return this;
   }
@@ -86,7 +88,7 @@ public class ServiceChannelServiceHour   {
 
   /**
    **/
-  public ServiceChannelServiceHour closes(String closes) {
+  public ServiceHour closes(String closes) {
     this.closes = closes;
     return this;
   }
@@ -102,7 +104,7 @@ public class ServiceChannelServiceHour   {
 
   /**
    **/
-  public ServiceChannelServiceHour days(List<Integer> days) {
+  public ServiceHour days(List<Integer> days) {
     this.days = days;
     return this;
   }
@@ -118,7 +120,7 @@ public class ServiceChannelServiceHour   {
 
   /**
    **/
-  public ServiceChannelServiceHour status(String status) {
+  public ServiceHour status(String status) {
     this.status = status;
     return this;
   }
@@ -132,6 +134,22 @@ public class ServiceChannelServiceHour   {
     this.status = status;
   }
 
+  /**
+   **/
+  public ServiceHour additionalInformation(List<LocalizedValue> additionalInformation) {
+    this.additionalInformation = additionalInformation;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "")
+  public List<LocalizedValue> getAdditionalInformation() {
+    return additionalInformation;
+  }
+  public void setAdditionalInformation(List<LocalizedValue> additionalInformation) {
+    this.additionalInformation = additionalInformation;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -141,25 +159,26 @@ public class ServiceChannelServiceHour   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ServiceChannelServiceHour serviceChannelServiceHour = (ServiceChannelServiceHour) o;
-    return Objects.equals(type, serviceChannelServiceHour.type) &&
-        Objects.equals(validFrom, serviceChannelServiceHour.validFrom) &&
-        Objects.equals(validTo, serviceChannelServiceHour.validTo) &&
-        Objects.equals(opens, serviceChannelServiceHour.opens) &&
-        Objects.equals(closes, serviceChannelServiceHour.closes) &&
-        Objects.equals(days, serviceChannelServiceHour.days) &&
-        Objects.equals(status, serviceChannelServiceHour.status);
+    ServiceHour serviceHour = (ServiceHour) o;
+    return Objects.equals(type, serviceHour.type) &&
+        Objects.equals(validFrom, serviceHour.validFrom) &&
+        Objects.equals(validTo, serviceHour.validTo) &&
+        Objects.equals(opens, serviceHour.opens) &&
+        Objects.equals(closes, serviceHour.closes) &&
+        Objects.equals(days, serviceHour.days) &&
+        Objects.equals(status, serviceHour.status) &&
+        Objects.equals(additionalInformation, serviceHour.additionalInformation);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, validFrom, validTo, opens, closes, days, status);
+    return Objects.hash(type, validFrom, validTo, opens, closes, days, status, additionalInformation);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ServiceChannelServiceHour {\n");
+    sb.append("class ServiceHour {\n");
     
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    validFrom: ").append(toIndentedString(validFrom)).append("\n");
@@ -168,6 +187,7 @@ public class ServiceChannelServiceHour   {
     sb.append("    closes: ").append(toIndentedString(closes)).append("\n");
     sb.append("    days: ").append(toIndentedString(days)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    additionalInformation: ").append(toIndentedString(additionalInformation)).append("\n");
     sb.append("}");
     return sb.toString();
   }
