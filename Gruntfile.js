@@ -5,6 +5,8 @@ var fs = require('fs');
 module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
   
+  var PHP_CLIENT_VERSION = '0.0.2-alpha1';
+  
   grunt.initConfig({
     'clean': {
       'jaxrs-spec-cruft': [
@@ -73,6 +75,14 @@ module.exports = function(grunt) {
             cwd: 'javascript-generated'
           }
         }
+      },
+      'php-client-generate': {
+        command : 'java -jar swagger-codegen-cli.jar generate ' +
+          '-i ./swagger.yaml ' +
+          '-l php ' +
+          '--template-dir php-templates ' +
+          '-o php-generated ' +
+          '--additional-properties packagePath=kunta-api-php-client,composerVendorName=otavanopisto,composerProjectName=kunta-api-php-client,variableNamingConvention=camelCase,invokerPackage=KuntaAPI,apiPackage=KuntaAPI\\\\Api,modelPackage=KuntaAPI\\\\Model,artifactVersion=' + PHP_CLIENT_VERSION
       }
     },
     'publish': {
@@ -85,7 +95,8 @@ module.exports = function(grunt) {
   grunt.registerTask('download-dependencies', 'if-missing:curl:swagger-codegen');
   grunt.registerTask('jaxrs-spec', ['download-dependencies', 'clean:jaxrs-spec-sources', 'shell:jaxrs-spec-generate', 'clean:jaxrs-spec-cruft', 'copy:jaxrs-spec-extras', 'shell:jaxrs-spec-install', 'shell:jaxrs-spec-release' ]);
   grunt.registerTask('javascript', ['download-dependencies', 'clean:javascript-sources', 'shell:javascript-generate', 'shell:javascript-bump-version', 'publish:publish-javascript-client']);
-  
-  grunt.registerTask('default', ['jaxrs-spec', 'javascript' ]);
+  grunt.registerTask('php', ['shell:php-client-generate']);
+
+  grunt.registerTask('default', ['jaxrs-spec', 'javascript', 'php']);
   
 };
