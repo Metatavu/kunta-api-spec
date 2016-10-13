@@ -88,7 +88,7 @@ module.exports = function(grunt) {
         command : 'sh git_push.sh',
         options: {
           execOptions: {
-            cwd: 'php-generated/kunta-api-php-client/git_push.sh'
+            cwd: 'php-generated/kunta-api-php-client'
           }
         }
       },
@@ -103,7 +103,7 @@ module.exports = function(grunt) {
   grunt.registerTask('download-dependencies', 'if-missing:curl:swagger-codegen');
   grunt.registerTask('jaxrs-spec', ['download-dependencies', 'clean:jaxrs-spec-sources', 'shell:jaxrs-spec-generate', 'clean:jaxrs-spec-cruft', 'copy:jaxrs-spec-extras', 'shell:jaxrs-spec-install', 'shell:jaxrs-spec-release' ]);
   grunt.registerTask('javascript', ['download-dependencies', 'clean:javascript-sources', 'shell:javascript-generate', 'shell:javascript-bump-version', 'publish:publish-javascript-client']);
-  grunt.registerTask('php', ['shell:php-client-generate']);
+  grunt.registerTask('php', ['shell:php-client-generate', 'shell:php-client-publish']);
 
   grunt.registerTask('default', ['jaxrs-spec', 'javascript', 'php']);
   
