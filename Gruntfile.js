@@ -10,7 +10,8 @@ module.exports = function(grunt) {
       'jaxrs-spec-cruft': [
         'jaxrs-spec-generated/src/main/java/fi/otavanopisto/kuntaapi/server/RestApplication.java'
       ],
-      'jaxrs-spec-sources': ['jaxrs-spec-generated/src']
+      'jaxrs-spec-sources': ['jaxrs-spec-generated/src'],
+      'javascript-sources': ['javascript-generated/docs', 'javascript-generated/src', 'javascript-generated/test']
     },
     'copy': {
       'jaxrs-spec-extras': {
@@ -56,13 +57,35 @@ module.exports = function(grunt) {
             cwd: 'jaxrs-spec-generated'
           }
         }
+      },
+      'javascript-generate': {
+        command : 'java -jar swagger-codegen-cli.jar generate ' +
+          '-i ./swagger.yaml ' +
+          '-l javascript ' +
+          '--template-dir javascript-templates ' +
+          '-o javascript-generated/ ' +
+          '--additional-properties usePromises=true,projectName=kunta-api-client,projectVersion=' + require('./javascript-generated/package.json').version
+      },
+      'javascript-bump-version': {
+        command: 'npm version patch',
+        options: {
+          execOptions: {
+            cwd: 'javascript-generated'
+          }
+        }
+      }
+    },
+    'publish': {
+      'publish-javascript-client': {
+        src: ['javascript-generated']
       }
     }
   });
   
   grunt.registerTask('download-dependencies', 'if-missing:curl:swagger-codegen');
   grunt.registerTask('jaxrs-spec', ['download-dependencies', 'clean:jaxrs-spec-sources', 'shell:jaxrs-spec-generate', 'clean:jaxrs-spec-cruft', 'copy:jaxrs-spec-extras', 'shell:jaxrs-spec-install', 'shell:jaxrs-spec-release' ]);
+  grunt.registerTask('javascript', ['download-dependencies', 'clean:javascript-sources', 'shell:javascript-generate', 'shell:javascript-bump-version', 'publish:publish-javascript-client']);
   
-  grunt.registerTask('default', ['jaxrs-spec' ]);
+  grunt.registerTask('default', ['jaxrs-spec', 'javascript' ]);
   
 };
