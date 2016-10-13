@@ -45,7 +45,7 @@
   /**
    * The LocalizedValue model module.
    * @module model/LocalizedValue
-   * @version 0.0.7
+   * @version 0.0.11
    */
 
   /**
@@ -55,6 +55,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -77,6 +78,9 @@
       if (data.hasOwnProperty('value')) {
         obj['value'] = ApiClient.convertToType(data['value'], 'String');
       }
+      if (data.hasOwnProperty('type')) {
+        obj['type'] = ApiClient.convertToType(data['type'], 'String');
+      }
     }
     return obj;
   }
@@ -89,6 +93,10 @@
    * @member {String} value
    */
   exports.prototype['value'] = undefined;
+  /**
+   * @member {String} type
+   */
+  exports.prototype['type'] = undefined;
 
 
 

@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/LocalizedValue'], factory);
+    define(['ApiClient', 'model/LocalizedValue', 'model/OntologyItem', 'model/WebPage'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./LocalizedValue'));
+    module.exports = factory(require('../ApiClient'), require('./LocalizedValue'), require('./OntologyItem'), require('./WebPage'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.Service = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.LocalizedValue);
+    root.KuntaApiClient.Service = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.OntologyItem, root.KuntaApiClient.WebPage);
   }
-}(this, function(ApiClient, LocalizedValue) {
+}(this, function(ApiClient, LocalizedValue, OntologyItem, WebPage) {
   'use strict';
 
 
@@ -45,7 +45,7 @@
   /**
    * The Service model module.
    * @module model/Service
-   * @version 0.0.7
+   * @version 0.0.11
    */
 
   /**
@@ -55,6 +55,13 @@
    */
   var exports = function() {
     var _this = this;
+
+
+
+
+
+
+
 
 
 
@@ -84,95 +91,140 @@
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
-      if (data.hasOwnProperty('shortDescriptions')) {
-        obj['shortDescriptions'] = ApiClient.convertToType(data['shortDescriptions'], [LocalizedValue]);
+      if (data.hasOwnProperty('type')) {
+        obj['type'] = ApiClient.convertToType(data['type'], 'String');
       }
-      if (data.hasOwnProperty('descriptions')) {
-        obj['descriptions'] = ApiClient.convertToType(data['descriptions'], [LocalizedValue]);
+      if (data.hasOwnProperty('statutoryDescriptionId')) {
+        obj['statutoryDescriptionId'] = ApiClient.convertToType(data['statutoryDescriptionId'], 'String');
       }
-      if (data.hasOwnProperty('serviceUserInstructions')) {
-        obj['serviceUserInstructions'] = ApiClient.convertToType(data['serviceUserInstructions'], [LocalizedValue]);
+      if (data.hasOwnProperty('serviceClasses')) {
+        obj['serviceClasses'] = ApiClient.convertToType(data['serviceClasses'], [OntologyItem]);
+      }
+      if (data.hasOwnProperty('ontologyTerms')) {
+        obj['ontologyTerms'] = ApiClient.convertToType(data['ontologyTerms'], [OntologyItem]);
+      }
+      if (data.hasOwnProperty('targetGroups')) {
+        obj['targetGroups'] = ApiClient.convertToType(data['targetGroups'], [OntologyItem]);
+      }
+      if (data.hasOwnProperty('lifeEvents')) {
+        obj['lifeEvents'] = ApiClient.convertToType(data['lifeEvents'], [OntologyItem]);
+      }
+      if (data.hasOwnProperty('industrialClasses')) {
+        obj['industrialClasses'] = ApiClient.convertToType(data['industrialClasses'], [OntologyItem]);
       }
       if (data.hasOwnProperty('names')) {
         obj['names'] = ApiClient.convertToType(data['names'], [LocalizedValue]);
       }
-      if (data.hasOwnProperty('alternativeNames')) {
-        obj['alternativeNames'] = ApiClient.convertToType(data['alternativeNames'], [LocalizedValue]);
+      if (data.hasOwnProperty('descriptions')) {
+        obj['descriptions'] = ApiClient.convertToType(data['descriptions'], [LocalizedValue]);
       }
-      if (data.hasOwnProperty('classIds')) {
-        obj['classIds'] = ApiClient.convertToType(data['classIds'], ['String']);
+      if (data.hasOwnProperty('languages')) {
+        obj['languages'] = ApiClient.convertToType(data['languages'], ['String']);
       }
-      if (data.hasOwnProperty('electronicChannelIds')) {
-        obj['electronicChannelIds'] = ApiClient.convertToType(data['electronicChannelIds'], ['String']);
+      if (data.hasOwnProperty('keywords')) {
+        obj['keywords'] = ApiClient.convertToType(data['keywords'], ['String']);
       }
-      if (data.hasOwnProperty('phoneChannelIds')) {
-        obj['phoneChannelIds'] = ApiClient.convertToType(data['phoneChannelIds'], ['String']);
+      if (data.hasOwnProperty('coverageType')) {
+        obj['coverageType'] = ApiClient.convertToType(data['coverageType'], 'String');
       }
-      if (data.hasOwnProperty('printableFormChannelIds')) {
-        obj['printableFormChannelIds'] = ApiClient.convertToType(data['printableFormChannelIds'], ['String']);
+      if (data.hasOwnProperty('municipalities')) {
+        obj['municipalities'] = ApiClient.convertToType(data['municipalities'], ['String']);
       }
-      if (data.hasOwnProperty('serviceLocationChannelIds')) {
-        obj['serviceLocationChannelIds'] = ApiClient.convertToType(data['serviceLocationChannelIds'], ['String']);
+      if (data.hasOwnProperty('webPages')) {
+        obj['webPages'] = ApiClient.convertToType(data['webPages'], [WebPage]);
       }
-      if (data.hasOwnProperty('webpageChannelIds')) {
-        obj['webpageChannelIds'] = ApiClient.convertToType(data['webpageChannelIds'], ['String']);
+      if (data.hasOwnProperty('requirements')) {
+        obj['requirements'] = ApiClient.convertToType(data['requirements'], [LocalizedValue]);
+      }
+      if (data.hasOwnProperty('publishingStatus')) {
+        obj['publishingStatus'] = ApiClient.convertToType(data['publishingStatus'], 'String');
+      }
+      if (data.hasOwnProperty('chargeType')) {
+        obj['chargeType'] = ApiClient.convertToType(data['chargeType'], 'String');
+      }
+      if (data.hasOwnProperty('additionalInformations')) {
+        obj['additionalInformations'] = ApiClient.convertToType(data['additionalInformations'], [LocalizedValue]);
       }
     }
     return obj;
   }
 
   /**
-   * Unique identifier representing a specific service.
    * @member {String} id
    */
   exports.prototype['id'] = undefined;
   /**
-   * @member {Array.<module:model/LocalizedValue>} shortDescriptions
+   * @member {String} type
    */
-  exports.prototype['shortDescriptions'] = undefined;
+  exports.prototype['type'] = undefined;
+  /**
+   * @member {String} statutoryDescriptionId
+   */
+  exports.prototype['statutoryDescriptionId'] = undefined;
+  /**
+   * @member {Array.<module:model/OntologyItem>} serviceClasses
+   */
+  exports.prototype['serviceClasses'] = undefined;
+  /**
+   * @member {Array.<module:model/OntologyItem>} ontologyTerms
+   */
+  exports.prototype['ontologyTerms'] = undefined;
+  /**
+   * @member {Array.<module:model/OntologyItem>} targetGroups
+   */
+  exports.prototype['targetGroups'] = undefined;
+  /**
+   * @member {Array.<module:model/OntologyItem>} lifeEvents
+   */
+  exports.prototype['lifeEvents'] = undefined;
+  /**
+   * @member {Array.<module:model/OntologyItem>} industrialClasses
+   */
+  exports.prototype['industrialClasses'] = undefined;
+  /**
+   * @member {Array.<module:model/LocalizedValue>} names
+   */
+  exports.prototype['names'] = undefined;
   /**
    * @member {Array.<module:model/LocalizedValue>} descriptions
    */
   exports.prototype['descriptions'] = undefined;
   /**
-   * @member {Array.<module:model/LocalizedValue>} serviceUserInstructions
+   * @member {Array.<String>} languages
    */
-  exports.prototype['serviceUserInstructions'] = undefined;
+  exports.prototype['languages'] = undefined;
   /**
-   * Name of the service.
-   * @member {Array.<module:model/LocalizedValue>} names
+   * @member {Array.<String>} keywords
    */
-  exports.prototype['names'] = undefined;
+  exports.prototype['keywords'] = undefined;
   /**
-   * Name of the service.
-   * @member {Array.<module:model/LocalizedValue>} alternativeNames
+   * @member {String} coverageType
    */
-  exports.prototype['alternativeNames'] = undefined;
+  exports.prototype['coverageType'] = undefined;
   /**
-   * List of service classes
-   * @member {Array.<String>} classIds
+   * @member {Array.<String>} municipalities
    */
-  exports.prototype['classIds'] = undefined;
+  exports.prototype['municipalities'] = undefined;
   /**
-   * @member {Array.<String>} electronicChannelIds
+   * @member {Array.<module:model/WebPage>} webPages
    */
-  exports.prototype['electronicChannelIds'] = undefined;
+  exports.prototype['webPages'] = undefined;
   /**
-   * @member {Array.<String>} phoneChannelIds
+   * @member {Array.<module:model/LocalizedValue>} requirements
    */
-  exports.prototype['phoneChannelIds'] = undefined;
+  exports.prototype['requirements'] = undefined;
   /**
-   * @member {Array.<String>} printableFormChannelIds
+   * @member {String} publishingStatus
    */
-  exports.prototype['printableFormChannelIds'] = undefined;
+  exports.prototype['publishingStatus'] = undefined;
   /**
-   * @member {Array.<String>} serviceLocationChannelIds
+   * @member {String} chargeType
    */
-  exports.prototype['serviceLocationChannelIds'] = undefined;
+  exports.prototype['chargeType'] = undefined;
   /**
-   * @member {Array.<String>} webpageChannelIds
+   * @member {Array.<module:model/LocalizedValue>} additionalInformations
    */
-  exports.prototype['webpageChannelIds'] = undefined;
+  exports.prototype['additionalInformations'] = undefined;
 
 
 

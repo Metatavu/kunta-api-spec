@@ -1,7 +1,7 @@
 {
   "author": "Otavan Opisto",
   "name": "kunta-api-client",
-  "version": "0.0.7",
+  "version": "0.0.12",
   "description": "One API to rule them all. One API to find them, One API to bring them all and in the darkness bind them.",
   "license": "AGPL-3.0",
   "main": "src/index.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/otavanopisto/kunta-api.git"
+    "url": "git://github.com/otavanopisto/kunta-api-spec.git"
   },
   "dependencies": {
     "superagent": "1.7.1"

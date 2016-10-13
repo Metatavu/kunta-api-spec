@@ -25,12 +25,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Attachment', 'model/BadRequest', 'model/Banner', 'model/Event', 'model/Forbidden', 'model/InternalServerError', 'model/LocalizedValue', 'model/NewsArticle', 'model/NotFound', 'model/NotImplemented', 'model/Organization', 'model/Service', 'model/ServiceChannelAttachment', 'model/ServiceChannelCommon', 'model/ServiceChannelServiceHour', 'model/ServiceChannelSupport', 'model/ServiceChannelWebPage', 'model/ServiceClass', 'model/ServiceElectronicChannel', 'model/Tile', 'api/BannersApi', 'api/EventsApi', 'api/NewsApi', 'api/OrganizationsApi', 'api/ServiceCategoriesApi', 'api/ServiceChannelsApi', 'api/ServicesApi', 'api/TilesApi'], factory);
+    define(['ApiClient', 'model/Address', 'model/Attachment', 'model/BadRequest', 'model/Banner', 'model/ElectronicChannel', 'model/Event', 'model/Forbidden', 'model/InternalServerError', 'model/LocalizedValue', 'model/NewsArticle', 'model/NotFound', 'model/NotImplemented', 'model/OntologyItem', 'model/Organization', 'model/OrganizationService', 'model/PhoneChannel', 'model/PrintableFormChannel', 'model/Service', 'model/ServiceChannelAttachment', 'model/ServiceHour', 'model/ServiceLocationChannel', 'model/SupportContact', 'model/Tile', 'model/WebPage', 'model/WebPageChannel', 'api/BannersApi', 'api/ElectronicChannelsApi', 'api/EventsApi', 'api/NewsApi', 'api/OrganizationServicesApi', 'api/OrganizationsApi', 'api/PhoneChannelsApi', 'api/PrintableFormChannelsApi', 'api/ServiceLocationChannelsApi', 'api/ServicesApi', 'api/TilesApi', 'api/WebPageChannelsApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/Attachment'), require('./model/BadRequest'), require('./model/Banner'), require('./model/Event'), require('./model/Forbidden'), require('./model/InternalServerError'), require('./model/LocalizedValue'), require('./model/NewsArticle'), require('./model/NotFound'), require('./model/NotImplemented'), require('./model/Organization'), require('./model/Service'), require('./model/ServiceChannelAttachment'), require('./model/ServiceChannelCommon'), require('./model/ServiceChannelServiceHour'), require('./model/ServiceChannelSupport'), require('./model/ServiceChannelWebPage'), require('./model/ServiceClass'), require('./model/ServiceElectronicChannel'), require('./model/Tile'), require('./api/BannersApi'), require('./api/EventsApi'), require('./api/NewsApi'), require('./api/OrganizationsApi'), require('./api/ServiceCategoriesApi'), require('./api/ServiceChannelsApi'), require('./api/ServicesApi'), require('./api/TilesApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/Address'), require('./model/Attachment'), require('./model/BadRequest'), require('./model/Banner'), require('./model/ElectronicChannel'), require('./model/Event'), require('./model/Forbidden'), require('./model/InternalServerError'), require('./model/LocalizedValue'), require('./model/NewsArticle'), require('./model/NotFound'), require('./model/NotImplemented'), require('./model/OntologyItem'), require('./model/Organization'), require('./model/OrganizationService'), require('./model/PhoneChannel'), require('./model/PrintableFormChannel'), require('./model/Service'), require('./model/ServiceChannelAttachment'), require('./model/ServiceHour'), require('./model/ServiceLocationChannel'), require('./model/SupportContact'), require('./model/Tile'), require('./model/WebPage'), require('./model/WebPageChannel'), require('./api/BannersApi'), require('./api/ElectronicChannelsApi'), require('./api/EventsApi'), require('./api/NewsApi'), require('./api/OrganizationServicesApi'), require('./api/OrganizationsApi'), require('./api/PhoneChannelsApi'), require('./api/PrintableFormChannelsApi'), require('./api/ServiceLocationChannelsApi'), require('./api/ServicesApi'), require('./api/TilesApi'), require('./api/WebPageChannelsApi'));
   }
-}(function(ApiClient, Attachment, BadRequest, Banner, Event, Forbidden, InternalServerError, LocalizedValue, NewsArticle, NotFound, NotImplemented, Organization, Service, ServiceChannelAttachment, ServiceChannelCommon, ServiceChannelServiceHour, ServiceChannelSupport, ServiceChannelWebPage, ServiceClass, ServiceElectronicChannel, Tile, BannersApi, EventsApi, NewsApi, OrganizationsApi, ServiceCategoriesApi, ServiceChannelsApi, ServicesApi, TilesApi) {
+}(function(ApiClient, Address, Attachment, BadRequest, Banner, ElectronicChannel, Event, Forbidden, InternalServerError, LocalizedValue, NewsArticle, NotFound, NotImplemented, OntologyItem, Organization, OrganizationService, PhoneChannel, PrintableFormChannel, Service, ServiceChannelAttachment, ServiceHour, ServiceLocationChannel, SupportContact, Tile, WebPage, WebPageChannel, BannersApi, ElectronicChannelsApi, EventsApi, NewsApi, OrganizationServicesApi, OrganizationsApi, PhoneChannelsApi, PrintableFormChannelsApi, ServiceLocationChannelsApi, ServicesApi, TilesApi, WebPageChannelsApi) {
   'use strict';
 
   /**
@@ -62,7 +62,7 @@
    * </pre>
    * </p>
    * @module index
-   * @version 0.0.7
+   * @version 0.0.11
    */
   var exports = {
     /**
@@ -70,6 +70,11 @@
      * @property {module:ApiClient}
      */
     ApiClient: ApiClient,
+    /**
+     * The Address model constructor.
+     * @property {module:model/Address}
+     */
+    Address: Address,
     /**
      * The Attachment model constructor.
      * @property {module:model/Attachment}
@@ -85,6 +90,11 @@
      * @property {module:model/Banner}
      */
     Banner: Banner,
+    /**
+     * The ElectronicChannel model constructor.
+     * @property {module:model/ElectronicChannel}
+     */
+    ElectronicChannel: ElectronicChannel,
     /**
      * The Event model constructor.
      * @property {module:model/Event}
@@ -121,10 +131,30 @@
      */
     NotImplemented: NotImplemented,
     /**
+     * The OntologyItem model constructor.
+     * @property {module:model/OntologyItem}
+     */
+    OntologyItem: OntologyItem,
+    /**
      * The Organization model constructor.
      * @property {module:model/Organization}
      */
     Organization: Organization,
+    /**
+     * The OrganizationService model constructor.
+     * @property {module:model/OrganizationService}
+     */
+    OrganizationService: OrganizationService,
+    /**
+     * The PhoneChannel model constructor.
+     * @property {module:model/PhoneChannel}
+     */
+    PhoneChannel: PhoneChannel,
+    /**
+     * The PrintableFormChannel model constructor.
+     * @property {module:model/PrintableFormChannel}
+     */
+    PrintableFormChannel: PrintableFormChannel,
     /**
      * The Service model constructor.
      * @property {module:model/Service}
@@ -136,45 +166,45 @@
      */
     ServiceChannelAttachment: ServiceChannelAttachment,
     /**
-     * The ServiceChannelCommon model constructor.
-     * @property {module:model/ServiceChannelCommon}
+     * The ServiceHour model constructor.
+     * @property {module:model/ServiceHour}
      */
-    ServiceChannelCommon: ServiceChannelCommon,
+    ServiceHour: ServiceHour,
     /**
-     * The ServiceChannelServiceHour model constructor.
-     * @property {module:model/ServiceChannelServiceHour}
+     * The ServiceLocationChannel model constructor.
+     * @property {module:model/ServiceLocationChannel}
      */
-    ServiceChannelServiceHour: ServiceChannelServiceHour,
+    ServiceLocationChannel: ServiceLocationChannel,
     /**
-     * The ServiceChannelSupport model constructor.
-     * @property {module:model/ServiceChannelSupport}
+     * The SupportContact model constructor.
+     * @property {module:model/SupportContact}
      */
-    ServiceChannelSupport: ServiceChannelSupport,
-    /**
-     * The ServiceChannelWebPage model constructor.
-     * @property {module:model/ServiceChannelWebPage}
-     */
-    ServiceChannelWebPage: ServiceChannelWebPage,
-    /**
-     * The ServiceClass model constructor.
-     * @property {module:model/ServiceClass}
-     */
-    ServiceClass: ServiceClass,
-    /**
-     * The ServiceElectronicChannel model constructor.
-     * @property {module:model/ServiceElectronicChannel}
-     */
-    ServiceElectronicChannel: ServiceElectronicChannel,
+    SupportContact: SupportContact,
     /**
      * The Tile model constructor.
      * @property {module:model/Tile}
      */
     Tile: Tile,
     /**
+     * The WebPage model constructor.
+     * @property {module:model/WebPage}
+     */
+    WebPage: WebPage,
+    /**
+     * The WebPageChannel model constructor.
+     * @property {module:model/WebPageChannel}
+     */
+    WebPageChannel: WebPageChannel,
+    /**
      * The BannersApi service constructor.
      * @property {module:api/BannersApi}
      */
     BannersApi: BannersApi,
+    /**
+     * The ElectronicChannelsApi service constructor.
+     * @property {module:api/ElectronicChannelsApi}
+     */
+    ElectronicChannelsApi: ElectronicChannelsApi,
     /**
      * The EventsApi service constructor.
      * @property {module:api/EventsApi}
@@ -186,20 +216,30 @@
      */
     NewsApi: NewsApi,
     /**
+     * The OrganizationServicesApi service constructor.
+     * @property {module:api/OrganizationServicesApi}
+     */
+    OrganizationServicesApi: OrganizationServicesApi,
+    /**
      * The OrganizationsApi service constructor.
      * @property {module:api/OrganizationsApi}
      */
     OrganizationsApi: OrganizationsApi,
     /**
-     * The ServiceCategoriesApi service constructor.
-     * @property {module:api/ServiceCategoriesApi}
+     * The PhoneChannelsApi service constructor.
+     * @property {module:api/PhoneChannelsApi}
      */
-    ServiceCategoriesApi: ServiceCategoriesApi,
+    PhoneChannelsApi: PhoneChannelsApi,
     /**
-     * The ServiceChannelsApi service constructor.
-     * @property {module:api/ServiceChannelsApi}
+     * The PrintableFormChannelsApi service constructor.
+     * @property {module:api/PrintableFormChannelsApi}
      */
-    ServiceChannelsApi: ServiceChannelsApi,
+    PrintableFormChannelsApi: PrintableFormChannelsApi,
+    /**
+     * The ServiceLocationChannelsApi service constructor.
+     * @property {module:api/ServiceLocationChannelsApi}
+     */
+    ServiceLocationChannelsApi: ServiceLocationChannelsApi,
     /**
      * The ServicesApi service constructor.
      * @property {module:api/ServicesApi}
@@ -209,7 +249,12 @@
      * The TilesApi service constructor.
      * @property {module:api/TilesApi}
      */
-    TilesApi: TilesApi
+    TilesApi: TilesApi,
+    /**
+     * The WebPageChannelsApi service constructor.
+     * @property {module:api/WebPageChannelsApi}
+     */
+    WebPageChannelsApi: WebPageChannelsApi
   };
 
   return exports;

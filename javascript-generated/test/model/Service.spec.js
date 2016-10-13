@@ -71,20 +71,44 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property shortDescriptions (base name: "shortDescriptions")', function() {
-      // uncomment below and update the code to test the property shortDescriptions
+    it('should have the property type (base name: "type")', function() {
+      // uncomment below and update the code to test the property type
       //var instane = new KuntaApiClient.Service();
       //expect(instance).to.be();
     });
 
-    it('should have the property descriptions (base name: "descriptions")', function() {
-      // uncomment below and update the code to test the property descriptions
+    it('should have the property statutoryDescriptionId (base name: "statutoryDescriptionId")', function() {
+      // uncomment below and update the code to test the property statutoryDescriptionId
       //var instane = new KuntaApiClient.Service();
       //expect(instance).to.be();
     });
 
-    it('should have the property serviceUserInstructions (base name: "serviceUserInstructions")', function() {
-      // uncomment below and update the code to test the property serviceUserInstructions
+    it('should have the property serviceClasses (base name: "serviceClasses")', function() {
+      // uncomment below and update the code to test the property serviceClasses
+      //var instane = new KuntaApiClient.Service();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property ontologyTerms (base name: "ontologyTerms")', function() {
+      // uncomment below and update the code to test the property ontologyTerms
+      //var instane = new KuntaApiClient.Service();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property targetGroups (base name: "targetGroups")', function() {
+      // uncomment below and update the code to test the property targetGroups
+      //var instane = new KuntaApiClient.Service();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property lifeEvents (base name: "lifeEvents")', function() {
+      // uncomment below and update the code to test the property lifeEvents
+      //var instane = new KuntaApiClient.Service();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property industrialClasses (base name: "industrialClasses")', function() {
+      // uncomment below and update the code to test the property industrialClasses
       //var instane = new KuntaApiClient.Service();
       //expect(instance).to.be();
     });
@@ -95,44 +119,62 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property alternativeNames (base name: "alternativeNames")', function() {
-      // uncomment below and update the code to test the property alternativeNames
+    it('should have the property descriptions (base name: "descriptions")', function() {
+      // uncomment below and update the code to test the property descriptions
       //var instane = new KuntaApiClient.Service();
       //expect(instance).to.be();
     });
 
-    it('should have the property classIds (base name: "classIds")', function() {
-      // uncomment below and update the code to test the property classIds
+    it('should have the property languages (base name: "languages")', function() {
+      // uncomment below and update the code to test the property languages
       //var instane = new KuntaApiClient.Service();
       //expect(instance).to.be();
     });
 
-    it('should have the property electronicChannelIds (base name: "electronicChannelIds")', function() {
-      // uncomment below and update the code to test the property electronicChannelIds
+    it('should have the property keywords (base name: "keywords")', function() {
+      // uncomment below and update the code to test the property keywords
       //var instane = new KuntaApiClient.Service();
       //expect(instance).to.be();
     });
 
-    it('should have the property phoneChannelIds (base name: "phoneChannelIds")', function() {
-      // uncomment below and update the code to test the property phoneChannelIds
+    it('should have the property coverageType (base name: "coverageType")', function() {
+      // uncomment below and update the code to test the property coverageType
       //var instane = new KuntaApiClient.Service();
       //expect(instance).to.be();
     });
 
-    it('should have the property printableFormChannelIds (base name: "printableFormChannelIds")', function() {
-      // uncomment below and update the code to test the property printableFormChannelIds
+    it('should have the property municipalities (base name: "municipalities")', function() {
+      // uncomment below and update the code to test the property municipalities
       //var instane = new KuntaApiClient.Service();
       //expect(instance).to.be();
     });
 
-    it('should have the property serviceLocationChannelIds (base name: "serviceLocationChannelIds")', function() {
-      // uncomment below and update the code to test the property serviceLocationChannelIds
+    it('should have the property webPages (base name: "webPages")', function() {
+      // uncomment below and update the code to test the property webPages
       //var instane = new KuntaApiClient.Service();
       //expect(instance).to.be();
     });
 
-    it('should have the property webpageChannelIds (base name: "webpageChannelIds")', function() {
-      // uncomment below and update the code to test the property webpageChannelIds
+    it('should have the property requirements (base name: "requirements")', function() {
+      // uncomment below and update the code to test the property requirements
+      //var instane = new KuntaApiClient.Service();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property publishingStatus (base name: "publishingStatus")', function() {
+      // uncomment below and update the code to test the property publishingStatus
+      //var instane = new KuntaApiClient.Service();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property chargeType (base name: "chargeType")', function() {
+      // uncomment below and update the code to test the property chargeType
+      //var instane = new KuntaApiClient.Service();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property additionalInformations (base name: "additionalInformations")', function() {
+      // uncomment below and update the code to test the property additionalInformations
       //var instane = new KuntaApiClient.Service();
       //expect(instance).to.be();
     });

@@ -69,10 +69,50 @@
         done();
       });
     });
-    describe('deleteService', function() {
-      it('should call deleteService successfully', function(done) {
-        //uncomment below and update the code to test deleteService
-        //instance.deleteService(pet, function(error) {
+    describe('createServiceElectronicChannel', function() {
+      it('should call createServiceElectronicChannel successfully', function(done) {
+        //uncomment below and update the code to test createServiceElectronicChannel
+        //instance.createServiceElectronicChannel(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('createServicePhoneChannel', function() {
+      it('should call createServicePhoneChannel successfully', function(done) {
+        //uncomment below and update the code to test createServicePhoneChannel
+        //instance.createServicePhoneChannel(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('createServicePrintableFormChannel', function() {
+      it('should call createServicePrintableFormChannel successfully', function(done) {
+        //uncomment below and update the code to test createServicePrintableFormChannel
+        //instance.createServicePrintableFormChannel(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('createServiceServiceLocationChannel', function() {
+      it('should call createServiceServiceLocationChannel successfully', function(done) {
+        //uncomment below and update the code to test createServiceServiceLocationChannel
+        //instance.createServiceServiceLocationChannel(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('createServiceWebPageChannel', function() {
+      it('should call createServiceWebPageChannel successfully', function(done) {
+        //uncomment below and update the code to test createServiceWebPageChannel
+        //instance.createServiceWebPageChannel(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -89,20 +129,100 @@
         done();
       });
     });
-    describe('listServiceClasses', function() {
-      it('should call listServiceClasses successfully', function(done) {
-        //uncomment below and update the code to test listServiceClasses
-        //instance.listServiceClasses(pet, function(error) {
+    describe('findServiceElectronicChannel', function() {
+      it('should call findServiceElectronicChannel successfully', function(done) {
+        //uncomment below and update the code to test findServiceElectronicChannel
+        //instance.findServiceElectronicChannel(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('listServiceElectornicChannels', function() {
-      it('should call listServiceElectornicChannels successfully', function(done) {
-        //uncomment below and update the code to test listServiceElectornicChannels
-        //instance.listServiceElectornicChannels(pet, function(error) {
+    describe('findServicePhoneChannel', function() {
+      it('should call findServicePhoneChannel successfully', function(done) {
+        //uncomment below and update the code to test findServicePhoneChannel
+        //instance.findServicePhoneChannel(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('findServicePrintableFormChannel', function() {
+      it('should call findServicePrintableFormChannel successfully', function(done) {
+        //uncomment below and update the code to test findServicePrintableFormChannel
+        //instance.findServicePrintableFormChannel(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('findServiceServiceLocationChannel', function() {
+      it('should call findServiceServiceLocationChannel successfully', function(done) {
+        //uncomment below and update the code to test findServiceServiceLocationChannel
+        //instance.findServiceServiceLocationChannel(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('findServiceWebPageChannel', function() {
+      it('should call findServiceWebPageChannel successfully', function(done) {
+        //uncomment below and update the code to test findServiceWebPageChannel
+        //instance.findServiceWebPageChannel(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('listServiceElectronicChannels', function() {
+      it('should call listServiceElectronicChannels successfully', function(done) {
+        //uncomment below and update the code to test listServiceElectronicChannels
+        //instance.listServiceElectronicChannels(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('listServicePhoneChannels', function() {
+      it('should call listServicePhoneChannels successfully', function(done) {
+        //uncomment below and update the code to test listServicePhoneChannels
+        //instance.listServicePhoneChannels(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('listServicePrintableFormChannels', function() {
+      it('should call listServicePrintableFormChannels successfully', function(done) {
+        //uncomment below and update the code to test listServicePrintableFormChannels
+        //instance.listServicePrintableFormChannels(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('listServiceServiceLocationChannels', function() {
+      it('should call listServiceServiceLocationChannels successfully', function(done) {
+        //uncomment below and update the code to test listServiceServiceLocationChannels
+        //instance.listServiceServiceLocationChannels(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('listServiceWebPageChannels', function() {
+      it('should call listServiceWebPageChannels successfully', function(done) {
+        //uncomment below and update the code to test listServiceWebPageChannels
+        //instance.listServiceWebPageChannels(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -119,10 +239,60 @@
         done();
       });
     });
+    describe('updatePhoneChannel', function() {
+      it('should call updatePhoneChannel successfully', function(done) {
+        //uncomment below and update the code to test updatePhoneChannel
+        //instance.updatePhoneChannel(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('updatePrintableFormChannel', function() {
+      it('should call updatePrintableFormChannel successfully', function(done) {
+        //uncomment below and update the code to test updatePrintableFormChannel
+        //instance.updatePrintableFormChannel(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('updateService', function() {
       it('should call updateService successfully', function(done) {
         //uncomment below and update the code to test updateService
         //instance.updateService(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('updateServiceElectronicChannel', function() {
+      it('should call updateServiceElectronicChannel successfully', function(done) {
+        //uncomment below and update the code to test updateServiceElectronicChannel
+        //instance.updateServiceElectronicChannel(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('updateServiceLocationChannel', function() {
+      it('should call updateServiceLocationChannel successfully', function(done) {
+        //uncomment below and update the code to test updateServiceLocationChannel
+        //instance.updateServiceLocationChannel(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('updateWebPageChannel', function() {
+      it('should call updateWebPageChannel successfully', function(done) {
+        //uncomment below and update the code to test updateWebPageChannel
+        //instance.updateWebPageChannel(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
