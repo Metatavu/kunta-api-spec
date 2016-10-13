@@ -83,7 +83,15 @@ module.exports = function(grunt) {
           '--template-dir php-templates ' +
           '-o php-generated ' +
           '--additional-properties packagePath=kunta-api-php-client,composerVendorName=otavanopisto,composerProjectName=kunta-api-php-client,variableNamingConvention=camelCase,invokerPackage=KuntaAPI,apiPackage=KuntaAPI\\\\Api,modelPackage=KuntaAPI\\\\Model,artifactVersion=' + PHP_CLIENT_VERSION
-      }
+      },
+      'php-client-publish': {
+        command : 'sh git_push.sh',
+        options: {
+          execOptions: {
+            cwd: 'php-generated/kunta-api-php-client/git_push.sh'
+          }
+        }
+      },
     },
     'publish': {
       'publish-javascript-client': {

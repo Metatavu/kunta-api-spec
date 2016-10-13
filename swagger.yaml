@@ -47,34 +47,165 @@ paths:
           description: Internal server error
           schema:
             $ref: '#/definitions/InternalServerError'
-  /organizations/{organizationId}/services:
-    post:
-      operationId: createService
-      summary: Create a service
-      description: |
-        Creates new service for the organization
+  /organizations/{organizationId}/organizationServices:
+    get:
+      operationId: listOrganizationOrganizationServices
+      summary: Organization organization service list
+      description: Lists organization's organization services
+      tags:
+        - Organizations
+        - OrganizationServices
       parameters:
         - name: organizationId
           in: path
           description: Organization id
+          required: true
+          type: string
+          format: uuid
+        - name: firstResult
+          in: query
+          description: First result
+          required: false
+          type: integer
+          format: int64
+        - name: maxResults
+          in: query
+          description: Max results
+          required: false
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: An array of organization services
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/OrganizationService'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        404:
+          description: Resource was not found from the server
+          schema:
+            $ref: '#/definitions/NotFound'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+    post:
+      operationId: createOrganizationService
+      summary: Create organization service
+      description: Create organization service
+      tags:
+        - Organizations
+        - OrganizationServices
+      parameters:
+        - name: organizationId
+          in: path
+          description: Organization id
+          required: true
+          type: string
+        - name: body
+          in: body
+          description: Payload
+          required: true
+          schema:
+            $ref: '#/definitions/OrganizationService'        
+      responses:
+        200:
+          description: Created organization service
+          schema:
+            $ref: '#/definitions/Organization'  
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  /organizations/{organizationId}/organizationServices/{organizationServiceId}:
+    get:
+      operationId: findOrganizationService
+      summary: Finds a organization service by id
+      description: Find an organization service
+      tags:
+        - Organizations
+        - OrganizationServices
+      parameters:
+        - name: organizationId
+          in: path
+          description: Organization id
+          required: true
+          type: string
+          format: uuid
+        - name: organizationServiceId
+          in: path
+          description: Organization service id
+          required: true
+          type: string
+          format: uuid
+      responses:
+        200:
+          description: An organization service
+          schema:
+            $ref: '#/definitions/OrganizationService'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        404:
+          description: Resource was not found from the server
+          schema:
+            $ref: '#/definitions/NotFound'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+    put: 
+      operationId: updateOrganizationService
+      summary: Updates an organization service
+      description: Updates organization service
+      tags:
+        - Organizations
+        - OrganizationServices
+      parameters:
+        - name: organizationId
+          in: path
+          description: Organization id
+          required: true
+          type: string
+          format: uuid
+        - name: organizationServiceId
+          in: path
+          description: Organization service id
           required: true
           type: string
           format: uuid
         - name: body
           in: body
-          description: Service definition
+          description: Payload
           required: true
           schema:
-            $ref: '#/definitions/Service'
-      tags:
-        - Services
+            $ref: '#/definitions/OrganizationService'
       responses:
         200:
-          description: An array of services
+          description: An updated organization service
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Service'
+            $ref: '#/definitions/OrganizationService'
         400:
           description: Invalid request was sent to the server
           schema:
@@ -84,262 +215,7 @@ paths:
           schema:
             $ref: '#/definitions/Forbidden'
         404:
-          description: Not found
-          schema:
-            $ref: '#/definitions/NotFound'
-        500:
-          description: Internal server error
-          schema:
-            $ref: '#/definitions/InternalServerError'
-        501:
-          description: Returned when selected service does support modification of data
-          schema:
-            $ref: '#/definitions/NotImplemented'
-    get:
-      operationId: listServices
-      summary: List services
-      description: |
-        Lists organization's services
-      parameters:
-        - name: organizationId
-          in: path
-          description: Organization id
-          required: true
-          type: string
-          format: uuid
-        - name: serviceClassId
-          in: query
-          description: Filter services by service class id
-          required: false
-          type: string
-          format: uuid
-      tags:
-        - Services
-      responses:
-        200:
-          description: An array of services
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Service'
-        400:
-          description: Invalid request was sent to the server
-          schema:
-            $ref: '#/definitions/BadRequest'
-        403:
-          description: Attempted to make a call with unauthorized client
-          schema:
-            $ref: '#/definitions/Forbidden'
-        404:
-          description: Not found
-          schema:
-            $ref: '#/definitions/NotFound'
-        500:
-          description: Internal server error
-          schema:
-            $ref: '#/definitions/InternalServerError'
-  /organizations/{organizationId}/serviceClasses/:
-    get:
-      operationId: listServiceClasses
-      summary: List service classes for an organization
-      description: |
-        Returns list of organization's service classes
-      parameters:
-        - name: organizationId
-          in: path
-          description: Organization id
-          required: true
-          type: string
-          format: uuid
-      tags:
-        - Services
-        - Service Categories
-      responses:
-        200:
-          description: Returns a list of organization's service classes
-          schema:
-            type: array
-            items: 
-              $ref: '#/definitions/ServiceClass'
-        400:
-          description: Invalid request was sent to the server
-          schema:
-            $ref: '#/definitions/BadRequest'
-        403:
-          description: Attempted to make a call with unauthorized client
-          schema:
-            $ref: '#/definitions/Forbidden'
-        404:
-          description: Not found
-          schema:
-            $ref: '#/definitions/NotFound'
-        500:
-          description: Internal server error
-          schema:
-            $ref: '#/definitions/InternalServerError'
-  /organizations/{organizationId}/services/{serviceId}:
-    get:
-      operationId: findService
-      summary: Find a service by id
-      description: |
-        Returns single service by it's unique id.
-      parameters:
-        - name: organizationId
-          in: path
-          description: Organization id
-          required: true
-          type: string
-          format: uuid
-        - name: serviceId
-          in: path
-          description: Service id
-          required: true
-          type: string
-          format: uuid
-      tags:
-        - Services
-      responses:
-        200:
-          description: Returns a single municipal service
-          schema:
-            $ref: '#/definitions/Service'
-        400:
-          description: Invalid request was sent to the server
-          schema:
-            $ref: '#/definitions/BadRequest'
-        403:
-          description: Attempted to make a call with unauthorized client
-          schema:
-            $ref: '#/definitions/Forbidden'
-        404:
-          description: Not found
-          schema:
-            $ref: '#/definitions/NotFound'
-        500:
-          description: Internal server error
-          schema:
-            $ref: '#/definitions/InternalServerError'
-    put:
-      operationId: updateService
-      summary: Update a service
-      description: |
-        Updates a single municipal service
-      parameters:
-        - name: organizationId
-          in: path
-          description: Organization id
-          required: true
-          type: string
-          format: uuid
-        - name: serviceId
-          in: path
-          description: Service id
-          required: true
-          type: string
-          format: uuid
-      tags:
-        - Services
-      responses:
-        200:
-          description: Created service
-          schema:
-            $ref: '#/definitions/Service'
-        400:
-          description: Invalid request was sent to the server
-          schema:
-            $ref: '#/definitions/BadRequest'
-        403:
-          description: Attempted to make a call with unauthorized client
-          schema:
-            $ref: '#/definitions/Forbidden'
-        404:
-          description: Not found
-          schema:
-            $ref: '#/definitions/NotFound'
-        500:
-          description: Internal server error
-          schema:
-            $ref: '#/definitions/InternalServerError'
-        501:
-          description: Returned when endpoint does support modification of data
-          schema:
-            $ref: '#/definitions/NotImplemented'            
-    delete:
-      operationId: deleteService
-      summary: Delete a service
-      description: |
-        Delete a single municipal service
-      parameters:
-        - name: organizationId
-          in: path
-          description: Organization id
-          required: true
-          type: string
-          format: uuid
-        - name: serviceId
-          in: path
-          description: Service id
-          required: true
-          type: string
-          format: uuid
-      tags:
-        - Services
-      responses:
-        204:
-          description: Empty response indicating a succesfull removal
-        400:
-          description: Invalid request was sent to the server
-          schema:
-            $ref: '#/definitions/BadRequest'
-        403:
-          description: Attempted to make a call with unauthorized client
-          schema:
-            $ref: '#/definitions/Forbidden'
-        404:
-          description: Not found
-          schema:
-            $ref: '#/definitions/NotFound'
-        500:
-          description: Internal server error
-          schema:
-            $ref: '#/definitions/InternalServerError'
-  /organizations/{organizationId}/services/{serviceId}/electronicChannels:
-    get:
-      operationId: listServiceElectornicChannels
-      summary: List service electornic channels
-      description: |
-        Lists service electronic channels
-      parameters:
-        - name: organizationId
-          in: path
-          description: Organization id
-          required: true
-          type: string
-          format: uuid
-        - name: serviceId
-          in: path
-          description: Service id
-          required: true
-          type: string
-          format: uuid
-      tags:
-        - Services
-        - ServiceChannels
-      responses:
-        200:
-          description: List of service electornic channels
-          schema:
-            $ref: '#/definitions/ServiceElectronicChannel'
-        400:
-          description: Invalid request was sent to the server
-          schema:
-            $ref: '#/definitions/BadRequest'
-        403:
-          description: Attempted to make a call with unauthorized client
-          schema:
-            $ref: '#/definitions/Forbidden'
-        404:
-          description: Not found
+          description: Resource was not found from the server
           schema:
             $ref: '#/definitions/NotFound'
         500:
@@ -1234,6 +1110,1054 @@ paths:
           description: Internal server error
           schema:
             $ref: '#/definitions/InternalServerError'
+  /services:
+    get:
+      operationId: listServices
+      summary: Service list
+      description: Lists services
+      tags:
+        - Services
+      parameters:
+        - name: firstResult
+          in: query
+          description: First result
+          required: false
+          type: integer
+          format: int64
+        - name: maxResults
+          in: query
+          description: Max results
+          required: false
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: An array of services
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Service'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        404:
+          description: Resource was not found from the server
+          schema:
+            $ref: '#/definitions/NotFound'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+    post:
+      operationId: createService
+      summary: Create service
+      description: Creates new service
+      tags:
+        - Services
+      parameters:
+        - name: body
+          in: body
+          description: Payload
+          required: true
+          schema:
+            $ref: '#/definitions/Service'        
+      responses:
+        200:
+          description: Created service
+          schema:
+            $ref: '#/definitions/Service'  
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  /services/{serviceId}:
+    get:
+      operationId: findService
+      summary: Finds a service by id
+      description: Finds service
+      tags:
+        - Services
+      parameters:
+        - name: serviceId
+          in: path
+          description: Service id
+          required: true
+          type: string
+          format: uuid
+      responses:
+        200:
+          description: Returns a service
+          schema:
+            $ref: '#/definitions/Service'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        404:
+          description: Resource was not found from the server
+          schema:
+            $ref: '#/definitions/NotFound'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+    put: 
+      operationId: updateService
+      summary: Updates service
+      description: Updates service
+      tags:
+        - Services
+      parameters:
+        - name: serviceId
+          in: path
+          description: Organization service id
+          required: true
+          type: string
+          format: uuid
+        - name: body
+          in: body
+          description: Payload
+          required: true
+          schema:
+            $ref: '#/definitions/Service'
+      responses:
+        200:
+          description: Returns an updated service
+          schema:
+            $ref: '#/definitions/Service'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        404:
+          description: Resource was not found from the server
+          schema:
+            $ref: '#/definitions/NotFound'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  /services/{serviceId}/electronicChannels:
+    get:
+      operationId: listServiceElectronicChannels
+      summary: Lists ElectronicChannels by serviceId
+      description: Lists ElectronicChannels by serviceId
+      tags:
+        - Services
+        - ElectronicChannels
+      parameters:
+        - name: serviceId
+          in: path
+          description: Service id
+          required: true
+          type: string
+          format: uuid
+        - name: firstResult
+          in: query
+          description: First result
+          required: false
+          type: integer
+          format: int64
+        - name: maxResults
+          in: query
+          description: Max results
+          required: false
+          type: integer
+          format: int64       
+      responses:
+        200:
+          description: Returns array of ElectronicChannels
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ElectronicChannel'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        404:
+          description: Resource was not found from the server
+          schema:
+            $ref: '#/definitions/NotFound'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+    post: 
+      operationId: createServiceElectronicChannel
+      summary: creates ElectronicChannel
+      description: creates ElectronicChannel
+      tags:
+        - Services
+        - ElectronicChannels
+      parameters:
+        - name: serviceId
+          in: path
+          description: service id
+          required: true
+          type: string
+          format: uuid
+        - name: body
+          in: body
+          description: Payload
+          required: true
+          schema:
+            $ref: '#/definitions/ElectronicChannel'
+      responses:
+        200:
+          description: Returns created ElectronicChannel
+          schema:
+            $ref: '#/definitions/ElectronicChannel'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        404:
+          description: Resource was not found from the server
+          schema:
+            $ref: '#/definitions/NotFound'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  /services/{serviceId}/electronicChannels/{electronicChannelId}:
+    get:
+      operationId: findServiceElectronicChannel
+      summary: finds ElectronicChannel by electronicChannelId
+      description: finds ElectronicChannels by electronicChannelId
+      tags:
+        - Services
+        - ElectronicChannels
+      parameters:
+        - name: serviceId
+          in: path
+          description: Service id
+          required: true
+          type: string
+          format: uuid
+        - name: electronicChannelId
+          in: path
+          description: electronicChannel id
+          required: true
+          type: string
+          format: uuid
+      responses:
+        200:
+          description: Returns ElectronicChannel
+          schema:
+            $ref: '#/definitions/ElectronicChannel'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        404:
+          description: Resource was not found from the server
+          schema:
+            $ref: '#/definitions/NotFound'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+    put: 
+      operationId: updateServiceElectronicChannel
+      summary: Updates ElectronicChannel
+      description: Updates ElectronicChannel
+      tags:
+        - Services
+        - ElectronicChannels
+      parameters:
+        - name: serviceId
+          in: path
+          description: service id
+          required: true
+          type: string
+          format: uuid
+        - name: electronicChannelId
+          in: path
+          description: electronicChannel id
+          required: true
+          type: string
+          format: uuid
+        - name: body
+          in: body
+          description: Payload
+          required: true
+          schema:
+            $ref: '#/definitions/ElectronicChannel'
+      responses:
+        200:
+          description: Returns updated ElectronicChannel
+          schema:
+            $ref: '#/definitions/ElectronicChannel'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        404:
+          description: Resource was not found from the server
+          schema:
+            $ref: '#/definitions/NotFound'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  /services/{serviceId}/phoneChannels:
+    get:
+      operationId: listServicePhoneChannels
+      summary: Lists PhoneChannels by serviceId
+      description: Lists PhoneChannels by serviceId
+      tags:
+        - Services
+        - PhoneChannels
+      parameters:
+        - name: serviceId
+          in: path
+          description: Service id
+          required: true
+          type: string
+          format: uuid
+        - name: firstResult
+          in: query
+          description: First result
+          required: false
+          type: integer
+          format: int64
+        - name: maxResults
+          in: query
+          description: Max results
+          required: false
+          type: integer
+          format: int64            
+      responses:
+        200:
+          description: Returns array of PhoneChannels
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PhoneChannel'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        404:
+          description: Resource was not found from the server
+          schema:
+            $ref: '#/definitions/NotFound'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+    post: 
+      operationId: createServicePhoneChannel
+      summary: creates PhoneChannel
+      description: creates PhoneChannel
+      tags:
+        - Services
+        - PhoneChannels
+      parameters:
+        - name: serviceId
+          in: path
+          description: service id
+          required: true
+          type: string
+          format: uuid
+        - name: body
+          in: body
+          description: Payload
+          required: true
+          schema:
+            $ref: '#/definitions/PhoneChannel'
+      responses:
+        200:
+          description: Returns created PhoneChannel
+          schema:
+            $ref: '#/definitions/PhoneChannel'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        404:
+          description: Resource was not found from the server
+          schema:
+            $ref: '#/definitions/NotFound'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  /services/{serviceId}/phoneChannels/{phoneChannelId}:
+    get:
+      operationId: findServicePhoneChannel
+      summary: finds PhoneChannel by phoneChannelId
+      description: finds PhoneChannels by phoneChannelId
+      tags:
+        - Services
+        - PhoneChannels
+      parameters:
+        - name: serviceId
+          in: path
+          description: Service id
+          required: true
+          type: string
+          format: uuid
+        - name: phoneChannelId
+          in: path
+          description: phoneChannel id
+          required: true
+          type: string
+          format: uuid
+      responses:
+        200:
+          description: Returns PhoneChannel
+          schema:
+            $ref: '#/definitions/PhoneChannel'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        404:
+          description: Resource was not found from the server
+          schema:
+            $ref: '#/definitions/NotFound'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+    put: 
+      operationId: updatePhoneChannel
+      summary: Updates PhoneChannel
+      description: Updates PhoneChannel
+      tags:
+        - Services
+        - PhoneChannels
+      parameters:
+        - name: serviceId
+          in: path
+          description: service id
+          required: true
+          type: string
+          format: uuid
+        - name: phoneChannelId
+          in: path
+          description: phoneChannel id
+          required: true
+          type: string
+          format: uuid
+        - name: body
+          in: body
+          description: Payload
+          required: true
+          schema:
+            $ref: '#/definitions/PhoneChannel'
+      responses:
+        200:
+          description: Returns updated PhoneChannel
+          schema:
+            $ref: '#/definitions/PhoneChannel'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        404:
+          description: Resource was not found from the server
+          schema:
+            $ref: '#/definitions/NotFound'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  /services/{serviceId}/printableFormChannels:
+    get:
+      operationId: listServicePrintableFormChannels
+      summary: Lists PrintableFormChannels by serviceId
+      description: Lists PrintableFormChannels by serviceId
+      tags:
+        - Services
+        - PrintableFormChannels
+      parameters:
+        - name: serviceId
+          in: path
+          description: Service id
+          required: true
+          type: string
+          format: uuid
+        - name: firstResult
+          in: query
+          description: First result
+          required: false
+          type: integer
+          format: int64
+        - name: maxResults
+          in: query
+          description: Max results
+          required: false
+          type: integer
+          format: int64             
+      responses:
+        200:
+          description: Returns array of PrintableFormChannels
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PrintableFormChannel'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        404:
+          description: Resource was not found from the server
+          schema:
+            $ref: '#/definitions/NotFound'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+    post: 
+      operationId: createServicePrintableFormChannel
+      summary: creates PrintableFormChannel
+      description: creates PrintableFormChannel
+      tags:
+        - Services
+        - PrintableFormChannels
+      parameters:
+        - name: serviceId
+          in: path
+          description: service id
+          required: true
+          type: string
+          format: uuid
+        - name: body
+          in: body
+          description: Payload
+          required: true
+          schema:
+            $ref: '#/definitions/PrintableFormChannel'
+      responses:
+        200:
+          description: Returns created PrintableFormChannel
+          schema:
+            $ref: '#/definitions/PrintableFormChannel'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        404:
+          description: Resource was not found from the server
+          schema:
+            $ref: '#/definitions/NotFound'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  /services/{serviceId}/printableFormChannels/{printableFormChannelId}:
+    get:
+      operationId: findServicePrintableFormChannel
+      summary: finds PrintableFormChannel by printableFormChannelId
+      description: finds PrintableFormChannels by printableFormChannelId
+      tags:
+        - Services
+        - PrintableFormChannels
+      parameters:
+        - name: serviceId
+          in: path
+          description: Service id
+          required: true
+          type: string
+          format: uuid
+        - name: printableFormChannelId
+          in: path
+          description: printableFormChannel id
+          required: true
+          type: string
+          format: uuid
+      responses:
+        200:
+          description: Returns PrintableFormChannel
+          schema:
+            $ref: '#/definitions/PrintableFormChannel'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        404:
+          description: Resource was not found from the server
+          schema:
+            $ref: '#/definitions/NotFound'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+    put: 
+      operationId: updatePrintableFormChannel
+      summary: Updates PrintableFormChannel
+      description: Updates PrintableFormChannel
+      tags:
+        - Services
+        - PrintableFormChannels
+      parameters:
+        - name: serviceId
+          in: path
+          description: service id
+          required: true
+          type: string
+          format: uuid
+        - name: printableFormChannelId
+          in: path
+          description: printableFormChannel id
+          required: true
+          type: string
+          format: uuid
+        - name: body
+          in: body
+          description: Payload
+          required: true
+          schema:
+            $ref: '#/definitions/PrintableFormChannel'
+      responses:
+        200:
+          description: Returns updated PrintableFormChannel
+          schema:
+            $ref: '#/definitions/PrintableFormChannel'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        404:
+          description: Resource was not found from the server
+          schema:
+            $ref: '#/definitions/NotFound'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  /services/{serviceId}/serviceLocationChannels:
+    get:
+      operationId: listServiceServiceLocationChannels
+      summary: Lists ServiceLocationChannels by serviceId
+      description: Lists ServiceLocationChannels by serviceId
+      tags:
+        - Services
+        - ServiceLocationChannels
+      parameters:
+        - name: serviceId
+          in: path
+          description: Service id
+          required: true
+          type: string
+          format: uuid
+        - name: firstResult
+          in: query
+          description: First result
+          required: false
+          type: integer
+          format: int64
+        - name: maxResults
+          in: query
+          description: Max results
+          required: false
+          type: integer
+          format: int64             
+      responses:
+        200:
+          description: Returns array of ServiceLocationChannels
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ServiceLocationChannel'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        404:
+          description: Resource was not found from the server
+          schema:
+            $ref: '#/definitions/NotFound'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+    post: 
+      operationId: createServiceServiceLocationChannel
+      summary: creates ServiceLocationChannel
+      description: creates ServiceLocationChannel
+      tags:
+        - Services
+        - ServiceLocationChannels
+      parameters:
+        - name: serviceId
+          in: path
+          description: service id
+          required: true
+          type: string
+          format: uuid
+        - name: body
+          in: body
+          description: Payload
+          required: true
+          schema:
+            $ref: '#/definitions/ServiceLocationChannel'
+      responses:
+        200:
+          description: Returns created ServiceLocationChannel
+          schema:
+            $ref: '#/definitions/ServiceLocationChannel'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        404:
+          description: Resource was not found from the server
+          schema:
+            $ref: '#/definitions/NotFound'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  /services/{serviceId}/serviceLocationChannels/{serviceLocationChannelId}:
+    get:
+      operationId: findServiceServiceLocationChannel
+      summary: finds ServiceLocationChannel by serviceLocationChannelId
+      description: finds ServiceLocationChannels by serviceLocationChannelId
+      tags:
+        - Services
+        - ServiceLocationChannels
+      parameters:
+        - name: serviceId
+          in: path
+          description: Service id
+          required: true
+          type: string
+          format: uuid
+        - name: serviceLocationChannelId
+          in: path
+          description: serviceLocationChannel id
+          required: true
+          type: string
+          format: uuid
+      responses:
+        200:
+          description: Returns ServiceLocationChannel
+          schema:
+            $ref: '#/definitions/ServiceLocationChannel'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        404:
+          description: Resource was not found from the server
+          schema:
+            $ref: '#/definitions/NotFound'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+    put: 
+      operationId: updateServiceLocationChannel
+      summary: Updates ServiceLocationChannel
+      description: Updates ServiceLocationChannel
+      tags:
+        - Services
+        - ServiceLocationChannels
+      parameters:
+        - name: serviceId
+          in: path
+          description: service id
+          required: true
+          type: string
+          format: uuid
+        - name: serviceLocationChannelId
+          in: path
+          description: serviceLocationChannel id
+          required: true
+          type: string
+          format: uuid
+        - name: body
+          in: body
+          description: Payload
+          required: true
+          schema:
+            $ref: '#/definitions/ServiceLocationChannel'
+      responses:
+        200:
+          description: Returns updated ServiceLocationChannel
+          schema:
+            $ref: '#/definitions/ServiceLocationChannel'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        404:
+          description: Resource was not found from the server
+          schema:
+            $ref: '#/definitions/NotFound'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  /services/{serviceId}/webPageChannels:
+    get:
+      operationId: listServiceWebPageChannels
+      summary: Lists WebPageChannels by serviceId
+      description: Lists WebPageChannels by serviceId
+      tags:
+        - Services
+        - WebPageChannels
+      parameters:
+        - name: serviceId
+          in: path
+          description: Service id
+          required: true
+          type: string
+          format: uuid
+        - name: firstResult
+          in: query
+          description: First result
+          required: false
+          type: integer
+          format: int64
+        - name: maxResults
+          in: query
+          description: Max results
+          required: false
+          type: integer
+          format: int64             
+      responses:
+        200:
+          description: Returns array of WebPageChannels
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/WebPageChannel'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        404:
+          description: Resource was not found from the server
+          schema:
+            $ref: '#/definitions/NotFound'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+    post: 
+      operationId: createServiceWebPageChannel
+      summary: creates WebPageChannel
+      description: creates WebPageChannel
+      tags:
+        - Services
+        - WebPageChannels
+      parameters:
+        - name: serviceId
+          in: path
+          description: service id
+          required: true
+          type: string
+          format: uuid
+        - name: body
+          in: body
+          description: Payload
+          required: true
+          schema:
+            $ref: '#/definitions/WebPageChannel'
+      responses:
+        200:
+          description: Returns created WebPageChannel
+          schema:
+            $ref: '#/definitions/WebPageChannel'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        404:
+          description: Resource was not found from the server
+          schema:
+            $ref: '#/definitions/NotFound'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  /services/{serviceId}/webPageChannels/{webPageChannelId}:
+    get:
+      operationId: findServiceWebPageChannel
+      summary: finds WebPageChannel by webPageChannelId
+      description: finds WebPageChannels by webPageChannelId
+      tags:
+        - Services
+        - WebPageChannels
+      parameters:
+        - name: serviceId
+          in: path
+          description: Service id
+          required: true
+          type: string
+          format: uuid
+        - name: webPageChannelId
+          in: path
+          description: webPageChannel id
+          required: true
+          type: string
+          format: uuid
+      responses:
+        200:
+          description: Returns WebPageChannel
+          schema:
+            $ref: '#/definitions/WebPageChannel'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        404:
+          description: Resource was not found from the server
+          schema:
+            $ref: '#/definitions/NotFound'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+    put: 
+      operationId: updateWebPageChannel
+      summary: Updates WebPageChannel
+      description: Updates WebPageChannel
+      tags:
+        - Services
+        - WebPageChannels
+      parameters:
+        - name: serviceId
+          in: path
+          description: service id
+          required: true
+          type: string
+          format: uuid
+        - name: webPageChannelId
+          in: path
+          description: webPageChannel id
+          required: true
+          type: string
+          format: uuid
+        - name: body
+          in: body
+          description: Payload
+          required: true
+          schema:
+            $ref: '#/definitions/WebPageChannel'
+      responses:
+        200:
+          description: Returns updated WebPageChannel
+          schema:
+            $ref: '#/definitions/WebPageChannel'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        404:
+          description: Resource was not found from the server
+          schema:
+            $ref: '#/definitions/NotFound'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
 definitions:
   Attachment:
     properties:
@@ -1262,93 +2186,33 @@ definitions:
     type: object
     properties:
       id:
-        type: string
         format: uuid
-        description: Unique identifier representing a specific service.
-      shortDescriptions:
-        type: array
-        items:
-          $ref: '#/definitions/LocalizedValue'
-      descriptions:
-        type: array
-        items:
-          $ref: '#/definitions/LocalizedValue'
-      serviceUserInstructions:
-        type: array
-        items:
-          $ref: '#/definitions/LocalizedValue'
-      names:
-        type: array
-        description: Name of the service.
-        items:
-          $ref: '#/definitions/LocalizedValue'
-      alternativeNames:
-        type: array
-        description: Name of the service.
-        items:
-          $ref: '#/definitions/LocalizedValue'
-      classIds:  
-        type: array
-        description: List of service classes
-        items:
-          type: string
-      electronicChannelIds:
-        type: array
-        items:
-          type: string
-          format: uuid
-      phoneChannelIds:
-        type: array
-        items:
-          type: string
-          format: uuid
-      printableFormChannelIds:
-        type: array
-        items:
-          type: string
-          format: uuid
-      serviceLocationChannelIds:
-        type: array
-        items:
-          type: string
-          format: uuid
-      webpageChannelIds:
-        type: array
-        items:
-          type: string
-          format: uuid
-  LocalizedValue: 
-    type: object
-    properties:
-      language:
         type: string
-      value:
+      type:
         type: string
-  ServiceClass:
-    type: object
-    properties:
-      id:
-        type: string
+      statutoryDescriptionId:
         format: uuid
-      name:
         type: string
-      code:
-        type: string
-      ontologyType:
-        type: string
-      uri:
-        type: string
-      parentId:
-        type: string
-        format: uuid
-      parentUri:
-        type: string
-  ServiceChannelCommon: 
-    type: object
-    properties: &ServiceChannelCommon
-      id:
-        type: string
-        format: uuid
+      serviceClasses:
+        type: array
+        items:
+          $ref: '#/definitions/OntologyItem'
+      ontologyTerms:
+        type: array
+        items:
+          $ref: '#/definitions/OntologyItem'
+      targetGroups:
+        type: array
+        items:
+          $ref: '#/definitions/OntologyItem'
+      lifeEvents:
+        type: array
+        items:
+          $ref: '#/definitions/OntologyItem'
+      industrialClasses:
+        type: array
+        items:
+          $ref: '#/definitions/OntologyItem'
       names:
         type: array
         items:
@@ -1357,34 +2221,312 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/LocalizedValue'
-      shortDescriptions:
+      languages:
+        type: array
+        items:
+          type: string
+          pattern: '^[a-z]{2}$'
+      keywords:
+        type: array
+        items:
+          type: string
+      coverageType:
+        type: string
+      municipalities:
+        type: array
+        items:
+          type: string
+          pattern: '^[0-9]{3}$'
+      webPages:
+        type: array
+        items:
+          $ref: '#/definitions/WebPage'
+      requirements:
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      publishingStatus:
+        type: string
+      chargeType:
+        type: string
+      additionalInformations:
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+  OrganizationService:
+    type: object
+    properties:
+      serviceId:
+        type: string
+        format: uuid
+      organizationId:
+        type: string
+        format: uuid
+      roleType:
+        type: string
+      provisionType:
+        type: string
+      additionalInformation:
         type: array
         items:
           $ref: '#/definitions/LocalizedValue'
       webPages:
         type: array
         items:
-          $ref: '#/definitions/ServiceChannelWebPage'
+          $ref: '#/definitions/WebPage'
+  ElectronicChannel:
+    type: object
+    properties:
+      id:
+        format: uuid
+        type: string
+      type:
+        type: string
+      organizationId:
+        format: uuid
+        type: string
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      descriptions:
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      signatureQuantity:
+        format: int32
+        type: integer
+      requiresSignature:
+        type: boolean
+      supportContacts:
+        type: array
+        items:
+          $ref: '#/definitions/SupportContact'
+      requiresAuthentication:
+        type: boolean
+      urls:
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      languages:
+        pattern: '^[a-z]{2}$'
+        type: array
+        items:
+          type: string
+      attachments:
+        type: array
+        items:
+          $ref: '#/definitions/ServiceChannelAttachment'
+      webPages:
+        type: array
+        items:
+          $ref: '#/definitions/WebPage'
       serviceHours:
         type: array
         items:
-          $ref: '#/definitions/ServiceChannelServiceHour'
-      serviceHoursAdditinalInformation:
+          $ref: '#/definitions/ServiceHour'
+      publishingStatus:
+        type: string
+  PhoneChannel:
+    type: object
+    properties:
+      id:
+        format: uuid
+        type: string
+      type:
+        type: string
+      organizationId:
+        format: uuid
+        type: string
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      descriptions:
+        maxLength: 4000
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      phoneType:
+        type: string
+      chargeTypes:
+        type: array
+        items:
+          type: string
+      supportContacts:
+        type: array
+        items:
+          $ref: '#/definitions/SupportContact'
+      phoneNumbers:
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      languages:
+        pattern: '^[a-z]{2}$'
+        type: array
+        items:
+          type: string
+      phoneChargeDescriptions:
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      webPages:
+        type: array
+        items:
+          $ref: '#/definitions/WebPage'
+      serviceHours:
+        type: array
+        items:
+          $ref: '#/definitions/ServiceHour'
+      publishingStatus:
+        type: string
+  PrintableFormChannel:
+    type: object
+    properties:
+      id:
+        format: uuid
+        type: string
+      type:
+        type: string
+      organizationId:
+        format: uuid
+        type: string
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      descriptions:
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      formIdentifier:
+        type: string
+      formReceiver:
         type: string
       supportContacts:
         type: array
         items:
-          $ref: '#/definitions/ServiceChannelSupport'
-  ServiceElectronicChannel:
+          $ref: '#/definitions/SupportContact'
+      deliveryAddress:
+        $ref: '#/definitions/Address'
+      channelUrls:
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      languages:
+        pattern: '^[a-z]{2}$'
+        type: array
+        items:
+          type: string
+      deliveryAddressDescriptions:
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      attachments:
+        type: array
+        items:
+          $ref: '#/definitions/ServiceChannelAttachment'
+      webPages:
+        type: array
+        items:
+          $ref: '#/definitions/WebPage'
+      serviceHours:
+        type: array
+        items:
+          $ref: '#/definitions/ServiceHour'
+      publishingStatus:
+        type: string
+  ServiceLocationChannel:
     type: object
     properties:
-      <<: *ServiceChannelCommon
-      signatureQuantity:
-        type: integer
-      requiresSignature:
+      id:
+        format: uuid
+        type: string
+      type:
+        type: string
+      organizationId:
+        format: uuid
+        type: string
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      descriptions:
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      serviceAreaRestricted:
         type: boolean
-      requiresAuthentication:
+      supportContacts:
+        type: array
+        items:
+          $ref: '#/definitions/SupportContact'
+      email:
+        type: string
+      phone:
+        type: string
+      languages:
+        pattern: '^[a-z]{2}$'
+        type: array
+        items:
+          type: string
+      fax:
+        type: string
+      latitude:
+        type: string
+      longitude:
+        type: string
+      coordinateSystem:
+        type: string
+      coordinatesSetManually:
         type: boolean
+      phoneServiceCharge:
+        type: boolean
+      webPages:
+        type: array
+        items:
+          $ref: '#/definitions/WebPage'
+      serviceAreas:
+        type: array
+        items:
+          type: string
+      phoneChargeDescriptions:
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      addresses:
+        type: array
+        items:
+          $ref: '#/definitions/Address'
+      chargeTypes:
+        type: array
+        items:
+          type: string
+      serviceHours:
+        type: array
+        items:
+          $ref: '#/definitions/ServiceHour'
+      publishingStatus:
+        type: string
+  WebPageChannel:
+    type: object
+    properties:
+      id:
+        format: uuid
+        type: string
+      type:
+        type: string
+      organizationId:
+        format: uuid
+        type: string
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      descriptions:
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
       urls:
         type: array
         items:
@@ -1393,64 +2535,24 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/ServiceChannelAttachment'
-  ServiceChannelSupport:
-    properties:
-      email:
-        type: string
-      phone:
-        type: string
-      phoneChargeDescription:
-        type: string
-      language:
-        type: string
-      serviceChargeTypes:
+      supportContacts:
+        type: array
+        items:
+          $ref: '#/definitions/SupportContact'
+      languages:
+        pattern: '^[a-z]{2}$'
         type: array
         items:
           type: string
-  ServiceChannelAttachment:
-    properties:
-      type:
-        type: string
-      name:
-        type: string
-      description:
-        type: string
-      url:
-        type: string
-      language:
-        type: string
-  ServiceChannelWebPage:
-    properties:
-      type:
-        type: string
-      value:
-        type: string
-      url:
-        type: string
-      language:
-        type: string
-  ServiceChannelServiceHour:
-    properties:
-      type: 
-        type: string
-      validFrom:
-        type: string
-        format: date-time
-      validTo:
-        type: string
-        format: date-time
-      opens:
-        type: string
-        format: time
-      closes:
-        type: string
-        format: time
-      days:
+      webPages:
         type: array
         items:
-          type: integer
-          format: int32
-      status:
+          $ref: '#/definitions/WebPage'
+      serviceHours:
+        type: array
+        items:
+          $ref: '#/definitions/ServiceHour'
+      publishingStatus:
         type: string
   Event:
     properties:
@@ -1513,6 +2615,138 @@ definitions:
       contents:
         type: string
       link:
+        type: string   
+  WebPage:
+    type: object
+    properties:
+      description:
+        description: Web page description.
+        type: string
+      url:
+        description: Web page url.
+        type: string
+      language:
+        description: Language code.
+        type: string
+      value:
+        type: string
+      type:
+        type: string 
+  SupportContact:
+    type: object
+    properties:
+      email:
+        type: string
+      phone:
+        type: string
+      phoneChargeDescription:
+        type: string
+      language:
+        type: string
+      serviceChargeTypes:
+        type: array
+        items:
+          type: string
+  ServiceChannelAttachment:
+    type: object
+    properties:
+      type:
+        type: string
+      name:
+        maxLength: 100
+        type: string
+      description:
+        maxLength: 150
+        type: string
+      url:
+        maxLength: 500
+        type: string
+      language:
+        type: string
+  Address:
+    type: object
+    properties:
+      type:
+        type: string
+      postOfficeBox:
+        type: string
+      postalCode:
+        pattern: '\d{5}?'
+        type: string
+      postOffice:
+        type: string
+      streetAddress:
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      municipality:
+        pattern: '^[0-9]{3}$'
+        type: string
+      country:
+        pattern: '^[A-Z]{2}$'
+        type: string
+      qualifier:
+        type: string
+      additionalInformations:
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+  ServiceHour:
+    properties:
+      type: 
+        type: string
+      validFrom:
+        type: string
+        format: date-time
+      validTo:
+        type: string
+        format: date-time
+      opens:
+        type: string
+        format: time
+      closes:
+        type: string
+        format: time
+      days:
+        type: array
+        items:
+          type: integer
+          format: int32
+      status:
+        type: string
+      additionalInformation:
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+  OntologyItem:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+      system:
+        type: string
+      name:
+        type: string
+      code:
+        type: string
+      ontologyType:
+        type: string
+      uri:
+        type: string
+      parentId:
+        type: string
+        format: uuid        
+      parentUri:
+        type: string
+  LocalizedValue: 
+    type: object
+    properties:
+      language:
+        type: string
+      value:
+        type: string
+      type:
         type: string
   InternalServerError:
     type: object
