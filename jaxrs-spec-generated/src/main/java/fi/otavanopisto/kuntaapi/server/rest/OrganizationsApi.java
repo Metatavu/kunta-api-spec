@@ -30,7 +30,7 @@ import java.util.List;
 @Api(description = "the organizations API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2016-10-14T06:26:54.403+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2016-10-14T14:51:59.268+03:00")
 
 public abstract class OrganizationsApi extends AbstractApi {
 
@@ -69,6 +69,18 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = void.class),
         @ApiResponse(code = 500, message = "Internal server error", response = void.class) })
     public abstract Response deleteOrganizationSetting(@PathParam("organizationId") String organizationId,@PathParam("settingId") String settingId);
+
+    @GET
+    @Path("/{organizationId}")
+    @Consumes({ "application/json;charset=utf-8" })
+    @Produces({ "application/json;charset=utf-8" })
+    @ApiOperation(value = "Find organization", notes = "Find organization", response = Organization.class, tags={ "Organizations",  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Returns an organization", response = Organization.class),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Organization.class),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Organization.class),
+        @ApiResponse(code = 500, message = "Internal server error", response = Organization.class) })
+    public abstract Response findOrganization(@PathParam("organizationId") String organizationId);
 
     @GET
     @Path("/{organizationId}/banners/{bannerId}")
