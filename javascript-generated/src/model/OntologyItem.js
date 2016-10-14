@@ -45,7 +45,7 @@
   /**
    * The OntologyItem model module.
    * @module model/OntologyItem
-   * @version 0.0.12
+   * @version 0.0.13
    */
 
   /**
