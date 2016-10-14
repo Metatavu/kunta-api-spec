@@ -76,6 +76,14 @@ module.exports = function(grunt) {
           }
         }
       },
+      'javascript-push': {
+        command : 'git add . && git commit -m "Generated javascript source" && git push',
+        options: {
+          execOptions: {
+            cwd: 'javascript-generated'
+          }
+        }
+      },
       'php-client-generate': {
         command : 'java -jar swagger-codegen-cli.jar generate ' +
           '-i ./swagger.yaml ' +
@@ -102,7 +110,7 @@ module.exports = function(grunt) {
   
   grunt.registerTask('download-dependencies', 'if-missing:curl:swagger-codegen');
   grunt.registerTask('jaxrs-spec', ['download-dependencies', 'clean:jaxrs-spec-sources', 'shell:jaxrs-spec-generate', 'clean:jaxrs-spec-cruft', 'copy:jaxrs-spec-extras', 'shell:jaxrs-spec-install', 'shell:jaxrs-spec-release' ]);
-  grunt.registerTask('javascript', ['download-dependencies', 'clean:javascript-sources', 'shell:javascript-generate', 'shell:javascript-bump-version', 'publish:publish-javascript-client']);
+  grunt.registerTask('javascript', ['download-dependencies', 'clean:javascript-sources', 'shell:javascript-generate', 'shell:javascript-bump-version', 'shell:javascript-push', 'publish:publish-javascript-client']);
   grunt.registerTask('php', ['shell:php-client-generate', 'shell:php-client-publish']);
 
   grunt.registerTask('default', ['jaxrs-spec', 'javascript', 'php']);
