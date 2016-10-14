@@ -45,7 +45,7 @@
   /**
    * The File model module.
    * @module model/File
-   * @version 0.0.13
+   * @version 0.0.14
    */
 
   /**

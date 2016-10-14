@@ -42,7 +42,7 @@
   /**
    * Organizations service.
    * @module api/OrganizationsApi
-   * @version 0.0.13
+   * @version 0.0.14
    */
 
   /**
@@ -95,6 +95,44 @@
 
       return this.apiClient.callApi(
         '/organizations/{organizationId}/organizationServices', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+
+    /**
+     * Find organization
+     * Find organization
+     * @param {String} organizationId organization id
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Organization}
+     */
+    this.findOrganization = function(organizationId) {
+      var postBody = null;
+
+      // verify the required parameter 'organizationId' is set
+      if (organizationId == undefined || organizationId == null) {
+        throw "Missing the required parameter 'organizationId' when calling findOrganization";
+      }
+
+
+      var pathParams = {
+        'organizationId': organizationId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = ['application/json;charset=utf-8'];
+      var accepts = ['application/json;charset=utf-8'];
+      var returnType = Organization;
+
+      return this.apiClient.callApi(
+        '/organizations/{organizationId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );

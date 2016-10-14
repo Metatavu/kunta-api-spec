@@ -5,6 +5,7 @@ All URIs are relative to *https://demo.kuntaapi.fi/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createOrganizationService**](OrganizationsApi.md#createOrganizationService) | **POST** /organizations/{organizationId}/organizationServices | Create organization service
+[**findOrganization**](OrganizationsApi.md#findOrganization) | **GET** /organizations/{organizationId} | Find organization
 [**findOrganizationService**](OrganizationsApi.md#findOrganizationService) | **GET** /organizations/{organizationId}/organizationServices/{organizationServiceId} | Finds a organization service by id
 [**listOrganizationOrganizationServices**](OrganizationsApi.md#listOrganizationOrganizationServices) | **GET** /organizations/{organizationId}/organizationServices | Organization organization service list
 [**listOrganizations**](OrganizationsApi.md#listOrganizations) | **GET** /organizations | List organizations
@@ -43,6 +44,49 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| Organization id | 
  **body** | [**OrganizationService**](OrganizationService.md)| Payload | 
+
+### Return type
+
+[**Organization**](Organization.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
+
+<a name="findOrganization"></a>
+# **findOrganization**
+> Organization findOrganization(organizationId)
+
+Find organization
+
+Find organization
+
+### Example
+```javascript
+var KuntaApiClient = require('kunta-api-client');
+
+var apiInstance = new KuntaApiClient.OrganizationsApi();
+
+var organizationId = "organizationId_example"; // String | organization id
+
+apiInstance.findOrganization(organizationId).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| organization id | 
 
 ### Return type
 
