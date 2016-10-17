@@ -10,6 +10,7 @@ import fi.otavanopisto.kuntaapi.server.rest.model.NewsArticle;
 import fi.otavanopisto.kuntaapi.server.rest.model.Attachment;
 import fi.otavanopisto.kuntaapi.server.rest.model.Event;
 import fi.otavanopisto.kuntaapi.server.rest.model.Page;
+import fi.otavanopisto.kuntaapi.server.rest.model.Job;
 import fi.otavanopisto.kuntaapi.server.rest.model.Menu;
 import fi.otavanopisto.kuntaapi.server.rest.model.MenuItem;
 import fi.otavanopisto.kuntaapi.server.rest.model.LocalizedValue;
@@ -30,7 +31,7 @@ import java.util.List;
 @Api(description = "the organizations API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2016-10-14T14:51:59.268+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2016-10-17T14:53:10.636+03:00")
 
 public abstract class OrganizationsApi extends AbstractApi {
 
@@ -141,6 +142,18 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Page.class),
         @ApiResponse(code = 500, message = "Internal server error", response = Page.class) })
     public abstract Response findOrganizationFile(@PathParam("organizationId") String organizationId,@PathParam("fileId") String fileId);
+
+    @GET
+    @Path("/{organizationId}/jobs/{jobId}")
+    @Consumes({ "application/json;charset=utf-8" })
+    @Produces({ "application/json;charset=utf-8" })
+    @ApiOperation(value = "Finds organizations job", notes = "Finds single organization job ", response = Job.class, tags={ "Jobs",  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Returns a single organization job", response = Job.class),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Job.class),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Job.class),
+        @ApiResponse(code = 500, message = "Internal server error", response = Job.class) })
+    public abstract Response findOrganizationJob(@PathParam("organizationId") String organizationId,@PathParam("jobId") String jobId);
 
     @GET
     @Path("/{organizationId}/menus/{menuId}")
@@ -406,6 +419,18 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = File.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = File.class, responseContainer = "List") })
     public abstract Response listOrganizationFiles(@PathParam("organizationId") String organizationId,@QueryParam("pageId") String pageId);
+
+    @GET
+    @Path("/{organizationId}/jobs")
+    @Consumes({ "application/json;charset=utf-8" })
+    @Produces({ "application/json;charset=utf-8" })
+    @ApiOperation(value = "Lists organizations jobs", notes = "Lists organizations jobs ", response = Job.class, responseContainer = "List", tags={ "Jobs",  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Returns a list of organizations jobs", response = Job.class, responseContainer = "List"),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Job.class, responseContainer = "List"),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Job.class, responseContainer = "List"),
+        @ApiResponse(code = 500, message = "Internal server error", response = Job.class, responseContainer = "List") })
+    public abstract Response listOrganizationJobs(@PathParam("organizationId") String organizationId,@QueryParam("sortBy") String sortBy,@QueryParam("sortDir") String sortDir);
 
     @GET
     @Path("/{organizationId}/menus/{menuId}/items")
