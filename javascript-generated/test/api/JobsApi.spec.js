@@ -39,7 +39,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new KuntaApiClient.LocalizedValue();
+    instance = new KuntaApiClient.JobsApi();
   });
 
   var getProperty = function(object, getter, property) {
@@ -58,31 +58,27 @@
       object[property] = value;
   }
 
-  describe('LocalizedValue', function() {
-    it('should create an instance of LocalizedValue', function() {
-      // uncomment below and update the code to test LocalizedValue
-      //var instane = new KuntaApiClient.LocalizedValue();
-      //expect(instance).to.be.a(KuntaApiClient.LocalizedValue);
+  describe('JobsApi', function() {
+    describe('findOrganizationJob', function() {
+      it('should call findOrganizationJob successfully', function(done) {
+        //uncomment below and update the code to test findOrganizationJob
+        //instance.findOrganizationJob(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
     });
-
-    it('should have the property language (base name: "language")', function() {
-      // uncomment below and update the code to test the property language
-      //var instane = new KuntaApiClient.LocalizedValue();
-      //expect(instance).to.be();
+    describe('listOrganizationJobs', function() {
+      it('should call listOrganizationJobs successfully', function(done) {
+        //uncomment below and update the code to test listOrganizationJobs
+        //instance.listOrganizationJobs(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
     });
-
-    it('should have the property value (base name: "value")', function() {
-      // uncomment below and update the code to test the property value
-      //var instane = new KuntaApiClient.LocalizedValue();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property type (base name: "type")', function() {
-      // uncomment below and update the code to test the property type
-      //var instane = new KuntaApiClient.LocalizedValue();
-      //expect(instance).to.be();
-    });
-
   });
 
 }));

@@ -39,7 +39,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new KuntaApiClient.Tile();
+    instance = new KuntaApiClient.Job();
   });
 
   var getProperty = function(object, getter, property) {
@@ -58,34 +58,76 @@
       object[property] = value;
   }
 
-  describe('Tile', function() {
-    it('should create an instance of Tile', function() {
-      // uncomment below and update the code to test Tile
-      //var instane = new KuntaApiClient.Tile();
-      //expect(instance).to.be.a(KuntaApiClient.Tile);
+  describe('Job', function() {
+    it('should create an instance of Job', function() {
+      // uncomment below and update the code to test Job
+      //var instane = new KuntaApiClient.Job();
+      //expect(instance).to.be.a(KuntaApiClient.Job);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new KuntaApiClient.Tile();
+      //var instane = new KuntaApiClient.Job();
       //expect(instance).to.be();
     });
 
     it('should have the property title (base name: "title")', function() {
       // uncomment below and update the code to test the property title
-      //var instane = new KuntaApiClient.Tile();
+      //var instane = new KuntaApiClient.Job();
       //expect(instance).to.be();
     });
 
-    it('should have the property contents (base name: "contents")', function() {
-      // uncomment below and update the code to test the property contents
-      //var instane = new KuntaApiClient.Tile();
+    it('should have the property employmentType (base name: "employmentType")', function() {
+      // uncomment below and update the code to test the property employmentType
+      //var instane = new KuntaApiClient.Job();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property description (base name: "description")', function() {
+      // uncomment below and update the code to test the property description
+      //var instane = new KuntaApiClient.Job();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property location (base name: "location")', function() {
+      // uncomment below and update the code to test the property location
+      //var instane = new KuntaApiClient.Job();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property organisationalUnit (base name: "organisationalUnit")', function() {
+      // uncomment below and update the code to test the property organisationalUnit
+      //var instane = new KuntaApiClient.Job();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property duration (base name: "duration")', function() {
+      // uncomment below and update the code to test the property duration
+      //var instane = new KuntaApiClient.Job();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property taskArea (base name: "taskArea")', function() {
+      // uncomment below and update the code to test the property taskArea
+      //var instane = new KuntaApiClient.Job();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property publicationStart (base name: "publicationStart")', function() {
+      // uncomment below and update the code to test the property publicationStart
+      //var instane = new KuntaApiClient.Job();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property publicationEnd (base name: "publicationEnd")', function() {
+      // uncomment below and update the code to test the property publicationEnd
+      //var instane = new KuntaApiClient.Job();
       //expect(instance).to.be();
     });
 
     it('should have the property link (base name: "link")', function() {
       // uncomment below and update the code to test the property link
-      //var instane = new KuntaApiClient.Tile();
+      //var instane = new KuntaApiClient.Job();
       //expect(instance).to.be();
     });
 

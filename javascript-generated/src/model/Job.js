@@ -34,7 +34,7 @@
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.Banner = factory(root.KuntaApiClient.ApiClient);
+    root.KuntaApiClient.Job = factory(root.KuntaApiClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -43,14 +43,14 @@
 
 
   /**
-   * The Banner model module.
-   * @module model/Banner
+   * The Job model module.
+   * @module model/Job
    * @version 0.0.15
    */
 
   /**
-   * Constructs a new <code>Banner</code>.
-   * @alias module:model/Banner
+   * Constructs a new <code>Job</code>.
+   * @alias module:model/Job
    * @class
    */
   var exports = function() {
@@ -60,14 +60,21 @@
 
 
 
+
+
+
+
+
+
+
   };
 
   /**
-   * Constructs a <code>Banner</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>Job</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Banner} obj Optional instance to populate.
-   * @return {module:model/Banner} The populated <code>Banner</code> instance.
+   * @param {module:model/Job} obj Optional instance to populate.
+   * @return {module:model/Job} The populated <code>Job</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -79,8 +86,29 @@
       if (data.hasOwnProperty('title')) {
         obj['title'] = ApiClient.convertToType(data['title'], 'String');
       }
-      if (data.hasOwnProperty('contents')) {
-        obj['contents'] = ApiClient.convertToType(data['contents'], 'String');
+      if (data.hasOwnProperty('employmentType')) {
+        obj['employmentType'] = ApiClient.convertToType(data['employmentType'], 'String');
+      }
+      if (data.hasOwnProperty('description')) {
+        obj['description'] = ApiClient.convertToType(data['description'], 'String');
+      }
+      if (data.hasOwnProperty('location')) {
+        obj['location'] = ApiClient.convertToType(data['location'], 'String');
+      }
+      if (data.hasOwnProperty('organisationalUnit')) {
+        obj['organisationalUnit'] = ApiClient.convertToType(data['organisationalUnit'], 'String');
+      }
+      if (data.hasOwnProperty('duration')) {
+        obj['duration'] = ApiClient.convertToType(data['duration'], 'String');
+      }
+      if (data.hasOwnProperty('taskArea')) {
+        obj['taskArea'] = ApiClient.convertToType(data['taskArea'], 'String');
+      }
+      if (data.hasOwnProperty('publicationStart')) {
+        obj['publicationStart'] = ApiClient.convertToType(data['publicationStart'], 'String');
+      }
+      if (data.hasOwnProperty('publicationEnd')) {
+        obj['publicationEnd'] = ApiClient.convertToType(data['publicationEnd'], 'String');
       }
       if (data.hasOwnProperty('link')) {
         obj['link'] = ApiClient.convertToType(data['link'], 'String');
@@ -98,9 +126,37 @@
    */
   exports.prototype['title'] = undefined;
   /**
-   * @member {String} contents
+   * @member {String} employmentType
    */
-  exports.prototype['contents'] = undefined;
+  exports.prototype['employmentType'] = undefined;
+  /**
+   * @member {String} description
+   */
+  exports.prototype['description'] = undefined;
+  /**
+   * @member {String} location
+   */
+  exports.prototype['location'] = undefined;
+  /**
+   * @member {String} organisationalUnit
+   */
+  exports.prototype['organisationalUnit'] = undefined;
+  /**
+   * @member {String} duration
+   */
+  exports.prototype['duration'] = undefined;
+  /**
+   * @member {String} taskArea
+   */
+  exports.prototype['taskArea'] = undefined;
+  /**
+   * @member {String} publicationStart
+   */
+  exports.prototype['publicationStart'] = undefined;
+  /**
+   * @member {String} publicationEnd
+   */
+  exports.prototype['publicationEnd'] = undefined;
   /**
    * @member {String} link
    */

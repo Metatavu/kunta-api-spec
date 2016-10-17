@@ -1,8 +1,8 @@
 {
   "author": "Otavan Opisto",
   "name": "kunta-api-client",
-  "version": "0.0.15",
-  "description": "One API to rule them all. One API to find them, One API to bring them all and in the darkness bind them.",
+  "version": "0.0.16",
+  "description": "Solution to combine municipality services under single API.",
   "license": "AGPL-3.0",
   "main": "src/index.js",
   "scripts": {

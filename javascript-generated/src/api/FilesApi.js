@@ -1,6 +1,6 @@
 /**
  * Kunta API
- * One API to rule them all. One API to find them, One API to bring them all and in the darkness bind them.
+ * Solution to combine municipality services under single API.
  *
  * OpenAPI spec version: 0.0.1
  * 
@@ -42,7 +42,7 @@
   /**
    * Files service.
    * @module api/FilesApi
-   * @version 0.0.14
+   * @version 0.0.15
    */
 
   /**
