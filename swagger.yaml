@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   title: Kunta API
-  description: One API to rule them all. One API to find them, One API to bring them all and in the darkness bind them.
+  description: Solution to combine municipality services under single API.
   version: "0.0.1"
 host: demo.kuntaapi.fi
 schemes:
@@ -57,7 +57,7 @@ paths:
           in: path
           description: organization id
           type: string
-          requred: true
+          required: true
       tags:
         - Organizations
       responses:
@@ -1680,7 +1680,89 @@ paths:
         500:
           description: Internal server error
           schema:
-            $ref: '#/definitions/InternalServerError'          
+            $ref: '#/definitions/InternalServerError'
+  /organizations/{organizationId}/jobs:
+    get:
+      operationId: listOrganizationJobs
+      summary: Lists organizations jobs
+      description: |
+        Lists organizations jobs
+      parameters:
+        - name: organizationId
+          in: path
+          description: Organization id
+          required: true
+          type: string
+          format: uuid
+        - name: sortBy
+          in: query
+          description: PUBLICATION_START or PUBLICATION_END
+          required: false
+          type: string
+        - name: sortDir
+          in: query
+          description: ASC or DESC
+          required: false
+          type: string
+      tags:
+        - Jobs
+      responses:
+        200:
+          description: Returns a list of organizations jobs
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Job'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  /organizations/{organizationId}/jobs/{jobId}:
+    get:
+      operationId: findOrganizationJob
+      summary: Finds organizations job
+      description: |
+        Finds single organization job
+      parameters:
+        - name: organizationId
+          in: path
+          description: Organization id
+          required: true
+          type: string
+          format: uuid
+        - name: jobId
+          in: path
+          description: job id
+          required: true
+          type: string
+          format: uuid
+      tags:
+        - Jobs
+      responses:
+        200:
+          description: Returns a single organization job
+          schema:
+            $ref: '#/definitions/Job'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
   /services:
     get:
       operationId: listServices
@@ -3426,6 +3508,31 @@ definitions:
       title:
         type: string
       contents:
+        type: string
+      link:
+        type: string
+  Job:
+    properties:
+      id:
+        type: string
+        format: uuid
+      title:
+        type: string
+      employmentType:
+        type: string
+      description:
+        type: string
+      location:
+        type: string
+      organisationalUnit:
+        type: string
+      duration:
+        type: string
+      taskArea:
+        type: string
+      publicationStart:
+        type: string
+      publicationEnd:
         type: string
       link:
         type: string
