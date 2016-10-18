@@ -4036,6 +4036,10 @@
     "OrganizationService" : {
       "type" : "object",
       "properties" : {
+        "id" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
         "serviceId" : {
           "type" : "string",
           "format" : "uuid"

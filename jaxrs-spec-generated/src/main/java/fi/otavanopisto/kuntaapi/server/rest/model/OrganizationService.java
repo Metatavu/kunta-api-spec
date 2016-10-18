@@ -13,12 +13,29 @@ import java.util.Objects;
 
 public class OrganizationService   {
   
+  private String id = null;
   private String serviceId = null;
   private String organizationId = null;
   private String roleType = null;
   private String provisionType = null;
   private List<LocalizedValue> additionalInformation = new ArrayList<LocalizedValue>();
   private List<WebPage> webPages = new ArrayList<WebPage>();
+
+  /**
+   **/
+  public OrganizationService id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "")
+  public String getId() {
+    return id;
+  }
+  public void setId(String id) {
+    this.id = id;
+  }
 
   /**
    **/
@@ -126,7 +143,8 @@ public class OrganizationService   {
       return false;
     }
     OrganizationService organizationService = (OrganizationService) o;
-    return Objects.equals(serviceId, organizationService.serviceId) &&
+    return Objects.equals(id, organizationService.id) &&
+        Objects.equals(serviceId, organizationService.serviceId) &&
         Objects.equals(organizationId, organizationService.organizationId) &&
         Objects.equals(roleType, organizationService.roleType) &&
         Objects.equals(provisionType, organizationService.provisionType) &&
@@ -136,7 +154,7 @@ public class OrganizationService   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(serviceId, organizationId, roleType, provisionType, additionalInformation, webPages);
+    return Objects.hash(id, serviceId, organizationId, roleType, provisionType, additionalInformation, webPages);
   }
 
   @Override
@@ -144,6 +162,7 @@ public class OrganizationService   {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrganizationService {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
     sb.append("    organizationId: ").append(toIndentedString(organizationId)).append("\n");
     sb.append("    roleType: ").append(toIndentedString(roleType)).append("\n");
