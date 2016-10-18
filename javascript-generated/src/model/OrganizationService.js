@@ -45,7 +45,7 @@
   /**
    * The OrganizationService model module.
    * @module model/OrganizationService
-   * @version 0.0.15
+   * @version 0.0.16
    */
 
   /**
@@ -55,6 +55,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -75,6 +76,9 @@
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('id')) {
+        obj['id'] = ApiClient.convertToType(data['id'], 'String');
+      }
       if (data.hasOwnProperty('serviceId')) {
         obj['serviceId'] = ApiClient.convertToType(data['serviceId'], 'String');
       }
@@ -97,6 +101,10 @@
     return obj;
   }
 
+  /**
+   * @member {String} id
+   */
+  exports.prototype['id'] = undefined;
   /**
    * @member {String} serviceId
    */

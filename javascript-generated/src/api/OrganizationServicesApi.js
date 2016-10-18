@@ -42,7 +42,7 @@
   /**
    * OrganizationServices service.
    * @module api/OrganizationServicesApi
-   * @version 0.0.15
+   * @version 0.0.16
    */
 
   /**

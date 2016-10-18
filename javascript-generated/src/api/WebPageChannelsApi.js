@@ -42,7 +42,7 @@
   /**
    * WebPageChannels service.
    * @module api/WebPageChannelsApi
-   * @version 0.0.15
+   * @version 0.0.16
    */
 
   /**
