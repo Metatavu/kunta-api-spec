@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **organisationalUnit** | **String** |  | [optional] 
 **duration** | **String** |  | [optional] 
 **taskArea** | **String** |  | [optional] 
-**publicationStart** | **String** |  | [optional] 
-**publicationEnd** | **String** |  | [optional] 
+**publicationStart** | **Date** |  | [optional] 
+**publicationEnd** | **Date** |  | [optional] 
 **link** | **String** |  | [optional] 
 
 

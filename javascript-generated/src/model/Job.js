@@ -45,7 +45,7 @@
   /**
    * The Job model module.
    * @module model/Job
-   * @version 0.0.16
+   * @version 0.0.17
    */
 
   /**
@@ -105,10 +105,10 @@
         obj['taskArea'] = ApiClient.convertToType(data['taskArea'], 'String');
       }
       if (data.hasOwnProperty('publicationStart')) {
-        obj['publicationStart'] = ApiClient.convertToType(data['publicationStart'], 'String');
+        obj['publicationStart'] = ApiClient.convertToType(data['publicationStart'], 'Date');
       }
       if (data.hasOwnProperty('publicationEnd')) {
-        obj['publicationEnd'] = ApiClient.convertToType(data['publicationEnd'], 'String');
+        obj['publicationEnd'] = ApiClient.convertToType(data['publicationEnd'], 'Date');
       }
       if (data.hasOwnProperty('link')) {
         obj['link'] = ApiClient.convertToType(data['link'], 'String');
@@ -150,11 +150,11 @@
    */
   exports.prototype['taskArea'] = undefined;
   /**
-   * @member {String} publicationStart
+   * @member {Date} publicationStart
    */
   exports.prototype['publicationStart'] = undefined;
   /**
-   * @member {String} publicationEnd
+   * @member {Date} publicationEnd
    */
   exports.prototype['publicationEnd'] = undefined;
   /**
