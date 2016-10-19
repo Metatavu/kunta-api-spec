@@ -1,5 +1,6 @@
 package fi.otavanopisto.kuntaapi.server.rest.model;
 
+import java.time.OffsetDateTime;
 
 
 
@@ -17,8 +18,8 @@ public class Job   {
   private String organisationalUnit = null;
   private String duration = null;
   private String taskArea = null;
-  private String publicationStart = null;
-  private String publicationEnd = null;
+  private OffsetDateTime publicationStart = null;
+  private OffsetDateTime publicationEnd = null;
   private String link = null;
 
   /**
@@ -151,33 +152,33 @@ public class Job   {
 
   /**
    **/
-  public Job publicationStart(String publicationStart) {
+  public Job publicationStart(OffsetDateTime publicationStart) {
     this.publicationStart = publicationStart;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "")
-  public String getPublicationStart() {
+  public OffsetDateTime getPublicationStart() {
     return publicationStart;
   }
-  public void setPublicationStart(String publicationStart) {
+  public void setPublicationStart(OffsetDateTime publicationStart) {
     this.publicationStart = publicationStart;
   }
 
   /**
    **/
-  public Job publicationEnd(String publicationEnd) {
+  public Job publicationEnd(OffsetDateTime publicationEnd) {
     this.publicationEnd = publicationEnd;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "")
-  public String getPublicationEnd() {
+  public OffsetDateTime getPublicationEnd() {
     return publicationEnd;
   }
-  public void setPublicationEnd(String publicationEnd) {
+  public void setPublicationEnd(OffsetDateTime publicationEnd) {
     this.publicationEnd = publicationEnd;
   }
 

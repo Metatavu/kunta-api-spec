@@ -4679,10 +4679,12 @@
           "type" : "string"
         },
         "publicationStart" : {
-          "type" : "string"
+          "type" : "string",
+          "format" : "date-time"
         },
         "publicationEnd" : {
-          "type" : "string"
+          "type" : "string",
+          "format" : "date-time"
         },
         "link" : {
           "type" : "string"
