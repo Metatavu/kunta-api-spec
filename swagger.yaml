@@ -3535,8 +3535,10 @@ definitions:
         type: string
       publicationStart:
         type: string
+        format: date-time
       publicationEnd:
         type: string
+        format: date-time
       link:
         type: string
   OrganizationSetting:
