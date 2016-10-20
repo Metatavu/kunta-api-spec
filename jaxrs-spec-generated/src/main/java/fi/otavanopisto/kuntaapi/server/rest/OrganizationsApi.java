@@ -6,6 +6,7 @@ import fi.otavanopisto.kuntaapi.server.rest.model.Organization;
 import fi.otavanopisto.kuntaapi.server.rest.model.Forbidden;
 import fi.otavanopisto.kuntaapi.server.rest.model.InternalServerError;
 import fi.otavanopisto.kuntaapi.server.rest.model.OrganizationSetting;
+import fi.otavanopisto.kuntaapi.server.rest.model.Announcement;
 import fi.otavanopisto.kuntaapi.server.rest.model.NewsArticle;
 import fi.otavanopisto.kuntaapi.server.rest.model.Attachment;
 import fi.otavanopisto.kuntaapi.server.rest.model.Event;
@@ -31,7 +32,7 @@ import java.util.List;
 @Api(description = "the organizations API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2016-10-19T09:44:44.022+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2016-10-20T10:01:25.779+03:00")
 
 public abstract class OrganizationsApi extends AbstractApi {
 
@@ -82,6 +83,18 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Organization.class),
         @ApiResponse(code = 500, message = "Internal server error", response = Organization.class) })
     public abstract Response findOrganization(@PathParam("organizationId") String organizationId);
+
+    @GET
+    @Path("/{organizationId}/announcements/{announcementId}")
+    @Consumes({ "application/json;charset=utf-8" })
+    @Produces({ "application/json;charset=utf-8" })
+    @ApiOperation(value = "Finds an organizations announcement", notes = "Finds organization's single announcement ", response = Announcement.class, tags={ "Announcements",  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Returns a single announcement", response = Announcement.class),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Announcement.class),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Announcement.class),
+        @ApiResponse(code = 500, message = "Internal server error", response = Announcement.class) })
+    public abstract Response findOrganizationAnnouncement(@PathParam("organizationId") String organizationId,@PathParam("announcementId") String announcementId);
 
     @GET
     @Path("/{organizationId}/banners/{bannerId}")
@@ -359,6 +372,18 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = byte[].class),
         @ApiResponse(code = 500, message = "Internal server error", response = byte[].class) })
     public abstract Response getOrganizationTileImageData(@PathParam("organizationId") String organizationId,@PathParam("tileId") String tileId,@PathParam("imageId") String imageId,@QueryParam("size") Integer size);
+
+    @GET
+    @Path("/{organizationId}/announcements")
+    @Consumes({ "application/json;charset=utf-8" })
+    @Produces({ "application/json;charset=utf-8" })
+    @ApiOperation(value = "Lists organizations announcements", notes = "Lists organizations announcements ", response = Announcement.class, responseContainer = "List", tags={ "Announcements",  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Returns a list of announcements", response = Announcement.class, responseContainer = "List"),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Announcement.class, responseContainer = "List"),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Announcement.class, responseContainer = "List"),
+        @ApiResponse(code = 500, message = "Internal server error", response = Announcement.class, responseContainer = "List") })
+    public abstract Response listOrganizationAnnouncements(@PathParam("organizationId") String organizationId,@QueryParam("firstResult") Integer firstResult,@QueryParam("maxResults") Integer maxResults,@QueryParam("sortBy") String sortBy,@QueryParam("sortDir") String sortDir);
 
     @GET
     @Path("/{organizationId}/banners/{bannerId}/images")
