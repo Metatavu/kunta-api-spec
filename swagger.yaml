@@ -1763,6 +1763,98 @@ paths:
           description: Internal server error
           schema:
             $ref: '#/definitions/InternalServerError'
+  /organizations/{organizationId}/announcements:
+    get:
+      operationId: listOrganizationAnnouncements
+      summary: Lists organizations announcements
+      description: |
+        Lists organizations announcements
+      parameters:
+        - name: organizationId
+          in: path
+          description: Organization id
+          required: true
+          type: string
+          format: uuid
+        - name: firstResult
+          in: query
+          description: first index of results
+          type: integer
+          format: int32
+        - name: maxResults
+          in: query
+          description: maximum number of results
+          type: integer
+          format: int32
+        - name: sortBy
+          in: query
+          description: PUBLICATION_DATE
+          required: false
+          type: string
+        - name: sortDir
+          in: query
+          description: ASC or DESC
+          required: false
+          type: string
+      tags:
+        - Announcements
+      responses:
+        200:
+          description: Returns a list of announcements
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Announcement'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  /organizations/{organizationId}/announcements/{announcementId}:
+    get:
+      operationId: findOrganizationAnnouncement
+      summary: Finds an organizations announcement
+      description: |
+        Finds organization's single announcement
+      parameters:
+        - name: organizationId
+          in: path
+          description: Organization id
+          required: true
+          type: string
+          format: uuid
+        - name: announcementId
+          in: path
+          description: Announcement id
+          required: true
+          type: string
+          format: uuid
+      tags:
+        - Announcements
+      responses:
+        200:
+          description: Returns a single announcement
+          schema:
+            $ref: '#/definitions/Announcement'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
   /services:
     get:
       operationId: listServices
@@ -3541,6 +3633,20 @@ definitions:
         format: date-time
       link:
         type: string
+  Announcement:
+    properties:
+      id:
+        type: string
+        format: uuid
+      title:
+        type: string
+      abstract:
+        type: string
+      contents:
+        type: string
+      published:
+        type: string
+        format: date-time
   OrganizationSetting:
     properties:
       id:
