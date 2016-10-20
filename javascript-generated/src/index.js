@@ -25,12 +25,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Address', 'model/Attachment', 'model/BadRequest', 'model/Banner', 'model/ElectronicChannel', 'model/Event', 'model/File', 'model/Forbidden', 'model/InternalServerError', 'model/Job', 'model/LocalizedValue', 'model/Menu', 'model/MenuItem', 'model/NewsArticle', 'model/NotFound', 'model/NotImplemented', 'model/OntologyItem', 'model/Organization', 'model/OrganizationService', 'model/OrganizationSetting', 'model/Page', 'model/PhoneChannel', 'model/PrintableFormChannel', 'model/Service', 'model/ServiceChannelAttachment', 'model/ServiceHour', 'model/ServiceLocationChannel', 'model/SupportContact', 'model/Tile', 'model/WebPage', 'model/WebPageChannel', 'api/BannersApi', 'api/ElectronicChannelsApi', 'api/EventsApi', 'api/FilesApi', 'api/JobsApi', 'api/MenusApi', 'api/NewsApi', 'api/OrganizationServicesApi', 'api/OrganizationsApi', 'api/PagesApi', 'api/PhoneChannelsApi', 'api/PrintableFormChannelsApi', 'api/ServiceLocationChannelsApi', 'api/ServicesApi', 'api/SettingsApi', 'api/TilesApi', 'api/WebPageChannelsApi'], factory);
+    define(['ApiClient', 'model/Address', 'model/Announcement', 'model/Attachment', 'model/BadRequest', 'model/Banner', 'model/ElectronicChannel', 'model/Event', 'model/File', 'model/Forbidden', 'model/InternalServerError', 'model/Job', 'model/LocalizedValue', 'model/Menu', 'model/MenuItem', 'model/NewsArticle', 'model/NotFound', 'model/NotImplemented', 'model/OntologyItem', 'model/Organization', 'model/OrganizationService', 'model/OrganizationSetting', 'model/Page', 'model/PhoneChannel', 'model/PrintableFormChannel', 'model/Service', 'model/ServiceChannelAttachment', 'model/ServiceHour', 'model/ServiceLocationChannel', 'model/SupportContact', 'model/Tile', 'model/WebPage', 'model/WebPageChannel', 'api/AnnouncementsApi', 'api/BannersApi', 'api/ElectronicChannelsApi', 'api/EventsApi', 'api/FilesApi', 'api/JobsApi', 'api/MenusApi', 'api/NewsApi', 'api/OrganizationServicesApi', 'api/OrganizationsApi', 'api/PagesApi', 'api/PhoneChannelsApi', 'api/PrintableFormChannelsApi', 'api/ServiceLocationChannelsApi', 'api/ServicesApi', 'api/SettingsApi', 'api/TilesApi', 'api/WebPageChannelsApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/Address'), require('./model/Attachment'), require('./model/BadRequest'), require('./model/Banner'), require('./model/ElectronicChannel'), require('./model/Event'), require('./model/File'), require('./model/Forbidden'), require('./model/InternalServerError'), require('./model/Job'), require('./model/LocalizedValue'), require('./model/Menu'), require('./model/MenuItem'), require('./model/NewsArticle'), require('./model/NotFound'), require('./model/NotImplemented'), require('./model/OntologyItem'), require('./model/Organization'), require('./model/OrganizationService'), require('./model/OrganizationSetting'), require('./model/Page'), require('./model/PhoneChannel'), require('./model/PrintableFormChannel'), require('./model/Service'), require('./model/ServiceChannelAttachment'), require('./model/ServiceHour'), require('./model/ServiceLocationChannel'), require('./model/SupportContact'), require('./model/Tile'), require('./model/WebPage'), require('./model/WebPageChannel'), require('./api/BannersApi'), require('./api/ElectronicChannelsApi'), require('./api/EventsApi'), require('./api/FilesApi'), require('./api/JobsApi'), require('./api/MenusApi'), require('./api/NewsApi'), require('./api/OrganizationServicesApi'), require('./api/OrganizationsApi'), require('./api/PagesApi'), require('./api/PhoneChannelsApi'), require('./api/PrintableFormChannelsApi'), require('./api/ServiceLocationChannelsApi'), require('./api/ServicesApi'), require('./api/SettingsApi'), require('./api/TilesApi'), require('./api/WebPageChannelsApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/Address'), require('./model/Announcement'), require('./model/Attachment'), require('./model/BadRequest'), require('./model/Banner'), require('./model/ElectronicChannel'), require('./model/Event'), require('./model/File'), require('./model/Forbidden'), require('./model/InternalServerError'), require('./model/Job'), require('./model/LocalizedValue'), require('./model/Menu'), require('./model/MenuItem'), require('./model/NewsArticle'), require('./model/NotFound'), require('./model/NotImplemented'), require('./model/OntologyItem'), require('./model/Organization'), require('./model/OrganizationService'), require('./model/OrganizationSetting'), require('./model/Page'), require('./model/PhoneChannel'), require('./model/PrintableFormChannel'), require('./model/Service'), require('./model/ServiceChannelAttachment'), require('./model/ServiceHour'), require('./model/ServiceLocationChannel'), require('./model/SupportContact'), require('./model/Tile'), require('./model/WebPage'), require('./model/WebPageChannel'), require('./api/AnnouncementsApi'), require('./api/BannersApi'), require('./api/ElectronicChannelsApi'), require('./api/EventsApi'), require('./api/FilesApi'), require('./api/JobsApi'), require('./api/MenusApi'), require('./api/NewsApi'), require('./api/OrganizationServicesApi'), require('./api/OrganizationsApi'), require('./api/PagesApi'), require('./api/PhoneChannelsApi'), require('./api/PrintableFormChannelsApi'), require('./api/ServiceLocationChannelsApi'), require('./api/ServicesApi'), require('./api/SettingsApi'), require('./api/TilesApi'), require('./api/WebPageChannelsApi'));
   }
-}(function(ApiClient, Address, Attachment, BadRequest, Banner, ElectronicChannel, Event, File, Forbidden, InternalServerError, Job, LocalizedValue, Menu, MenuItem, NewsArticle, NotFound, NotImplemented, OntologyItem, Organization, OrganizationService, OrganizationSetting, Page, PhoneChannel, PrintableFormChannel, Service, ServiceChannelAttachment, ServiceHour, ServiceLocationChannel, SupportContact, Tile, WebPage, WebPageChannel, BannersApi, ElectronicChannelsApi, EventsApi, FilesApi, JobsApi, MenusApi, NewsApi, OrganizationServicesApi, OrganizationsApi, PagesApi, PhoneChannelsApi, PrintableFormChannelsApi, ServiceLocationChannelsApi, ServicesApi, SettingsApi, TilesApi, WebPageChannelsApi) {
+}(function(ApiClient, Address, Announcement, Attachment, BadRequest, Banner, ElectronicChannel, Event, File, Forbidden, InternalServerError, Job, LocalizedValue, Menu, MenuItem, NewsArticle, NotFound, NotImplemented, OntologyItem, Organization, OrganizationService, OrganizationSetting, Page, PhoneChannel, PrintableFormChannel, Service, ServiceChannelAttachment, ServiceHour, ServiceLocationChannel, SupportContact, Tile, WebPage, WebPageChannel, AnnouncementsApi, BannersApi, ElectronicChannelsApi, EventsApi, FilesApi, JobsApi, MenusApi, NewsApi, OrganizationServicesApi, OrganizationsApi, PagesApi, PhoneChannelsApi, PrintableFormChannelsApi, ServiceLocationChannelsApi, ServicesApi, SettingsApi, TilesApi, WebPageChannelsApi) {
   'use strict';
 
   /**
@@ -62,7 +62,7 @@
    * </pre>
    * </p>
    * @module index
-   * @version 0.0.17
+   * @version 0.0.18
    */
   var exports = {
     /**
@@ -75,6 +75,11 @@
      * @property {module:model/Address}
      */
     Address: Address,
+    /**
+     * The Announcement model constructor.
+     * @property {module:model/Announcement}
+     */
+    Announcement: Announcement,
     /**
      * The Attachment model constructor.
      * @property {module:model/Attachment}
@@ -225,6 +230,11 @@
      * @property {module:model/WebPageChannel}
      */
     WebPageChannel: WebPageChannel,
+    /**
+     * The AnnouncementsApi service constructor.
+     * @property {module:api/AnnouncementsApi}
+     */
+    AnnouncementsApi: AnnouncementsApi,
     /**
      * The BannersApi service constructor.
      * @property {module:api/BannersApi}

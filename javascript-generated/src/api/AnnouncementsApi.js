@@ -25,29 +25,29 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/BadRequest', 'model/Forbidden', 'model/Job', 'model/InternalServerError'], factory);
+    define(['ApiClient', 'model/BadRequest', 'model/Announcement', 'model/Forbidden', 'model/InternalServerError'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/Forbidden'), require('../model/Job'), require('../model/InternalServerError'));
+    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/Announcement'), require('../model/Forbidden'), require('../model/InternalServerError'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.JobsApi = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.BadRequest, root.KuntaApiClient.Forbidden, root.KuntaApiClient.Job, root.KuntaApiClient.InternalServerError);
+    root.KuntaApiClient.AnnouncementsApi = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.BadRequest, root.KuntaApiClient.Announcement, root.KuntaApiClient.Forbidden, root.KuntaApiClient.InternalServerError);
   }
-}(this, function(ApiClient, BadRequest, Forbidden, Job, InternalServerError) {
+}(this, function(ApiClient, BadRequest, Announcement, Forbidden, InternalServerError) {
   'use strict';
 
   /**
-   * Jobs service.
-   * @module api/JobsApi
+   * Announcements service.
+   * @module api/AnnouncementsApi
    * @version 0.0.18
    */
 
   /**
-   * Constructs a new JobsApi. 
-   * @alias module:api/JobsApi
+   * Constructs a new AnnouncementsApi. 
+   * @alias module:api/AnnouncementsApi
    * @class
    * @param {module:ApiClient} apiClient Optional API client implementation to use,
    * default to {@link module:ApiClient#instance} if unspecified.
@@ -58,29 +58,29 @@
 
 
     /**
-     * Finds organizations job
-     * Finds single organization job 
+     * Finds an organizations announcement
+     * Finds organization&#39;s single announcement 
      * @param {String} organizationId Organization id
-     * @param {String} jobId job id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Job}
+     * @param {String} announcementId Announcement id
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Announcement}
      */
-    this.findOrganizationJob = function(organizationId, jobId) {
+    this.findOrganizationAnnouncement = function(organizationId, announcementId) {
       var postBody = null;
 
       // verify the required parameter 'organizationId' is set
       if (organizationId == undefined || organizationId == null) {
-        throw "Missing the required parameter 'organizationId' when calling findOrganizationJob";
+        throw "Missing the required parameter 'organizationId' when calling findOrganizationAnnouncement";
       }
 
-      // verify the required parameter 'jobId' is set
-      if (jobId == undefined || jobId == null) {
-        throw "Missing the required parameter 'jobId' when calling findOrganizationJob";
+      // verify the required parameter 'announcementId' is set
+      if (announcementId == undefined || announcementId == null) {
+        throw "Missing the required parameter 'announcementId' when calling findOrganizationAnnouncement";
       }
 
 
       var pathParams = {
         'organizationId': organizationId,
-        'jobId': jobId
+        'announcementId': announcementId
       };
       var queryParams = {
       };
@@ -92,10 +92,10 @@
       var authNames = [];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = Job;
+      var returnType = Announcement;
 
       return this.apiClient.callApi(
-        '/organizations/{organizationId}/jobs/{jobId}', 'GET',
+        '/organizations/{organizationId}/announcements/{announcementId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );
@@ -103,21 +103,23 @@
 
 
     /**
-     * Lists organizations jobs
-     * Lists organizations jobs 
+     * Lists organizations announcements
+     * Lists organizations announcements 
      * @param {String} organizationId Organization id
      * @param {Object} opts Optional parameters
-     * @param {String} opts.sortBy PUBLICATION_START or PUBLICATION_END
+     * @param {Integer} opts.firstResult first index of results
+     * @param {Integer} opts.maxResults maximum number of results
+     * @param {String} opts.sortBy PUBLICATION_DATE
      * @param {String} opts.sortDir ASC or DESC
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Job>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Announcement>}
      */
-    this.listOrganizationJobs = function(organizationId, opts) {
+    this.listOrganizationAnnouncements = function(organizationId, opts) {
       opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'organizationId' is set
       if (organizationId == undefined || organizationId == null) {
-        throw "Missing the required parameter 'organizationId' when calling listOrganizationJobs";
+        throw "Missing the required parameter 'organizationId' when calling listOrganizationAnnouncements";
       }
 
 
@@ -125,6 +127,8 @@
         'organizationId': organizationId
       };
       var queryParams = {
+        'firstResult': opts['firstResult'],
+        'maxResults': opts['maxResults'],
         'sortBy': opts['sortBy'],
         'sortDir': opts['sortDir']
       };
@@ -136,10 +140,10 @@
       var authNames = [];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = [Job];
+      var returnType = [Announcement];
 
       return this.apiClient.callApi(
-        '/organizations/{organizationId}/jobs', 'GET',
+        '/organizations/{organizationId}/announcements', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );
