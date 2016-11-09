@@ -837,7 +837,8 @@ var apiInstance = new KuntaApiClient.ServicesApi();
 
 var opts = { 
   'firstResult': 789, // Integer | First result
-  'maxResults': 789 // Integer | Max results
+  'maxResults': 789, // Integer | Max results
+  'search': "search_example" // String | Search services by free-text query
 };
 apiInstance.listServices(opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -853,6 +854,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **firstResult** | **Integer**| First result | [optional] 
  **maxResults** | **Integer**| Max results | [optional] 
+ **search** | **String**| Search services by free-text query | [optional] 
 
 ### Return type
 
