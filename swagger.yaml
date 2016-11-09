@@ -26,6 +26,23 @@ paths:
           in: query
           description: Filter by organization's business code
           type: string
+        - name: search
+          in: query
+          description: Search organizations by free-text query
+          required: false
+          type: string
+        - name: firstResult
+          in: query
+          description: First result
+          required: false
+          type: integer
+          format: int64
+        - name: maxResults
+          in: query
+          description: Max results
+          required: false
+          type: integer
+          format: int64
       tags:
         - Organizations
       responses:
@@ -1165,6 +1182,23 @@ paths:
           description: Filter results by page path
           required: false
           type: string
+        - name: search
+          in: query
+          description: Search pages by free-text query
+          required: false
+          type: string
+        - name: firstResult
+          in: query
+          description: First result
+          required: false
+          type: integer
+          format: int64
+        - name: maxResults
+          in: query
+          description: Max results
+          required: false
+          type: integer
+          format: int64
       tags:
         - Pages
       responses:
@@ -1863,6 +1897,11 @@ paths:
       tags:
         - Services
       parameters:
+        - name: search
+          in: query
+          description: Search services by free-text query
+          required: false
+          type: string
         - name: firstResult
           in: query
           description: First result
@@ -1875,11 +1914,6 @@ paths:
           required: false
           type: integer
           format: int64
-        - name: search
-          in: query
-          description: Search services by free-text query
-          required: false
-          type: string
       responses:
         200:
           description: An array of services
