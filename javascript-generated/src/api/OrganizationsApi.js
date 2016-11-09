@@ -42,7 +42,7 @@
   /**
    * Organizations service.
    * @module api/OrganizationsApi
-   * @version 0.0.20
+   * @version 0.0.21
    */
 
   /**
@@ -234,6 +234,9 @@
      * @param {Object} opts Optional parameters
      * @param {String} opts.businessName Filter by organization&#39;s business name
      * @param {String} opts.businessCode Filter by organization&#39;s business code
+     * @param {String} opts.search Search organizations by free-text query
+     * @param {Integer} opts.firstResult First result
+     * @param {Integer} opts.maxResults Max results
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Organization>}
      */
     this.listOrganizations = function(opts) {
@@ -245,7 +248,10 @@
       };
       var queryParams = {
         'businessName': opts['businessName'],
-        'businessCode': opts['businessCode']
+        'businessCode': opts['businessCode'],
+        'search': opts['search'],
+        'firstResult': opts['firstResult'],
+        'maxResults': opts['maxResults']
       };
       var headerParams = {
       };

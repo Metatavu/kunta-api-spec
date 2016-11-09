@@ -42,7 +42,7 @@
   /**
    * Pages service.
    * @module api/PagesApi
-   * @version 0.0.20
+   * @version 0.0.21
    */
 
   /**
@@ -307,6 +307,9 @@
      * @param {Object} opts Optional parameters
      * @param {String} opts.parentId Filter results by parent id
      * @param {String} opts.path Filter results by page path
+     * @param {String} opts.search Search pages by free-text query
+     * @param {Integer} opts.firstResult First result
+     * @param {Integer} opts.maxResults Max results
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Page>}
      */
     this.listOrganizationPages = function(organizationId, opts) {
@@ -324,7 +327,10 @@
       };
       var queryParams = {
         'parentId': opts['parentId'],
-        'path': opts['path']
+        'path': opts['path'],
+        'search': opts['search'],
+        'firstResult': opts['firstResult'],
+        'maxResults': opts['maxResults']
       };
       var headerParams = {
       };

@@ -42,7 +42,7 @@
   /**
    * Services service.
    * @module api/ServicesApi
-   * @version 0.0.20
+   * @version 0.0.21
    */
 
   /**
@@ -801,9 +801,9 @@
      * Service list
      * Lists services
      * @param {Object} opts Optional parameters
+     * @param {String} opts.search Search services by free-text query
      * @param {Integer} opts.firstResult First result
      * @param {Integer} opts.maxResults Max results
-     * @param {String} opts.search Search services by free-text query
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Service>}
      */
     this.listServices = function(opts) {
@@ -814,9 +814,9 @@
       var pathParams = {
       };
       var queryParams = {
+        'search': opts['search'],
         'firstResult': opts['firstResult'],
-        'maxResults': opts['maxResults'],
-        'search': opts['search']
+        'maxResults': opts['maxResults']
       };
       var headerParams = {
       };

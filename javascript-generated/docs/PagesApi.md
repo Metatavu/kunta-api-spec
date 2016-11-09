@@ -270,7 +270,10 @@ var organizationId = "organizationId_example"; // String | Organization id
 
 var opts = { 
   'parentId': "parentId_example", // String | Filter results by parent id
-  'path': "path_example" // String | Filter results by page path
+  'path': "path_example", // String | Filter results by page path
+  'search': "search_example", // String | Search pages by free-text query
+  'firstResult': 789, // Integer | First result
+  'maxResults': 789 // Integer | Max results
 };
 apiInstance.listOrganizationPages(organizationId, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -287,6 +290,9 @@ Name | Type | Description  | Notes
  **organizationId** | **String**| Organization id | 
  **parentId** | **String**| Filter results by parent id | [optional] 
  **path** | **String**| Filter results by page path | [optional] 
+ **search** | **String**| Search pages by free-text query | [optional] 
+ **firstResult** | **Integer**| First result | [optional] 
+ **maxResults** | **Integer**| Max results | [optional] 
 
 ### Return type
 

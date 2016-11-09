@@ -836,9 +836,9 @@ var KuntaApiClient = require('kunta-api-client');
 var apiInstance = new KuntaApiClient.ServicesApi();
 
 var opts = { 
+  'search': "search_example", // String | Search services by free-text query
   'firstResult': 789, // Integer | First result
-  'maxResults': 789, // Integer | Max results
-  'search': "search_example" // String | Search services by free-text query
+  'maxResults': 789 // Integer | Max results
 };
 apiInstance.listServices(opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -852,9 +852,9 @@ apiInstance.listServices(opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **search** | **String**| Search services by free-text query | [optional] 
  **firstResult** | **Integer**| First result | [optional] 
  **maxResults** | **Integer**| Max results | [optional] 
- **search** | **String**| Search services by free-text query | [optional] 
 
 ### Return type
 
