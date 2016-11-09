@@ -4153,8 +4153,7 @@
         "languages" : {
           "type" : "array",
           "items" : {
-            "type" : "string",
-            "pattern" : "^[a-z]{2}$"
+            "type" : "string"
           }
         },
         "keywords" : {
@@ -4169,8 +4168,7 @@
         "municipalities" : {
           "type" : "array",
           "items" : {
-            "type" : "string",
-            "pattern" : "^[0-9]{3}$"
+            "type" : "string"
           }
         },
         "webPages" : {
@@ -4945,16 +4943,13 @@
           "type" : "string"
         },
         "name" : {
-          "type" : "string",
-          "maxLength" : 100
+          "type" : "string"
         },
         "description" : {
-          "type" : "string",
-          "maxLength" : 150
+          "type" : "string"
         },
         "url" : {
-          "type" : "string",
-          "maxLength" : 500
+          "type" : "string"
         },
         "language" : {
           "type" : "string"
@@ -4971,8 +4966,7 @@
           "type" : "string"
         },
         "postalCode" : {
-          "type" : "string",
-          "pattern" : "\\d{5}?"
+          "type" : "string"
         },
         "postOffice" : {
           "type" : "string"
@@ -4984,12 +4978,10 @@
           }
         },
         "municipality" : {
-          "type" : "string",
-          "pattern" : "^[0-9]{3}$"
+          "type" : "string"
         },
         "country" : {
-          "type" : "string",
-          "pattern" : "^[A-Z]{2}$"
+          "type" : "string"
         },
         "qualifier" : {
           "type" : "string"
