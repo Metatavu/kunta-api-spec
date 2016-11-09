@@ -1875,6 +1875,11 @@ paths:
           required: false
           type: integer
           format: int64
+        - name: search
+          in: query
+          description: Search services by free-text query
+          required: false
+          type: string
       responses:
         200:
           description: An array of services
