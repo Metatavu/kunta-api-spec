@@ -32,7 +32,7 @@ import java.util.List;
 @Api(description = "the organizations API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2016-11-09T06:55:05.773+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2016-11-09T10:21:31.341+02:00")
 
 public abstract class OrganizationsApi extends AbstractApi {
 
@@ -540,7 +540,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Page.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Page.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = Page.class, responseContainer = "List") })
-    public abstract Response listOrganizationPages(@PathParam("organizationId") String organizationId,@QueryParam("parentId") String parentId,@QueryParam("path") String path);
+    public abstract Response listOrganizationPages(@PathParam("organizationId") String organizationId,@QueryParam("parentId") String parentId,@QueryParam("path") String path,@QueryParam("search") String search,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults);
 
     @GET
     @Path("/{organizationId}/settings/")
@@ -588,7 +588,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Organization.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Organization.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = Organization.class, responseContainer = "List") })
-    public abstract Response listOrganizations(@QueryParam("businessName") String businessName,@QueryParam("businessCode") String businessCode);
+    public abstract Response listOrganizations(@QueryParam("businessName") String businessName,@QueryParam("businessCode") String businessCode,@QueryParam("search") String search,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults);
 
     @PUT
     @Path("/{organizationId}/organizationServices/{organizationServiceId}")

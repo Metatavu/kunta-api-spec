@@ -29,6 +29,26 @@
           "description" : "Filter by organization's business code",
           "required" : false,
           "type" : "string"
+        }, {
+          "name" : "search",
+          "in" : "query",
+          "description" : "Search organizations by free-text query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "firstResult",
+          "in" : "query",
+          "description" : "First result",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "description" : "Max results",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
         } ],
         "responses" : {
           "200" : {
@@ -1819,6 +1839,26 @@
           "description" : "Filter results by page path",
           "required" : false,
           "type" : "string"
+        }, {
+          "name" : "search",
+          "in" : "query",
+          "description" : "Search pages by free-text query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "firstResult",
+          "in" : "query",
+          "description" : "First result",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "description" : "Max results",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
         } ],
         "responses" : {
           "200" : {
@@ -2644,6 +2684,12 @@
         "description" : "Lists services",
         "operationId" : "listServices",
         "parameters" : [ {
+          "name" : "search",
+          "in" : "query",
+          "description" : "Search services by free-text query",
+          "required" : false,
+          "type" : "string"
+        }, {
           "name" : "firstResult",
           "in" : "query",
           "description" : "First result",
@@ -2657,12 +2703,6 @@
           "required" : false,
           "type" : "integer",
           "format" : "int64"
-        }, {
-          "name" : "search",
-          "in" : "query",
-          "description" : "Search services by free-text query",
-          "required" : false,
-          "type" : "string"
         } ],
         "responses" : {
           "200" : {
