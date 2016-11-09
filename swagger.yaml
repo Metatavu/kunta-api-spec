@@ -3196,7 +3196,6 @@ definitions:
         type: array
         items:
           type: string
-          pattern: '^[a-z]{2}$'
       keywords:
         type: array
         items:
@@ -3207,7 +3206,6 @@ definitions:
         type: array
         items:
           type: string
-          pattern: '^[0-9]{3}$'
       webPages:
         type: array
         items:
@@ -3283,7 +3281,6 @@ definitions:
         items:
           $ref: '#/definitions/LocalizedValue'
       languages:
-        pattern: '^[a-z]{2}$'
         type: array
         items:
           type: string
@@ -3317,7 +3314,6 @@ definitions:
         items:
           $ref: '#/definitions/LocalizedValue'
       descriptions:
-        maxLength: 4000
         type: array
         items:
           $ref: '#/definitions/LocalizedValue'
@@ -3336,7 +3332,6 @@ definitions:
         items:
           $ref: '#/definitions/LocalizedValue'
       languages:
-        pattern: '^[a-z]{2}$'
         type: array
         items:
           type: string
@@ -3388,7 +3383,6 @@ definitions:
         items:
           $ref: '#/definitions/LocalizedValue'
       languages:
-        pattern: '^[a-z]{2}$'
         type: array
         items:
           type: string
@@ -3440,7 +3434,6 @@ definitions:
       phone:
         type: string
       languages:
-        pattern: '^[a-z]{2}$'
         type: array
         items:
           type: string
@@ -3514,7 +3507,6 @@ definitions:
         items:
           $ref: '#/definitions/SupportContact'
       languages:
-        pattern: '^[a-z]{2}$'
         type: array
         items:
           type: string
@@ -3732,13 +3724,10 @@ definitions:
       type:
         type: string
       name:
-        maxLength: 100
         type: string
       description:
-        maxLength: 150
         type: string
       url:
-        maxLength: 500
         type: string
       language:
         type: string
@@ -3750,7 +3739,6 @@ definitions:
       postOfficeBox:
         type: string
       postalCode:
-        pattern: '\d{5}?'
         type: string
       postOffice:
         type: string
@@ -3759,10 +3747,8 @@ definitions:
         items:
           $ref: '#/definitions/LocalizedValue'
       municipality:
-        pattern: '^[0-9]{3}$'
         type: string
       country:
-        pattern: '^[A-Z]{2}$'
         type: string
       qualifier:
         type: string
