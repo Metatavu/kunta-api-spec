@@ -23,7 +23,7 @@ import java.util.List;
 @Api(description = "the services API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2016-10-20T10:01:25.779+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2016-11-09T06:55:05.773+02:00")
 
 public abstract class ServicesApi extends AbstractApi {
 
@@ -258,7 +258,7 @@ public abstract class ServicesApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Service.class, responseContainer = "List"),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = Service.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = Service.class, responseContainer = "List") })
-    public abstract Response listServices(@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults);
+    public abstract Response listServices(@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@QueryParam("search") String search);
 
     @PUT
     @Path("/{serviceId}/phoneChannels/{phoneChannelId}")
