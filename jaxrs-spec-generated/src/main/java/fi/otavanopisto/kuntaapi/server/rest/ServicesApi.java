@@ -13,6 +13,8 @@ import fi.otavanopisto.kuntaapi.server.rest.model.WebPageChannel;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Request;
+import javax.ws.rs.core.Context;
 
 import io.swagger.annotations.*;
 
@@ -23,7 +25,7 @@ import java.util.List;
 @Api(description = "the services API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2016-11-09T13:35:58.522+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2016-11-11T11:03:29.852+02:00")
 
 public abstract class ServicesApi extends AbstractApi {
 
@@ -37,7 +39,7 @@ public abstract class ServicesApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Service.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Service.class),
         @ApiResponse(code = 500, message = "Internal server error", response = Service.class) })
-    public abstract Response createService(Service body);
+    public abstract Response createService(Service body,@Context Request request);
 
     @POST
     @Path("/{serviceId}/electronicChannels")
@@ -50,7 +52,7 @@ public abstract class ServicesApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = ElectronicChannel.class),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = ElectronicChannel.class),
         @ApiResponse(code = 500, message = "Internal server error", response = ElectronicChannel.class) })
-    public abstract Response createServiceElectronicChannel(@PathParam("serviceId") String serviceId,ElectronicChannel body);
+    public abstract Response createServiceElectronicChannel(@PathParam("serviceId") String serviceId,ElectronicChannel body,@Context Request request);
 
     @POST
     @Path("/{serviceId}/phoneChannels")
@@ -63,7 +65,7 @@ public abstract class ServicesApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = PhoneChannel.class),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = PhoneChannel.class),
         @ApiResponse(code = 500, message = "Internal server error", response = PhoneChannel.class) })
-    public abstract Response createServicePhoneChannel(@PathParam("serviceId") String serviceId,PhoneChannel body);
+    public abstract Response createServicePhoneChannel(@PathParam("serviceId") String serviceId,PhoneChannel body,@Context Request request);
 
     @POST
     @Path("/{serviceId}/printableFormChannels")
@@ -76,7 +78,7 @@ public abstract class ServicesApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = PrintableFormChannel.class),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = PrintableFormChannel.class),
         @ApiResponse(code = 500, message = "Internal server error", response = PrintableFormChannel.class) })
-    public abstract Response createServicePrintableFormChannel(@PathParam("serviceId") String serviceId,PrintableFormChannel body);
+    public abstract Response createServicePrintableFormChannel(@PathParam("serviceId") String serviceId,PrintableFormChannel body,@Context Request request);
 
     @POST
     @Path("/{serviceId}/serviceLocationChannels")
@@ -89,7 +91,7 @@ public abstract class ServicesApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = ServiceLocationChannel.class),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = ServiceLocationChannel.class),
         @ApiResponse(code = 500, message = "Internal server error", response = ServiceLocationChannel.class) })
-    public abstract Response createServiceServiceLocationChannel(@PathParam("serviceId") String serviceId,ServiceLocationChannel body);
+    public abstract Response createServiceServiceLocationChannel(@PathParam("serviceId") String serviceId,ServiceLocationChannel body,@Context Request request);
 
     @POST
     @Path("/{serviceId}/webPageChannels")
@@ -102,7 +104,7 @@ public abstract class ServicesApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = WebPageChannel.class),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = WebPageChannel.class),
         @ApiResponse(code = 500, message = "Internal server error", response = WebPageChannel.class) })
-    public abstract Response createServiceWebPageChannel(@PathParam("serviceId") String serviceId,WebPageChannel body);
+    public abstract Response createServiceWebPageChannel(@PathParam("serviceId") String serviceId,WebPageChannel body,@Context Request request);
 
     @GET
     @Path("/{serviceId}")
@@ -115,7 +117,7 @@ public abstract class ServicesApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Service.class),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = Service.class),
         @ApiResponse(code = 500, message = "Internal server error", response = Service.class) })
-    public abstract Response findService(@PathParam("serviceId") String serviceId);
+    public abstract Response findService(@PathParam("serviceId") String serviceId,@Context Request request);
 
     @GET
     @Path("/{serviceId}/electronicChannels/{electronicChannelId}")
@@ -128,7 +130,7 @@ public abstract class ServicesApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = ElectronicChannel.class),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = ElectronicChannel.class),
         @ApiResponse(code = 500, message = "Internal server error", response = ElectronicChannel.class) })
-    public abstract Response findServiceElectronicChannel(@PathParam("serviceId") String serviceId,@PathParam("electronicChannelId") String electronicChannelId);
+    public abstract Response findServiceElectronicChannel(@PathParam("serviceId") String serviceId,@PathParam("electronicChannelId") String electronicChannelId,@Context Request request);
 
     @GET
     @Path("/{serviceId}/phoneChannels/{phoneChannelId}")
@@ -141,7 +143,7 @@ public abstract class ServicesApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = PhoneChannel.class),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = PhoneChannel.class),
         @ApiResponse(code = 500, message = "Internal server error", response = PhoneChannel.class) })
-    public abstract Response findServicePhoneChannel(@PathParam("serviceId") String serviceId,@PathParam("phoneChannelId") String phoneChannelId);
+    public abstract Response findServicePhoneChannel(@PathParam("serviceId") String serviceId,@PathParam("phoneChannelId") String phoneChannelId,@Context Request request);
 
     @GET
     @Path("/{serviceId}/printableFormChannels/{printableFormChannelId}")
@@ -154,7 +156,7 @@ public abstract class ServicesApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = PrintableFormChannel.class),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = PrintableFormChannel.class),
         @ApiResponse(code = 500, message = "Internal server error", response = PrintableFormChannel.class) })
-    public abstract Response findServicePrintableFormChannel(@PathParam("serviceId") String serviceId,@PathParam("printableFormChannelId") String printableFormChannelId);
+    public abstract Response findServicePrintableFormChannel(@PathParam("serviceId") String serviceId,@PathParam("printableFormChannelId") String printableFormChannelId,@Context Request request);
 
     @GET
     @Path("/{serviceId}/serviceLocationChannels/{serviceLocationChannelId}")
@@ -167,7 +169,7 @@ public abstract class ServicesApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = ServiceLocationChannel.class),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = ServiceLocationChannel.class),
         @ApiResponse(code = 500, message = "Internal server error", response = ServiceLocationChannel.class) })
-    public abstract Response findServiceServiceLocationChannel(@PathParam("serviceId") String serviceId,@PathParam("serviceLocationChannelId") String serviceLocationChannelId);
+    public abstract Response findServiceServiceLocationChannel(@PathParam("serviceId") String serviceId,@PathParam("serviceLocationChannelId") String serviceLocationChannelId,@Context Request request);
 
     @GET
     @Path("/{serviceId}/webPageChannels/{webPageChannelId}")
@@ -180,7 +182,7 @@ public abstract class ServicesApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = WebPageChannel.class),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = WebPageChannel.class),
         @ApiResponse(code = 500, message = "Internal server error", response = WebPageChannel.class) })
-    public abstract Response findServiceWebPageChannel(@PathParam("serviceId") String serviceId,@PathParam("webPageChannelId") String webPageChannelId);
+    public abstract Response findServiceWebPageChannel(@PathParam("serviceId") String serviceId,@PathParam("webPageChannelId") String webPageChannelId,@Context Request request);
 
     @GET
     @Path("/{serviceId}/electronicChannels")
@@ -193,7 +195,7 @@ public abstract class ServicesApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = ElectronicChannel.class, responseContainer = "List"),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = ElectronicChannel.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = ElectronicChannel.class, responseContainer = "List") })
-    public abstract Response listServiceElectronicChannels(@PathParam("serviceId") String serviceId,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults);
+    public abstract Response listServiceElectronicChannels(@PathParam("serviceId") String serviceId,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
 
     @GET
     @Path("/{serviceId}/phoneChannels")
@@ -206,7 +208,7 @@ public abstract class ServicesApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = PhoneChannel.class, responseContainer = "List"),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = PhoneChannel.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = PhoneChannel.class, responseContainer = "List") })
-    public abstract Response listServicePhoneChannels(@PathParam("serviceId") String serviceId,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults);
+    public abstract Response listServicePhoneChannels(@PathParam("serviceId") String serviceId,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
 
     @GET
     @Path("/{serviceId}/printableFormChannels")
@@ -219,7 +221,7 @@ public abstract class ServicesApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = PrintableFormChannel.class, responseContainer = "List"),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = PrintableFormChannel.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = PrintableFormChannel.class, responseContainer = "List") })
-    public abstract Response listServicePrintableFormChannels(@PathParam("serviceId") String serviceId,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults);
+    public abstract Response listServicePrintableFormChannels(@PathParam("serviceId") String serviceId,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
 
     @GET
     @Path("/{serviceId}/serviceLocationChannels")
@@ -232,7 +234,7 @@ public abstract class ServicesApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = ServiceLocationChannel.class, responseContainer = "List"),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = ServiceLocationChannel.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = ServiceLocationChannel.class, responseContainer = "List") })
-    public abstract Response listServiceServiceLocationChannels(@PathParam("serviceId") String serviceId,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults);
+    public abstract Response listServiceServiceLocationChannels(@PathParam("serviceId") String serviceId,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
 
     @GET
     @Path("/{serviceId}/webPageChannels")
@@ -245,7 +247,7 @@ public abstract class ServicesApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = WebPageChannel.class, responseContainer = "List"),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = WebPageChannel.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = WebPageChannel.class, responseContainer = "List") })
-    public abstract Response listServiceWebPageChannels(@PathParam("serviceId") String serviceId,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults);
+    public abstract Response listServiceWebPageChannels(@PathParam("serviceId") String serviceId,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
 
     @GET
     
@@ -258,7 +260,7 @@ public abstract class ServicesApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Service.class, responseContainer = "List"),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = Service.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = Service.class, responseContainer = "List") })
-    public abstract Response listServices(@QueryParam("search") String search,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults);
+    public abstract Response listServices(@QueryParam("search") String search,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
 
     @PUT
     @Path("/{serviceId}/phoneChannels/{phoneChannelId}")
@@ -271,7 +273,7 @@ public abstract class ServicesApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = PhoneChannel.class),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = PhoneChannel.class),
         @ApiResponse(code = 500, message = "Internal server error", response = PhoneChannel.class) })
-    public abstract Response updatePhoneChannel(@PathParam("serviceId") String serviceId,@PathParam("phoneChannelId") String phoneChannelId,PhoneChannel body);
+    public abstract Response updatePhoneChannel(@PathParam("serviceId") String serviceId,@PathParam("phoneChannelId") String phoneChannelId,PhoneChannel body,@Context Request request);
 
     @PUT
     @Path("/{serviceId}/printableFormChannels/{printableFormChannelId}")
@@ -284,7 +286,7 @@ public abstract class ServicesApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = PrintableFormChannel.class),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = PrintableFormChannel.class),
         @ApiResponse(code = 500, message = "Internal server error", response = PrintableFormChannel.class) })
-    public abstract Response updatePrintableFormChannel(@PathParam("serviceId") String serviceId,@PathParam("printableFormChannelId") String printableFormChannelId,PrintableFormChannel body);
+    public abstract Response updatePrintableFormChannel(@PathParam("serviceId") String serviceId,@PathParam("printableFormChannelId") String printableFormChannelId,PrintableFormChannel body,@Context Request request);
 
     @PUT
     @Path("/{serviceId}")
@@ -297,7 +299,7 @@ public abstract class ServicesApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Service.class),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = Service.class),
         @ApiResponse(code = 500, message = "Internal server error", response = Service.class) })
-    public abstract Response updateService(@PathParam("serviceId") String serviceId,Service body);
+    public abstract Response updateService(@PathParam("serviceId") String serviceId,Service body,@Context Request request);
 
     @PUT
     @Path("/{serviceId}/electronicChannels/{electronicChannelId}")
@@ -310,7 +312,7 @@ public abstract class ServicesApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = ElectronicChannel.class),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = ElectronicChannel.class),
         @ApiResponse(code = 500, message = "Internal server error", response = ElectronicChannel.class) })
-    public abstract Response updateServiceElectronicChannel(@PathParam("serviceId") String serviceId,@PathParam("electronicChannelId") String electronicChannelId,ElectronicChannel body);
+    public abstract Response updateServiceElectronicChannel(@PathParam("serviceId") String serviceId,@PathParam("electronicChannelId") String electronicChannelId,ElectronicChannel body,@Context Request request);
 
     @PUT
     @Path("/{serviceId}/serviceLocationChannels/{serviceLocationChannelId}")
@@ -323,7 +325,7 @@ public abstract class ServicesApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = ServiceLocationChannel.class),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = ServiceLocationChannel.class),
         @ApiResponse(code = 500, message = "Internal server error", response = ServiceLocationChannel.class) })
-    public abstract Response updateServiceLocationChannel(@PathParam("serviceId") String serviceId,@PathParam("serviceLocationChannelId") String serviceLocationChannelId,ServiceLocationChannel body);
+    public abstract Response updateServiceLocationChannel(@PathParam("serviceId") String serviceId,@PathParam("serviceLocationChannelId") String serviceLocationChannelId,ServiceLocationChannel body,@Context Request request);
 
     @PUT
     @Path("/{serviceId}/webPageChannels/{webPageChannelId}")
@@ -336,7 +338,7 @@ public abstract class ServicesApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = WebPageChannel.class),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = WebPageChannel.class),
         @ApiResponse(code = 500, message = "Internal server error", response = WebPageChannel.class) })
-    public abstract Response updateWebPageChannel(@PathParam("serviceId") String serviceId,@PathParam("webPageChannelId") String webPageChannelId,WebPageChannel body);
+    public abstract Response updateWebPageChannel(@PathParam("serviceId") String serviceId,@PathParam("webPageChannelId") String webPageChannelId,WebPageChannel body,@Context Request request);
 
 }
 

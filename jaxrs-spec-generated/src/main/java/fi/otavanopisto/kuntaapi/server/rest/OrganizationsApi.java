@@ -22,6 +22,8 @@ import java.io.File;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Request;
+import javax.ws.rs.core.Context;
 
 import io.swagger.annotations.*;
 
@@ -32,7 +34,7 @@ import java.util.List;
 @Api(description = "the organizations API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2016-11-09T13:35:58.522+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2016-11-11T11:03:29.852+02:00")
 
 public abstract class OrganizationsApi extends AbstractApi {
 
@@ -46,7 +48,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Organization.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Organization.class),
         @ApiResponse(code = 500, message = "Internal server error", response = Organization.class) })
-    public abstract Response createOrganizationService(@PathParam("organizationId") String organizationId,OrganizationService body);
+    public abstract Response createOrganizationService(@PathParam("organizationId") String organizationId,OrganizationService body,@Context Request request);
 
     @POST
     @Path("/{organizationId}/settings/")
@@ -58,7 +60,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = OrganizationSetting.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = OrganizationSetting.class),
         @ApiResponse(code = 500, message = "Internal server error", response = OrganizationSetting.class) })
-    public abstract Response createOrganizationSetting(@PathParam("organizationId") String organizationId,OrganizationSetting setting);
+    public abstract Response createOrganizationSetting(@PathParam("organizationId") String organizationId,OrganizationSetting setting,@Context Request request);
 
     @DELETE
     @Path("/{organizationId}/settings/{settingId}")
@@ -70,7 +72,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = void.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = void.class),
         @ApiResponse(code = 500, message = "Internal server error", response = void.class) })
-    public abstract Response deleteOrganizationSetting(@PathParam("organizationId") String organizationId,@PathParam("settingId") String settingId);
+    public abstract Response deleteOrganizationSetting(@PathParam("organizationId") String organizationId,@PathParam("settingId") String settingId,@Context Request request);
 
     @GET
     @Path("/{organizationId}")
@@ -82,7 +84,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Organization.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Organization.class),
         @ApiResponse(code = 500, message = "Internal server error", response = Organization.class) })
-    public abstract Response findOrganization(@PathParam("organizationId") String organizationId);
+    public abstract Response findOrganization(@PathParam("organizationId") String organizationId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/announcements/{announcementId}")
@@ -94,7 +96,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Announcement.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Announcement.class),
         @ApiResponse(code = 500, message = "Internal server error", response = Announcement.class) })
-    public abstract Response findOrganizationAnnouncement(@PathParam("organizationId") String organizationId,@PathParam("announcementId") String announcementId);
+    public abstract Response findOrganizationAnnouncement(@PathParam("organizationId") String organizationId,@PathParam("announcementId") String announcementId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/banners/{bannerId}")
@@ -106,7 +108,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = NewsArticle.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = NewsArticle.class),
         @ApiResponse(code = 500, message = "Internal server error", response = NewsArticle.class) })
-    public abstract Response findOrganizationBanner(@PathParam("organizationId") String organizationId,@PathParam("bannerId") String bannerId);
+    public abstract Response findOrganizationBanner(@PathParam("organizationId") String organizationId,@PathParam("bannerId") String bannerId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/banners/{bannerId}/images/{imageId}")
@@ -118,7 +120,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Attachment.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Attachment.class),
         @ApiResponse(code = 500, message = "Internal server error", response = Attachment.class) })
-    public abstract Response findOrganizationBannerImage(@PathParam("organizationId") String organizationId,@PathParam("bannerId") String bannerId,@PathParam("imageId") String imageId);
+    public abstract Response findOrganizationBannerImage(@PathParam("organizationId") String organizationId,@PathParam("bannerId") String bannerId,@PathParam("imageId") String imageId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/events/{eventId}")
@@ -130,7 +132,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Event.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Event.class),
         @ApiResponse(code = 500, message = "Internal server error", response = Event.class) })
-    public abstract Response findOrganizationEvent(@PathParam("organizationId") String organizationId,@PathParam("eventId") String eventId);
+    public abstract Response findOrganizationEvent(@PathParam("organizationId") String organizationId,@PathParam("eventId") String eventId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/events/{eventId}/images/{imageId}")
@@ -142,7 +144,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Attachment.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Attachment.class),
         @ApiResponse(code = 500, message = "Internal server error", response = Attachment.class) })
-    public abstract Response findOrganizationEventImage(@PathParam("organizationId") String organizationId,@PathParam("eventId") String eventId,@PathParam("imageId") String imageId);
+    public abstract Response findOrganizationEventImage(@PathParam("organizationId") String organizationId,@PathParam("eventId") String eventId,@PathParam("imageId") String imageId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/files/{fileId}")
@@ -154,7 +156,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Page.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Page.class),
         @ApiResponse(code = 500, message = "Internal server error", response = Page.class) })
-    public abstract Response findOrganizationFile(@PathParam("organizationId") String organizationId,@PathParam("fileId") String fileId);
+    public abstract Response findOrganizationFile(@PathParam("organizationId") String organizationId,@PathParam("fileId") String fileId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/jobs/{jobId}")
@@ -166,7 +168,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Job.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Job.class),
         @ApiResponse(code = 500, message = "Internal server error", response = Job.class) })
-    public abstract Response findOrganizationJob(@PathParam("organizationId") String organizationId,@PathParam("jobId") String jobId);
+    public abstract Response findOrganizationJob(@PathParam("organizationId") String organizationId,@PathParam("jobId") String jobId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/menus/{menuId}")
@@ -178,7 +180,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Menu.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Menu.class),
         @ApiResponse(code = 500, message = "Internal server error", response = Menu.class) })
-    public abstract Response findOrganizationMenu(@PathParam("organizationId") String organizationId,@PathParam("menuId") String menuId);
+    public abstract Response findOrganizationMenu(@PathParam("organizationId") String organizationId,@PathParam("menuId") String menuId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/menus/{menuId}/items/{menuItemId}")
@@ -190,7 +192,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = MenuItem.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = MenuItem.class),
         @ApiResponse(code = 500, message = "Internal server error", response = MenuItem.class) })
-    public abstract Response findOrganizationMenuItem(@PathParam("organizationId") String organizationId,@PathParam("menuId") String menuId,@PathParam("menuItemId") String menuItemId);
+    public abstract Response findOrganizationMenuItem(@PathParam("organizationId") String organizationId,@PathParam("menuId") String menuId,@PathParam("menuItemId") String menuItemId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/news/{newsArticleId}")
@@ -202,7 +204,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = NewsArticle.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = NewsArticle.class),
         @ApiResponse(code = 500, message = "Internal server error", response = NewsArticle.class) })
-    public abstract Response findOrganizationNewsArticle(@PathParam("organizationId") String organizationId,@PathParam("newsArticleId") String newsArticleId);
+    public abstract Response findOrganizationNewsArticle(@PathParam("organizationId") String organizationId,@PathParam("newsArticleId") String newsArticleId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/news/{newsArticleId}/images/{imageId}")
@@ -214,7 +216,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Attachment.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Attachment.class),
         @ApiResponse(code = 500, message = "Internal server error", response = Attachment.class) })
-    public abstract Response findOrganizationNewsArticleImage(@PathParam("organizationId") String organizationId,@PathParam("newsArticleId") String newsArticleId,@PathParam("imageId") String imageId);
+    public abstract Response findOrganizationNewsArticleImage(@PathParam("organizationId") String organizationId,@PathParam("newsArticleId") String newsArticleId,@PathParam("imageId") String imageId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/pages/{pageId}")
@@ -226,7 +228,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Page.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Page.class),
         @ApiResponse(code = 500, message = "Internal server error", response = Page.class) })
-    public abstract Response findOrganizationPage(@PathParam("organizationId") String organizationId,@PathParam("pageId") String pageId);
+    public abstract Response findOrganizationPage(@PathParam("organizationId") String organizationId,@PathParam("pageId") String pageId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/pages/{pageId}/content")
@@ -238,7 +240,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = LocalizedValue.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = LocalizedValue.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = LocalizedValue.class, responseContainer = "List") })
-    public abstract Response findOrganizationPageContent(@PathParam("organizationId") String organizationId,@PathParam("pageId") String pageId);
+    public abstract Response findOrganizationPageContent(@PathParam("organizationId") String organizationId,@PathParam("pageId") String pageId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/pages/{pageId}/images/{imageId}")
@@ -250,7 +252,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Attachment.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Attachment.class),
         @ApiResponse(code = 500, message = "Internal server error", response = Attachment.class) })
-    public abstract Response findOrganizationPageImage(@PathParam("organizationId") String organizationId,@PathParam("pageId") String pageId,@PathParam("imageId") String imageId);
+    public abstract Response findOrganizationPageImage(@PathParam("organizationId") String organizationId,@PathParam("pageId") String pageId,@PathParam("imageId") String imageId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/organizationServices/{organizationServiceId}")
@@ -263,7 +265,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = OrganizationService.class),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = OrganizationService.class),
         @ApiResponse(code = 500, message = "Internal server error", response = OrganizationService.class) })
-    public abstract Response findOrganizationService(@PathParam("organizationId") String organizationId,@PathParam("organizationServiceId") String organizationServiceId);
+    public abstract Response findOrganizationService(@PathParam("organizationId") String organizationId,@PathParam("organizationServiceId") String organizationServiceId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/settings/{settingId}")
@@ -275,7 +277,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = OrganizationSetting.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = OrganizationSetting.class),
         @ApiResponse(code = 500, message = "Internal server error", response = OrganizationSetting.class) })
-    public abstract Response findOrganizationSetting(@PathParam("organizationId") String organizationId,@PathParam("settingId") String settingId);
+    public abstract Response findOrganizationSetting(@PathParam("organizationId") String organizationId,@PathParam("settingId") String settingId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/tiles/{tileId}")
@@ -287,7 +289,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Tile.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Tile.class),
         @ApiResponse(code = 500, message = "Internal server error", response = Tile.class) })
-    public abstract Response findOrganizationTile(@PathParam("organizationId") String organizationId,@PathParam("tileId") String tileId);
+    public abstract Response findOrganizationTile(@PathParam("organizationId") String organizationId,@PathParam("tileId") String tileId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/tiles/{tileId}/images/{imageId}")
@@ -299,7 +301,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Attachment.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Attachment.class),
         @ApiResponse(code = 500, message = "Internal server error", response = Attachment.class) })
-    public abstract Response findOrganizationTileImage(@PathParam("organizationId") String organizationId,@PathParam("tileId") String tileId,@PathParam("imageId") String imageId);
+    public abstract Response findOrganizationTileImage(@PathParam("organizationId") String organizationId,@PathParam("tileId") String tileId,@PathParam("imageId") String imageId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/banners/{bannerId}/images/{imageId}/data")
@@ -311,7 +313,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = byte[].class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = byte[].class),
         @ApiResponse(code = 500, message = "Internal server error", response = byte[].class) })
-    public abstract Response getOrganizationBannerImageData(@PathParam("organizationId") String organizationId,@PathParam("bannerId") String bannerId,@PathParam("imageId") String imageId,@QueryParam("size") Integer size);
+    public abstract Response getOrganizationBannerImageData(@PathParam("organizationId") String organizationId,@PathParam("bannerId") String bannerId,@PathParam("imageId") String imageId,@QueryParam("size") Integer size,@Context Request request);
 
     @GET
     @Path("/{organizationId}/events/{eventId}/images/{imageId}/data")
@@ -323,7 +325,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = byte[].class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = byte[].class),
         @ApiResponse(code = 500, message = "Internal server error", response = byte[].class) })
-    public abstract Response getOrganizationEventImageData(@PathParam("organizationId") String organizationId,@PathParam("eventId") String eventId,@PathParam("imageId") String imageId,@QueryParam("size") Integer size);
+    public abstract Response getOrganizationEventImageData(@PathParam("organizationId") String organizationId,@PathParam("eventId") String eventId,@PathParam("imageId") String imageId,@QueryParam("size") Integer size,@Context Request request);
 
     @GET
     @Path("/{organizationId}/files/{fileId}/data")
@@ -335,7 +337,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = byte[].class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = byte[].class),
         @ApiResponse(code = 500, message = "Internal server error", response = byte[].class) })
-    public abstract Response getOrganizationFileData(@PathParam("organizationId") String organizationId,@PathParam("fileId") String fileId);
+    public abstract Response getOrganizationFileData(@PathParam("organizationId") String organizationId,@PathParam("fileId") String fileId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/news/{newsArticleId}/images/{imageId}/data")
@@ -347,7 +349,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = byte[].class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = byte[].class),
         @ApiResponse(code = 500, message = "Internal server error", response = byte[].class) })
-    public abstract Response getOrganizationNewsArticleImageData(@PathParam("organizationId") String organizationId,@PathParam("newsArticleId") String newsArticleId,@PathParam("imageId") String imageId,@QueryParam("size") Integer size);
+    public abstract Response getOrganizationNewsArticleImageData(@PathParam("organizationId") String organizationId,@PathParam("newsArticleId") String newsArticleId,@PathParam("imageId") String imageId,@QueryParam("size") Integer size,@Context Request request);
 
     @GET
     @Path("/{organizationId}/pages/{pageId}/images/{imageId}/data")
@@ -359,7 +361,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = byte[].class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = byte[].class),
         @ApiResponse(code = 500, message = "Internal server error", response = byte[].class) })
-    public abstract Response getOrganizationPageImageData(@PathParam("organizationId") String organizationId,@PathParam("pageId") String pageId,@PathParam("imageId") String imageId,@QueryParam("size") Integer size);
+    public abstract Response getOrganizationPageImageData(@PathParam("organizationId") String organizationId,@PathParam("pageId") String pageId,@PathParam("imageId") String imageId,@QueryParam("size") Integer size,@Context Request request);
 
     @GET
     @Path("/{organizationId}/tiles/{tileId}/images/{imageId}/data")
@@ -371,7 +373,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = byte[].class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = byte[].class),
         @ApiResponse(code = 500, message = "Internal server error", response = byte[].class) })
-    public abstract Response getOrganizationTileImageData(@PathParam("organizationId") String organizationId,@PathParam("tileId") String tileId,@PathParam("imageId") String imageId,@QueryParam("size") Integer size);
+    public abstract Response getOrganizationTileImageData(@PathParam("organizationId") String organizationId,@PathParam("tileId") String tileId,@PathParam("imageId") String imageId,@QueryParam("size") Integer size,@Context Request request);
 
     @GET
     @Path("/{organizationId}/announcements")
@@ -383,7 +385,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Announcement.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Announcement.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = Announcement.class, responseContainer = "List") })
-    public abstract Response listOrganizationAnnouncements(@PathParam("organizationId") String organizationId,@QueryParam("firstResult") Integer firstResult,@QueryParam("maxResults") Integer maxResults,@QueryParam("sortBy") String sortBy,@QueryParam("sortDir") String sortDir);
+    public abstract Response listOrganizationAnnouncements(@PathParam("organizationId") String organizationId,@QueryParam("firstResult") Integer firstResult,@QueryParam("maxResults") Integer maxResults,@QueryParam("sortBy") String sortBy,@QueryParam("sortDir") String sortDir,@Context Request request);
 
     @GET
     @Path("/{organizationId}/banners/{bannerId}/images")
@@ -395,7 +397,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Attachment.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Attachment.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = Attachment.class, responseContainer = "List") })
-    public abstract Response listOrganizationBannerImages(@PathParam("organizationId") String organizationId,@PathParam("bannerId") String bannerId);
+    public abstract Response listOrganizationBannerImages(@PathParam("organizationId") String organizationId,@PathParam("bannerId") String bannerId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/banners")
@@ -407,7 +409,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Banner.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Banner.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = Banner.class, responseContainer = "List") })
-    public abstract Response listOrganizationBanners(@PathParam("organizationId") String organizationId);
+    public abstract Response listOrganizationBanners(@PathParam("organizationId") String organizationId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/events/{eventId}/images")
@@ -419,7 +421,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Attachment.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Attachment.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = Attachment.class, responseContainer = "List") })
-    public abstract Response listOrganizationEventImages(@PathParam("organizationId") String organizationId,@PathParam("eventId") String eventId);
+    public abstract Response listOrganizationEventImages(@PathParam("organizationId") String organizationId,@PathParam("eventId") String eventId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/events")
@@ -431,7 +433,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Event.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Event.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = Event.class, responseContainer = "List") })
-    public abstract Response listOrganizationEvents(@PathParam("organizationId") String organizationId,@QueryParam("startBefore") String startBefore,@QueryParam("startAfter") String startAfter,@QueryParam("endBefore") String endBefore,@QueryParam("endAfter") String endAfter,@QueryParam("firstResult") Integer firstResult,@QueryParam("maxResults") Integer maxResults,@QueryParam("orderBy") String orderBy,@QueryParam("orderDir") String orderDir);
+    public abstract Response listOrganizationEvents(@PathParam("organizationId") String organizationId,@QueryParam("startBefore") String startBefore,@QueryParam("startAfter") String startAfter,@QueryParam("endBefore") String endBefore,@QueryParam("endAfter") String endAfter,@QueryParam("firstResult") Integer firstResult,@QueryParam("maxResults") Integer maxResults,@QueryParam("orderBy") String orderBy,@QueryParam("orderDir") String orderDir,@Context Request request);
 
     @GET
     @Path("/{organizationId}/files")
@@ -443,7 +445,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = File.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = File.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = File.class, responseContainer = "List") })
-    public abstract Response listOrganizationFiles(@PathParam("organizationId") String organizationId,@QueryParam("pageId") String pageId);
+    public abstract Response listOrganizationFiles(@PathParam("organizationId") String organizationId,@QueryParam("pageId") String pageId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/jobs")
@@ -455,7 +457,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Job.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Job.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = Job.class, responseContainer = "List") })
-    public abstract Response listOrganizationJobs(@PathParam("organizationId") String organizationId,@QueryParam("sortBy") String sortBy,@QueryParam("sortDir") String sortDir);
+    public abstract Response listOrganizationJobs(@PathParam("organizationId") String organizationId,@QueryParam("sortBy") String sortBy,@QueryParam("sortDir") String sortDir,@Context Request request);
 
     @GET
     @Path("/{organizationId}/menus/{menuId}/items")
@@ -467,7 +469,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = MenuItem.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = MenuItem.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = MenuItem.class, responseContainer = "List") })
-    public abstract Response listOrganizationMenuItems(@PathParam("organizationId") String organizationId,@PathParam("menuId") String menuId);
+    public abstract Response listOrganizationMenuItems(@PathParam("organizationId") String organizationId,@PathParam("menuId") String menuId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/menus")
@@ -479,7 +481,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Menu.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Menu.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = Menu.class, responseContainer = "List") })
-    public abstract Response listOrganizationMenus(@PathParam("organizationId") String organizationId,@QueryParam("slug") String slug);
+    public abstract Response listOrganizationMenus(@PathParam("organizationId") String organizationId,@QueryParam("slug") String slug,@Context Request request);
 
     @GET
     @Path("/{organizationId}/news")
@@ -491,7 +493,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = NewsArticle.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = NewsArticle.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = NewsArticle.class, responseContainer = "List") })
-    public abstract Response listOrganizationNews(@PathParam("organizationId") String organizationId,@QueryParam("publishedBefore") String publishedBefore,@QueryParam("publishedAfter") String publishedAfter,@QueryParam("firstResult") Integer firstResult,@QueryParam("maxResults") Integer maxResults);
+    public abstract Response listOrganizationNews(@PathParam("organizationId") String organizationId,@QueryParam("publishedBefore") String publishedBefore,@QueryParam("publishedAfter") String publishedAfter,@QueryParam("firstResult") Integer firstResult,@QueryParam("maxResults") Integer maxResults,@Context Request request);
 
     @GET
     @Path("/{organizationId}/news/{newsArticleId}/images")
@@ -503,7 +505,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Attachment.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Attachment.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = Attachment.class, responseContainer = "List") })
-    public abstract Response listOrganizationNewsArticleImages(@PathParam("organizationId") String organizationId,@PathParam("newsArticleId") String newsArticleId);
+    public abstract Response listOrganizationNewsArticleImages(@PathParam("organizationId") String organizationId,@PathParam("newsArticleId") String newsArticleId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/organizationServices")
@@ -516,7 +518,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = OrganizationService.class, responseContainer = "List"),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = OrganizationService.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = OrganizationService.class, responseContainer = "List") })
-    public abstract Response listOrganizationOrganizationServices(@PathParam("organizationId") String organizationId,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults);
+    public abstract Response listOrganizationOrganizationServices(@PathParam("organizationId") String organizationId,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
 
     @GET
     @Path("/{organizationId}/pages/{pageId}/images")
@@ -528,7 +530,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Attachment.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Attachment.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = Attachment.class, responseContainer = "List") })
-    public abstract Response listOrganizationPageImages(@PathParam("organizationId") String organizationId,@PathParam("pageId") String pageId);
+    public abstract Response listOrganizationPageImages(@PathParam("organizationId") String organizationId,@PathParam("pageId") String pageId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/pages")
@@ -540,7 +542,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Page.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Page.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = Page.class, responseContainer = "List") })
-    public abstract Response listOrganizationPages(@PathParam("organizationId") String organizationId,@QueryParam("parentId") String parentId,@QueryParam("path") String path,@QueryParam("search") String search,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults);
+    public abstract Response listOrganizationPages(@PathParam("organizationId") String organizationId,@QueryParam("parentId") String parentId,@QueryParam("path") String path,@QueryParam("search") String search,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
 
     @GET
     @Path("/{organizationId}/settings/")
@@ -552,7 +554,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = OrganizationSetting.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = OrganizationSetting.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = OrganizationSetting.class, responseContainer = "List") })
-    public abstract Response listOrganizationSettings(@PathParam("organizationId") String organizationId,@QueryParam("key") String key);
+    public abstract Response listOrganizationSettings(@PathParam("organizationId") String organizationId,@QueryParam("key") String key,@Context Request request);
 
     @GET
     @Path("/{organizationId}/tiles/{tileId}/images")
@@ -564,7 +566,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Attachment.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Attachment.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = Attachment.class, responseContainer = "List") })
-    public abstract Response listOrganizationTileImages(@PathParam("organizationId") String organizationId,@PathParam("tileId") String tileId);
+    public abstract Response listOrganizationTileImages(@PathParam("organizationId") String organizationId,@PathParam("tileId") String tileId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/tiles")
@@ -576,7 +578,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Tile.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Tile.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = Tile.class, responseContainer = "List") })
-    public abstract Response listOrganizationTiles(@PathParam("organizationId") String organizationId);
+    public abstract Response listOrganizationTiles(@PathParam("organizationId") String organizationId,@Context Request request);
 
     @GET
     
@@ -588,7 +590,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Organization.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Organization.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = Organization.class, responseContainer = "List") })
-    public abstract Response listOrganizations(@QueryParam("businessName") String businessName,@QueryParam("businessCode") String businessCode,@QueryParam("search") String search,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults);
+    public abstract Response listOrganizations(@QueryParam("businessName") String businessName,@QueryParam("businessCode") String businessCode,@QueryParam("search") String search,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
 
     @PUT
     @Path("/{organizationId}/organizationServices/{organizationServiceId}")
@@ -601,7 +603,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = OrganizationService.class),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = OrganizationService.class),
         @ApiResponse(code = 500, message = "Internal server error", response = OrganizationService.class) })
-    public abstract Response updateOrganizationService(@PathParam("organizationId") String organizationId,@PathParam("organizationServiceId") String organizationServiceId,OrganizationService body);
+    public abstract Response updateOrganizationService(@PathParam("organizationId") String organizationId,@PathParam("organizationServiceId") String organizationServiceId,OrganizationService body,@Context Request request);
 
     @PUT
     @Path("/{organizationId}/settings/{settingId}")
@@ -613,7 +615,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = OrganizationSetting.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = OrganizationSetting.class),
         @ApiResponse(code = 500, message = "Internal server error", response = OrganizationSetting.class) })
-    public abstract Response updateOrganizationSetting(@PathParam("organizationId") String organizationId,@PathParam("settingId") String settingId,OrganizationSetting setting);
+    public abstract Response updateOrganizationSetting(@PathParam("organizationId") String organizationId,@PathParam("settingId") String settingId,OrganizationSetting setting,@Context Request request);
 
 }
 
