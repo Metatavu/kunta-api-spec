@@ -34,7 +34,7 @@ import java.util.List;
 @Api(description = "the organizations API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2016-11-11T11:03:29.852+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2016-11-17T15:35:06.976+02:00")
 
 public abstract class OrganizationsApi extends AbstractApi {
 
@@ -457,7 +457,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Job.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Job.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = Job.class, responseContainer = "List") })
-    public abstract Response listOrganizationJobs(@PathParam("organizationId") String organizationId,@QueryParam("sortBy") String sortBy,@QueryParam("sortDir") String sortDir,@Context Request request);
+    public abstract Response listOrganizationJobs(@PathParam("organizationId") String organizationId,@QueryParam("sortBy") String sortBy,@QueryParam("sortDir") String sortDir,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
 
     @GET
     @Path("/{organizationId}/menus/{menuId}/items")
