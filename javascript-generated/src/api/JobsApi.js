@@ -42,7 +42,7 @@
   /**
    * Jobs service.
    * @module api/JobsApi
-   * @version 0.0.24
+   * @version 0.0.25
    */
 
   /**
@@ -109,6 +109,8 @@
      * @param {Object} opts Optional parameters
      * @param {String} opts.sortBy PUBLICATION_START or PUBLICATION_END
      * @param {String} opts.sortDir ASC or DESC
+     * @param {Integer} opts.firstResult First result
+     * @param {Integer} opts.maxResults Max results
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Job>}
      */
     this.listOrganizationJobs = function(organizationId, opts) {
@@ -126,7 +128,9 @@
       };
       var queryParams = {
         'sortBy': opts['sortBy'],
-        'sortDir': opts['sortDir']
+        'sortDir': opts['sortDir'],
+        'firstResult': opts['firstResult'],
+        'maxResults': opts['maxResults']
       };
       var headerParams = {
       };

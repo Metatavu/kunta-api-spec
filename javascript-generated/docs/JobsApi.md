@@ -72,7 +72,9 @@ var organizationId = "organizationId_example"; // String | Organization id
 
 var opts = { 
   'sortBy': "sortBy_example", // String | PUBLICATION_START or PUBLICATION_END
-  'sortDir': "sortDir_example" // String | ASC or DESC
+  'sortDir': "sortDir_example", // String | ASC or DESC
+  'firstResult': 789, // Integer | First result
+  'maxResults': 789 // Integer | Max results
 };
 apiInstance.listOrganizationJobs(organizationId, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -89,6 +91,8 @@ Name | Type | Description  | Notes
  **organizationId** | **String**| Organization id | 
  **sortBy** | **String**| PUBLICATION_START or PUBLICATION_END | [optional] 
  **sortDir** | **String**| ASC or DESC | [optional] 
+ **firstResult** | **Integer**| First result | [optional] 
+ **maxResults** | **Integer**| Max results | [optional] 
 
 ### Return type
 
