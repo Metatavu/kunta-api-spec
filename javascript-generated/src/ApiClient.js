@@ -41,7 +41,7 @@
 
   /**
    * @module ApiClient
-   * @version 0.0.23
+   * @version 0.0.24
    */
 
   /**
@@ -350,6 +350,10 @@
     var _this = this;
     var url = this.buildUrl(path, pathParams);
     var request = superagent(httpMethod, url);
+
+    if (typeof module === 'object' && module.exports) {
+      request.use(require('superagent-logger'));
+    }
 
     // apply authentications
     this.applyAuthToRequest(request, authNames);
