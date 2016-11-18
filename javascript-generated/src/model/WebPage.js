@@ -45,7 +45,7 @@
   /**
    * The WebPage model module.
    * @module model/WebPage
-   * @version 0.0.25
+   * @version 0.0.26
    */
 
   /**

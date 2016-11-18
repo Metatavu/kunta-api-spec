@@ -42,7 +42,7 @@
   /**
    * Files service.
    * @module api/FilesApi
-   * @version 0.0.25
+   * @version 0.0.26
    */
 
   /**
@@ -153,6 +153,9 @@
      * @param {String} organizationId Organization id
      * @param {Object} opts Optional parameters
      * @param {String} opts.pageId Filter with page
+     * @param {String} opts.search Search files by free-text query
+     * @param {Integer} opts.firstResult First result
+     * @param {Integer} opts.maxResults Max results
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<File>}
      */
     this.listOrganizationFiles = function(organizationId, opts) {
@@ -169,7 +172,10 @@
         'organizationId': organizationId
       };
       var queryParams = {
-        'pageId': opts['pageId']
+        'pageId': opts['pageId'],
+        'search': opts['search'],
+        'firstResult': opts['firstResult'],
+        'maxResults': opts['maxResults']
       };
       var headerParams = {
       };

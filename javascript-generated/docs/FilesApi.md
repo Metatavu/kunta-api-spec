@@ -118,7 +118,10 @@ var apiInstance = new KuntaApiClient.FilesApi();
 var organizationId = "organizationId_example"; // String | Organization id
 
 var opts = { 
-  'pageId': "pageId_example" // String | Filter with page
+  'pageId': "pageId_example", // String | Filter with page
+  'search': "search_example", // String | Search files by free-text query
+  'firstResult': 789, // Integer | First result
+  'maxResults': 789 // Integer | Max results
 };
 apiInstance.listOrganizationFiles(organizationId, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -134,6 +137,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| Organization id | 
  **pageId** | **String**| Filter with page | [optional] 
+ **search** | **String**| Search files by free-text query | [optional] 
+ **firstResult** | **Integer**| First result | [optional] 
+ **maxResults** | **Integer**| Max results | [optional] 
 
 ### Return type
 
