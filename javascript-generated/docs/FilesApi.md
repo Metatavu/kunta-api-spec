@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="findOrganizationFile"></a>
 # **findOrganizationFile**
-> Page findOrganizationFile(organizationId, fileId)
+> FileDef findOrganizationFile(organizationId, fileId)
 
 Finds organizations file
 
@@ -44,7 +44,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Page**](Page.md)
+[**FileDef**](FileDef.md)
 
 ### Authorization
 
@@ -103,7 +103,7 @@ No authorization required
 
 <a name="listOrganizationFiles"></a>
 # **listOrganizationFiles**
-> [File] listOrganizationFiles(organizationId, opts)
+> [FileDef] listOrganizationFiles(organizationId, opts)
 
 Lists organizations files
 
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**[File]**
+[**[FileDef]**](FileDef.md)
 
 ### Authorization
 

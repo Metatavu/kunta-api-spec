@@ -39,7 +39,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new KuntaApiClient.File();
+    instance = new KuntaApiClient.FileDef();
   });
 
   var getProperty = function(object, getter, property) {
@@ -58,40 +58,40 @@
       object[property] = value;
   }
 
-  describe('File', function() {
-    it('should create an instance of File', function() {
-      // uncomment below and update the code to test File
-      //var instane = new KuntaApiClient.File();
-      //expect(instance).to.be.a(KuntaApiClient.File);
+  describe('FileDef', function() {
+    it('should create an instance of FileDef', function() {
+      // uncomment below and update the code to test FileDef
+      //var instane = new KuntaApiClient.FileDef();
+      //expect(instance).to.be.a(KuntaApiClient.FileDef);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new KuntaApiClient.File();
+      //var instane = new KuntaApiClient.FileDef();
       //expect(instance).to.be();
     });
 
     it('should have the property slug (base name: "slug")', function() {
       // uncomment below and update the code to test the property slug
-      //var instane = new KuntaApiClient.File();
+      //var instane = new KuntaApiClient.FileDef();
       //expect(instance).to.be();
     });
 
     it('should have the property title (base name: "title")', function() {
       // uncomment below and update the code to test the property title
-      //var instane = new KuntaApiClient.File();
+      //var instane = new KuntaApiClient.FileDef();
       //expect(instance).to.be();
     });
 
     it('should have the property contentType (base name: "contentType")', function() {
       // uncomment below and update the code to test the property contentType
-      //var instane = new KuntaApiClient.File();
+      //var instane = new KuntaApiClient.FileDef();
       //expect(instance).to.be();
     });
 
     it('should have the property size (base name: "size")', function() {
       // uncomment below and update the code to test the property size
-      //var instane = new KuntaApiClient.File();
+      //var instane = new KuntaApiClient.FileDef();
       //expect(instance).to.be();
     });
 

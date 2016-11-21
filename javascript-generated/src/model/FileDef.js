@@ -34,7 +34,7 @@
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.File = factory(root.KuntaApiClient.ApiClient);
+    root.KuntaApiClient.FileDef = factory(root.KuntaApiClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -43,14 +43,14 @@
 
 
   /**
-   * The File model module.
-   * @module model/File
-   * @version 0.0.26
+   * The FileDef model module.
+   * @module model/FileDef
+   * @version 0.0.27
    */
 
   /**
-   * Constructs a new <code>File</code>.
-   * @alias module:model/File
+   * Constructs a new <code>FileDef</code>.
+   * @alias module:model/FileDef
    * @class
    */
   var exports = function() {
@@ -64,11 +64,11 @@
   };
 
   /**
-   * Constructs a <code>File</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>FileDef</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/File} obj Optional instance to populate.
-   * @return {module:model/File} The populated <code>File</code> instance.
+   * @param {module:model/FileDef} obj Optional instance to populate.
+   * @return {module:model/FileDef} The populated <code>FileDef</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {

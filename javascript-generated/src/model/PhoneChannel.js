@@ -45,7 +45,7 @@
   /**
    * The PhoneChannel model module.
    * @module model/PhoneChannel
-   * @version 0.0.26
+   * @version 0.0.27
    */
 
   /**

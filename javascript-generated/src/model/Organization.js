@@ -45,7 +45,7 @@
   /**
    * The Organization model module.
    * @module model/Organization
-   * @version 0.0.26
+   * @version 0.0.27
    */
 
   /**

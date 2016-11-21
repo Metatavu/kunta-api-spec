@@ -1,4 +1,4 @@
-# KuntaApiClient.File
+# KuntaApiClient.FileDef
 
 ## Properties
 Name | Type | Description | Notes

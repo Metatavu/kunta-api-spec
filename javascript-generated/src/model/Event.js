@@ -45,7 +45,7 @@
   /**
    * The Event model module.
    * @module model/Event
-   * @version 0.0.26
+   * @version 0.0.27
    */
 
   /**

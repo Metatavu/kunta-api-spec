@@ -25,24 +25,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/BadRequest', 'model/Forbidden', 'model/Page', 'model/InternalServerError'], factory);
+    define(['ApiClient', 'model/BadRequest', 'model/FileDef', 'model/Forbidden', 'model/InternalServerError'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/Forbidden'), require('../model/Page'), require('../model/InternalServerError'));
+    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/FileDef'), require('../model/Forbidden'), require('../model/InternalServerError'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.FilesApi = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.BadRequest, root.KuntaApiClient.Forbidden, root.KuntaApiClient.Page, root.KuntaApiClient.InternalServerError);
+    root.KuntaApiClient.FilesApi = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.BadRequest, root.KuntaApiClient.FileDef, root.KuntaApiClient.Forbidden, root.KuntaApiClient.InternalServerError);
   }
-}(this, function(ApiClient, BadRequest, Forbidden, Page, InternalServerError) {
+}(this, function(ApiClient, BadRequest, FileDef, Forbidden, InternalServerError) {
   'use strict';
 
   /**
    * Files service.
    * @module api/FilesApi
-   * @version 0.0.26
+   * @version 0.0.27
    */
 
   /**
@@ -62,7 +62,7 @@
      * Finds single organization file 
      * @param {String} organizationId Organization id
      * @param {String} fileId file id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Page}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/FileDef}
      */
     this.findOrganizationFile = function(organizationId, fileId) {
       var postBody = null;
@@ -92,7 +92,7 @@
       var authNames = [];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = Page;
+      var returnType = FileDef;
 
       return this.apiClient.callApi(
         '/organizations/{organizationId}/files/{fileId}', 'GET',
@@ -156,7 +156,7 @@
      * @param {String} opts.search Search files by free-text query
      * @param {Integer} opts.firstResult First result
      * @param {Integer} opts.maxResults Max results
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<File>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/FileDef>}
      */
     this.listOrganizationFiles = function(organizationId, opts) {
       opts = opts || {};
@@ -185,7 +185,7 @@
       var authNames = [];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = [File];
+      var returnType = [FileDef];
 
       return this.apiClient.callApi(
         '/organizations/{organizationId}/files', 'GET',
