@@ -1479,7 +1479,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/File'
+              $ref: '#/definitions/FileDef'
         400:
           description: Invalid request was sent to the server
           schema:
@@ -1517,7 +1517,7 @@ paths:
         200:
           description: Returns a single organization file
           schema:
-            $ref: '#/definitions/Page'
+            $ref: '#/definitions/FileDef'
         400:
           description: Invalid request was sent to the server
           schema:
@@ -3630,7 +3630,7 @@ definitions:
         format: uuid
       externalUrl:
         type: string
-  File:
+  FileDef:
     properties:
       id:
         type: string
