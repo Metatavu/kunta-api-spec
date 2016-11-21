@@ -10,15 +10,15 @@ import fi.otavanopisto.kuntaapi.server.rest.model.Announcement;
 import fi.otavanopisto.kuntaapi.server.rest.model.NewsArticle;
 import fi.otavanopisto.kuntaapi.server.rest.model.Attachment;
 import fi.otavanopisto.kuntaapi.server.rest.model.Event;
-import fi.otavanopisto.kuntaapi.server.rest.model.Page;
+import fi.otavanopisto.kuntaapi.server.rest.model.FileDef;
 import fi.otavanopisto.kuntaapi.server.rest.model.Job;
 import fi.otavanopisto.kuntaapi.server.rest.model.Menu;
 import fi.otavanopisto.kuntaapi.server.rest.model.MenuItem;
+import fi.otavanopisto.kuntaapi.server.rest.model.Page;
 import fi.otavanopisto.kuntaapi.server.rest.model.LocalizedValue;
 import fi.otavanopisto.kuntaapi.server.rest.model.NotFound;
 import fi.otavanopisto.kuntaapi.server.rest.model.Tile;
 import fi.otavanopisto.kuntaapi.server.rest.model.Banner;
-import java.io.File;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
@@ -34,7 +34,7 @@ import java.util.List;
 @Api(description = "the organizations API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2016-11-18T14:59:45.698+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2016-11-21T07:52:16.733+02:00")
 
 public abstract class OrganizationsApi extends AbstractApi {
 
@@ -150,12 +150,12 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/files/{fileId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Finds organizations file", notes = "Finds single organization file ", response = Page.class, tags={ "Files",  })
+    @ApiOperation(value = "Finds organizations file", notes = "Finds single organization file ", response = FileDef.class, tags={ "Files",  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Returns a single organization file", response = Page.class),
-        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Page.class),
-        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Page.class),
-        @ApiResponse(code = 500, message = "Internal server error", response = Page.class) })
+        @ApiResponse(code = 200, message = "Returns a single organization file", response = FileDef.class),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = FileDef.class),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = FileDef.class),
+        @ApiResponse(code = 500, message = "Internal server error", response = FileDef.class) })
     public abstract Response findOrganizationFile(@PathParam("organizationId") String organizationId,@PathParam("fileId") String fileId,@Context Request request);
 
     @GET
@@ -439,12 +439,12 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/files")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists organizations files", notes = "Lists organizations files ", response = File.class, responseContainer = "List", tags={ "Files",  })
+    @ApiOperation(value = "Lists organizations files", notes = "Lists organizations files ", response = FileDef.class, responseContainer = "List", tags={ "Files",  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Returns a list of organizations files", response = File.class, responseContainer = "List"),
-        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = File.class, responseContainer = "List"),
-        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = File.class, responseContainer = "List"),
-        @ApiResponse(code = 500, message = "Internal server error", response = File.class, responseContainer = "List") })
+        @ApiResponse(code = 200, message = "Returns a list of organizations files", response = FileDef.class, responseContainer = "List"),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = FileDef.class, responseContainer = "List"),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = FileDef.class, responseContainer = "List"),
+        @ApiResponse(code = 500, message = "Internal server error", response = FileDef.class, responseContainer = "List") })
     public abstract Response listOrganizationFiles(@PathParam("organizationId") String organizationId,@QueryParam("pageId") String pageId,@QueryParam("search") String search,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
 
     @GET

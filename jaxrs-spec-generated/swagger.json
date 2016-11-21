@@ -873,7 +873,7 @@
             "schema" : {
               "type" : "array",
               "items" : {
-                "$ref" : "#/definitions/File"
+                "$ref" : "#/definitions/FileDef"
               }
             }
           },
@@ -923,7 +923,7 @@
           "200" : {
             "description" : "Returns a single organization file",
             "schema" : {
-              "$ref" : "#/definitions/Page"
+              "$ref" : "#/definitions/FileDef"
             }
           },
           "400" : {
@@ -4794,7 +4794,7 @@
         }
       }
     },
-    "File" : {
+    "FileDef" : {
       "properties" : {
         "id" : {
           "type" : "string",
