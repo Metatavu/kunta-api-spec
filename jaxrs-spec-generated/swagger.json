@@ -1340,6 +1340,12 @@
           "type" : "string",
           "format" : "uuid"
         }, {
+          "name" : "slug",
+          "in" : "query",
+          "description" : "Filter with slug",
+          "required" : false,
+          "type" : "string"
+        }, {
           "name" : "publishedBefore",
           "in" : "query",
           "description" : "return only news published before the date",
@@ -4722,6 +4728,9 @@
           "type" : "string"
         },
         "abstract" : {
+          "type" : "string"
+        },
+        "slug" : {
           "type" : "string"
         },
         "contents" : {

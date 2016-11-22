@@ -13,6 +13,7 @@ public class NewsArticle   {
   private String id = null;
   private String title = null;
   private String _abstract = null;
+  private String slug = null;
   private String contents = null;
   private OffsetDateTime published = null;
 
@@ -66,6 +67,22 @@ public class NewsArticle   {
 
   /**
    **/
+  public NewsArticle slug(String slug) {
+    this.slug = slug;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "")
+  public String getSlug() {
+    return slug;
+  }
+  public void setSlug(String slug) {
+    this.slug = slug;
+  }
+
+  /**
+   **/
   public NewsArticle contents(String contents) {
     this.contents = contents;
     return this;
@@ -109,13 +126,14 @@ public class NewsArticle   {
     return Objects.equals(id, newsArticle.id) &&
         Objects.equals(title, newsArticle.title) &&
         Objects.equals(_abstract, newsArticle._abstract) &&
+        Objects.equals(slug, newsArticle.slug) &&
         Objects.equals(contents, newsArticle.contents) &&
         Objects.equals(published, newsArticle.published);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, _abstract, contents, published);
+    return Objects.hash(id, title, _abstract, slug, contents, published);
   }
 
   @Override
@@ -126,6 +144,7 @@ public class NewsArticle   {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    _abstract: ").append(toIndentedString(_abstract)).append("\n");
+    sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("    contents: ").append(toIndentedString(contents)).append("\n");
     sb.append("    published: ").append(toIndentedString(published)).append("\n");
     sb.append("}");
