@@ -526,6 +526,11 @@ paths:
           required: true
           type: string
           format: uuid
+        - name: slug
+          in: query
+          description: Filter with slug
+          required: false
+          type: string
         - name: publishedBefore
           in: query
           description: return only news published before the date
@@ -3583,6 +3588,8 @@ definitions:
       title:
         type: string
       abstract:
+        type: string
+      slug:
         type: string
       contents:
         type: string
