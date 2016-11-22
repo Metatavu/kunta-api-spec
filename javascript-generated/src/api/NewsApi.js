@@ -42,7 +42,7 @@
   /**
    * News service.
    * @module api/NewsApi
-   * @version 0.0.27
+   * @version 0.0.28
    */
 
   /**
@@ -323,6 +323,7 @@
      * Lists organizations news 
      * @param {String} organizationId Organization id
      * @param {Object} opts Optional parameters
+     * @param {String} opts.slug Filter with slug
      * @param {String} opts.publishedBefore return only news published before the date
      * @param {String} opts.publishedAfter return only news published after the date
      * @param {Integer} opts.firstResult first index of results
@@ -343,6 +344,7 @@
         'organizationId': organizationId
       };
       var queryParams = {
+        'slug': opts['slug'],
         'publishedBefore': opts['publishedBefore'],
         'publishedAfter': opts['publishedAfter'],
         'firstResult': opts['firstResult'],

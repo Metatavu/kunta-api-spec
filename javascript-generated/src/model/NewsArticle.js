@@ -45,7 +45,7 @@
   /**
    * The NewsArticle model module.
    * @module model/NewsArticle
-   * @version 0.0.27
+   * @version 0.0.28
    */
 
   /**
@@ -55,6 +55,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -83,6 +84,9 @@
       if (data.hasOwnProperty('abstract')) {
         obj['abstract'] = ApiClient.convertToType(data['abstract'], 'String');
       }
+      if (data.hasOwnProperty('slug')) {
+        obj['slug'] = ApiClient.convertToType(data['slug'], 'String');
+      }
       if (data.hasOwnProperty('contents')) {
         obj['contents'] = ApiClient.convertToType(data['contents'], 'String');
       }
@@ -105,6 +109,10 @@
    * @member {String} abstract
    */
   exports.prototype['abstract'] = undefined;
+  /**
+   * @member {String} slug
+   */
+  exports.prototype['slug'] = undefined;
   /**
    * @member {String} contents
    */

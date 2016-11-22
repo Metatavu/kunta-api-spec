@@ -280,6 +280,7 @@ var apiInstance = new KuntaApiClient.NewsApi();
 var organizationId = "organizationId_example"; // String | Organization id
 
 var opts = { 
+  'slug': "slug_example", // String | Filter with slug
   'publishedBefore': "publishedBefore_example", // String | return only news published before the date
   'publishedAfter': "publishedAfter_example", // String | return only news published after the date
   'firstResult': 56, // Integer | first index of results
@@ -298,6 +299,7 @@ apiInstance.listOrganizationNews(organizationId, opts).then(function(data) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| Organization id | 
+ **slug** | **String**| Filter with slug | [optional] 
  **publishedBefore** | **String**| return only news published before the date | [optional] 
  **publishedAfter** | **String**| return only news published after the date | [optional] 
  **firstResult** | **Integer**| first index of results | [optional] 
