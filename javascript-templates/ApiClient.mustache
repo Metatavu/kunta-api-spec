@@ -15,6 +15,11 @@
   }
 }(this, function(superagent) {
   'use strict';
+  
+  require('superagent-cache')(superagent, null, {
+    preventDuplicateCalls: true,
+    backgroundRefresh: true
+  });
 
 {{#emitJSDoc}}  /**
    * @module {{#invokerPackage}}{{invokerPackage}}/{{/invokerPackage}}ApiClient
