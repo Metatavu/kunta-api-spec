@@ -1,7 +1,7 @@
 {
   "author": "Otavan Opisto",
   "name": "kunta-api-client",
-  "version": "0.0.30",
+  "version": "0.0.31",
   "description": "Solution to combine municipality services under single API.",
   "license": "AGPL-3.0",
   "main": "src/index.js",
@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "superagent": "1.7.1",
+    "superagent-cache": "1.7.1",
     "superagent-logger": "1.1.0"
   },
   "devDependencies": {

@@ -38,10 +38,15 @@
   }
 }(this, function(superagent) {
   'use strict';
+  
+  require('superagent-cache')(superagent, null, {
+    preventDuplicateCalls: true,
+    backgroundRefresh: true
+  });
 
   /**
    * @module ApiClient
-   * @version 0.0.29
+   * @version 0.0.30
    */
 
   /**
