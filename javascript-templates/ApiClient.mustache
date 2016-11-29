@@ -18,7 +18,7 @@
   
   require('superagent-cache')(superagent, null, {
     preventDuplicateCalls: true,
-    backgroundRefresh: true
+    expiration: 10
   });
 
 {{#emitJSDoc}}  /**
