@@ -41,12 +41,12 @@
   
   require('superagent-cache')(superagent, null, {
     preventDuplicateCalls: true,
-    backgroundRefresh: true
+    expiration: 10
   });
 
   /**
    * @module ApiClient
-   * @version 0.0.30
+   * @version 0.0.31
    */
 
   /**

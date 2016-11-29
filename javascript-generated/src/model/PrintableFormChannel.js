@@ -45,7 +45,7 @@
   /**
    * The PrintableFormChannel model module.
    * @module model/PrintableFormChannel
-   * @version 0.0.30
+   * @version 0.0.31
    */
 
   /**
