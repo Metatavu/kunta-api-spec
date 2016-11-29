@@ -42,7 +42,7 @@
   /**
    * Services service.
    * @module api/ServicesApi
-   * @version 0.0.28
+   * @version 0.0.29
    */
 
   /**
@@ -801,6 +801,7 @@
      * Service list
      * Lists services
      * @param {Object} opts Optional parameters
+     * @param {String} opts.organizationId Return only services belonging to specified organization
      * @param {String} opts.search Search services by free-text query
      * @param {Integer} opts.firstResult First result
      * @param {Integer} opts.maxResults Max results
@@ -814,6 +815,7 @@
       var pathParams = {
       };
       var queryParams = {
+        'organizationId': opts['organizationId'],
         'search': opts['search'],
         'firstResult': opts['firstResult'],
         'maxResults': opts['maxResults']

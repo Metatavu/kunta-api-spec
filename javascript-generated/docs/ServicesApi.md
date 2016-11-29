@@ -836,6 +836,7 @@ var KuntaApiClient = require('kunta-api-client');
 var apiInstance = new KuntaApiClient.ServicesApi();
 
 var opts = { 
+  'organizationId': "organizationId_example", // String | Return only services belonging to specified organization
   'search': "search_example", // String | Search services by free-text query
   'firstResult': 789, // Integer | First result
   'maxResults': 789 // Integer | Max results
@@ -852,6 +853,7 @@ apiInstance.listServices(opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| Return only services belonging to specified organization | [optional] 
  **search** | **String**| Search services by free-text query | [optional] 
  **firstResult** | **Integer**| First result | [optional] 
  **maxResults** | **Integer**| Max results | [optional] 
