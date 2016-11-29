@@ -1931,6 +1931,12 @@ paths:
       tags:
         - Services
       parameters:
+        - name: organizationId
+          in: query
+          description: Return only services belonging to specified organization
+          required: false
+          type: string
+          format: uuid      
         - name: search
           in: query
           description: Search services by free-text query
