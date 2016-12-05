@@ -1,10 +1,10 @@
-package fi.otavanopisto.kuntaapi.server.rest;
+package fi.metatavu.kuntaapi.server.rest;
 
-import fi.otavanopisto.kuntaapi.server.rest.model.BadRequest;
-import fi.otavanopisto.kuntaapi.server.rest.model.Forbidden;
-import fi.otavanopisto.kuntaapi.server.rest.model.InternalServerError;
-import fi.otavanopisto.kuntaapi.server.rest.model.NotImplemented;
-import fi.otavanopisto.kuntaapi.server.rest.model.NotFound;
+import fi.metatavu.kuntaapi.server.rest.model.BadRequest;
+import fi.metatavu.kuntaapi.server.rest.model.Forbidden;
+import fi.metatavu.kuntaapi.server.rest.model.InternalServerError;
+import fi.metatavu.kuntaapi.server.rest.model.NotImplemented;
+import fi.metatavu.kuntaapi.server.rest.model.NotFound;
 import javax.ws.rs.core.Response;
 
 public abstract class AbstractApi {

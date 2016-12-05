@@ -6,7 +6,7 @@
   <name>kunta-api-spec</name>
   <version>0.1.18-SNAPSHOT</version>
   <description>Kunta API specifications</description>
-  <url>https://github.com/otavanopisto/kunta-api-spec</url>
+  <url>https://github.com/Metatavu/kunta-api-spec</url>
 
   <licenses>
     <license>
@@ -31,7 +31,7 @@
 
   <issueManagement>
     <system>GitHub</system>
-    <url>https://github.com/otavanopisto/kunta-api-spec/issues</url>
+    <url>https://github.com/Metatavu/kunta-api-spec/issues</url>
   </issueManagement>
 
   <scm>

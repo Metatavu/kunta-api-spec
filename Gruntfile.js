@@ -10,7 +10,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     'clean': {
       'jaxrs-spec-cruft': [
-        'jaxrs-spec-generated/src/main/java/fi/otavanopisto/kuntaapi/server/RestApplication.java'
+        'jaxrs-spec-generated/src/main/java/fi/metatavu/kuntaapi/server/RestApplication.java'
       ],
       'jaxrs-spec-sources': ['jaxrs-spec-generated/src'],
       'javascript-sources': ['javascript-generated/docs', 'javascript-generated/src', 'javascript-generated/test']
@@ -35,9 +35,9 @@ module.exports = function(grunt) {
           'java -jar swagger-codegen-cli.jar generate ' +
           '-i ./swagger.yaml ' +
           '-l jaxrs-spec ' +
-          '--api-package fi.otavanopisto.kuntaapi.server.rest ' +
-          '--model-package fi.otavanopisto.kuntaapi.server.rest.model ' +
-          '--group-id fi.otavanopisto.kunta-api ' +
+          '--api-package fi.metatavu.kuntaapi.server.rest ' +
+          '--model-package fi.metatavu.kuntaapi.server.rest.model ' +
+          '--group-id fi.metatavu.kunta-api ' +
           '--artifact-id kunta-api-spec ' +
           '--artifact-version `mvn -f jaxrs-spec-generated/pom.xml.before -q -Dexec.executable=\'echo\' -Dexec.args=\'${project.version}\' --non-recursive org.codehaus.mojo:exec-maven-plugin:1.3.1:exec` ' +
           '--template-dir jaxrs-spec-templates ' +
@@ -90,7 +90,7 @@ module.exports = function(grunt) {
           '-l php ' +
           '--template-dir php-templates ' +
           '-o php-generated ' +
-          '--additional-properties packagePath=kunta-api-php-client,composerVendorName=otavanopisto,composerProjectName=kunta-api-php-client,variableNamingConvention=camelCase,invokerPackage=KuntaAPI,apiPackage=KuntaAPI\\\\Api,modelPackage=KuntaAPI\\\\Model,artifactVersion=' + PHP_CLIENT_VERSION
+          '--additional-properties packagePath=kunta-api-php-client,composerVendorName=metatavu,composerProjectName=kunta-api-php-client,variableNamingConvention=camelCase,invokerPackage=KuntaAPI,apiPackage=KuntaAPI\\\\Api,modelPackage=KuntaAPI\\\\Model,artifactVersion=' + PHP_CLIENT_VERSION
       },
       'php-client-publish': {
         command : 'sh git_push.sh',
