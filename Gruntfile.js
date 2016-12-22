@@ -39,7 +39,7 @@ module.exports = function(grunt) {
           '--model-package fi.metatavu.kuntaapi.server.rest.model ' +
           '--group-id fi.metatavu.kunta-api ' +
           '--artifact-id kunta-api-spec ' +
-          '--artifact-version `mvn -f jaxrs-spec-generated/pom.xml.before -q -Dexec.executable=\'echo\' -Dexec.args=\'${project.version}\' --non-recursive org.codehaus.mojo:exec-maven-plugin:1.3.1:exec` ' +
+          '--artifact-version `cat jaxrs-spec-generated/pom.xml.before|grep version -m 1|sed -e \'s/.*<version>//\'|sed -e \'s/<.*//\'` ' +
           '--template-dir jaxrs-spec-templates ' +
           '--additional-properties dateLibrary=java8 ' +
           '-o jaxrs-spec-generated/'
