@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>fi.otavanopisto.kunta-api</groupId>
+  <groupId>fi.metatavu.kunta-api</groupId>
   <artifactId>kunta-api-spec</artifactId>
   <packaging>jar</packaging>
   <name>kunta-api-spec</name>
@@ -18,14 +18,14 @@
   
   <developers>
     <developer>
-      <id>otavanopisto</id>
-      <email>ratkaisutiimi@otavanopisto.fi</email>
-      <name>Otavan Opisto</name>
-      <organization>Otavan Opisto</organization>
-      <organizationUrl>http://www.otavanopisto.fi/</organizationUrl>
-      <roles>
-        <role>Owner</role>
-      </roles>
+      <name>Metatavu Oy</name>
+      <organization>Metatavu Oy</organization>
+      <organizationUrl>http://www.metatavu.fi</organizationUrl>
+    </developer>
+    <developer>
+      <name>City of Mikkeli</name>
+      <organization>City of Mikkeli</organization>
+      <organizationUrl>http://www.mikkeli.fi/</organizationUrl>
     </developer>
   </developers>
 
@@ -35,17 +35,17 @@
   </issueManagement>
 
   <scm>
-    <developerConnection>scm:git:git@github.com:otavanopisto/kunta-api-spec.git</developerConnection>
-    <url>git@github.com:otavanopisto/kunta-api-spec.git</url>
-    <connection>scm:git:git@github.com:otavanopisto/kunta-api-spec.git</connection>
+    <developerConnection>scm:git:git@github.com:Metatavu/kunta-api-spec.git</developerConnection>
+    <url>git@github.com:Metatavu/kunta-api-spec.git</url>
+    <connection>scm:git:git@github.com:Metatavu/kunta-api-spec.git</connection>
     <tag>HEAD</tag>
   </scm>
 
   <organization>
-    <name>Otava Folk High School</name>
-    <url>http://www.otavanopisto.fi</url>
+    <name>Metatavu Oy</name>
+    <url>http://www.metatavu.fi</url>
   </organization>
-
+  
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>

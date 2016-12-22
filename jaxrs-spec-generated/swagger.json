@@ -2,7 +2,7 @@
   "swagger" : "2.0",
   "info" : {
     "description" : "Solution to combine municipality services under single API.",
-    "version" : "0.0.1",
+    "version" : "0.1.0",
     "title" : "Kunta API"
   },
   "host" : "demo.kuntaapi.fi",
@@ -486,6 +486,100 @@
             "schema" : {
               "type" : "string",
               "format" : "binary"
+            }
+          },
+          "400" : {
+            "description" : "Invalid request was sent to the server",
+            "schema" : {
+              "$ref" : "#/definitions/BadRequest"
+            }
+          },
+          "403" : {
+            "description" : "Attempted to make a call with unauthorized client",
+            "schema" : {
+              "$ref" : "#/definitions/Forbidden"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "schema" : {
+              "$ref" : "#/definitions/InternalServerError"
+            }
+          }
+        }
+      }
+    },
+    "/organizations/{organizationId}/contacts" : {
+      "get" : {
+        "tags" : [ "Contacts" ],
+        "summary" : "Lists organizations contacts",
+        "description" : "Lists organizations contacts\n",
+        "operationId" : "listOrganizationContacts",
+        "parameters" : [ {
+          "name" : "organizationId",
+          "in" : "path",
+          "description" : "Organization id",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a list of contacts",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Contact"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid request was sent to the server",
+            "schema" : {
+              "$ref" : "#/definitions/BadRequest"
+            }
+          },
+          "403" : {
+            "description" : "Attempted to make a call with unauthorized client",
+            "schema" : {
+              "$ref" : "#/definitions/Forbidden"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "schema" : {
+              "$ref" : "#/definitions/InternalServerError"
+            }
+          }
+        }
+      }
+    },
+    "/organizations/{organizationId}/contacts/{contactId}" : {
+      "get" : {
+        "tags" : [ "Contacts" ],
+        "summary" : "Finds an organizations contact",
+        "description" : "Finds organization's single contact\n",
+        "operationId" : "findOrganizationContact",
+        "parameters" : [ {
+          "name" : "organizationId",
+          "in" : "path",
+          "description" : "Organization id",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        }, {
+          "name" : "contactId",
+          "in" : "path",
+          "description" : "Contact id",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a single contact",
+            "schema" : {
+              "$ref" : "#/definitions/Contact"
             }
           },
           "400" : {
@@ -4923,6 +5017,90 @@
         "published" : {
           "type" : "string",
           "format" : "date-time"
+        }
+      }
+    },
+    "ContactPhone" : {
+      "properties" : {
+        "type" : {
+          "type" : "string"
+        },
+        "number" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ContactStatus" : {
+      "properties" : {
+        "text" : {
+          "type" : "string"
+        },
+        "start" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "end" : {
+          "type" : "string",
+          "format" : "date-time"
+        }
+      }
+    },
+    "Contact" : {
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
+        "displayName" : {
+          "type" : "string"
+        },
+        "firstName" : {
+          "type" : "string"
+        },
+        "lastName" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "organization" : {
+          "type" : "string"
+        },
+        "organizationUnits" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "additionalInformations" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "emails" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "phones" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ContactPhone"
+          }
+        },
+        "addresses" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Address"
+          }
+        },
+        "statuses" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ContactStatus"
+          }
         }
       }
     },
