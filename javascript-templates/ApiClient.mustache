@@ -63,7 +63,7 @@
      * @type {Number}
      * @default 60000
      */
-    this.timeout = 60000;
+    this.timeout = 10000;
   };
 
 {{#emitJSDoc}}  /**
@@ -347,7 +347,7 @@
     var request = superagent(httpMethod, url);
 
     if (typeof module === 'object' && module.exports) {
-      request.use(require('superagent-logger'));
+      request.use(require('superagent-logger')({ outgoing: true }));
     }
 
     // apply authentications
