@@ -71,6 +71,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property slug (base name: "slug")', function() {
+      // uncomment below and update the code to test the property slug
+      //var instane = new KuntaApiClient.Announcement();
+      //expect(instance).to.be();
+    });
+
     it('should have the property title (base name: "title")', function() {
       // uncomment below and update the code to test the property title
       //var instane = new KuntaApiClient.Announcement();

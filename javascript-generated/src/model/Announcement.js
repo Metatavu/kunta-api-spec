@@ -45,7 +45,7 @@
   /**
    * The Announcement model module.
    * @module model/Announcement
-   * @version 0.0.35
+   * @version 0.0.36
    */
 
   /**
@@ -55,6 +55,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -77,6 +78,9 @@
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
+      if (data.hasOwnProperty('slug')) {
+        obj['slug'] = ApiClient.convertToType(data['slug'], 'String');
+      }
       if (data.hasOwnProperty('title')) {
         obj['title'] = ApiClient.convertToType(data['title'], 'String');
       }
@@ -97,6 +101,10 @@
    * @member {String} id
    */
   exports.prototype['id'] = undefined;
+  /**
+   * @member {String} slug
+   */
+  exports.prototype['slug'] = undefined;
   /**
    * @member {String} title
    */

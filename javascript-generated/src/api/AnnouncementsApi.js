@@ -42,7 +42,7 @@
   /**
    * Announcements service.
    * @module api/AnnouncementsApi
-   * @version 0.0.35
+   * @version 0.0.36
    */
 
   /**
@@ -107,6 +107,7 @@
      * Lists organizations announcements 
      * @param {String} organizationId Organization id
      * @param {Object} opts Optional parameters
+     * @param {String} opts.slug Filter with slug
      * @param {Integer} opts.firstResult first index of results
      * @param {Integer} opts.maxResults maximum number of results
      * @param {String} opts.sortBy PUBLICATION_DATE
@@ -127,6 +128,7 @@
         'organizationId': organizationId
       };
       var queryParams = {
+        'slug': opts['slug'],
         'firstResult': opts['firstResult'],
         'maxResults': opts['maxResults'],
         'sortBy': opts['sortBy'],

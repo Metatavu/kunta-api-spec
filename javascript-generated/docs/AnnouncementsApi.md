@@ -71,6 +71,7 @@ var apiInstance = new KuntaApiClient.AnnouncementsApi();
 var organizationId = "organizationId_example"; // String | Organization id
 
 var opts = { 
+  'slug': "slug_example", // String | Filter with slug
   'firstResult': 56, // Integer | first index of results
   'maxResults': 56, // Integer | maximum number of results
   'sortBy': "sortBy_example", // String | PUBLICATION_DATE
@@ -89,6 +90,7 @@ apiInstance.listOrganizationAnnouncements(organizationId, opts).then(function(da
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| Organization id | 
+ **slug** | **String**| Filter with slug | [optional] 
  **firstResult** | **Integer**| first index of results | [optional] 
  **maxResults** | **Integer**| maximum number of results | [optional] 
  **sortBy** | **String**| PUBLICATION_DATE | [optional] 
