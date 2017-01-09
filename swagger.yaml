@@ -1844,6 +1844,11 @@ paths:
           required: true
           type: string
           format: uuid
+        - name: slug
+          in: query
+          description: Filter with slug
+          required: false
+          type: string
         - name: firstResult
           in: query
           description: first index of results
@@ -3784,6 +3789,8 @@ definitions:
       id:
         type: string
         format: uuid
+      slug:
+        type: string
       title:
         type: string
       abstract:
