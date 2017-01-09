@@ -11,6 +11,7 @@ import java.util.Objects;
 public class Announcement   {
   
   private String id = null;
+  private String slug = null;
   private String title = null;
   private String _abstract = null;
   private String contents = null;
@@ -30,6 +31,22 @@ public class Announcement   {
   }
   public void setId(String id) {
     this.id = id;
+  }
+
+  /**
+   **/
+  public Announcement slug(String slug) {
+    this.slug = slug;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "")
+  public String getSlug() {
+    return slug;
+  }
+  public void setSlug(String slug) {
+    this.slug = slug;
   }
 
   /**
@@ -107,6 +124,7 @@ public class Announcement   {
     }
     Announcement announcement = (Announcement) o;
     return Objects.equals(id, announcement.id) &&
+        Objects.equals(slug, announcement.slug) &&
         Objects.equals(title, announcement.title) &&
         Objects.equals(_abstract, announcement._abstract) &&
         Objects.equals(contents, announcement.contents) &&
@@ -115,7 +133,7 @@ public class Announcement   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, _abstract, contents, published);
+    return Objects.hash(id, slug, title, _abstract, contents, published);
   }
 
   @Override
@@ -124,6 +142,7 @@ public class Announcement   {
     sb.append("class Announcement {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    _abstract: ").append(toIndentedString(_abstract)).append("\n");
     sb.append("    contents: ").append(toIndentedString(contents)).append("\n");

@@ -35,7 +35,7 @@ import java.util.List;
 @Api(description = "the organizations API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2016-12-22T14:44:39.241+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-01-09T17:48:04.008+02:00")
 
 public abstract class OrganizationsApi extends AbstractApi {
 
@@ -398,7 +398,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Announcement.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Announcement.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = Announcement.class, responseContainer = "List") })
-    public abstract Response listOrganizationAnnouncements(@PathParam("organizationId") String organizationId,@QueryParam("firstResult") Integer firstResult,@QueryParam("maxResults") Integer maxResults,@QueryParam("sortBy") String sortBy,@QueryParam("sortDir") String sortDir,@Context Request request);
+    public abstract Response listOrganizationAnnouncements(@PathParam("organizationId") String organizationId,@QueryParam("slug") String slug,@QueryParam("firstResult") Integer firstResult,@QueryParam("maxResults") Integer maxResults,@QueryParam("sortBy") String sortBy,@QueryParam("sortDir") String sortDir,@Context Request request);
 
     @GET
     @Path("/{organizationId}/banners/{bannerId}/images")
