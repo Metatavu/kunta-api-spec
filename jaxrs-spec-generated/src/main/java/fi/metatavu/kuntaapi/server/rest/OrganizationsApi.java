@@ -12,6 +12,7 @@ import fi.metatavu.kuntaapi.server.rest.model.Attachment;
 import fi.metatavu.kuntaapi.server.rest.model.Contact;
 import fi.metatavu.kuntaapi.server.rest.model.Event;
 import fi.metatavu.kuntaapi.server.rest.model.FileDef;
+import fi.metatavu.kuntaapi.server.rest.model.Fragment;
 import fi.metatavu.kuntaapi.server.rest.model.Job;
 import fi.metatavu.kuntaapi.server.rest.model.Menu;
 import fi.metatavu.kuntaapi.server.rest.model.MenuItem;
@@ -35,7 +36,7 @@ import java.util.List;
 @Api(description = "the organizations API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-01-09T17:48:04.008+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-01-13T07:55:28.981+02:00")
 
 public abstract class OrganizationsApi extends AbstractApi {
 
@@ -170,6 +171,18 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = FileDef.class),
         @ApiResponse(code = 500, message = "Internal server error", response = FileDef.class) })
     public abstract Response findOrganizationFile(@PathParam("organizationId") String organizationId,@PathParam("fileId") String fileId,@Context Request request);
+
+    @GET
+    @Path("/{organizationId}/fragments/{fragmentId}")
+    @Consumes({ "application/json;charset=utf-8" })
+    @Produces({ "application/json;charset=utf-8" })
+    @ApiOperation(value = "Finds organizations page fragment", notes = "Finds single organization page fragment ", response = Fragment.class, tags={ "Fragments",  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Returns a single organization page fragment", response = Fragment.class),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Fragment.class),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Fragment.class),
+        @ApiResponse(code = 500, message = "Internal server error", response = Fragment.class) })
+    public abstract Response findOrganizationFragment(@PathParam("organizationId") String organizationId,@PathParam("fragmentId") String fragmentId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/jobs/{jobId}")
@@ -471,6 +484,18 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = FileDef.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = FileDef.class, responseContainer = "List") })
     public abstract Response listOrganizationFiles(@PathParam("organizationId") String organizationId,@QueryParam("pageId") String pageId,@QueryParam("search") String search,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
+
+    @GET
+    @Path("/{organizationId}/fragments")
+    @Consumes({ "application/json;charset=utf-8" })
+    @Produces({ "application/json;charset=utf-8" })
+    @ApiOperation(value = "Lists organizations page fragments", notes = "Lists organizations page fragments ", response = Fragment.class, responseContainer = "List", tags={ "Fragments",  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Returns a list of page fragments", response = Fragment.class, responseContainer = "List"),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Fragment.class, responseContainer = "List"),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Fragment.class, responseContainer = "List"),
+        @ApiResponse(code = 500, message = "Internal server error", response = Fragment.class, responseContainer = "List") })
+    public abstract Response listOrganizationFragments(@PathParam("organizationId") String organizationId,@QueryParam("slug") String slug,@Context Request request);
 
     @GET
     @Path("/{organizationId}/jobs")
