@@ -34,7 +34,7 @@
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.MenuItem = factory(root.KuntaApiClient.ApiClient);
+    root.KuntaApiClient.Fragment = factory(root.KuntaApiClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -43,14 +43,14 @@
 
 
   /**
-   * The MenuItem model module.
-   * @module model/MenuItem
+   * The Fragment model module.
+   * @module model/Fragment
    * @version 0.0.37
    */
 
   /**
-   * Constructs a new <code>MenuItem</code>.
-   * @alias module:model/MenuItem
+   * Constructs a new <code>Fragment</code>.
+   * @alias module:model/Fragment
    * @class
    */
   var exports = function() {
@@ -59,18 +59,14 @@
 
 
 
-
-
-
-
   };
 
   /**
-   * Constructs a <code>MenuItem</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>Fragment</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/MenuItem} obj Optional instance to populate.
-   * @return {module:model/MenuItem} The populated <code>MenuItem</code> instance.
+   * @param {module:model/Fragment} obj Optional instance to populate.
+   * @return {module:model/Fragment} The populated <code>Fragment</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -79,23 +75,11 @@
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
-      if (data.hasOwnProperty('label')) {
-        obj['label'] = ApiClient.convertToType(data['label'], 'String');
+      if (data.hasOwnProperty('slug')) {
+        obj['slug'] = ApiClient.convertToType(data['slug'], 'String');
       }
-      if (data.hasOwnProperty('parentItemId')) {
-        obj['parentItemId'] = ApiClient.convertToType(data['parentItemId'], 'String');
-      }
-      if (data.hasOwnProperty('type')) {
-        obj['type'] = ApiClient.convertToType(data['type'], 'String');
-      }
-      if (data.hasOwnProperty('pageId')) {
-        obj['pageId'] = ApiClient.convertToType(data['pageId'], 'String');
-      }
-      if (data.hasOwnProperty('fileId')) {
-        obj['fileId'] = ApiClient.convertToType(data['fileId'], 'String');
-      }
-      if (data.hasOwnProperty('externalUrl')) {
-        obj['externalUrl'] = ApiClient.convertToType(data['externalUrl'], 'String');
+      if (data.hasOwnProperty('contents')) {
+        obj['contents'] = ApiClient.convertToType(data['contents'], 'String');
       }
     }
     return obj;
@@ -106,29 +90,13 @@
    */
   exports.prototype['id'] = undefined;
   /**
-   * @member {String} label
+   * @member {String} slug
    */
-  exports.prototype['label'] = undefined;
+  exports.prototype['slug'] = undefined;
   /**
-   * @member {String} parentItemId
+   * @member {String} contents
    */
-  exports.prototype['parentItemId'] = undefined;
-  /**
-   * @member {String} type
-   */
-  exports.prototype['type'] = undefined;
-  /**
-   * @member {String} pageId
-   */
-  exports.prototype['pageId'] = undefined;
-  /**
-   * @member {String} fileId
-   */
-  exports.prototype['fileId'] = undefined;
-  /**
-   * @member {String} externalUrl
-   */
-  exports.prototype['externalUrl'] = undefined;
+  exports.prototype['contents'] = undefined;
 
 
 

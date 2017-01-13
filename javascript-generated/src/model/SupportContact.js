@@ -45,7 +45,7 @@
   /**
    * The SupportContact model module.
    * @module model/SupportContact
-   * @version 0.0.36
+   * @version 0.0.37
    */
 
   /**

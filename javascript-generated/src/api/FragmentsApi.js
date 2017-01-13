@@ -25,29 +25,29 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/BadRequest', 'model/Announcement', 'model/Forbidden', 'model/InternalServerError'], factory);
+    define(['ApiClient', 'model/BadRequest', 'model/Forbidden', 'model/Fragment', 'model/InternalServerError'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/Announcement'), require('../model/Forbidden'), require('../model/InternalServerError'));
+    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/Forbidden'), require('../model/Fragment'), require('../model/InternalServerError'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.AnnouncementsApi = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.BadRequest, root.KuntaApiClient.Announcement, root.KuntaApiClient.Forbidden, root.KuntaApiClient.InternalServerError);
+    root.KuntaApiClient.FragmentsApi = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.BadRequest, root.KuntaApiClient.Forbidden, root.KuntaApiClient.Fragment, root.KuntaApiClient.InternalServerError);
   }
-}(this, function(ApiClient, BadRequest, Announcement, Forbidden, InternalServerError) {
+}(this, function(ApiClient, BadRequest, Forbidden, Fragment, InternalServerError) {
   'use strict';
 
   /**
-   * Announcements service.
-   * @module api/AnnouncementsApi
+   * Fragments service.
+   * @module api/FragmentsApi
    * @version 0.0.37
    */
 
   /**
-   * Constructs a new AnnouncementsApi. 
-   * @alias module:api/AnnouncementsApi
+   * Constructs a new FragmentsApi. 
+   * @alias module:api/FragmentsApi
    * @class
    * @param {module:ApiClient} apiClient Optional API client implementation to use,
    * default to {@link module:ApiClient#instance} if unspecified.
@@ -58,29 +58,29 @@
 
 
     /**
-     * Finds an organizations announcement
-     * Finds organization&#39;s single announcement 
+     * Finds organizations page fragment
+     * Finds single organization page fragment 
      * @param {String} organizationId Organization id
-     * @param {String} announcementId Announcement id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Announcement}
+     * @param {String} fragmentId fragment id
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Fragment}
      */
-    this.findOrganizationAnnouncement = function(organizationId, announcementId) {
+    this.findOrganizationFragment = function(organizationId, fragmentId) {
       var postBody = null;
 
       // verify the required parameter 'organizationId' is set
       if (organizationId == undefined || organizationId == null) {
-        throw "Missing the required parameter 'organizationId' when calling findOrganizationAnnouncement";
+        throw "Missing the required parameter 'organizationId' when calling findOrganizationFragment";
       }
 
-      // verify the required parameter 'announcementId' is set
-      if (announcementId == undefined || announcementId == null) {
-        throw "Missing the required parameter 'announcementId' when calling findOrganizationAnnouncement";
+      // verify the required parameter 'fragmentId' is set
+      if (fragmentId == undefined || fragmentId == null) {
+        throw "Missing the required parameter 'fragmentId' when calling findOrganizationFragment";
       }
 
 
       var pathParams = {
         'organizationId': organizationId,
-        'announcementId': announcementId
+        'fragmentId': fragmentId
       };
       var queryParams = {
       };
@@ -92,10 +92,10 @@
       var authNames = [];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = Announcement;
+      var returnType = Fragment;
 
       return this.apiClient.callApi(
-        '/organizations/{organizationId}/announcements/{announcementId}', 'GET',
+        '/organizations/{organizationId}/fragments/{fragmentId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );
@@ -103,24 +103,20 @@
 
 
     /**
-     * Lists organizations announcements
-     * Lists organizations announcements 
+     * Lists organizations page fragments
+     * Lists organizations page fragments 
      * @param {String} organizationId Organization id
      * @param {Object} opts Optional parameters
-     * @param {String} opts.slug Filter with slug
-     * @param {Integer} opts.firstResult first index of results
-     * @param {Integer} opts.maxResults maximum number of results
-     * @param {String} opts.sortBy PUBLICATION_DATE
-     * @param {String} opts.sortDir ASC or DESC
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Announcement>}
+     * @param {String} opts.slug Filter results by fragment slug
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Fragment>}
      */
-    this.listOrganizationAnnouncements = function(organizationId, opts) {
+    this.listOrganizationFragments = function(organizationId, opts) {
       opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'organizationId' is set
       if (organizationId == undefined || organizationId == null) {
-        throw "Missing the required parameter 'organizationId' when calling listOrganizationAnnouncements";
+        throw "Missing the required parameter 'organizationId' when calling listOrganizationFragments";
       }
 
 
@@ -128,11 +124,7 @@
         'organizationId': organizationId
       };
       var queryParams = {
-        'slug': opts['slug'],
-        'firstResult': opts['firstResult'],
-        'maxResults': opts['maxResults'],
-        'sortBy': opts['sortBy'],
-        'sortDir': opts['sortDir']
+        'slug': opts['slug']
       };
       var headerParams = {
       };
@@ -142,10 +134,10 @@
       var authNames = [];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = [Announcement];
+      var returnType = [Fragment];
 
       return this.apiClient.callApi(
-        '/organizations/{organizationId}/announcements', 'GET',
+        '/organizations/{organizationId}/fragments', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );
