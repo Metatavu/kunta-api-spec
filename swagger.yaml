@@ -1576,6 +1576,83 @@ paths:
           description: Internal server error
           schema:
             $ref: '#/definitions/InternalServerError'
+  /organizations/{organizationId}/fragments:
+    get:
+      operationId: listOrganizationFragments
+      summary: Lists organizations page fragments
+      description: |
+        Lists organizations page fragments
+      parameters:
+        - name: organizationId
+          in: path
+          description: Organization id
+          required: true
+          type: string
+          format: uuid
+        - name: slug
+          in: query
+          description: Filter results by fragment slug
+          required: false
+          type: string
+      tags:
+        - Fragments
+      responses:
+        200:
+          description: Returns a list of page fragments
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Fragment'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  /organizations/{organizationId}/fragments/{fragmentId}:
+    get:
+      operationId: findOrganizationFragment
+      summary: Finds organizations page fragment
+      description: |
+        Finds single organization page fragment
+      parameters:
+        - name: organizationId
+          in: path
+          description: Organization id
+          required: true
+          type: string
+          format: uuid
+        - name: fragmentId
+          in: path
+          description: fragment id
+          required: true
+          type: string
+          format: uuid
+      tags:
+        - Fragments
+      responses:
+        200:
+          description: Returns a single organization page fragment
+          schema:
+            $ref: '#/definitions/Fragment'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
   /organizations/{organizationId}/menus:
     get:
       operationId: listOrganizationMenus
@@ -3694,6 +3771,15 @@ definitions:
       parentId:
         type: string
         format: uuid
+  Fragment:
+    properties:
+      id:
+        type: string
+        format: uuid
+      slug:
+        type: string
+      contents:
+        type: string
   Menu:
     properties:
       id:
