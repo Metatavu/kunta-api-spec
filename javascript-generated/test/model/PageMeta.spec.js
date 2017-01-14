@@ -39,7 +39,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new KuntaApiClient.Page();
+    instance = new KuntaApiClient.PageMeta();
   });
 
   var getProperty = function(object, getter, property) {
@@ -58,40 +58,16 @@
       object[property] = value;
   }
 
-  describe('Page', function() {
-    it('should create an instance of Page', function() {
-      // uncomment below and update the code to test Page
-      //var instane = new KuntaApiClient.Page();
-      //expect(instance).to.be.a(KuntaApiClient.Page);
+  describe('PageMeta', function() {
+    it('should create an instance of PageMeta', function() {
+      // uncomment below and update the code to test PageMeta
+      //var instane = new KuntaApiClient.PageMeta();
+      //expect(instance).to.be.a(KuntaApiClient.PageMeta);
     });
 
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
-      //var instane = new KuntaApiClient.Page();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property slug (base name: "slug")', function() {
-      // uncomment below and update the code to test the property slug
-      //var instane = new KuntaApiClient.Page();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property titles (base name: "titles")', function() {
-      // uncomment below and update the code to test the property titles
-      //var instane = new KuntaApiClient.Page();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property parentId (base name: "parentId")', function() {
-      // uncomment below and update the code to test the property parentId
-      //var instane = new KuntaApiClient.Page();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property meta (base name: "meta")', function() {
-      // uncomment below and update the code to test the property meta
-      //var instane = new KuntaApiClient.Page();
+    it('should have the property hideMenuChildren (base name: "hideMenuChildren")', function() {
+      // uncomment below and update the code to test the property hideMenuChildren
+      //var instane = new KuntaApiClient.PageMeta();
       //expect(instance).to.be();
     });
 

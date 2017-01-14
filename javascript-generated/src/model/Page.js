@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/LocalizedValue'], factory);
+    define(['ApiClient', 'model/LocalizedValue', 'model/PageMeta'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./LocalizedValue'));
+    module.exports = factory(require('../ApiClient'), require('./LocalizedValue'), require('./PageMeta'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.Page = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.LocalizedValue);
+    root.KuntaApiClient.Page = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.PageMeta);
   }
-}(this, function(ApiClient, LocalizedValue) {
+}(this, function(ApiClient, LocalizedValue, PageMeta) {
   'use strict';
 
 
@@ -45,7 +45,7 @@
   /**
    * The Page model module.
    * @module model/Page
-   * @version 0.0.37
+   * @version 0.0.38
    */
 
   /**
@@ -55,6 +55,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -85,6 +86,9 @@
       if (data.hasOwnProperty('parentId')) {
         obj['parentId'] = ApiClient.convertToType(data['parentId'], 'String');
       }
+      if (data.hasOwnProperty('meta')) {
+        obj['meta'] = PageMeta.constructFromObject(data['meta']);
+      }
     }
     return obj;
   }
@@ -105,6 +109,10 @@
    * @member {String} parentId
    */
   exports.prototype['parentId'] = undefined;
+  /**
+   * @member {module:model/PageMeta} meta
+   */
+  exports.prototype['meta'] = undefined;
 
 
 

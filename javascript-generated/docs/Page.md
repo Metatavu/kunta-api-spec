@@ -7,5 +7,6 @@ Name | Type | Description | Notes
 **slug** | **String** |  | [optional] 
 **titles** | [**[LocalizedValue]**](LocalizedValue.md) |  | [optional] 
 **parentId** | **String** |  | [optional] 
+**meta** | [**PageMeta**](PageMeta.md) |  | [optional] 
 
 
