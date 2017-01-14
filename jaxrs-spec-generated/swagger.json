@@ -4967,6 +4967,16 @@
         "parentId" : {
           "type" : "string",
           "format" : "uuid"
+        },
+        "meta" : {
+          "$ref" : "#/definitions/PageMeta"
+        }
+      }
+    },
+    "PageMeta" : {
+      "properties" : {
+        "hideMenuChildren" : {
+          "type" : "boolean"
         }
       }
     },

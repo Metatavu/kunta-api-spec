@@ -1,6 +1,7 @@
 package fi.metatavu.kuntaapi.server.rest.model;
 
 import fi.metatavu.kuntaapi.server.rest.model.LocalizedValue;
+import fi.metatavu.kuntaapi.server.rest.model.PageMeta;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +17,7 @@ public class Page   {
   private String slug = null;
   private List<LocalizedValue> titles = new ArrayList<LocalizedValue>();
   private String parentId = null;
+  private PageMeta meta = null;
 
   /**
    **/
@@ -81,6 +83,22 @@ public class Page   {
     this.parentId = parentId;
   }
 
+  /**
+   **/
+  public Page meta(PageMeta meta) {
+    this.meta = meta;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "")
+  public PageMeta getMeta() {
+    return meta;
+  }
+  public void setMeta(PageMeta meta) {
+    this.meta = meta;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -94,12 +112,13 @@ public class Page   {
     return Objects.equals(id, page.id) &&
         Objects.equals(slug, page.slug) &&
         Objects.equals(titles, page.titles) &&
-        Objects.equals(parentId, page.parentId);
+        Objects.equals(parentId, page.parentId) &&
+        Objects.equals(meta, page.meta);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, slug, titles, parentId);
+    return Objects.hash(id, slug, titles, parentId, meta);
   }
 
   @Override
@@ -111,6 +130,7 @@ public class Page   {
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("    titles: ").append(toIndentedString(titles)).append("\n");
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("}");
     return sb.toString();
   }
