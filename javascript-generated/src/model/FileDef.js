@@ -45,7 +45,7 @@
   /**
    * The FileDef model module.
    * @module model/FileDef
-   * @version 0.0.38
+   * @version 0.0.39
    */
 
   /**
@@ -55,6 +55,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -77,6 +78,9 @@
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
+      if (data.hasOwnProperty('pageId')) {
+        obj['pageId'] = ApiClient.convertToType(data['pageId'], 'String');
+      }
       if (data.hasOwnProperty('slug')) {
         obj['slug'] = ApiClient.convertToType(data['slug'], 'String');
       }
@@ -97,6 +101,10 @@
    * @member {String} id
    */
   exports.prototype['id'] = undefined;
+  /**
+   * @member {String} pageId
+   */
+  exports.prototype['pageId'] = undefined;
   /**
    * @member {String} slug
    */
