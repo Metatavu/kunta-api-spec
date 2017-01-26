@@ -10,6 +10,7 @@ import java.util.Objects;
 public class FileDef   {
   
   private String id = null;
+  private String pageId = null;
   private String slug = null;
   private String title = null;
   private String contentType = null;
@@ -29,6 +30,22 @@ public class FileDef   {
   }
   public void setId(String id) {
     this.id = id;
+  }
+
+  /**
+   **/
+  public FileDef pageId(String pageId) {
+    this.pageId = pageId;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "")
+  public String getPageId() {
+    return pageId;
+  }
+  public void setPageId(String pageId) {
+    this.pageId = pageId;
   }
 
   /**
@@ -106,6 +123,7 @@ public class FileDef   {
     }
     FileDef fileDef = (FileDef) o;
     return Objects.equals(id, fileDef.id) &&
+        Objects.equals(pageId, fileDef.pageId) &&
         Objects.equals(slug, fileDef.slug) &&
         Objects.equals(title, fileDef.title) &&
         Objects.equals(contentType, fileDef.contentType) &&
@@ -114,7 +132,7 @@ public class FileDef   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, slug, title, contentType, size);
+    return Objects.hash(id, pageId, slug, title, contentType, size);
   }
 
   @Override
@@ -123,6 +141,7 @@ public class FileDef   {
     sb.append("class FileDef {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    pageId: ").append(toIndentedString(pageId)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");

@@ -5040,6 +5040,10 @@
           "type" : "string",
           "format" : "uuid"
         },
+        "pageId" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
         "slug" : {
           "type" : "string"
         },
