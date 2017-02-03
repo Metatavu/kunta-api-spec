@@ -42,7 +42,7 @@
   /**
    * Pages service.
    * @module api/PagesApi
-   * @version 0.0.40
+   * @version 0.0.41
    */
 
   /**
@@ -260,9 +260,12 @@
      * Returns a list of organization page images 
      * @param {String} organizationId Organization id
      * @param {String} pageId Page id
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.type Filter by type
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Attachment>}
      */
-    this.listOrganizationPageImages = function(organizationId, pageId) {
+    this.listOrganizationPageImages = function(organizationId, pageId, opts) {
+      opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'organizationId' is set
@@ -281,6 +284,7 @@
         'pageId': pageId
       };
       var queryParams = {
+        'type': opts['type']
       };
       var headerParams = {
       };

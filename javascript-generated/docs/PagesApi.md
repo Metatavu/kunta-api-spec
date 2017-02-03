@@ -208,7 +208,7 @@ No authorization required
 
 <a name="listOrganizationPageImages"></a>
 # **listOrganizationPageImages**
-> [Attachment] listOrganizationPageImages(organizationId, pageId)
+> [Attachment] listOrganizationPageImages(organizationId, pageId, opts)
 
 Returns a list of organization page images
 
@@ -224,7 +224,10 @@ var organizationId = "organizationId_example"; // String | Organization id
 
 var pageId = "pageId_example"; // String | Page id
 
-apiInstance.listOrganizationPageImages(organizationId, pageId).then(function(data) {
+var opts = { 
+  'type': "type_example" // String | Filter by type
+};
+apiInstance.listOrganizationPageImages(organizationId, pageId, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -238,6 +241,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| Organization id | 
  **pageId** | **String**| Page id | 
+ **type** | **String**| Filter by type | [optional] 
 
 ### Return type
 

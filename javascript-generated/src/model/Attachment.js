@@ -45,7 +45,7 @@
   /**
    * The Attachment model module.
    * @module model/Attachment
-   * @version 0.0.40
+   * @version 0.0.41
    */
 
   /**
@@ -55,6 +55,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -81,6 +82,9 @@
       if (data.hasOwnProperty('size')) {
         obj['size'] = ApiClient.convertToType(data['size'], 'Integer');
       }
+      if (data.hasOwnProperty('type')) {
+        obj['type'] = ApiClient.convertToType(data['type'], 'String');
+      }
     }
     return obj;
   }
@@ -97,6 +101,10 @@
    * @member {Integer} size
    */
   exports.prototype['size'] = undefined;
+  /**
+   * @member {String} type
+   */
+  exports.prototype['type'] = undefined;
 
 
 

@@ -46,7 +46,7 @@
 
   /**
    * @module ApiClient
-   * @version 0.0.40
+   * @version 0.0.41
    */
 
   /**

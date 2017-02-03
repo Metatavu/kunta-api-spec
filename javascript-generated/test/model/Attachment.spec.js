@@ -83,6 +83,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property type (base name: "type")', function() {
+      // uncomment below and update the code to test the property type
+      //var instane = new KuntaApiClient.Attachment();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));
