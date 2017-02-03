@@ -45,7 +45,7 @@
   /**
    * The Banner model module.
    * @module model/Banner
-   * @version 0.0.39
+   * @version 0.0.40
    */
 
   /**
@@ -55,6 +55,8 @@
    */
   var exports = function() {
     var _this = this;
+
+
 
 
 
@@ -85,6 +87,12 @@
       if (data.hasOwnProperty('link')) {
         obj['link'] = ApiClient.convertToType(data['link'], 'String');
       }
+      if (data.hasOwnProperty('textColor')) {
+        obj['textColor'] = ApiClient.convertToType(data['textColor'], 'String');
+      }
+      if (data.hasOwnProperty('backgroundColor')) {
+        obj['backgroundColor'] = ApiClient.convertToType(data['backgroundColor'], 'String');
+      }
     }
     return obj;
   }
@@ -105,6 +113,14 @@
    * @member {String} link
    */
   exports.prototype['link'] = undefined;
+  /**
+   * @member {String} textColor
+   */
+  exports.prototype['textColor'] = undefined;
+  /**
+   * @member {String} backgroundColor
+   */
+  exports.prototype['backgroundColor'] = undefined;
 
 
 

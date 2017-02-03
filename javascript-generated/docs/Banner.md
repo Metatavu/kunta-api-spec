@@ -7,5 +7,7 @@ Name | Type | Description | Notes
 **title** | **String** |  | [optional] 
 **contents** | **String** |  | [optional] 
 **link** | **String** |  | [optional] 
+**textColor** | **String** |  | [optional] 
+**backgroundColor** | **String** |  | [optional] 
 
 
