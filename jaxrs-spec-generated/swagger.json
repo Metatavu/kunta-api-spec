@@ -5073,6 +5073,12 @@
         },
         "link" : {
           "type" : "string"
+        },
+        "textColor" : {
+          "type" : "string"
+        },
+        "backgroundColor" : {
+          "type" : "string"
         }
       }
     },
