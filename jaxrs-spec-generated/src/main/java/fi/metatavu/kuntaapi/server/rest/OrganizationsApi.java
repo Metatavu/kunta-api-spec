@@ -36,7 +36,7 @@ import java.util.List;
 @Api(description = "the organizations API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-02-03T05:55:35.637+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-02-03T08:00:44.033+02:00")
 
 public abstract class OrganizationsApi extends AbstractApi {
 
@@ -580,7 +580,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Attachment.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Attachment.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = Attachment.class, responseContainer = "List") })
-    public abstract Response listOrganizationPageImages(@PathParam("organizationId") String organizationId,@PathParam("pageId") String pageId,@Context Request request);
+    public abstract Response listOrganizationPageImages(@PathParam("organizationId") String organizationId,@PathParam("pageId") String pageId,@QueryParam("type") String type,@Context Request request);
 
     @GET
     @Path("/{organizationId}/pages")

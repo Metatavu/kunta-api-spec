@@ -12,6 +12,7 @@ public class Attachment   {
   private String id = null;
   private String contentType = null;
   private Long size = null;
+  private String type = null;
 
   /**
    **/
@@ -61,6 +62,22 @@ public class Attachment   {
     this.size = size;
   }
 
+  /**
+   **/
+  public Attachment type(String type) {
+    this.type = type;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "")
+  public String getType() {
+    return type;
+  }
+  public void setType(String type) {
+    this.type = type;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -73,12 +90,13 @@ public class Attachment   {
     Attachment attachment = (Attachment) o;
     return Objects.equals(id, attachment.id) &&
         Objects.equals(contentType, attachment.contentType) &&
-        Objects.equals(size, attachment.size);
+        Objects.equals(size, attachment.size) &&
+        Objects.equals(type, attachment.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, contentType, size);
+    return Objects.hash(id, contentType, size, type);
   }
 
   @Override
@@ -89,6 +107,7 @@ public class Attachment   {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -2252,6 +2252,12 @@
           "required" : true,
           "type" : "string",
           "format" : "uuid"
+        }, {
+          "name" : "type",
+          "in" : "query",
+          "description" : "Filter by type",
+          "required" : false,
+          "type" : "string"
         } ],
         "responses" : {
           "200" : {
@@ -4320,6 +4326,9 @@
         "size" : {
           "type" : "integer",
           "format" : "int64"
+        },
+        "type" : {
+          "type" : "string"
         }
       }
     },
