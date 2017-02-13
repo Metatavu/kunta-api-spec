@@ -42,7 +42,7 @@
   /**
    * Banners service.
    * @module api/BannersApi
-   * @version 0.0.43
+   * @version 0.0.44
    */
 
   /**
@@ -96,6 +96,114 @@
 
       return this.apiClient.callApi(
         '/organizations/{organizationId}/banners/{bannerId}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+
+    /**
+     * Returns a single organiztion banner image
+     * Returns a single organiztion banner image 
+     * @param {String} organizationId Organization id
+     * @param {String} bannerId Banner Id
+     * @param {String} imageId Banner image id
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Attachment}
+     */
+    this.findOrganizationBannerImage = function(organizationId, bannerId, imageId) {
+      var postBody = null;
+
+      // verify the required parameter 'organizationId' is set
+      if (organizationId == undefined || organizationId == null) {
+        throw "Missing the required parameter 'organizationId' when calling findOrganizationBannerImage";
+      }
+
+      // verify the required parameter 'bannerId' is set
+      if (bannerId == undefined || bannerId == null) {
+        throw "Missing the required parameter 'bannerId' when calling findOrganizationBannerImage";
+      }
+
+      // verify the required parameter 'imageId' is set
+      if (imageId == undefined || imageId == null) {
+        throw "Missing the required parameter 'imageId' when calling findOrganizationBannerImage";
+      }
+
+
+      var pathParams = {
+        'organizationId': organizationId,
+        'bannerId': bannerId,
+        'imageId': imageId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = ['application/json;charset=utf-8'];
+      var accepts = ['application/json;charset=utf-8'];
+      var returnType = Attachment;
+
+      return this.apiClient.callApi(
+        '/organizations/{organizationId}/banners/{bannerId}/images/{imageId}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+
+    /**
+     * Returns an organization banner image data
+     * Returns an organization banner image data 
+     * @param {String} organizationId Organization id
+     * @param {String} bannerId Banner id
+     * @param {String} imageId Banner image id
+     * @param {Object} opts Optional parameters
+     * @param {Integer} opts.size Maximum width or height of image
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link 'String'}
+     */
+    this.getOrganizationBannerImageData = function(organizationId, bannerId, imageId, opts) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'organizationId' is set
+      if (organizationId == undefined || organizationId == null) {
+        throw "Missing the required parameter 'organizationId' when calling getOrganizationBannerImageData";
+      }
+
+      // verify the required parameter 'bannerId' is set
+      if (bannerId == undefined || bannerId == null) {
+        throw "Missing the required parameter 'bannerId' when calling getOrganizationBannerImageData";
+      }
+
+      // verify the required parameter 'imageId' is set
+      if (imageId == undefined || imageId == null) {
+        throw "Missing the required parameter 'imageId' when calling getOrganizationBannerImageData";
+      }
+
+
+      var pathParams = {
+        'organizationId': organizationId,
+        'bannerId': bannerId,
+        'imageId': imageId
+      };
+      var queryParams = {
+        'size': opts['size']
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = ['application/json;charset=utf-8'];
+      var accepts = ['application/octet-stream'];
+      var returnType = 'String';
+
+      return this.apiClient.callApi(
+        '/organizations/{organizationId}/banners/{bannerId}/images/{imageId}/data', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );

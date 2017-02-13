@@ -45,7 +45,7 @@
   /**
    * The ElectronicChannel model module.
    * @module model/ElectronicChannel
-   * @version 0.0.43
+   * @version 0.0.44
    */
 
   /**

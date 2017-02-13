@@ -59,16 +59,6 @@
   }
 
   describe('NewsApi', function() {
-    describe('findOrganizationBannerImage', function() {
-      it('should call findOrganizationBannerImage successfully', function(done) {
-        //uncomment below and update the code to test findOrganizationBannerImage
-        //instance.findOrganizationBannerImage(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('findOrganizationNewsArticle', function() {
       it('should call findOrganizationNewsArticle successfully', function(done) {
         //uncomment below and update the code to test findOrganizationNewsArticle
@@ -83,16 +73,6 @@
       it('should call findOrganizationNewsArticleImage successfully', function(done) {
         //uncomment below and update the code to test findOrganizationNewsArticleImage
         //instance.findOrganizationNewsArticleImage(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('getOrganizationBannerImageData', function() {
-      it('should call getOrganizationBannerImageData successfully', function(done) {
-        //uncomment below and update the code to test getOrganizationBannerImageData
-        //instance.getOrganizationBannerImageData(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
