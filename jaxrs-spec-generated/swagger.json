@@ -396,7 +396,7 @@
     },
     "/organizations/{organizationId}/banners/{bannerId}/images/{imageId}" : {
       "get" : {
-        "tags" : [ "News" ],
+        "tags" : [ "Banners" ],
         "summary" : "Returns a single organiztion banner image",
         "description" : "Returns a single organiztion banner image\n",
         "operationId" : "findOrganizationBannerImage",
@@ -452,7 +452,7 @@
     },
     "/organizations/{organizationId}/banners/{bannerId}/images/{imageId}/data" : {
       "get" : {
-        "tags" : [ "News" ],
+        "tags" : [ "Banners" ],
         "summary" : "Returns an organization banner image data",
         "description" : "Returns an organization banner image data\n",
         "operationId" : "getOrganizationBannerImageData",
