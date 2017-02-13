@@ -45,7 +45,7 @@
   /**
    * The FileDef model module.
    * @module model/FileDef
-   * @version 0.0.41
+   * @version 0.0.42
    */
 
   /**

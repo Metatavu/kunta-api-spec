@@ -1,0 +1,378 @@
+# KuntaApiClient.PublicTransportApi
+
+All URIs are relative to *https://demo.kuntaapi.fi/v1*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**findOrganizationPublicTransportAgency**](PublicTransportApi.md#findOrganizationPublicTransportAgency) | **GET** /organizations/{organizationId}/transportAgencies/{agencyId} | Finds an organizations public transport agency
+[**findOrganizationPublicTransportRoute**](PublicTransportApi.md#findOrganizationPublicTransportRoute) | **GET** /organizations/{organizationId}/transportRoutes/{routeId} | Finds an organizations public transport route
+[**findOrganizationPublicTransportRouteStop**](PublicTransportApi.md#findOrganizationPublicTransportRouteStop) | **GET** /organizations/{organizationId}/transportRoutes/{routeId}/stops/{stopId} | Finds a stop of organizations public transport route
+[**findOrganizationPublicTransportSchedule**](PublicTransportApi.md#findOrganizationPublicTransportSchedule) | **GET** /organizations/{organizationId}/transportSchedules/{scheduleId} | Finds organizations public transport schedule
+[**listOrganizationPublicTransportAgencies**](PublicTransportApi.md#listOrganizationPublicTransportAgencies) | **GET** /organizations/{organizationId}/transportAgencies | Lists organizations public transport agencies
+[**listOrganizationPublicTransportRouteStops**](PublicTransportApi.md#listOrganizationPublicTransportRouteStops) | **GET** /organizations/{organizationId}/transportRoutes/{routeId}/stops | Lists stops of organizations public transport route
+[**listOrganizationPublicTransportRoutes**](PublicTransportApi.md#listOrganizationPublicTransportRoutes) | **GET** /organizations/{organizationId}/transportRoutes | Lists organizations public transport routes
+[**listOrganizationPublicTransportSchedules**](PublicTransportApi.md#listOrganizationPublicTransportSchedules) | **GET** /organizations/{organizationId}/transportSchedules | Lists schedules of organization&#39;s public transport schedules
+
+
+<a name="findOrganizationPublicTransportAgency"></a>
+# **findOrganizationPublicTransportAgency**
+> Agency findOrganizationPublicTransportAgency(organizationId, agencyId)
+
+Finds an organizations public transport agency
+
+Finds organization&#39;s single public transport agency 
+
+### Example
+```javascript
+var KuntaApiClient = require('kunta-api-client');
+
+var apiInstance = new KuntaApiClient.PublicTransportApi();
+
+var organizationId = "organizationId_example"; // String | Organization id
+
+var agencyId = "agencyId_example"; // String | Agency id
+
+apiInstance.findOrganizationPublicTransportAgency(organizationId, agencyId).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| Organization id | 
+ **agencyId** | **String**| Agency id | 
+
+### Return type
+
+[**Agency**](Agency.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
+
+<a name="findOrganizationPublicTransportRoute"></a>
+# **findOrganizationPublicTransportRoute**
+> Route findOrganizationPublicTransportRoute(organizationId, routeId)
+
+Finds an organizations public transport route
+
+Finds organization&#39;s single public transport route 
+
+### Example
+```javascript
+var KuntaApiClient = require('kunta-api-client');
+
+var apiInstance = new KuntaApiClient.PublicTransportApi();
+
+var organizationId = "organizationId_example"; // String | Organization id
+
+var routeId = "routeId_example"; // String | Route id
+
+apiInstance.findOrganizationPublicTransportRoute(organizationId, routeId).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| Organization id | 
+ **routeId** | **String**| Route id | 
+
+### Return type
+
+[**Route**](Route.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
+
+<a name="findOrganizationPublicTransportRouteStop"></a>
+# **findOrganizationPublicTransportRouteStop**
+> Stop findOrganizationPublicTransportRouteStop(organizationId, routeId, stopId)
+
+Finds a stop of organizations public transport route
+
+Finds a stop of organizations public transport route 
+
+### Example
+```javascript
+var KuntaApiClient = require('kunta-api-client');
+
+var apiInstance = new KuntaApiClient.PublicTransportApi();
+
+var organizationId = "organizationId_example"; // String | Organization id
+
+var routeId = "routeId_example"; // String | Route id
+
+var stopId = "stopId_example"; // String | Stop id
+
+apiInstance.findOrganizationPublicTransportRouteStop(organizationId, routeId, stopId).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| Organization id | 
+ **routeId** | **String**| Route id | 
+ **stopId** | **String**| Stop id | 
+
+### Return type
+
+[**Stop**](Stop.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
+
+<a name="findOrganizationPublicTransportSchedule"></a>
+# **findOrganizationPublicTransportSchedule**
+> Schedule findOrganizationPublicTransportSchedule(organizationId, scheduleId)
+
+Finds organizations public transport schedule
+
+Finds organizations public transport schedule 
+
+### Example
+```javascript
+var KuntaApiClient = require('kunta-api-client');
+
+var apiInstance = new KuntaApiClient.PublicTransportApi();
+
+var organizationId = "organizationId_example"; // String | Organization id
+
+var scheduleId = "scheduleId_example"; // String | Schedule id
+
+apiInstance.findOrganizationPublicTransportSchedule(organizationId, scheduleId).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| Organization id | 
+ **scheduleId** | **String**| Schedule id | 
+
+### Return type
+
+[**Schedule**](Schedule.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
+
+<a name="listOrganizationPublicTransportAgencies"></a>
+# **listOrganizationPublicTransportAgencies**
+> [Agency] listOrganizationPublicTransportAgencies(organizationId)
+
+Lists organizations public transport agencies
+
+Lists organizations public transport agencies 
+
+### Example
+```javascript
+var KuntaApiClient = require('kunta-api-client');
+
+var apiInstance = new KuntaApiClient.PublicTransportApi();
+
+var organizationId = "organizationId_example"; // String | Organization id
+
+apiInstance.listOrganizationPublicTransportAgencies(organizationId).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| Organization id | 
+
+### Return type
+
+[**[Agency]**](Agency.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
+
+<a name="listOrganizationPublicTransportRouteStops"></a>
+# **listOrganizationPublicTransportRouteStops**
+> [Stop] listOrganizationPublicTransportRouteStops(organizationId, routeId)
+
+Lists stops of organizations public transport route
+
+Lists stops of organizations public transport route 
+
+### Example
+```javascript
+var KuntaApiClient = require('kunta-api-client');
+
+var apiInstance = new KuntaApiClient.PublicTransportApi();
+
+var organizationId = "organizationId_example"; // String | Organization id
+
+var routeId = "routeId_example"; // String | Route id
+
+apiInstance.listOrganizationPublicTransportRouteStops(organizationId, routeId).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| Organization id | 
+ **routeId** | **String**| Route id | 
+
+### Return type
+
+[**[Stop]**](Stop.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
+
+<a name="listOrganizationPublicTransportRoutes"></a>
+# **listOrganizationPublicTransportRoutes**
+> [Route] listOrganizationPublicTransportRoutes(organizationId)
+
+Lists organizations public transport routes
+
+Lists organizations public transport routes 
+
+### Example
+```javascript
+var KuntaApiClient = require('kunta-api-client');
+
+var apiInstance = new KuntaApiClient.PublicTransportApi();
+
+var organizationId = "organizationId_example"; // String | Organization id
+
+apiInstance.listOrganizationPublicTransportRoutes(organizationId).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| Organization id | 
+
+### Return type
+
+[**[Route]**](Route.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
+
+<a name="listOrganizationPublicTransportSchedules"></a>
+# **listOrganizationPublicTransportSchedules**
+> [Schedule] listOrganizationPublicTransportSchedules(organizationId)
+
+Lists schedules of organization&#39;s public transport schedules
+
+Lists schedules of organization&#39;s public transport schedules 
+
+### Example
+```javascript
+var KuntaApiClient = require('kunta-api-client');
+
+var apiInstance = new KuntaApiClient.PublicTransportApi();
+
+var organizationId = "organizationId_example"; // String | Organization id
+
+apiInstance.listOrganizationPublicTransportSchedules(organizationId).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| Organization id | 
+
+### Return type
+
+[**[Schedule]**](Schedule.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
+
