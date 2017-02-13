@@ -883,7 +883,7 @@ paths:
           type: string
           format: uuid
       tags:
-        - News
+        - Banners
       responses:
         200:
           description: Returns an organization banner image
@@ -935,7 +935,7 @@ paths:
           type: integer
           format: int32
       tags:
-        - News
+        - Banners
       responses:
         200:
           description: Returns an organization banner image data
