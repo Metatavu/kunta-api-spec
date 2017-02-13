@@ -2082,6 +2082,308 @@ paths:
           description: Internal server error
           schema:
             $ref: '#/definitions/InternalServerError'
+  /organizations/{organizationId}/transportAgencies:
+    get:
+      operationId: listOrganizationPublicTransportAgencies
+      summary: Lists organizations public transport agencies
+      description: |
+        Lists organizations public transport agencies
+      parameters:
+        - name: organizationId
+          in: path
+          description: Organization id
+          required: true
+          type: string
+          format: uuid
+
+      tags:
+        - Public transport
+      responses:
+        200:
+          description: Returns a list of public transport agencies
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Agency'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  /organizations/{organizationId}/transportAgencies/{agencyId}:
+    get:
+      operationId: findOrganizationPublicTransportAgency
+      summary: Finds an organizations public transport agency
+      description: |
+        Finds organization's single public transport agency
+      parameters:
+        - name: organizationId
+          in: path
+          description: Organization id
+          required: true
+          type: string
+          format: uuid
+        - name: agencyId
+          in: path
+          description: Agency id
+          required: true
+          type: string
+          format: uuid
+      tags:
+        - Public transport
+      responses:
+        200:
+          description: Returns a single public transport agency
+          schema:
+            $ref: '#/definitions/Agency'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  /organizations/{organizationId}/transportRoutes:
+    get:
+      operationId: listOrganizationPublicTransportRoutes
+      summary: Lists organizations public transport routes
+      description: |
+        Lists organizations public transport routes
+      parameters:
+        - name: organizationId
+          in: path
+          description: Organization id
+          required: true
+          type: string
+          format: uuid
+
+      tags:
+        - Public transport
+      responses:
+        200:
+          description: Returns a list of public transport routes
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Route'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  /organizations/{organizationId}/transportRoutes/{routeId}:
+    get:
+      operationId: findOrganizationPublicTransportRoute
+      summary: Finds an organizations public transport route
+      description: |
+        Finds organization's single public transport route
+      parameters:
+        - name: organizationId
+          in: path
+          description: Organization id
+          required: true
+          type: string
+          format: uuid
+        - name: routeId
+          in: path
+          description: Route id
+          required: true
+          type: string
+          format: uuid
+      tags:
+        - Public transport
+      responses:
+        200:
+          description: Returns a single public transport route
+          schema:
+            $ref: '#/definitions/Route'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  /organizations/{organizationId}/transportRoutes/{routeId}/stops:
+    get:
+      operationId: listOrganizationPublicTransportRouteStops
+      summary: Lists stops of organizations public transport route
+      description: |
+        Lists stops of organizations public transport route
+      parameters:
+        - name: organizationId
+          in: path
+          description: Organization id
+          required: true
+          type: string
+          format: uuid
+        - name: routeId
+          in: path
+          description: Route id
+          required: true
+          type: string
+          format: uuid
+      tags:
+        - Public transport
+      responses:
+        200:
+          description: Returns a list of public transport routes stops
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Stop'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  /organizations/{organizationId}/transportRoutes/{routeId}/stops/{stopId}:
+    get:
+      operationId: findOrganizationPublicTransportRouteStop
+      summary: Finds a stop of organizations public transport route
+      description: |
+        Finds a stop of organizations public transport route
+      parameters:
+        - name: organizationId
+          in: path
+          description: Organization id
+          required: true
+          type: string
+          format: uuid
+        - name: routeId
+          in: path
+          description: Route id
+          required: true
+          type: string
+          format: uuid
+        - name: stopId
+          in: path
+          description: Stop id
+          required: true
+          type: string
+          format: uuid
+      tags:
+        - Public transport
+      responses:
+        200:
+          description: returns organizations public transport route stop
+          schema:
+            $ref: '#/definitions/Stop'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  /organizations/{organizationId}/transportSchedules:
+    get:
+      operationId: listOrganizationPublicTransportSchedules
+      summary: Lists schedules of organization's public transport schedules
+      description: |
+        Lists schedules of organization's public transport schedules
+      parameters:
+        - name: organizationId
+          in: path
+          description: Organization id
+          required: true
+          type: string
+          format: uuid
+      tags:
+        - Public transport
+      responses:
+        200:
+          description: Returns a list of organization's public transport schedules
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Schedule'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  /organizations/{organizationId}/transportSchedules/{scheduleId}:
+    get:
+      operationId: findOrganizationPublicTransportSchedule
+      summary: Finds organizations public transport schedule
+      description: |
+        Finds organizations public transport schedule
+      parameters:
+        - name: organizationId
+          in: path
+          description: Organization id
+          required: true
+          type: string
+          format: uuid
+        - name: scheduleId
+          in: path
+          description: Schedule id
+          required: true
+          type: string
+          format: uuid
+      tags:
+        - Public transport
+      responses:
+        200:
+          description: returns an organizations public transport schedule
+          schema:
+            $ref: '#/definitions/Schedule'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
   /services:
     get:
       operationId: listServices
@@ -4086,6 +4388,78 @@ definitions:
         format: uuid        
       parentUri:
         type: string
+  Route:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+      agencyId:
+        type: string
+      shortName:
+        type: string
+      longName:
+        type: string
+      schedules:
+        type: array
+        items:
+         type: string
+         format: uuid
+  Agency:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+      name:
+        type: string
+      url:
+        type: string
+      timezone:
+        type: string
+  Stop:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+      name:
+        type: string
+      lat:
+        type: number
+      lng:
+        type: number
+  Schedule:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+      name:
+        type: string
+      days:
+        type: array
+        items:
+         type: integer
+         format: int32
+      exceptions:
+        type: array
+        items:
+          $ref: '#/definitions/ScheduleException'
+      startDate:
+        type: string
+        format: date-time
+      endDate:
+        type: string
+        format: date-time
+  ScheduleException:
+    type: object
+    properties:
+      type:
+        type: string
+      date:
+        type: string
+        format: date
   LocalizedValue: 
     type: object
     properties:
