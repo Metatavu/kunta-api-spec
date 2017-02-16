@@ -1,6 +1,6 @@
 package fi.metatavu.kuntaapi.server.rest.model;
 
-import java.time.LocalDate;
+import java.time.OffsetDateTime;
 
 
 
@@ -11,7 +11,7 @@ import java.util.Objects;
 public class ScheduleException   {
   
   private String type = null;
-  private LocalDate date = null;
+  private OffsetDateTime date = null;
 
   /**
    **/
@@ -31,17 +31,17 @@ public class ScheduleException   {
 
   /**
    **/
-  public ScheduleException date(LocalDate date) {
+  public ScheduleException date(OffsetDateTime date) {
     this.date = date;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "")
-  public LocalDate getDate() {
+  public OffsetDateTime getDate() {
     return date;
   }
-  public void setDate(LocalDate date) {
+  public void setDate(OffsetDateTime date) {
     this.date = date;
   }
 
