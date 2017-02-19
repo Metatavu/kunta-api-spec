@@ -79,20 +79,20 @@
         done();
       });
     });
-    describe('findOrganizationPublicTransportRouteStop', function() {
-      it('should call findOrganizationPublicTransportRouteStop successfully', function(done) {
-        //uncomment below and update the code to test findOrganizationPublicTransportRouteStop
-        //instance.findOrganizationPublicTransportRouteStop(pet, function(error) {
+    describe('findOrganizationPublicTransportSchedule', function() {
+      it('should call findOrganizationPublicTransportSchedule successfully', function(done) {
+        //uncomment below and update the code to test findOrganizationPublicTransportSchedule
+        //instance.findOrganizationPublicTransportSchedule(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('findOrganizationPublicTransportSchedule', function() {
-      it('should call findOrganizationPublicTransportSchedule successfully', function(done) {
-        //uncomment below and update the code to test findOrganizationPublicTransportSchedule
-        //instance.findOrganizationPublicTransportSchedule(pet, function(error) {
+    describe('findOrganizationPublicTransportStop', function() {
+      it('should call findOrganizationPublicTransportStop successfully', function(done) {
+        //uncomment below and update the code to test findOrganizationPublicTransportStop
+        //instance.findOrganizationPublicTransportStop(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

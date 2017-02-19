@@ -25,24 +25,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/BadRequest', 'model/Agency', 'model/Forbidden', 'model/InternalServerError', 'model/Route', 'model/Stop', 'model/Schedule', 'model/StopTime', 'model/Trip'], factory);
+    define(['ApiClient', 'model/BadRequest', 'model/Agency', 'model/Forbidden', 'model/InternalServerError', 'model/Route', 'model/Schedule', 'model/Stop', 'model/StopTime', 'model/Trip'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/Agency'), require('../model/Forbidden'), require('../model/InternalServerError'), require('../model/Route'), require('../model/Stop'), require('../model/Schedule'), require('../model/StopTime'), require('../model/Trip'));
+    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/Agency'), require('../model/Forbidden'), require('../model/InternalServerError'), require('../model/Route'), require('../model/Schedule'), require('../model/Stop'), require('../model/StopTime'), require('../model/Trip'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.PublicTransportApi = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.BadRequest, root.KuntaApiClient.Agency, root.KuntaApiClient.Forbidden, root.KuntaApiClient.InternalServerError, root.KuntaApiClient.Route, root.KuntaApiClient.Stop, root.KuntaApiClient.Schedule, root.KuntaApiClient.StopTime, root.KuntaApiClient.Trip);
+    root.KuntaApiClient.PublicTransportApi = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.BadRequest, root.KuntaApiClient.Agency, root.KuntaApiClient.Forbidden, root.KuntaApiClient.InternalServerError, root.KuntaApiClient.Route, root.KuntaApiClient.Schedule, root.KuntaApiClient.Stop, root.KuntaApiClient.StopTime, root.KuntaApiClient.Trip);
   }
-}(this, function(ApiClient, BadRequest, Agency, Forbidden, InternalServerError, Route, Stop, Schedule, StopTime, Trip) {
+}(this, function(ApiClient, BadRequest, Agency, Forbidden, InternalServerError, Route, Schedule, Stop, StopTime, Trip) {
   'use strict';
 
   /**
    * PublicTransport service.
    * @module api/PublicTransportApi
-   * @version 0.0.46
+   * @version 0.0.47
    */
 
   /**
@@ -148,51 +148,6 @@
 
 
     /**
-     * Finds a stop of organizations public transport route
-     * Finds a stop of organizations public transport route 
-     * @param {String} organizationId Organization id
-     * @param {String} stopId Stop id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Stop}
-     */
-    this.findOrganizationPublicTransportRouteStop = function(organizationId, stopId) {
-      var postBody = null;
-
-      // verify the required parameter 'organizationId' is set
-      if (organizationId == undefined || organizationId == null) {
-        throw "Missing the required parameter 'organizationId' when calling findOrganizationPublicTransportRouteStop";
-      }
-
-      // verify the required parameter 'stopId' is set
-      if (stopId == undefined || stopId == null) {
-        throw "Missing the required parameter 'stopId' when calling findOrganizationPublicTransportRouteStop";
-      }
-
-
-      var pathParams = {
-        'organizationId': organizationId,
-        'stopId': stopId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/json;charset=utf-8'];
-      var accepts = ['application/json;charset=utf-8'];
-      var returnType = Stop;
-
-      return this.apiClient.callApi(
-        '/organizations/{organizationId}/transportStops/{stopId}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType
-      );
-    }
-
-
-    /**
      * Finds organizations public transport schedule
      * Finds organizations public transport schedule 
      * @param {String} organizationId Organization id
@@ -231,6 +186,51 @@
 
       return this.apiClient.callApi(
         '/organizations/{organizationId}/transportSchedules/{scheduleId}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+
+    /**
+     * Finds a stop of organizations public transport route
+     * Finds a stop of organizations public transport route 
+     * @param {String} organizationId Organization id
+     * @param {String} stopId Stop id
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Stop}
+     */
+    this.findOrganizationPublicTransportStop = function(organizationId, stopId) {
+      var postBody = null;
+
+      // verify the required parameter 'organizationId' is set
+      if (organizationId == undefined || organizationId == null) {
+        throw "Missing the required parameter 'organizationId' when calling findOrganizationPublicTransportStop";
+      }
+
+      // verify the required parameter 'stopId' is set
+      if (stopId == undefined || stopId == null) {
+        throw "Missing the required parameter 'stopId' when calling findOrganizationPublicTransportStop";
+      }
+
+
+      var pathParams = {
+        'organizationId': organizationId,
+        'stopId': stopId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = ['application/json;charset=utf-8'];
+      var accepts = ['application/json;charset=utf-8'];
+      var returnType = Stop;
+
+      return this.apiClient.callApi(
+        '/organizations/{organizationId}/transportStops/{stopId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );

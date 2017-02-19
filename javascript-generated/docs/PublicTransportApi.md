@@ -6,8 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**findOrganizationPublicTransportAgency**](PublicTransportApi.md#findOrganizationPublicTransportAgency) | **GET** /organizations/{organizationId}/transportAgencies/{agencyId} | Finds an organizations public transport agency
 [**findOrganizationPublicTransportRoute**](PublicTransportApi.md#findOrganizationPublicTransportRoute) | **GET** /organizations/{organizationId}/transportRoutes/{routeId} | Finds an organizations public transport route
-[**findOrganizationPublicTransportRouteStop**](PublicTransportApi.md#findOrganizationPublicTransportRouteStop) | **GET** /organizations/{organizationId}/transportStops/{stopId} | Finds a stop of organizations public transport route
 [**findOrganizationPublicTransportSchedule**](PublicTransportApi.md#findOrganizationPublicTransportSchedule) | **GET** /organizations/{organizationId}/transportSchedules/{scheduleId} | Finds organizations public transport schedule
+[**findOrganizationPublicTransportStop**](PublicTransportApi.md#findOrganizationPublicTransportStop) | **GET** /organizations/{organizationId}/transportStops/{stopId} | Finds a stop of organizations public transport route
 [**findOrganizationPublicTransportStopTime**](PublicTransportApi.md#findOrganizationPublicTransportStopTime) | **GET** /organizations/{organizationId}/transportStopTimes/{stopTimeId} | Finds organizations public transport stopTime
 [**findOrganizationPublicTransportTrip**](PublicTransportApi.md#findOrganizationPublicTransportTrip) | **GET** /organizations/{organizationId}/transportTrips/{tripId} | Finds organizations public transport trip
 [**listOrganizationPublicTransportAgencies**](PublicTransportApi.md#listOrganizationPublicTransportAgencies) | **GET** /organizations/{organizationId}/transportAgencies | Lists organizations public transport agencies
@@ -110,52 +110,6 @@ No authorization required
  - **Content-Type**: application/json;charset=utf-8
  - **Accept**: application/json;charset=utf-8
 
-<a name="findOrganizationPublicTransportRouteStop"></a>
-# **findOrganizationPublicTransportRouteStop**
-> Stop findOrganizationPublicTransportRouteStop(organizationId, stopId)
-
-Finds a stop of organizations public transport route
-
-Finds a stop of organizations public transport route 
-
-### Example
-```javascript
-var KuntaApiClient = require('kunta-api-client');
-
-var apiInstance = new KuntaApiClient.PublicTransportApi();
-
-var organizationId = "organizationId_example"; // String | Organization id
-
-var stopId = "stopId_example"; // String | Stop id
-
-apiInstance.findOrganizationPublicTransportRouteStop(organizationId, stopId).then(function(data) {
-  console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organizationId** | **String**| Organization id | 
- **stopId** | **String**| Stop id | 
-
-### Return type
-
-[**Stop**](Stop.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/json;charset=utf-8
-
 <a name="findOrganizationPublicTransportSchedule"></a>
 # **findOrganizationPublicTransportSchedule**
 > Schedule findOrganizationPublicTransportSchedule(organizationId, scheduleId)
@@ -192,6 +146,52 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Schedule**](Schedule.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
+
+<a name="findOrganizationPublicTransportStop"></a>
+# **findOrganizationPublicTransportStop**
+> Stop findOrganizationPublicTransportStop(organizationId, stopId)
+
+Finds a stop of organizations public transport route
+
+Finds a stop of organizations public transport route 
+
+### Example
+```javascript
+var KuntaApiClient = require('kunta-api-client');
+
+var apiInstance = new KuntaApiClient.PublicTransportApi();
+
+var organizationId = "organizationId_example"; // String | Organization id
+
+var stopId = "stopId_example"; // String | Stop id
+
+apiInstance.findOrganizationPublicTransportStop(organizationId, stopId).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| Organization id | 
+ **stopId** | **String**| Stop id | 
+
+### Return type
+
+[**Stop**](Stop.md)
 
 ### Authorization
 
