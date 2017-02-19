@@ -2264,7 +2264,7 @@ paths:
             $ref: '#/definitions/InternalServerError'
   /organizations/{organizationId}/transportStops/{stopId}:
     get:
-      operationId: findOrganizationPublicTransportRouteStop
+      operationId: findOrganizationPublicTransportStop
       summary: Finds a stop of organizations public transport route
       description: |
         Finds a stop of organizations public transport route
