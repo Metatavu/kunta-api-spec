@@ -4573,8 +4573,10 @@ definitions:
         type: string
       lat:
         type: number
+        format: double
       lng:
         type: number
+        format: double
   StopTime:
     type: object
     properties:
@@ -4596,6 +4598,7 @@ definitions:
         format: int32
       distanceTraveled: 
         type: number
+        format: float
   Schedule:
     type: object
     properties:
