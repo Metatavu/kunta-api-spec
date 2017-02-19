@@ -34,7 +34,7 @@
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.Banner = factory(root.KuntaApiClient.ApiClient);
+    root.KuntaApiClient.Trip = factory(root.KuntaApiClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -43,14 +43,14 @@
 
 
   /**
-   * The Banner model module.
-   * @module model/Banner
+   * The Trip model module.
+   * @module model/Trip
    * @version 0.0.46
    */
 
   /**
-   * Constructs a new <code>Banner</code>.
-   * @alias module:model/Banner
+   * Constructs a new <code>Trip</code>.
+   * @alias module:model/Trip
    * @class
    */
   var exports = function() {
@@ -60,16 +60,14 @@
 
 
 
-
-
   };
 
   /**
-   * Constructs a <code>Banner</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>Trip</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Banner} obj Optional instance to populate.
-   * @return {module:model/Banner} The populated <code>Banner</code> instance.
+   * @param {module:model/Trip} obj Optional instance to populate.
+   * @return {module:model/Trip} The populated <code>Trip</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -78,20 +76,14 @@
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
-      if (data.hasOwnProperty('title')) {
-        obj['title'] = ApiClient.convertToType(data['title'], 'String');
+      if (data.hasOwnProperty('routeId')) {
+        obj['routeId'] = ApiClient.convertToType(data['routeId'], 'String');
       }
-      if (data.hasOwnProperty('contents')) {
-        obj['contents'] = ApiClient.convertToType(data['contents'], 'String');
+      if (data.hasOwnProperty('scheduleId')) {
+        obj['scheduleId'] = ApiClient.convertToType(data['scheduleId'], 'String');
       }
-      if (data.hasOwnProperty('link')) {
-        obj['link'] = ApiClient.convertToType(data['link'], 'String');
-      }
-      if (data.hasOwnProperty('textColor')) {
-        obj['textColor'] = ApiClient.convertToType(data['textColor'], 'String');
-      }
-      if (data.hasOwnProperty('backgroundColor')) {
-        obj['backgroundColor'] = ApiClient.convertToType(data['backgroundColor'], 'String');
+      if (data.hasOwnProperty('headsign')) {
+        obj['headsign'] = ApiClient.convertToType(data['headsign'], 'String');
       }
     }
     return obj;
@@ -102,25 +94,17 @@
    */
   exports.prototype['id'] = undefined;
   /**
-   * @member {String} title
+   * @member {String} routeId
    */
-  exports.prototype['title'] = undefined;
+  exports.prototype['routeId'] = undefined;
   /**
-   * @member {String} contents
+   * @member {String} scheduleId
    */
-  exports.prototype['contents'] = undefined;
+  exports.prototype['scheduleId'] = undefined;
   /**
-   * @member {String} link
+   * @member {String} headsign
    */
-  exports.prototype['link'] = undefined;
-  /**
-   * @member {String} textColor
-   */
-  exports.prototype['textColor'] = undefined;
-  /**
-   * @member {String} backgroundColor
-   */
-  exports.prototype['backgroundColor'] = undefined;
+  exports.prototype['headsign'] = undefined;
 
 
 

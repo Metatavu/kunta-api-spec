@@ -99,20 +99,30 @@
         done();
       });
     });
-    describe('listOrganizationPublicTransportAgencies', function() {
-      it('should call listOrganizationPublicTransportAgencies successfully', function(done) {
-        //uncomment below and update the code to test listOrganizationPublicTransportAgencies
-        //instance.listOrganizationPublicTransportAgencies(pet, function(error) {
+    describe('findOrganizationPublicTransportStopTime', function() {
+      it('should call findOrganizationPublicTransportStopTime successfully', function(done) {
+        //uncomment below and update the code to test findOrganizationPublicTransportStopTime
+        //instance.findOrganizationPublicTransportStopTime(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('listOrganizationPublicTransportRouteStops', function() {
-      it('should call listOrganizationPublicTransportRouteStops successfully', function(done) {
-        //uncomment below and update the code to test listOrganizationPublicTransportRouteStops
-        //instance.listOrganizationPublicTransportRouteStops(pet, function(error) {
+    describe('findOrganizationPublicTransportTrip', function() {
+      it('should call findOrganizationPublicTransportTrip successfully', function(done) {
+        //uncomment below and update the code to test findOrganizationPublicTransportTrip
+        //instance.findOrganizationPublicTransportTrip(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('listOrganizationPublicTransportAgencies', function() {
+      it('should call listOrganizationPublicTransportAgencies successfully', function(done) {
+        //uncomment below and update the code to test listOrganizationPublicTransportAgencies
+        //instance.listOrganizationPublicTransportAgencies(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -133,6 +143,36 @@
       it('should call listOrganizationPublicTransportSchedules successfully', function(done) {
         //uncomment below and update the code to test listOrganizationPublicTransportSchedules
         //instance.listOrganizationPublicTransportSchedules(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('listOrganizationPublicTransportStopTimes', function() {
+      it('should call listOrganizationPublicTransportStopTimes successfully', function(done) {
+        //uncomment below and update the code to test listOrganizationPublicTransportStopTimes
+        //instance.listOrganizationPublicTransportStopTimes(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('listOrganizationPublicTransportStops', function() {
+      it('should call listOrganizationPublicTransportStops successfully', function(done) {
+        //uncomment below and update the code to test listOrganizationPublicTransportStops
+        //instance.listOrganizationPublicTransportStops(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('listOrganizationPublicTransportTrips', function() {
+      it('should call listOrganizationPublicTransportTrips successfully', function(done) {
+        //uncomment below and update the code to test listOrganizationPublicTransportTrips
+        //instance.listOrganizationPublicTransportTrips(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

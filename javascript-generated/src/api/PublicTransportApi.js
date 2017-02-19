@@ -25,24 +25,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/BadRequest', 'model/Agency', 'model/Forbidden', 'model/InternalServerError', 'model/Route', 'model/Stop', 'model/Schedule'], factory);
+    define(['ApiClient', 'model/BadRequest', 'model/Agency', 'model/Forbidden', 'model/InternalServerError', 'model/Route', 'model/Stop', 'model/Schedule', 'model/StopTime', 'model/Trip'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/Agency'), require('../model/Forbidden'), require('../model/InternalServerError'), require('../model/Route'), require('../model/Stop'), require('../model/Schedule'));
+    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/Agency'), require('../model/Forbidden'), require('../model/InternalServerError'), require('../model/Route'), require('../model/Stop'), require('../model/Schedule'), require('../model/StopTime'), require('../model/Trip'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.PublicTransportApi = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.BadRequest, root.KuntaApiClient.Agency, root.KuntaApiClient.Forbidden, root.KuntaApiClient.InternalServerError, root.KuntaApiClient.Route, root.KuntaApiClient.Stop, root.KuntaApiClient.Schedule);
+    root.KuntaApiClient.PublicTransportApi = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.BadRequest, root.KuntaApiClient.Agency, root.KuntaApiClient.Forbidden, root.KuntaApiClient.InternalServerError, root.KuntaApiClient.Route, root.KuntaApiClient.Stop, root.KuntaApiClient.Schedule, root.KuntaApiClient.StopTime, root.KuntaApiClient.Trip);
   }
-}(this, function(ApiClient, BadRequest, Agency, Forbidden, InternalServerError, Route, Stop, Schedule) {
+}(this, function(ApiClient, BadRequest, Agency, Forbidden, InternalServerError, Route, Stop, Schedule, StopTime, Trip) {
   'use strict';
 
   /**
    * PublicTransport service.
    * @module api/PublicTransportApi
-   * @version 0.0.45
+   * @version 0.0.46
    */
 
   /**
@@ -151,21 +151,15 @@
      * Finds a stop of organizations public transport route
      * Finds a stop of organizations public transport route 
      * @param {String} organizationId Organization id
-     * @param {String} routeId Route id
      * @param {String} stopId Stop id
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Stop}
      */
-    this.findOrganizationPublicTransportRouteStop = function(organizationId, routeId, stopId) {
+    this.findOrganizationPublicTransportRouteStop = function(organizationId, stopId) {
       var postBody = null;
 
       // verify the required parameter 'organizationId' is set
       if (organizationId == undefined || organizationId == null) {
         throw "Missing the required parameter 'organizationId' when calling findOrganizationPublicTransportRouteStop";
-      }
-
-      // verify the required parameter 'routeId' is set
-      if (routeId == undefined || routeId == null) {
-        throw "Missing the required parameter 'routeId' when calling findOrganizationPublicTransportRouteStop";
       }
 
       // verify the required parameter 'stopId' is set
@@ -176,7 +170,6 @@
 
       var pathParams = {
         'organizationId': organizationId,
-        'routeId': routeId,
         'stopId': stopId
       };
       var queryParams = {
@@ -192,7 +185,7 @@
       var returnType = Stop;
 
       return this.apiClient.callApi(
-        '/organizations/{organizationId}/transportRoutes/{routeId}/stops/{stopId}', 'GET',
+        '/organizations/{organizationId}/transportStops/{stopId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );
@@ -245,6 +238,96 @@
 
 
     /**
+     * Finds organizations public transport stopTime
+     * Finds organizations public transport stopTime 
+     * @param {String} organizationId Organization id
+     * @param {String} stopTimeId StopTime id
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/StopTime}
+     */
+    this.findOrganizationPublicTransportStopTime = function(organizationId, stopTimeId) {
+      var postBody = null;
+
+      // verify the required parameter 'organizationId' is set
+      if (organizationId == undefined || organizationId == null) {
+        throw "Missing the required parameter 'organizationId' when calling findOrganizationPublicTransportStopTime";
+      }
+
+      // verify the required parameter 'stopTimeId' is set
+      if (stopTimeId == undefined || stopTimeId == null) {
+        throw "Missing the required parameter 'stopTimeId' when calling findOrganizationPublicTransportStopTime";
+      }
+
+
+      var pathParams = {
+        'organizationId': organizationId,
+        'stopTimeId': stopTimeId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = ['application/json;charset=utf-8'];
+      var accepts = ['application/json;charset=utf-8'];
+      var returnType = StopTime;
+
+      return this.apiClient.callApi(
+        '/organizations/{organizationId}/transportStopTimes/{stopTimeId}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+
+    /**
+     * Finds organizations public transport trip
+     * Finds organizations public transport trip 
+     * @param {String} organizationId Organization id
+     * @param {String} tripId Trip id
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Trip}
+     */
+    this.findOrganizationPublicTransportTrip = function(organizationId, tripId) {
+      var postBody = null;
+
+      // verify the required parameter 'organizationId' is set
+      if (organizationId == undefined || organizationId == null) {
+        throw "Missing the required parameter 'organizationId' when calling findOrganizationPublicTransportTrip";
+      }
+
+      // verify the required parameter 'tripId' is set
+      if (tripId == undefined || tripId == null) {
+        throw "Missing the required parameter 'tripId' when calling findOrganizationPublicTransportTrip";
+      }
+
+
+      var pathParams = {
+        'organizationId': organizationId,
+        'tripId': tripId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = ['application/json;charset=utf-8'];
+      var accepts = ['application/json;charset=utf-8'];
+      var returnType = Trip;
+
+      return this.apiClient.callApi(
+        '/organizations/{organizationId}/transportTrips/{tripId}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+
+    /**
      * Lists organizations public transport agencies
      * Lists organizations public transport agencies 
      * @param {String} organizationId Organization id
@@ -276,51 +359,6 @@
 
       return this.apiClient.callApi(
         '/organizations/{organizationId}/transportAgencies', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType
-      );
-    }
-
-
-    /**
-     * Lists stops of organizations public transport route
-     * Lists stops of organizations public transport route 
-     * @param {String} organizationId Organization id
-     * @param {String} routeId Route id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Stop>}
-     */
-    this.listOrganizationPublicTransportRouteStops = function(organizationId, routeId) {
-      var postBody = null;
-
-      // verify the required parameter 'organizationId' is set
-      if (organizationId == undefined || organizationId == null) {
-        throw "Missing the required parameter 'organizationId' when calling listOrganizationPublicTransportRouteStops";
-      }
-
-      // verify the required parameter 'routeId' is set
-      if (routeId == undefined || routeId == null) {
-        throw "Missing the required parameter 'routeId' when calling listOrganizationPublicTransportRouteStops";
-      }
-
-
-      var pathParams = {
-        'organizationId': organizationId,
-        'routeId': routeId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/json;charset=utf-8'];
-      var accepts = ['application/json;charset=utf-8'];
-      var returnType = [Stop];
-
-      return this.apiClient.callApi(
-        '/organizations/{organizationId}/transportRoutes/{routeId}/stops', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );
@@ -397,6 +435,120 @@
 
       return this.apiClient.callApi(
         '/organizations/{organizationId}/transportSchedules', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+
+    /**
+     * Lists stopTimes of organization&#39;s public transport stopTimes
+     * Lists stopTimes of organization&#39;s public transport stopTimes 
+     * @param {String} organizationId Organization id
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/StopTime>}
+     */
+    this.listOrganizationPublicTransportStopTimes = function(organizationId) {
+      var postBody = null;
+
+      // verify the required parameter 'organizationId' is set
+      if (organizationId == undefined || organizationId == null) {
+        throw "Missing the required parameter 'organizationId' when calling listOrganizationPublicTransportStopTimes";
+      }
+
+
+      var pathParams = {
+        'organizationId': organizationId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = ['application/json;charset=utf-8'];
+      var accepts = ['application/json;charset=utf-8'];
+      var returnType = [StopTime];
+
+      return this.apiClient.callApi(
+        '/organizations/{organizationId}/transportStopTimes', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+
+    /**
+     * Lists organizations public transport stops
+     * Lists organizations public transport stops 
+     * @param {String} organizationId Organization id
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Stop>}
+     */
+    this.listOrganizationPublicTransportStops = function(organizationId) {
+      var postBody = null;
+
+      // verify the required parameter 'organizationId' is set
+      if (organizationId == undefined || organizationId == null) {
+        throw "Missing the required parameter 'organizationId' when calling listOrganizationPublicTransportStops";
+      }
+
+
+      var pathParams = {
+        'organizationId': organizationId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = ['application/json;charset=utf-8'];
+      var accepts = ['application/json;charset=utf-8'];
+      var returnType = [Stop];
+
+      return this.apiClient.callApi(
+        '/organizations/{organizationId}/transportStops', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+
+    /**
+     * Lists trips of organization&#39;s public transport trips
+     * Lists trips of organization&#39;s public transport trips 
+     * @param {String} organizationId Organization id
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Trip>}
+     */
+    this.listOrganizationPublicTransportTrips = function(organizationId) {
+      var postBody = null;
+
+      // verify the required parameter 'organizationId' is set
+      if (organizationId == undefined || organizationId == null) {
+        throw "Missing the required parameter 'organizationId' when calling listOrganizationPublicTransportTrips";
+      }
+
+
+      var pathParams = {
+        'organizationId': organizationId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = ['application/json;charset=utf-8'];
+      var accepts = ['application/json;charset=utf-8'];
+      var returnType = [Trip];
+
+      return this.apiClient.callApi(
+        '/organizations/{organizationId}/transportTrips', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );

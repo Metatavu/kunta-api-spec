@@ -45,7 +45,7 @@
   /**
    * The Forbidden model module.
    * @module model/Forbidden
-   * @version 0.0.45
+   * @version 0.0.46
    */
 
   /**

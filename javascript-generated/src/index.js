@@ -25,12 +25,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Address', 'model/Agency', 'model/Announcement', 'model/Attachment', 'model/BadRequest', 'model/Banner', 'model/Contact', 'model/ContactPhone', 'model/ContactStatus', 'model/ElectronicChannel', 'model/Event', 'model/FileDef', 'model/Forbidden', 'model/Fragment', 'model/InternalServerError', 'model/Job', 'model/LocalizedValue', 'model/Menu', 'model/MenuItem', 'model/NewsArticle', 'model/NotFound', 'model/NotImplemented', 'model/OntologyItem', 'model/Organization', 'model/OrganizationService', 'model/OrganizationSetting', 'model/Page', 'model/PageMeta', 'model/PhoneChannel', 'model/PrintableFormChannel', 'model/Route', 'model/Schedule', 'model/ScheduleException', 'model/Service', 'model/ServiceChannelAttachment', 'model/ServiceHour', 'model/ServiceLocationChannel', 'model/Stop', 'model/SupportContact', 'model/Tile', 'model/WebPage', 'model/WebPageChannel', 'api/AnnouncementsApi', 'api/BannersApi', 'api/ContactsApi', 'api/ElectronicChannelsApi', 'api/EventsApi', 'api/FilesApi', 'api/FragmentsApi', 'api/JobsApi', 'api/MenusApi', 'api/NewsApi', 'api/OrganizationServicesApi', 'api/OrganizationsApi', 'api/PagesApi', 'api/PhoneChannelsApi', 'api/PrintableFormChannelsApi', 'api/PublicTransportApi', 'api/ServiceLocationChannelsApi', 'api/ServicesApi', 'api/SettingsApi', 'api/TilesApi', 'api/WebPageChannelsApi'], factory);
+    define(['ApiClient', 'model/Address', 'model/Agency', 'model/Announcement', 'model/Attachment', 'model/BadRequest', 'model/Banner', 'model/Contact', 'model/ContactPhone', 'model/ContactStatus', 'model/ElectronicChannel', 'model/Event', 'model/FileDef', 'model/Forbidden', 'model/Fragment', 'model/InternalServerError', 'model/Job', 'model/LocalizedValue', 'model/Menu', 'model/MenuItem', 'model/NewsArticle', 'model/NotFound', 'model/NotImplemented', 'model/OntologyItem', 'model/Organization', 'model/OrganizationService', 'model/OrganizationSetting', 'model/Page', 'model/PageMeta', 'model/PhoneChannel', 'model/PrintableFormChannel', 'model/Route', 'model/Schedule', 'model/ScheduleException', 'model/Service', 'model/ServiceChannelAttachment', 'model/ServiceHour', 'model/ServiceLocationChannel', 'model/Stop', 'model/StopTime', 'model/SupportContact', 'model/Tile', 'model/Trip', 'model/WebPage', 'model/WebPageChannel', 'api/AnnouncementsApi', 'api/BannersApi', 'api/ContactsApi', 'api/ElectronicChannelsApi', 'api/EventsApi', 'api/FilesApi', 'api/FragmentsApi', 'api/JobsApi', 'api/MenusApi', 'api/NewsApi', 'api/OrganizationServicesApi', 'api/OrganizationsApi', 'api/PagesApi', 'api/PhoneChannelsApi', 'api/PrintableFormChannelsApi', 'api/PublicTransportApi', 'api/ServiceLocationChannelsApi', 'api/ServicesApi', 'api/SettingsApi', 'api/TilesApi', 'api/WebPageChannelsApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/Address'), require('./model/Agency'), require('./model/Announcement'), require('./model/Attachment'), require('./model/BadRequest'), require('./model/Banner'), require('./model/Contact'), require('./model/ContactPhone'), require('./model/ContactStatus'), require('./model/ElectronicChannel'), require('./model/Event'), require('./model/FileDef'), require('./model/Forbidden'), require('./model/Fragment'), require('./model/InternalServerError'), require('./model/Job'), require('./model/LocalizedValue'), require('./model/Menu'), require('./model/MenuItem'), require('./model/NewsArticle'), require('./model/NotFound'), require('./model/NotImplemented'), require('./model/OntologyItem'), require('./model/Organization'), require('./model/OrganizationService'), require('./model/OrganizationSetting'), require('./model/Page'), require('./model/PageMeta'), require('./model/PhoneChannel'), require('./model/PrintableFormChannel'), require('./model/Route'), require('./model/Schedule'), require('./model/ScheduleException'), require('./model/Service'), require('./model/ServiceChannelAttachment'), require('./model/ServiceHour'), require('./model/ServiceLocationChannel'), require('./model/Stop'), require('./model/SupportContact'), require('./model/Tile'), require('./model/WebPage'), require('./model/WebPageChannel'), require('./api/AnnouncementsApi'), require('./api/BannersApi'), require('./api/ContactsApi'), require('./api/ElectronicChannelsApi'), require('./api/EventsApi'), require('./api/FilesApi'), require('./api/FragmentsApi'), require('./api/JobsApi'), require('./api/MenusApi'), require('./api/NewsApi'), require('./api/OrganizationServicesApi'), require('./api/OrganizationsApi'), require('./api/PagesApi'), require('./api/PhoneChannelsApi'), require('./api/PrintableFormChannelsApi'), require('./api/PublicTransportApi'), require('./api/ServiceLocationChannelsApi'), require('./api/ServicesApi'), require('./api/SettingsApi'), require('./api/TilesApi'), require('./api/WebPageChannelsApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/Address'), require('./model/Agency'), require('./model/Announcement'), require('./model/Attachment'), require('./model/BadRequest'), require('./model/Banner'), require('./model/Contact'), require('./model/ContactPhone'), require('./model/ContactStatus'), require('./model/ElectronicChannel'), require('./model/Event'), require('./model/FileDef'), require('./model/Forbidden'), require('./model/Fragment'), require('./model/InternalServerError'), require('./model/Job'), require('./model/LocalizedValue'), require('./model/Menu'), require('./model/MenuItem'), require('./model/NewsArticle'), require('./model/NotFound'), require('./model/NotImplemented'), require('./model/OntologyItem'), require('./model/Organization'), require('./model/OrganizationService'), require('./model/OrganizationSetting'), require('./model/Page'), require('./model/PageMeta'), require('./model/PhoneChannel'), require('./model/PrintableFormChannel'), require('./model/Route'), require('./model/Schedule'), require('./model/ScheduleException'), require('./model/Service'), require('./model/ServiceChannelAttachment'), require('./model/ServiceHour'), require('./model/ServiceLocationChannel'), require('./model/Stop'), require('./model/StopTime'), require('./model/SupportContact'), require('./model/Tile'), require('./model/Trip'), require('./model/WebPage'), require('./model/WebPageChannel'), require('./api/AnnouncementsApi'), require('./api/BannersApi'), require('./api/ContactsApi'), require('./api/ElectronicChannelsApi'), require('./api/EventsApi'), require('./api/FilesApi'), require('./api/FragmentsApi'), require('./api/JobsApi'), require('./api/MenusApi'), require('./api/NewsApi'), require('./api/OrganizationServicesApi'), require('./api/OrganizationsApi'), require('./api/PagesApi'), require('./api/PhoneChannelsApi'), require('./api/PrintableFormChannelsApi'), require('./api/PublicTransportApi'), require('./api/ServiceLocationChannelsApi'), require('./api/ServicesApi'), require('./api/SettingsApi'), require('./api/TilesApi'), require('./api/WebPageChannelsApi'));
   }
-}(function(ApiClient, Address, Agency, Announcement, Attachment, BadRequest, Banner, Contact, ContactPhone, ContactStatus, ElectronicChannel, Event, FileDef, Forbidden, Fragment, InternalServerError, Job, LocalizedValue, Menu, MenuItem, NewsArticle, NotFound, NotImplemented, OntologyItem, Organization, OrganizationService, OrganizationSetting, Page, PageMeta, PhoneChannel, PrintableFormChannel, Route, Schedule, ScheduleException, Service, ServiceChannelAttachment, ServiceHour, ServiceLocationChannel, Stop, SupportContact, Tile, WebPage, WebPageChannel, AnnouncementsApi, BannersApi, ContactsApi, ElectronicChannelsApi, EventsApi, FilesApi, FragmentsApi, JobsApi, MenusApi, NewsApi, OrganizationServicesApi, OrganizationsApi, PagesApi, PhoneChannelsApi, PrintableFormChannelsApi, PublicTransportApi, ServiceLocationChannelsApi, ServicesApi, SettingsApi, TilesApi, WebPageChannelsApi) {
+}(function(ApiClient, Address, Agency, Announcement, Attachment, BadRequest, Banner, Contact, ContactPhone, ContactStatus, ElectronicChannel, Event, FileDef, Forbidden, Fragment, InternalServerError, Job, LocalizedValue, Menu, MenuItem, NewsArticle, NotFound, NotImplemented, OntologyItem, Organization, OrganizationService, OrganizationSetting, Page, PageMeta, PhoneChannel, PrintableFormChannel, Route, Schedule, ScheduleException, Service, ServiceChannelAttachment, ServiceHour, ServiceLocationChannel, Stop, StopTime, SupportContact, Tile, Trip, WebPage, WebPageChannel, AnnouncementsApi, BannersApi, ContactsApi, ElectronicChannelsApi, EventsApi, FilesApi, FragmentsApi, JobsApi, MenusApi, NewsApi, OrganizationServicesApi, OrganizationsApi, PagesApi, PhoneChannelsApi, PrintableFormChannelsApi, PublicTransportApi, ServiceLocationChannelsApi, ServicesApi, SettingsApi, TilesApi, WebPageChannelsApi) {
   'use strict';
 
   /**
@@ -62,7 +62,7 @@
    * </pre>
    * </p>
    * @module index
-   * @version 0.0.45
+   * @version 0.0.46
    */
   var exports = {
     /**
@@ -261,6 +261,11 @@
      */
     Stop: Stop,
     /**
+     * The StopTime model constructor.
+     * @property {module:model/StopTime}
+     */
+    StopTime: StopTime,
+    /**
      * The SupportContact model constructor.
      * @property {module:model/SupportContact}
      */
@@ -270,6 +275,11 @@
      * @property {module:model/Tile}
      */
     Tile: Tile,
+    /**
+     * The Trip model constructor.
+     * @property {module:model/Trip}
+     */
+    Trip: Trip,
     /**
      * The WebPage model constructor.
      * @property {module:model/WebPage}
