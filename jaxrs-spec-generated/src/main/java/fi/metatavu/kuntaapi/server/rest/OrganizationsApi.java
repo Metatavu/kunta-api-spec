@@ -22,6 +22,8 @@ import fi.metatavu.kuntaapi.server.rest.model.Agency;
 import fi.metatavu.kuntaapi.server.rest.model.Route;
 import fi.metatavu.kuntaapi.server.rest.model.Stop;
 import fi.metatavu.kuntaapi.server.rest.model.Schedule;
+import fi.metatavu.kuntaapi.server.rest.model.StopTime;
+import fi.metatavu.kuntaapi.server.rest.model.Trip;
 import fi.metatavu.kuntaapi.server.rest.model.NotFound;
 import fi.metatavu.kuntaapi.server.rest.model.Tile;
 import fi.metatavu.kuntaapi.server.rest.model.Banner;
@@ -40,7 +42,7 @@ import java.util.List;
 @Api(description = "the organizations API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-02-16T11:43:19.415+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-02-19T23:22:46.693+02:00")
 
 public abstract class OrganizationsApi extends AbstractApi {
 
@@ -309,7 +311,7 @@ public abstract class OrganizationsApi extends AbstractApi {
     public abstract Response findOrganizationPublicTransportRoute(@PathParam("organizationId") String organizationId,@PathParam("routeId") String routeId,@Context Request request);
 
     @GET
-    @Path("/{organizationId}/transportRoutes/{routeId}/stops/{stopId}")
+    @Path("/{organizationId}/transportStops/{stopId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
     @ApiOperation(value = "Finds a stop of organizations public transport route", notes = "Finds a stop of organizations public transport route ", response = Stop.class, tags={ "Public transport",  })
@@ -318,7 +320,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Stop.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Stop.class),
         @ApiResponse(code = 500, message = "Internal server error", response = Stop.class) })
-    public abstract Response findOrganizationPublicTransportRouteStop(@PathParam("organizationId") String organizationId,@PathParam("routeId") String routeId,@PathParam("stopId") String stopId,@Context Request request);
+    public abstract Response findOrganizationPublicTransportRouteStop(@PathParam("organizationId") String organizationId,@PathParam("stopId") String stopId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/transportSchedules/{scheduleId}")
@@ -331,6 +333,30 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Schedule.class),
         @ApiResponse(code = 500, message = "Internal server error", response = Schedule.class) })
     public abstract Response findOrganizationPublicTransportSchedule(@PathParam("organizationId") String organizationId,@PathParam("scheduleId") String scheduleId,@Context Request request);
+
+    @GET
+    @Path("/{organizationId}/transportStopTimes/{stopTimeId}")
+    @Consumes({ "application/json;charset=utf-8" })
+    @Produces({ "application/json;charset=utf-8" })
+    @ApiOperation(value = "Finds organizations public transport stopTime", notes = "Finds organizations public transport stopTime ", response = StopTime.class, tags={ "Public transport",  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "returns an organizations public transport stopTime", response = StopTime.class),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = StopTime.class),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = StopTime.class),
+        @ApiResponse(code = 500, message = "Internal server error", response = StopTime.class) })
+    public abstract Response findOrganizationPublicTransportStopTime(@PathParam("organizationId") String organizationId,@PathParam("stopTimeId") String stopTimeId,@Context Request request);
+
+    @GET
+    @Path("/{organizationId}/transportTrips/{tripId}")
+    @Consumes({ "application/json;charset=utf-8" })
+    @Produces({ "application/json;charset=utf-8" })
+    @ApiOperation(value = "Finds organizations public transport trip", notes = "Finds organizations public transport trip ", response = Trip.class, tags={ "Public transport",  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "returns an organizations public transport trip", response = Trip.class),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Trip.class),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Trip.class),
+        @ApiResponse(code = 500, message = "Internal server error", response = Trip.class) })
+    public abstract Response findOrganizationPublicTransportTrip(@PathParam("organizationId") String organizationId,@PathParam("tripId") String tripId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/organizationServices/{organizationServiceId}")
@@ -659,18 +685,6 @@ public abstract class OrganizationsApi extends AbstractApi {
     public abstract Response listOrganizationPublicTransportAgencies(@PathParam("organizationId") String organizationId,@Context Request request);
 
     @GET
-    @Path("/{organizationId}/transportRoutes/{routeId}/stops")
-    @Consumes({ "application/json;charset=utf-8" })
-    @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists stops of organizations public transport route", notes = "Lists stops of organizations public transport route ", response = Stop.class, responseContainer = "List", tags={ "Public transport",  })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Returns a list of public transport routes stops", response = Stop.class, responseContainer = "List"),
-        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Stop.class, responseContainer = "List"),
-        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Stop.class, responseContainer = "List"),
-        @ApiResponse(code = 500, message = "Internal server error", response = Stop.class, responseContainer = "List") })
-    public abstract Response listOrganizationPublicTransportRouteStops(@PathParam("organizationId") String organizationId,@PathParam("routeId") String routeId,@Context Request request);
-
-    @GET
     @Path("/{organizationId}/transportRoutes")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
@@ -693,6 +707,42 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Schedule.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = Schedule.class, responseContainer = "List") })
     public abstract Response listOrganizationPublicTransportSchedules(@PathParam("organizationId") String organizationId,@Context Request request);
+
+    @GET
+    @Path("/{organizationId}/transportStopTimes")
+    @Consumes({ "application/json;charset=utf-8" })
+    @Produces({ "application/json;charset=utf-8" })
+    @ApiOperation(value = "Lists stopTimes of organization's public transport stopTimes", notes = "Lists stopTimes of organization's public transport stopTimes ", response = StopTime.class, responseContainer = "List", tags={ "Public transport",  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Returns a list of organization's public transport stopTimes", response = StopTime.class, responseContainer = "List"),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = StopTime.class, responseContainer = "List"),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = StopTime.class, responseContainer = "List"),
+        @ApiResponse(code = 500, message = "Internal server error", response = StopTime.class, responseContainer = "List") })
+    public abstract Response listOrganizationPublicTransportStopTimes(@PathParam("organizationId") String organizationId,@Context Request request);
+
+    @GET
+    @Path("/{organizationId}/transportStops")
+    @Consumes({ "application/json;charset=utf-8" })
+    @Produces({ "application/json;charset=utf-8" })
+    @ApiOperation(value = "Lists organizations public transport stops", notes = "Lists organizations public transport stops ", response = Stop.class, responseContainer = "List", tags={ "Public transport",  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Returns a list of public transport stops", response = Stop.class, responseContainer = "List"),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Stop.class, responseContainer = "List"),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Stop.class, responseContainer = "List"),
+        @ApiResponse(code = 500, message = "Internal server error", response = Stop.class, responseContainer = "List") })
+    public abstract Response listOrganizationPublicTransportStops(@PathParam("organizationId") String organizationId,@Context Request request);
+
+    @GET
+    @Path("/{organizationId}/transportTrips")
+    @Consumes({ "application/json;charset=utf-8" })
+    @Produces({ "application/json;charset=utf-8" })
+    @ApiOperation(value = "Lists trips of organization's public transport trips", notes = "Lists trips of organization's public transport trips ", response = Trip.class, responseContainer = "List", tags={ "Public transport",  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Returns a list of organization's public transport trips", response = Trip.class, responseContainer = "List"),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Trip.class, responseContainer = "List"),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Trip.class, responseContainer = "List"),
+        @ApiResponse(code = 500, message = "Internal server error", response = Trip.class, responseContainer = "List") })
+    public abstract Response listOrganizationPublicTransportTrips(@PathParam("organizationId") String organizationId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/settings/")

@@ -3111,114 +3111,6 @@
         }
       }
     },
-    "/organizations/{organizationId}/transportRoutes/{routeId}/stops" : {
-      "get" : {
-        "tags" : [ "Public transport" ],
-        "summary" : "Lists stops of organizations public transport route",
-        "description" : "Lists stops of organizations public transport route\n",
-        "operationId" : "listOrganizationPublicTransportRouteStops",
-        "parameters" : [ {
-          "name" : "organizationId",
-          "in" : "path",
-          "description" : "Organization id",
-          "required" : true,
-          "type" : "string",
-          "format" : "uuid"
-        }, {
-          "name" : "routeId",
-          "in" : "path",
-          "description" : "Route id",
-          "required" : true,
-          "type" : "string",
-          "format" : "uuid"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Returns a list of public transport routes stops",
-            "schema" : {
-              "type" : "array",
-              "items" : {
-                "$ref" : "#/definitions/Stop"
-              }
-            }
-          },
-          "400" : {
-            "description" : "Invalid request was sent to the server",
-            "schema" : {
-              "$ref" : "#/definitions/BadRequest"
-            }
-          },
-          "403" : {
-            "description" : "Attempted to make a call with unauthorized client",
-            "schema" : {
-              "$ref" : "#/definitions/Forbidden"
-            }
-          },
-          "500" : {
-            "description" : "Internal server error",
-            "schema" : {
-              "$ref" : "#/definitions/InternalServerError"
-            }
-          }
-        }
-      }
-    },
-    "/organizations/{organizationId}/transportRoutes/{routeId}/stops/{stopId}" : {
-      "get" : {
-        "tags" : [ "Public transport" ],
-        "summary" : "Finds a stop of organizations public transport route",
-        "description" : "Finds a stop of organizations public transport route\n",
-        "operationId" : "findOrganizationPublicTransportRouteStop",
-        "parameters" : [ {
-          "name" : "organizationId",
-          "in" : "path",
-          "description" : "Organization id",
-          "required" : true,
-          "type" : "string",
-          "format" : "uuid"
-        }, {
-          "name" : "routeId",
-          "in" : "path",
-          "description" : "Route id",
-          "required" : true,
-          "type" : "string",
-          "format" : "uuid"
-        }, {
-          "name" : "stopId",
-          "in" : "path",
-          "description" : "Stop id",
-          "required" : true,
-          "type" : "string",
-          "format" : "uuid"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "returns organizations public transport route stop",
-            "schema" : {
-              "$ref" : "#/definitions/Stop"
-            }
-          },
-          "400" : {
-            "description" : "Invalid request was sent to the server",
-            "schema" : {
-              "$ref" : "#/definitions/BadRequest"
-            }
-          },
-          "403" : {
-            "description" : "Attempted to make a call with unauthorized client",
-            "schema" : {
-              "$ref" : "#/definitions/Forbidden"
-            }
-          },
-          "500" : {
-            "description" : "Internal server error",
-            "schema" : {
-              "$ref" : "#/definitions/InternalServerError"
-            }
-          }
-        }
-      }
-    },
     "/organizations/{organizationId}/transportSchedules" : {
       "get" : {
         "tags" : [ "Public transport" ],
@@ -3290,6 +3182,288 @@
             "description" : "returns an organizations public transport schedule",
             "schema" : {
               "$ref" : "#/definitions/Schedule"
+            }
+          },
+          "400" : {
+            "description" : "Invalid request was sent to the server",
+            "schema" : {
+              "$ref" : "#/definitions/BadRequest"
+            }
+          },
+          "403" : {
+            "description" : "Attempted to make a call with unauthorized client",
+            "schema" : {
+              "$ref" : "#/definitions/Forbidden"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "schema" : {
+              "$ref" : "#/definitions/InternalServerError"
+            }
+          }
+        }
+      }
+    },
+    "/organizations/{organizationId}/transportStopTimes" : {
+      "get" : {
+        "tags" : [ "Public transport" ],
+        "summary" : "Lists stopTimes of organization's public transport stopTimes",
+        "description" : "Lists stopTimes of organization's public transport stopTimes\n",
+        "operationId" : "listOrganizationPublicTransportStopTimes",
+        "parameters" : [ {
+          "name" : "organizationId",
+          "in" : "path",
+          "description" : "Organization id",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a list of organization's public transport stopTimes",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/StopTime"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid request was sent to the server",
+            "schema" : {
+              "$ref" : "#/definitions/BadRequest"
+            }
+          },
+          "403" : {
+            "description" : "Attempted to make a call with unauthorized client",
+            "schema" : {
+              "$ref" : "#/definitions/Forbidden"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "schema" : {
+              "$ref" : "#/definitions/InternalServerError"
+            }
+          }
+        }
+      }
+    },
+    "/organizations/{organizationId}/transportStopTimes/{stopTimeId}" : {
+      "get" : {
+        "tags" : [ "Public transport" ],
+        "summary" : "Finds organizations public transport stopTime",
+        "description" : "Finds organizations public transport stopTime\n",
+        "operationId" : "findOrganizationPublicTransportStopTime",
+        "parameters" : [ {
+          "name" : "organizationId",
+          "in" : "path",
+          "description" : "Organization id",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        }, {
+          "name" : "stopTimeId",
+          "in" : "path",
+          "description" : "StopTime id",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "returns an organizations public transport stopTime",
+            "schema" : {
+              "$ref" : "#/definitions/StopTime"
+            }
+          },
+          "400" : {
+            "description" : "Invalid request was sent to the server",
+            "schema" : {
+              "$ref" : "#/definitions/BadRequest"
+            }
+          },
+          "403" : {
+            "description" : "Attempted to make a call with unauthorized client",
+            "schema" : {
+              "$ref" : "#/definitions/Forbidden"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "schema" : {
+              "$ref" : "#/definitions/InternalServerError"
+            }
+          }
+        }
+      }
+    },
+    "/organizations/{organizationId}/transportStops" : {
+      "get" : {
+        "tags" : [ "Public transport" ],
+        "summary" : "Lists organizations public transport stops",
+        "description" : "Lists organizations public transport stops\n",
+        "operationId" : "listOrganizationPublicTransportStops",
+        "parameters" : [ {
+          "name" : "organizationId",
+          "in" : "path",
+          "description" : "Organization id",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a list of public transport stops",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Stop"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid request was sent to the server",
+            "schema" : {
+              "$ref" : "#/definitions/BadRequest"
+            }
+          },
+          "403" : {
+            "description" : "Attempted to make a call with unauthorized client",
+            "schema" : {
+              "$ref" : "#/definitions/Forbidden"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "schema" : {
+              "$ref" : "#/definitions/InternalServerError"
+            }
+          }
+        }
+      }
+    },
+    "/organizations/{organizationId}/transportStops/{stopId}" : {
+      "get" : {
+        "tags" : [ "Public transport" ],
+        "summary" : "Finds a stop of organizations public transport route",
+        "description" : "Finds a stop of organizations public transport route\n",
+        "operationId" : "findOrganizationPublicTransportRouteStop",
+        "parameters" : [ {
+          "name" : "organizationId",
+          "in" : "path",
+          "description" : "Organization id",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        }, {
+          "name" : "stopId",
+          "in" : "path",
+          "description" : "Stop id",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "returns organizations public transport route stop",
+            "schema" : {
+              "$ref" : "#/definitions/Stop"
+            }
+          },
+          "400" : {
+            "description" : "Invalid request was sent to the server",
+            "schema" : {
+              "$ref" : "#/definitions/BadRequest"
+            }
+          },
+          "403" : {
+            "description" : "Attempted to make a call with unauthorized client",
+            "schema" : {
+              "$ref" : "#/definitions/Forbidden"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "schema" : {
+              "$ref" : "#/definitions/InternalServerError"
+            }
+          }
+        }
+      }
+    },
+    "/organizations/{organizationId}/transportTrips" : {
+      "get" : {
+        "tags" : [ "Public transport" ],
+        "summary" : "Lists trips of organization's public transport trips",
+        "description" : "Lists trips of organization's public transport trips\n",
+        "operationId" : "listOrganizationPublicTransportTrips",
+        "parameters" : [ {
+          "name" : "organizationId",
+          "in" : "path",
+          "description" : "Organization id",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a list of organization's public transport trips",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Trip"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid request was sent to the server",
+            "schema" : {
+              "$ref" : "#/definitions/BadRequest"
+            }
+          },
+          "403" : {
+            "description" : "Attempted to make a call with unauthorized client",
+            "schema" : {
+              "$ref" : "#/definitions/Forbidden"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "schema" : {
+              "$ref" : "#/definitions/InternalServerError"
+            }
+          }
+        }
+      }
+    },
+    "/organizations/{organizationId}/transportTrips/{tripId}" : {
+      "get" : {
+        "tags" : [ "Public transport" ],
+        "summary" : "Finds organizations public transport trip",
+        "description" : "Finds organizations public transport trip\n",
+        "operationId" : "findOrganizationPublicTransportTrip",
+        "parameters" : [ {
+          "name" : "organizationId",
+          "in" : "path",
+          "description" : "Organization id",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        }, {
+          "name" : "tripId",
+          "in" : "path",
+          "description" : "Trip id",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "returns an organizations public transport trip",
+            "schema" : {
+              "$ref" : "#/definitions/Trip"
             }
           },
           "400" : {
@@ -5834,6 +6008,26 @@
         }
       }
     },
+    "Trip" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
+        "routeId" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
+        "scheduleId" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
+        "headsign" : {
+          "type" : "string"
+        }
+      }
+    },
     "Route" : {
       "type" : "object",
       "properties" : {
@@ -5891,6 +6085,36 @@
           "type" : "number"
         },
         "lng" : {
+          "type" : "number"
+        }
+      }
+    },
+    "StopTime" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
+        "tripId" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
+        "stopId" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
+        "arrivalTime" : {
+          "type" : "string"
+        },
+        "departureTime" : {
+          "type" : "string"
+        },
+        "sequency" : {
+          "type" : "number",
+          "format" : "int32"
+        },
+        "distanceTraveled" : {
           "type" : "number"
         }
       }
