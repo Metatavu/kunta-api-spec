@@ -1,6 +1,5 @@
 package fi.metatavu.kuntaapi.server.rest.model;
 
-import java.math.BigDecimal;
 
 
 
@@ -12,8 +11,8 @@ public class Stop   {
   
   private String id = null;
   private String name = null;
-  private BigDecimal lat = null;
-  private BigDecimal lng = null;
+  private Double lat = null;
+  private Double lng = null;
 
   /**
    **/
@@ -49,33 +48,33 @@ public class Stop   {
 
   /**
    **/
-  public Stop lat(BigDecimal lat) {
+  public Stop lat(Double lat) {
     this.lat = lat;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "")
-  public BigDecimal getLat() {
+  public Double getLat() {
     return lat;
   }
-  public void setLat(BigDecimal lat) {
+  public void setLat(Double lat) {
     this.lat = lat;
   }
 
   /**
    **/
-  public Stop lng(BigDecimal lng) {
+  public Stop lng(Double lng) {
     this.lng = lng;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "")
-  public BigDecimal getLng() {
+  public Double getLng() {
     return lng;
   }
-  public void setLng(BigDecimal lng) {
+  public void setLng(Double lng) {
     this.lng = lng;
   }
 

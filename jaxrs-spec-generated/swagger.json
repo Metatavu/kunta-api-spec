@@ -6082,10 +6082,12 @@
           "type" : "string"
         },
         "lat" : {
-          "type" : "number"
+          "type" : "number",
+          "format" : "double"
         },
         "lng" : {
-          "type" : "number"
+          "type" : "number",
+          "format" : "double"
         }
       }
     },
@@ -6115,7 +6117,8 @@
           "format" : "int32"
         },
         "distanceTraveled" : {
-          "type" : "number"
+          "type" : "number",
+          "format" : "float"
         }
       }
     },

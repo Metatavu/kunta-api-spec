@@ -16,7 +16,7 @@ public class StopTime   {
   private String arrivalTime = null;
   private String departureTime = null;
   private BigDecimal sequency = null;
-  private BigDecimal distanceTraveled = null;
+  private Float distanceTraveled = null;
 
   /**
    **/
@@ -116,17 +116,17 @@ public class StopTime   {
 
   /**
    **/
-  public StopTime distanceTraveled(BigDecimal distanceTraveled) {
+  public StopTime distanceTraveled(Float distanceTraveled) {
     this.distanceTraveled = distanceTraveled;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "")
-  public BigDecimal getDistanceTraveled() {
+  public Float getDistanceTraveled() {
     return distanceTraveled;
   }
-  public void setDistanceTraveled(BigDecimal distanceTraveled) {
+  public void setDistanceTraveled(Float distanceTraveled) {
     this.distanceTraveled = distanceTraveled;
   }
 
