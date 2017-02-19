@@ -42,7 +42,7 @@
   /**
    * Files service.
    * @module api/FilesApi
-   * @version 0.0.47
+   * @version 0.0.48
    */
 
   /**
