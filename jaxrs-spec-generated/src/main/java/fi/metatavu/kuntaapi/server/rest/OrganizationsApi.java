@@ -20,8 +20,8 @@ import fi.metatavu.kuntaapi.server.rest.model.Page;
 import fi.metatavu.kuntaapi.server.rest.model.LocalizedValue;
 import fi.metatavu.kuntaapi.server.rest.model.Agency;
 import fi.metatavu.kuntaapi.server.rest.model.Route;
-import fi.metatavu.kuntaapi.server.rest.model.Stop;
 import fi.metatavu.kuntaapi.server.rest.model.Schedule;
+import fi.metatavu.kuntaapi.server.rest.model.Stop;
 import fi.metatavu.kuntaapi.server.rest.model.StopTime;
 import fi.metatavu.kuntaapi.server.rest.model.Trip;
 import fi.metatavu.kuntaapi.server.rest.model.NotFound;
@@ -42,7 +42,7 @@ import java.util.List;
 @Api(description = "the organizations API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-02-19T23:22:46.693+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-02-19T23:31:56.611+02:00")
 
 public abstract class OrganizationsApi extends AbstractApi {
 
@@ -311,18 +311,6 @@ public abstract class OrganizationsApi extends AbstractApi {
     public abstract Response findOrganizationPublicTransportRoute(@PathParam("organizationId") String organizationId,@PathParam("routeId") String routeId,@Context Request request);
 
     @GET
-    @Path("/{organizationId}/transportStops/{stopId}")
-    @Consumes({ "application/json;charset=utf-8" })
-    @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Finds a stop of organizations public transport route", notes = "Finds a stop of organizations public transport route ", response = Stop.class, tags={ "Public transport",  })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "returns organizations public transport route stop", response = Stop.class),
-        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Stop.class),
-        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Stop.class),
-        @ApiResponse(code = 500, message = "Internal server error", response = Stop.class) })
-    public abstract Response findOrganizationPublicTransportRouteStop(@PathParam("organizationId") String organizationId,@PathParam("stopId") String stopId,@Context Request request);
-
-    @GET
     @Path("/{organizationId}/transportSchedules/{scheduleId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
@@ -333,6 +321,18 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Schedule.class),
         @ApiResponse(code = 500, message = "Internal server error", response = Schedule.class) })
     public abstract Response findOrganizationPublicTransportSchedule(@PathParam("organizationId") String organizationId,@PathParam("scheduleId") String scheduleId,@Context Request request);
+
+    @GET
+    @Path("/{organizationId}/transportStops/{stopId}")
+    @Consumes({ "application/json;charset=utf-8" })
+    @Produces({ "application/json;charset=utf-8" })
+    @ApiOperation(value = "Finds a stop of organizations public transport route", notes = "Finds a stop of organizations public transport route ", response = Stop.class, tags={ "Public transport",  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "returns organizations public transport route stop", response = Stop.class),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Stop.class),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Stop.class),
+        @ApiResponse(code = 500, message = "Internal server error", response = Stop.class) })
+    public abstract Response findOrganizationPublicTransportStop(@PathParam("organizationId") String organizationId,@PathParam("stopId") String stopId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/transportStopTimes/{stopTimeId}")

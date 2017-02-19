@@ -3349,7 +3349,7 @@
         "tags" : [ "Public transport" ],
         "summary" : "Finds a stop of organizations public transport route",
         "description" : "Finds a stop of organizations public transport route\n",
-        "operationId" : "findOrganizationPublicTransportRouteStop",
+        "operationId" : "findOrganizationPublicTransportStop",
         "parameters" : [ {
           "name" : "organizationId",
           "in" : "path",
