@@ -2228,12 +2228,12 @@ paths:
           description: Internal server error
           schema:
             $ref: '#/definitions/InternalServerError'
-  /organizations/{organizationId}/transportRoutes/{routeId}/stops:
+  /organizations/{organizationId}/transportStops:
     get:
-      operationId: listOrganizationPublicTransportRouteStops
-      summary: Lists stops of organizations public transport route
+      operationId: listOrganizationPublicTransportStops
+      summary: Lists organizations public transport stops 
       description: |
-        Lists stops of organizations public transport route
+        Lists organizations public transport stops
       parameters:
         - name: organizationId
           in: path
@@ -2241,17 +2241,11 @@ paths:
           required: true
           type: string
           format: uuid
-        - name: routeId
-          in: path
-          description: Route id
-          required: true
-          type: string
-          format: uuid
       tags:
         - Public transport
       responses:
         200:
-          description: Returns a list of public transport routes stops
+          description: Returns a list of public transport stops
           schema:
             type: array
             items:
@@ -2268,7 +2262,7 @@ paths:
           description: Internal server error
           schema:
             $ref: '#/definitions/InternalServerError'
-  /organizations/{organizationId}/transportRoutes/{routeId}/stops/{stopId}:
+  /organizations/{organizationId}/transportStops/{stopId}:
     get:
       operationId: findOrganizationPublicTransportRouteStop
       summary: Finds a stop of organizations public transport route
@@ -2278,12 +2272,6 @@ paths:
         - name: organizationId
           in: path
           description: Organization id
-          required: true
-          type: string
-          format: uuid
-        - name: routeId
-          in: path
-          description: Route id
           required: true
           type: string
           format: uuid
@@ -2372,6 +2360,150 @@ paths:
           description: returns an organizations public transport schedule
           schema:
             $ref: '#/definitions/Schedule'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  /organizations/{organizationId}/transportStopTimes:
+    get:
+      operationId: listOrganizationPublicTransportStopTimes
+      summary: Lists stopTimes of organization's public transport stopTimes
+      description: |
+        Lists stopTimes of organization's public transport stopTimes
+      parameters:
+        - name: organizationId
+          in: path
+          description: Organization id
+          required: true
+          type: string
+          format: uuid
+      tags:
+        - Public transport
+      responses:
+        200:
+          description: Returns a list of organization's public transport stopTimes
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/StopTime'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  /organizations/{organizationId}/transportStopTimes/{stopTimeId}:
+    get:
+      operationId: findOrganizationPublicTransportStopTime
+      summary: Finds organizations public transport stopTime
+      description: |
+        Finds organizations public transport stopTime
+      parameters:
+        - name: organizationId
+          in: path
+          description: Organization id
+          required: true
+          type: string
+          format: uuid
+        - name: stopTimeId
+          in: path
+          description: StopTime id
+          required: true
+          type: string
+          format: uuid
+      tags:
+        - Public transport
+      responses:
+        200:
+          description: returns an organizations public transport stopTime
+          schema:
+            $ref: '#/definitions/StopTime'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  /organizations/{organizationId}/transportTrips:
+    get:
+      operationId: listOrganizationPublicTransportTrips
+      summary: Lists trips of organization's public transport trips
+      description: |
+        Lists trips of organization's public transport trips
+      parameters:
+        - name: organizationId
+          in: path
+          description: Organization id
+          required: true
+          type: string
+          format: uuid
+      tags:
+        - Public transport
+      responses:
+        200:
+          description: Returns a list of organization's public transport trips
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Trip'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  /organizations/{organizationId}/transportTrips/{tripId}:
+    get:
+      operationId: findOrganizationPublicTransportTrip
+      summary: Finds organizations public transport trip
+      description: |
+        Finds organizations public transport trip
+      parameters:
+        - name: organizationId
+          in: path
+          description: Organization id
+          required: true
+          type: string
+          format: uuid
+        - name: tripId
+          in: path
+          description: Trip id
+          required: true
+          type: string
+          format: uuid
+      tags:
+        - Public transport
+      responses:
+        200:
+          description: returns an organizations public transport trip
+          schema:
+            $ref: '#/definitions/Trip'
         400:
           description: Invalid request was sent to the server
           schema:
@@ -4388,6 +4520,20 @@ definitions:
         format: uuid        
       parentUri:
         type: string
+  Trip:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+      routeId:
+        type: string
+        format: uuid
+      scheduleId:
+        type: string
+        format: uuid
+      headsign:
+        type: string
   Route:
     type: object
     properties:
@@ -4428,6 +4574,27 @@ definitions:
       lat:
         type: number
       lng:
+        type: number
+  StopTime:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+      tripId:
+        type: string
+        format: uuid
+      stopId:
+        type: string
+        format: uuid
+      arrivalTime:
+        type: string
+      departureTime:
+        type: string
+      sequency:
+        type: number
+        format: int32
+      distanceTraveled: 
         type: number
   Schedule:
     type: object
