@@ -4591,10 +4591,10 @@ definitions:
         format: uuid
       arrivalTime:
         type: integer
-        format: int64
+        format: int32
       departureTime:
         type: integer
-        format: int64
+        format: int32
       sequency:
         type: integer
         format: int32
