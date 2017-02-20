@@ -1,7 +1,5 @@
 package fi.metatavu.kuntaapi.server.rest.model;
 
-import java.util.ArrayList;
-import java.util.List;
 
 
 
@@ -15,7 +13,6 @@ public class Route   {
   private String agencyId = null;
   private String shortName = null;
   private String longName = null;
-  private List<String> schedules = new ArrayList<String>();
 
   /**
    **/
@@ -81,22 +78,6 @@ public class Route   {
     this.longName = longName;
   }
 
-  /**
-   **/
-  public Route schedules(List<String> schedules) {
-    this.schedules = schedules;
-    return this;
-  }
-
-  
-  @ApiModelProperty(example = "null", value = "")
-  public List<String> getSchedules() {
-    return schedules;
-  }
-  public void setSchedules(List<String> schedules) {
-    this.schedules = schedules;
-  }
-
 
   @Override
   public boolean equals(Object o) {
@@ -110,13 +91,12 @@ public class Route   {
     return Objects.equals(id, route.id) &&
         Objects.equals(agencyId, route.agencyId) &&
         Objects.equals(shortName, route.shortName) &&
-        Objects.equals(longName, route.longName) &&
-        Objects.equals(schedules, route.schedules);
+        Objects.equals(longName, route.longName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, agencyId, shortName, longName, schedules);
+    return Objects.hash(id, agencyId, shortName, longName);
   }
 
   @Override
@@ -128,7 +108,6 @@ public class Route   {
     sb.append("    agencyId: ").append(toIndentedString(agencyId)).append("\n");
     sb.append("    shortName: ").append(toIndentedString(shortName)).append("\n");
     sb.append("    longName: ").append(toIndentedString(longName)).append("\n");
-    sb.append("    schedules: ").append(toIndentedString(schedules)).append("\n");
     sb.append("}");
     return sb.toString();
   }

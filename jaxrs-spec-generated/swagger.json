@@ -6043,13 +6043,6 @@
         },
         "longName" : {
           "type" : "string"
-        },
-        "schedules" : {
-          "type" : "array",
-          "items" : {
-            "type" : "string",
-            "format" : "uuid"
-          }
         }
       }
     },
