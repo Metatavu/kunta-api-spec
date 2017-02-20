@@ -4590,15 +4590,17 @@ definitions:
         type: string
         format: uuid
       arrivalTime:
-        type: string
+        type: number
+        format: int64
       departureTime:
-        type: string
+        type: number
+        format: int64
       sequency:
         type: number
         format: int32
       distanceTraveled: 
         type: number
-        format: float
+        format: double
   Schedule:
     type: object
     properties:
