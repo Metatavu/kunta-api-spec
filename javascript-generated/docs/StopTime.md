@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 **id** | **String** |  | [optional] 
 **tripId** | **String** |  | [optional] 
 **stopId** | **String** |  | [optional] 
-**arrivalTime** | **Number** |  | [optional] 
-**departureTime** | **Number** |  | [optional] 
-**sequency** | **Number** |  | [optional] 
+**arrivalTime** | **Integer** |  | [optional] 
+**departureTime** | **Integer** |  | [optional] 
+**sequency** | **Integer** |  | [optional] 
 **distanceTraveled** | **Number** |  | [optional] 
 
 

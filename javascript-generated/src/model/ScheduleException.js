@@ -45,7 +45,7 @@
   /**
    * The ScheduleException model module.
    * @module model/ScheduleException
-   * @version 0.0.49
+   * @version 0.0.50
    */
 
   /**
