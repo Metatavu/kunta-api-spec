@@ -12,8 +12,8 @@ public class StopTime   {
   private String id = null;
   private String tripId = null;
   private String stopId = null;
-  private Long arrivalTime = null;
-  private Long departureTime = null;
+  private Integer arrivalTime = null;
+  private Integer departureTime = null;
   private Integer sequency = null;
   private Double distanceTraveled = null;
 
@@ -67,33 +67,33 @@ public class StopTime   {
 
   /**
    **/
-  public StopTime arrivalTime(Long arrivalTime) {
+  public StopTime arrivalTime(Integer arrivalTime) {
     this.arrivalTime = arrivalTime;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "")
-  public Long getArrivalTime() {
+  public Integer getArrivalTime() {
     return arrivalTime;
   }
-  public void setArrivalTime(Long arrivalTime) {
+  public void setArrivalTime(Integer arrivalTime) {
     this.arrivalTime = arrivalTime;
   }
 
   /**
    **/
-  public StopTime departureTime(Long departureTime) {
+  public StopTime departureTime(Integer departureTime) {
     this.departureTime = departureTime;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "")
-  public Long getDepartureTime() {
+  public Integer getDepartureTime() {
     return departureTime;
   }
-  public void setDepartureTime(Long departureTime) {
+  public void setDepartureTime(Integer departureTime) {
     this.departureTime = departureTime;
   }
 
