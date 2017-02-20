@@ -45,7 +45,7 @@
   /**
    * The StopTime model module.
    * @module model/StopTime
-   * @version 0.0.48
+   * @version 0.0.49
    */
 
   /**
@@ -86,10 +86,10 @@
         obj['stopId'] = ApiClient.convertToType(data['stopId'], 'String');
       }
       if (data.hasOwnProperty('arrivalTime')) {
-        obj['arrivalTime'] = ApiClient.convertToType(data['arrivalTime'], 'String');
+        obj['arrivalTime'] = ApiClient.convertToType(data['arrivalTime'], 'Number');
       }
       if (data.hasOwnProperty('departureTime')) {
-        obj['departureTime'] = ApiClient.convertToType(data['departureTime'], 'String');
+        obj['departureTime'] = ApiClient.convertToType(data['departureTime'], 'Number');
       }
       if (data.hasOwnProperty('sequency')) {
         obj['sequency'] = ApiClient.convertToType(data['sequency'], 'Number');
@@ -114,11 +114,11 @@
    */
   exports.prototype['stopId'] = undefined;
   /**
-   * @member {String} arrivalTime
+   * @member {Number} arrivalTime
    */
   exports.prototype['arrivalTime'] = undefined;
   /**
-   * @member {String} departureTime
+   * @member {Number} departureTime
    */
   exports.prototype['departureTime'] = undefined;
   /**

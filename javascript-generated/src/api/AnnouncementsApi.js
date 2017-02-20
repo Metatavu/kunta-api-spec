@@ -42,7 +42,7 @@
   /**
    * Announcements service.
    * @module api/AnnouncementsApi
-   * @version 0.0.48
+   * @version 0.0.49
    */
 
   /**
