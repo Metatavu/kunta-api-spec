@@ -45,7 +45,7 @@
   /**
    * The Route model module.
    * @module model/Route
-   * @version 0.0.51
+   * @version 0.0.52
    */
 
   /**
@@ -55,7 +55,6 @@
    */
   var exports = function() {
     var _this = this;
-
 
 
 
@@ -86,9 +85,6 @@
       if (data.hasOwnProperty('longName')) {
         obj['longName'] = ApiClient.convertToType(data['longName'], 'String');
       }
-      if (data.hasOwnProperty('schedules')) {
-        obj['schedules'] = ApiClient.convertToType(data['schedules'], ['String']);
-      }
     }
     return obj;
   }
@@ -109,10 +105,6 @@
    * @member {String} longName
    */
   exports.prototype['longName'] = undefined;
-  /**
-   * @member {Array.<String>} schedules
-   */
-  exports.prototype['schedules'] = undefined;
 
 
 

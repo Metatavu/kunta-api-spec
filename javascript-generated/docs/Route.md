@@ -7,6 +7,5 @@ Name | Type | Description | Notes
 **agencyId** | **String** |  | [optional] 
 **shortName** | **String** |  | [optional] 
 **longName** | **String** |  | [optional] 
-**schedules** | **[String]** |  | [optional] 
 
 

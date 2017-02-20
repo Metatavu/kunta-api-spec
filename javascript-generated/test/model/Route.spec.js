@@ -89,12 +89,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property schedules (base name: "schedules")', function() {
-      // uncomment below and update the code to test the property schedules
-      //var instane = new KuntaApiClient.Route();
-      //expect(instance).to.be();
-    });
-
   });
 
 }));
