@@ -4546,11 +4546,6 @@ definitions:
         type: string
       longName:
         type: string
-      schedules:
-        type: array
-        items:
-         type: string
-         format: uuid
   Agency:
     type: object
     properties:
