@@ -13,10 +13,10 @@ public class StopTime   {
   private String id = null;
   private String tripId = null;
   private String stopId = null;
-  private String arrivalTime = null;
-  private String departureTime = null;
+  private BigDecimal arrivalTime = null;
+  private BigDecimal departureTime = null;
   private BigDecimal sequency = null;
-  private Float distanceTraveled = null;
+  private Double distanceTraveled = null;
 
   /**
    **/
@@ -68,33 +68,33 @@ public class StopTime   {
 
   /**
    **/
-  public StopTime arrivalTime(String arrivalTime) {
+  public StopTime arrivalTime(BigDecimal arrivalTime) {
     this.arrivalTime = arrivalTime;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "")
-  public String getArrivalTime() {
+  public BigDecimal getArrivalTime() {
     return arrivalTime;
   }
-  public void setArrivalTime(String arrivalTime) {
+  public void setArrivalTime(BigDecimal arrivalTime) {
     this.arrivalTime = arrivalTime;
   }
 
   /**
    **/
-  public StopTime departureTime(String departureTime) {
+  public StopTime departureTime(BigDecimal departureTime) {
     this.departureTime = departureTime;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "")
-  public String getDepartureTime() {
+  public BigDecimal getDepartureTime() {
     return departureTime;
   }
-  public void setDepartureTime(String departureTime) {
+  public void setDepartureTime(BigDecimal departureTime) {
     this.departureTime = departureTime;
   }
 
@@ -116,17 +116,17 @@ public class StopTime   {
 
   /**
    **/
-  public StopTime distanceTraveled(Float distanceTraveled) {
+  public StopTime distanceTraveled(Double distanceTraveled) {
     this.distanceTraveled = distanceTraveled;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "")
-  public Float getDistanceTraveled() {
+  public Double getDistanceTraveled() {
     return distanceTraveled;
   }
-  public void setDistanceTraveled(Float distanceTraveled) {
+  public void setDistanceTraveled(Double distanceTraveled) {
     this.distanceTraveled = distanceTraveled;
   }
 
