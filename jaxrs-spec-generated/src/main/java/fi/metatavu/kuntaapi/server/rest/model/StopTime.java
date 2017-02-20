@@ -1,6 +1,5 @@
 package fi.metatavu.kuntaapi.server.rest.model;
 
-import java.math.BigDecimal;
 
 
 
@@ -13,9 +12,9 @@ public class StopTime   {
   private String id = null;
   private String tripId = null;
   private String stopId = null;
-  private BigDecimal arrivalTime = null;
-  private BigDecimal departureTime = null;
-  private BigDecimal sequency = null;
+  private Long arrivalTime = null;
+  private Long departureTime = null;
+  private Integer sequency = null;
   private Double distanceTraveled = null;
 
   /**
@@ -68,49 +67,49 @@ public class StopTime   {
 
   /**
    **/
-  public StopTime arrivalTime(BigDecimal arrivalTime) {
+  public StopTime arrivalTime(Long arrivalTime) {
     this.arrivalTime = arrivalTime;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "")
-  public BigDecimal getArrivalTime() {
+  public Long getArrivalTime() {
     return arrivalTime;
   }
-  public void setArrivalTime(BigDecimal arrivalTime) {
+  public void setArrivalTime(Long arrivalTime) {
     this.arrivalTime = arrivalTime;
   }
 
   /**
    **/
-  public StopTime departureTime(BigDecimal departureTime) {
+  public StopTime departureTime(Long departureTime) {
     this.departureTime = departureTime;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "")
-  public BigDecimal getDepartureTime() {
+  public Long getDepartureTime() {
     return departureTime;
   }
-  public void setDepartureTime(BigDecimal departureTime) {
+  public void setDepartureTime(Long departureTime) {
     this.departureTime = departureTime;
   }
 
   /**
    **/
-  public StopTime sequency(BigDecimal sequency) {
+  public StopTime sequency(Integer sequency) {
     this.sequency = sequency;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "")
-  public BigDecimal getSequency() {
+  public Integer getSequency() {
     return sequency;
   }
-  public void setSequency(BigDecimal sequency) {
+  public void setSequency(Integer sequency) {
     this.sequency = sequency;
   }
 
