@@ -4590,13 +4590,13 @@ definitions:
         type: string
         format: uuid
       arrivalTime:
-        type: number
+        type: integer
         format: int64
       departureTime:
-        type: number
+        type: integer
         format: int64
       sequency:
-        type: number
+        type: integer
         format: int32
       distanceTraveled: 
         type: number
