@@ -2086,6 +2086,18 @@
           "required" : false,
           "type" : "string"
         }, {
+          "name" : "sortBy",
+          "in" : "query",
+          "description" : "Sort results (TITLE)",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "sortDir",
+          "in" : "query",
+          "description" : "ASCENDING or DESCENDING",
+          "required" : false,
+          "type" : "string"
+        }, {
           "name" : "firstResult",
           "in" : "query",
           "description" : "First result",
