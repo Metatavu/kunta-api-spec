@@ -45,7 +45,7 @@
   /**
    * The ContactPhone model module.
    * @module model/ContactPhone
-   * @version 0.0.52
+   * @version 0.0.53
    */
 
   /**
