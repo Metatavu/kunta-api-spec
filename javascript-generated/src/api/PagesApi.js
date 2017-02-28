@@ -42,7 +42,7 @@
   /**
    * Pages service.
    * @module api/PagesApi
-   * @version 0.0.53
+   * @version 0.0.54
    */
 
   /**
@@ -312,8 +312,6 @@
      * @param {String} opts.parentId Filter results by parent id
      * @param {String} opts.path Filter results by page path
      * @param {String} opts.search Search pages by free-text query
-     * @param {String} opts.sortBy Sort results (TITLE)
-     * @param {String} opts.sortDir ASCENDING or DESCENDING
      * @param {Integer} opts.firstResult First result
      * @param {Integer} opts.maxResults Max results
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Page>}
@@ -335,8 +333,6 @@
         'parentId': opts['parentId'],
         'path': opts['path'],
         'search': opts['search'],
-        'sortBy': opts['sortBy'],
-        'sortDir': opts['sortDir'],
         'firstResult': opts['firstResult'],
         'maxResults': opts['maxResults']
       };

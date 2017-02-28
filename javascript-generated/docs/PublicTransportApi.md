@@ -425,7 +425,7 @@ No authorization required
 
 <a name="listOrganizationPublicTransportStopTimes"></a>
 # **listOrganizationPublicTransportStopTimes**
-> [StopTime] listOrganizationPublicTransportStopTimes(organizationId)
+> [StopTime] listOrganizationPublicTransportStopTimes(organizationId, opts)
 
 Lists stopTimes of organization&#39;s public transport stopTimes
 
@@ -439,7 +439,13 @@ var apiInstance = new KuntaApiClient.PublicTransportApi();
 
 var organizationId = "organizationId_example"; // String | Organization id
 
-apiInstance.listOrganizationPublicTransportStopTimes(organizationId).then(function(data) {
+var opts = { 
+  'stopId': "stopId_example", // String | Filter stop times by stopId
+  'departureTime': 56, // Integer | Filter stop times that depart in or after specified time. Value is defined in seconds since midnight
+  'sortBy': "sortBy_example", // String | DEPARTURE_TIME
+  'sortDir': "sortDir_example" // String | ASC or DESC
+};
+apiInstance.listOrganizationPublicTransportStopTimes(organizationId, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -452,6 +458,10 @@ apiInstance.listOrganizationPublicTransportStopTimes(organizationId).then(functi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| Organization id | 
+ **stopId** | **String**| Filter stop times by stopId | [optional] 
+ **departureTime** | **Integer**| Filter stop times that depart in or after specified time. Value is defined in seconds since midnight | [optional] 
+ **sortBy** | **String**| DEPARTURE_TIME | [optional] 
+ **sortDir** | **String**| ASC or DESC | [optional] 
 
 ### Return type
 

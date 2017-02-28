@@ -276,8 +276,6 @@ var opts = {
   'parentId': "parentId_example", // String | Filter results by parent id
   'path': "path_example", // String | Filter results by page path
   'search': "search_example", // String | Search pages by free-text query
-  'sortBy': "sortBy_example", // String | Sort results (TITLE)
-  'sortDir': "sortDir_example", // String | ASCENDING or DESCENDING
   'firstResult': 789, // Integer | First result
   'maxResults': 789 // Integer | Max results
 };
@@ -297,8 +295,6 @@ Name | Type | Description  | Notes
  **parentId** | **String**| Filter results by parent id | [optional] 
  **path** | **String**| Filter results by page path | [optional] 
  **search** | **String**| Search pages by free-text query | [optional] 
- **sortBy** | **String**| Sort results (TITLE) | [optional] 
- **sortDir** | **String**| ASCENDING or DESCENDING | [optional] 
  **firstResult** | **Integer**| First result | [optional] 
  **maxResults** | **Integer**| Max results | [optional] 
 
