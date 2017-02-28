@@ -2086,18 +2086,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "sortBy",
-          "in" : "query",
-          "description" : "Sort results (TITLE)",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "sortDir",
-          "in" : "query",
-          "description" : "ASCENDING or DESCENDING",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "firstResult",
           "in" : "query",
           "description" : "First result",
@@ -3230,6 +3218,32 @@
           "required" : true,
           "type" : "string",
           "format" : "uuid"
+        }, {
+          "name" : "stopId",
+          "in" : "query",
+          "description" : "Filter stop times by stopId",
+          "required" : false,
+          "type" : "string",
+          "format" : "uuid"
+        }, {
+          "name" : "departureTime",
+          "in" : "query",
+          "description" : "Filter stop times that depart in or after specified time. Value is defined in seconds since midnight",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "sortBy",
+          "in" : "query",
+          "description" : "DEPARTURE_TIME",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "sortDir",
+          "in" : "query",
+          "description" : "ASC or DESC",
+          "required" : false,
+          "type" : "string"
         } ],
         "responses" : {
           "200" : {

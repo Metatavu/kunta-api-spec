@@ -42,7 +42,7 @@ import java.util.List;
 @Api(description = "the organizations API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-02-24T17:34:35.245+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-02-28T12:08:53.249+02:00")
 
 public abstract class OrganizationsApi extends AbstractApi {
 
@@ -670,7 +670,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Page.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Page.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = Page.class, responseContainer = "List") })
-    public abstract Response listOrganizationPages(@PathParam("organizationId") String organizationId,@QueryParam("parentId") String parentId,@QueryParam("path") String path,@QueryParam("search") String search,@QueryParam("sortBy") String sortBy,@QueryParam("sortDir") String sortDir,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
+    public abstract Response listOrganizationPages(@PathParam("organizationId") String organizationId,@QueryParam("parentId") String parentId,@QueryParam("path") String path,@QueryParam("search") String search,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
 
     @GET
     @Path("/{organizationId}/transportAgencies")
@@ -718,7 +718,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = StopTime.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = StopTime.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = StopTime.class, responseContainer = "List") })
-    public abstract Response listOrganizationPublicTransportStopTimes(@PathParam("organizationId") String organizationId,@Context Request request);
+    public abstract Response listOrganizationPublicTransportStopTimes(@PathParam("organizationId") String organizationId,@QueryParam("stopId") String stopId,@QueryParam("departureTime") Integer departureTime,@QueryParam("sortBy") String sortBy,@QueryParam("sortDir") String sortDir,@Context Request request);
 
     @GET
     @Path("/{organizationId}/transportStops")
