@@ -2385,6 +2385,26 @@ paths:
           required: true
           type: string
           format: uuid
+        - name: stopId
+          in: query
+          description: Filter stop times by stopId
+          type: string
+          format: uuid
+        - name: departureTime
+          in: query
+          description: Filter stop times that depart in or after specified time. Value is defined in seconds since midnight
+          type: integer
+          format: int32
+        - name: sortBy
+          in: query
+          description: DEPARTURE_TIME
+          required: false
+          type: string
+        - name: sortDir
+          in: query
+          description: ASC or DESC
+          required: false
+          type: string
       tags:
         - Public transport
       responses:
