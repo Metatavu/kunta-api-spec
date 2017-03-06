@@ -25,29 +25,29 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/BadRequest', 'model/Announcement', 'model/Forbidden', 'model/InternalServerError'], factory);
+    define(['ApiClient', 'model/BadRequest', 'model/Forbidden', 'model/Shortlink', 'model/InternalServerError'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/Announcement'), require('../model/Forbidden'), require('../model/InternalServerError'));
+    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/Forbidden'), require('../model/Shortlink'), require('../model/InternalServerError'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.AnnouncementsApi = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.BadRequest, root.KuntaApiClient.Announcement, root.KuntaApiClient.Forbidden, root.KuntaApiClient.InternalServerError);
+    root.KuntaApiClient.ShortlinksApi = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.BadRequest, root.KuntaApiClient.Forbidden, root.KuntaApiClient.Shortlink, root.KuntaApiClient.InternalServerError);
   }
-}(this, function(ApiClient, BadRequest, Announcement, Forbidden, InternalServerError) {
+}(this, function(ApiClient, BadRequest, Forbidden, Shortlink, InternalServerError) {
   'use strict';
 
   /**
-   * Announcements service.
-   * @module api/AnnouncementsApi
+   * Shortlinks service.
+   * @module api/ShortlinksApi
    * @version 0.0.55
    */
 
   /**
-   * Constructs a new AnnouncementsApi. 
-   * @alias module:api/AnnouncementsApi
+   * Constructs a new ShortlinksApi. 
+   * @alias module:api/ShortlinksApi
    * @class
    * @param {module:ApiClient} apiClient Optional API client implementation to use,
    * default to {@link module:ApiClient#instance} if unspecified.
@@ -58,29 +58,29 @@
 
 
     /**
-     * Finds an organizations announcement
-     * Finds organization&#39;s single announcement 
+     * Finds organization shortlink
+     * Finds single organization shortlink 
      * @param {String} organizationId Organization id
-     * @param {String} announcementId Announcement id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Announcement}
+     * @param {String} shortlinkId shortlink id
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Shortlink}
      */
-    this.findOrganizationAnnouncement = function(organizationId, announcementId) {
+    this.findOrganizationShortlink = function(organizationId, shortlinkId) {
       var postBody = null;
 
       // verify the required parameter 'organizationId' is set
       if (organizationId == undefined || organizationId == null) {
-        throw "Missing the required parameter 'organizationId' when calling findOrganizationAnnouncement";
+        throw "Missing the required parameter 'organizationId' when calling findOrganizationShortlink";
       }
 
-      // verify the required parameter 'announcementId' is set
-      if (announcementId == undefined || announcementId == null) {
-        throw "Missing the required parameter 'announcementId' when calling findOrganizationAnnouncement";
+      // verify the required parameter 'shortlinkId' is set
+      if (shortlinkId == undefined || shortlinkId == null) {
+        throw "Missing the required parameter 'shortlinkId' when calling findOrganizationShortlink";
       }
 
 
       var pathParams = {
         'organizationId': organizationId,
-        'announcementId': announcementId
+        'shortlinkId': shortlinkId
       };
       var queryParams = {
       };
@@ -92,10 +92,10 @@
       var authNames = [];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = Announcement;
+      var returnType = Shortlink;
 
       return this.apiClient.callApi(
-        '/organizations/{organizationId}/announcements/{announcementId}', 'GET',
+        '/organizations/{organizationId}/shortlinks/{shortlinkId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );
@@ -103,24 +103,22 @@
 
 
     /**
-     * Lists organizations announcements
-     * Lists organizations announcements 
+     * Lists organizations shortlinks
+     * Lists organizations shortlinks 
      * @param {String} organizationId Organization id
      * @param {Object} opts Optional parameters
-     * @param {String} opts.slug Filter with slug
-     * @param {Integer} opts.firstResult first index of results
-     * @param {Integer} opts.maxResults maximum number of results
-     * @param {String} opts.sortBy PUBLICATION_DATE
-     * @param {String} opts.sortDir ASC or DESC
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Announcement>}
+     * @param {String} opts.path Filter results by path
+     * @param {Integer} opts.firstResult First result
+     * @param {Integer} opts.maxResults Max results
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Shortlink>}
      */
-    this.listOrganizationAnnouncements = function(organizationId, opts) {
+    this.listOrganizationShortlinks = function(organizationId, opts) {
       opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'organizationId' is set
       if (organizationId == undefined || organizationId == null) {
-        throw "Missing the required parameter 'organizationId' when calling listOrganizationAnnouncements";
+        throw "Missing the required parameter 'organizationId' when calling listOrganizationShortlinks";
       }
 
 
@@ -128,11 +126,9 @@
         'organizationId': organizationId
       };
       var queryParams = {
-        'slug': opts['slug'],
+        'path': opts['path'],
         'firstResult': opts['firstResult'],
-        'maxResults': opts['maxResults'],
-        'sortBy': opts['sortBy'],
-        'sortDir': opts['sortDir']
+        'maxResults': opts['maxResults']
       };
       var headerParams = {
       };
@@ -142,10 +138,10 @@
       var authNames = [];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = [Announcement];
+      var returnType = [Shortlink];
 
       return this.apiClient.callApi(
-        '/organizations/{organizationId}/announcements', 'GET',
+        '/organizations/{organizationId}/shortlinks', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );
