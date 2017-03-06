@@ -25,6 +25,7 @@ import fi.metatavu.kuntaapi.server.rest.model.Stop;
 import fi.metatavu.kuntaapi.server.rest.model.StopTime;
 import fi.metatavu.kuntaapi.server.rest.model.Trip;
 import fi.metatavu.kuntaapi.server.rest.model.NotFound;
+import fi.metatavu.kuntaapi.server.rest.model.Shortlink;
 import fi.metatavu.kuntaapi.server.rest.model.Tile;
 import fi.metatavu.kuntaapi.server.rest.model.Banner;
 
@@ -42,7 +43,7 @@ import java.util.List;
 @Api(description = "the organizations API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-02-28T12:08:53.249+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-03-06T15:46:17.113+02:00")
 
 public abstract class OrganizationsApi extends AbstractApi {
 
@@ -382,6 +383,18 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = OrganizationSetting.class),
         @ApiResponse(code = 500, message = "Internal server error", response = OrganizationSetting.class) })
     public abstract Response findOrganizationSetting(@PathParam("organizationId") String organizationId,@PathParam("settingId") String settingId,@Context Request request);
+
+    @GET
+    @Path("/{organizationId}/shortlinks/{shortlinkId}")
+    @Consumes({ "application/json;charset=utf-8" })
+    @Produces({ "application/json;charset=utf-8" })
+    @ApiOperation(value = "Finds organization shortlink", notes = "Finds single organization shortlink ", response = Shortlink.class, tags={ "Shortlinks",  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Returns a single organization shortlink", response = Shortlink.class),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Shortlink.class),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Shortlink.class),
+        @ApiResponse(code = 500, message = "Internal server error", response = Shortlink.class) })
+    public abstract Response findOrganizationShortlink(@PathParam("organizationId") String organizationId,@PathParam("shortlinkId") String shortlinkId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/tiles/{tileId}")
@@ -755,6 +768,18 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = OrganizationSetting.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = OrganizationSetting.class, responseContainer = "List") })
     public abstract Response listOrganizationSettings(@PathParam("organizationId") String organizationId,@QueryParam("key") String key,@Context Request request);
+
+    @GET
+    @Path("/{organizationId}/shortlinks")
+    @Consumes({ "application/json;charset=utf-8" })
+    @Produces({ "application/json;charset=utf-8" })
+    @ApiOperation(value = "Lists organizations shortlinks", notes = "Lists organizations shortlinks ", response = Shortlink.class, responseContainer = "List", tags={ "Shortlinks",  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Returns a list of shortlinks", response = Shortlink.class, responseContainer = "List"),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Shortlink.class, responseContainer = "List"),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Shortlink.class, responseContainer = "List"),
+        @ApiResponse(code = 500, message = "Internal server error", response = Shortlink.class, responseContainer = "List") })
+    public abstract Response listOrganizationShortlinks(@PathParam("organizationId") String organizationId,@QueryParam("path") String path,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
 
     @GET
     @Path("/{organizationId}/tiles/{tileId}/images")
