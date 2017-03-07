@@ -43,7 +43,7 @@ import java.util.List;
 @Api(description = "the organizations API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-03-06T15:46:17.113+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-03-07T09:26:31.580+02:00")
 
 public abstract class OrganizationsApi extends AbstractApi {
 
@@ -731,7 +731,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = StopTime.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = StopTime.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = StopTime.class, responseContainer = "List") })
-    public abstract Response listOrganizationPublicTransportStopTimes(@PathParam("organizationId") String organizationId,@QueryParam("stopId") String stopId,@QueryParam("departureTime") Integer departureTime,@QueryParam("sortBy") String sortBy,@QueryParam("sortDir") String sortDir,@Context Request request);
+    public abstract Response listOrganizationPublicTransportStopTimes(@PathParam("organizationId") String organizationId,@QueryParam("stopId") String stopId,@QueryParam("departureTime") Integer departureTime,@QueryParam("sortBy") String sortBy,@QueryParam("sortDir") String sortDir,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
 
     @GET
     @Path("/{organizationId}/transportStops")
