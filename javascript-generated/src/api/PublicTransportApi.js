@@ -42,7 +42,7 @@
   /**
    * PublicTransport service.
    * @module api/PublicTransportApi
-   * @version 0.0.55
+   * @version 0.0.56
    */
 
   /**
@@ -450,6 +450,8 @@
      * @param {Integer} opts.departureTime Filter stop times that depart in or after specified time. Value is defined in seconds since midnight
      * @param {String} opts.sortBy DEPARTURE_TIME
      * @param {String} opts.sortDir ASC or DESC
+     * @param {Integer} opts.firstResult First result
+     * @param {Integer} opts.maxResults Max results
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/StopTime>}
      */
     this.listOrganizationPublicTransportStopTimes = function(organizationId, opts) {
@@ -469,7 +471,9 @@
         'stopId': opts['stopId'],
         'departureTime': opts['departureTime'],
         'sortBy': opts['sortBy'],
-        'sortDir': opts['sortDir']
+        'sortDir': opts['sortDir'],
+        'firstResult': opts['firstResult'],
+        'maxResults': opts['maxResults']
       };
       var headerParams = {
       };

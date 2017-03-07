@@ -45,7 +45,7 @@
   /**
    * The Attachment model module.
    * @module model/Attachment
-   * @version 0.0.55
+   * @version 0.0.56
    */
 
   /**

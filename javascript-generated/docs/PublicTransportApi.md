@@ -443,7 +443,9 @@ var opts = {
   'stopId': "stopId_example", // String | Filter stop times by stopId
   'departureTime': 56, // Integer | Filter stop times that depart in or after specified time. Value is defined in seconds since midnight
   'sortBy': "sortBy_example", // String | DEPARTURE_TIME
-  'sortDir': "sortDir_example" // String | ASC or DESC
+  'sortDir': "sortDir_example", // String | ASC or DESC
+  'firstResult': 789, // Integer | First result
+  'maxResults': 789 // Integer | Max results
 };
 apiInstance.listOrganizationPublicTransportStopTimes(organizationId, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -462,6 +464,8 @@ Name | Type | Description  | Notes
  **departureTime** | **Integer**| Filter stop times that depart in or after specified time. Value is defined in seconds since midnight | [optional] 
  **sortBy** | **String**| DEPARTURE_TIME | [optional] 
  **sortDir** | **String**| ASC or DESC | [optional] 
+ **firstResult** | **Integer**| First result | [optional] 
+ **maxResults** | **Integer**| Max results | [optional] 
 
 ### Return type
 
