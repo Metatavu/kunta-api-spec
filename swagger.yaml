@@ -2494,6 +2494,18 @@ paths:
           description: ASC or DESC
           required: false
           type: string
+        - name: firstResult
+          in: query
+          description: First result
+          required: false
+          type: integer
+          format: int64
+        - name: maxResults
+          in: query
+          description: Max results
+          required: false
+          type: integer
+          format: int64
       tags:
         - Public transport
       responses:
