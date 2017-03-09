@@ -14,15 +14,17 @@ import java.util.Objects;
 public class ServiceHour   {
   
   private String type = null;
+  private String exceptionHourType = null;
   private OffsetDateTime validFrom = null;
   private OffsetDateTime validTo = null;
+  private List<Integer> days = new ArrayList<Integer>();
   private String opens = null;
   private String closes = null;
-  private List<Integer> days = new ArrayList<Integer>();
-  private String status = null;
+  private String timezone = null;
   private List<LocalizedValue> additionalInformation = new ArrayList<LocalizedValue>();
 
   /**
+   * Type of service hour (Standard, Exception or Special).
    **/
   public ServiceHour type(String type) {
     this.type = type;
@@ -30,7 +32,7 @@ public class ServiceHour   {
   }
 
   
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Type of service hour (Standard, Exception or Special).")
   public String getType() {
     return type;
   }
@@ -39,6 +41,24 @@ public class ServiceHour   {
   }
 
   /**
+   * Type of service hour exception type. Valid values are: Open or Closed.
+   **/
+  public ServiceHour exceptionHourType(String exceptionHourType) {
+    this.exceptionHourType = exceptionHourType;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "Type of service hour exception type. Valid values are: Open or Closed.")
+  public String getExceptionHourType() {
+    return exceptionHourType;
+  }
+  public void setExceptionHourType(String exceptionHourType) {
+    this.exceptionHourType = exceptionHourType;
+  }
+
+  /**
+   * Date time where from this entry is valid.
    **/
   public ServiceHour validFrom(OffsetDateTime validFrom) {
     this.validFrom = validFrom;
@@ -46,7 +66,7 @@ public class ServiceHour   {
   }
 
   
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Date time where from this entry is valid.")
   public OffsetDateTime getValidFrom() {
     return validFrom;
   }
@@ -55,6 +75,7 @@ public class ServiceHour   {
   }
 
   /**
+   * Date time to this entry is valid.
    **/
   public ServiceHour validTo(OffsetDateTime validTo) {
     this.validTo = validTo;
@@ -62,7 +83,7 @@ public class ServiceHour   {
   }
 
   
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Date time to this entry is valid.")
   public OffsetDateTime getValidTo() {
     return validTo;
   }
@@ -71,6 +92,24 @@ public class ServiceHour   {
   }
 
   /**
+   * Array of week numbers indices where serice hour is active (0 == sunday)
+   **/
+  public ServiceHour days(List<Integer> days) {
+    this.days = days;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "Array of week numbers indices where serice hour is active (0 == sunday)")
+  public List<Integer> getDays() {
+    return days;
+  }
+  public void setDays(List<Integer> days) {
+    this.days = days;
+  }
+
+  /**
+   * Opening time in format HH:mm for example 08:00.
    **/
   public ServiceHour opens(String opens) {
     this.opens = opens;
@@ -78,7 +117,7 @@ public class ServiceHour   {
   }
 
   
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Opening time in format HH:mm for example 08:00.")
   public String getOpens() {
     return opens;
   }
@@ -87,6 +126,7 @@ public class ServiceHour   {
   }
 
   /**
+   * Closing time in format HH:mm for example 19:00
    **/
   public ServiceHour closes(String closes) {
     this.closes = closes;
@@ -94,7 +134,7 @@ public class ServiceHour   {
   }
 
   
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Closing time in format HH:mm for example 19:00")
   public String getCloses() {
     return closes;
   }
@@ -104,34 +144,18 @@ public class ServiceHour   {
 
   /**
    **/
-  public ServiceHour days(List<Integer> days) {
-    this.days = days;
+  public ServiceHour timezone(String timezone) {
+    this.timezone = timezone;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "")
-  public List<Integer> getDays() {
-    return days;
+  public String getTimezone() {
+    return timezone;
   }
-  public void setDays(List<Integer> days) {
-    this.days = days;
-  }
-
-  /**
-   **/
-  public ServiceHour status(String status) {
-    this.status = status;
-    return this;
-  }
-
-  
-  @ApiModelProperty(example = "null", value = "")
-  public String getStatus() {
-    return status;
-  }
-  public void setStatus(String status) {
-    this.status = status;
+  public void setTimezone(String timezone) {
+    this.timezone = timezone;
   }
 
   /**
@@ -161,18 +185,19 @@ public class ServiceHour   {
     }
     ServiceHour serviceHour = (ServiceHour) o;
     return Objects.equals(type, serviceHour.type) &&
+        Objects.equals(exceptionHourType, serviceHour.exceptionHourType) &&
         Objects.equals(validFrom, serviceHour.validFrom) &&
         Objects.equals(validTo, serviceHour.validTo) &&
+        Objects.equals(days, serviceHour.days) &&
         Objects.equals(opens, serviceHour.opens) &&
         Objects.equals(closes, serviceHour.closes) &&
-        Objects.equals(days, serviceHour.days) &&
-        Objects.equals(status, serviceHour.status) &&
+        Objects.equals(timezone, serviceHour.timezone) &&
         Objects.equals(additionalInformation, serviceHour.additionalInformation);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, validFrom, validTo, opens, closes, days, status, additionalInformation);
+    return Objects.hash(type, exceptionHourType, validFrom, validTo, days, opens, closes, timezone, additionalInformation);
   }
 
   @Override
@@ -181,12 +206,13 @@ public class ServiceHour   {
     sb.append("class ServiceHour {\n");
     
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    exceptionHourType: ").append(toIndentedString(exceptionHourType)).append("\n");
     sb.append("    validFrom: ").append(toIndentedString(validFrom)).append("\n");
     sb.append("    validTo: ").append(toIndentedString(validTo)).append("\n");
+    sb.append("    days: ").append(toIndentedString(days)).append("\n");
     sb.append("    opens: ").append(toIndentedString(opens)).append("\n");
     sb.append("    closes: ").append(toIndentedString(closes)).append("\n");
-    sb.append("    days: ").append(toIndentedString(days)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    timezone: ").append(toIndentedString(timezone)).append("\n");
     sb.append("    additionalInformation: ").append(toIndentedString(additionalInformation)).append("\n");
     sb.append("}");
     return sb.toString();

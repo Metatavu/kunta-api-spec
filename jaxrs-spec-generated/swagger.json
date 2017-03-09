@@ -6110,34 +6110,43 @@
       }
     },
     "ServiceHour" : {
+      "type" : "object",
       "properties" : {
         "type" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Type of service hour (Standard, Exception or Special)."
+        },
+        "exceptionHourType" : {
+          "type" : "string",
+          "description" : "Type of service hour exception type. Valid values are: Open or Closed."
         },
         "validFrom" : {
           "type" : "string",
-          "format" : "date-time"
+          "format" : "date-time",
+          "description" : "Date time where from this entry is valid."
         },
         "validTo" : {
           "type" : "string",
-          "format" : "date-time"
-        },
-        "opens" : {
-          "type" : "string",
-          "format" : "time"
-        },
-        "closes" : {
-          "type" : "string",
-          "format" : "time"
+          "format" : "date-time",
+          "description" : "Date time to this entry is valid."
         },
         "days" : {
           "type" : "array",
+          "description" : "Array of week numbers indices where serice hour is active (0 == sunday)",
           "items" : {
             "type" : "integer",
             "format" : "int32"
           }
         },
-        "status" : {
+        "opens" : {
+          "type" : "string",
+          "description" : "Opening time in format HH:mm for example 08:00."
+        },
+        "closes" : {
+          "type" : "string",
+          "description" : "Closing time in format HH:mm for example 19:00"
+        },
+        "timezone" : {
           "type" : "string"
         },
         "additionalInformation" : {
