@@ -71,6 +71,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property exceptionHourType (base name: "exceptionHourType")', function() {
+      // uncomment below and update the code to test the property exceptionHourType
+      //var instane = new KuntaApiClient.ServiceHour();
+      //expect(instance).to.be();
+    });
+
     it('should have the property validFrom (base name: "validFrom")', function() {
       // uncomment below and update the code to test the property validFrom
       //var instane = new KuntaApiClient.ServiceHour();
@@ -79,6 +85,12 @@
 
     it('should have the property validTo (base name: "validTo")', function() {
       // uncomment below and update the code to test the property validTo
+      //var instane = new KuntaApiClient.ServiceHour();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property days (base name: "days")', function() {
+      // uncomment below and update the code to test the property days
       //var instane = new KuntaApiClient.ServiceHour();
       //expect(instance).to.be();
     });
@@ -95,14 +107,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property days (base name: "days")', function() {
-      // uncomment below and update the code to test the property days
-      //var instane = new KuntaApiClient.ServiceHour();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property status (base name: "status")', function() {
-      // uncomment below and update the code to test the property status
+    it('should have the property timezone (base name: "timezone")', function() {
+      // uncomment below and update the code to test the property timezone
       //var instane = new KuntaApiClient.ServiceHour();
       //expect(instance).to.be();
     });

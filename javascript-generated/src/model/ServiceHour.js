@@ -45,7 +45,7 @@
   /**
    * The ServiceHour model module.
    * @module model/ServiceHour
-   * @version 0.0.56
+   * @version 0.0.57
    */
 
   /**
@@ -55,6 +55,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -80,11 +81,17 @@
       if (data.hasOwnProperty('type')) {
         obj['type'] = ApiClient.convertToType(data['type'], 'String');
       }
+      if (data.hasOwnProperty('exceptionHourType')) {
+        obj['exceptionHourType'] = ApiClient.convertToType(data['exceptionHourType'], 'String');
+      }
       if (data.hasOwnProperty('validFrom')) {
         obj['validFrom'] = ApiClient.convertToType(data['validFrom'], 'Date');
       }
       if (data.hasOwnProperty('validTo')) {
         obj['validTo'] = ApiClient.convertToType(data['validTo'], 'Date');
+      }
+      if (data.hasOwnProperty('days')) {
+        obj['days'] = ApiClient.convertToType(data['days'], ['Integer']);
       }
       if (data.hasOwnProperty('opens')) {
         obj['opens'] = ApiClient.convertToType(data['opens'], 'String');
@@ -92,11 +99,8 @@
       if (data.hasOwnProperty('closes')) {
         obj['closes'] = ApiClient.convertToType(data['closes'], 'String');
       }
-      if (data.hasOwnProperty('days')) {
-        obj['days'] = ApiClient.convertToType(data['days'], ['Integer']);
-      }
-      if (data.hasOwnProperty('status')) {
-        obj['status'] = ApiClient.convertToType(data['status'], 'String');
+      if (data.hasOwnProperty('timezone')) {
+        obj['timezone'] = ApiClient.convertToType(data['timezone'], 'String');
       }
       if (data.hasOwnProperty('additionalInformation')) {
         obj['additionalInformation'] = ApiClient.convertToType(data['additionalInformation'], [LocalizedValue]);
@@ -106,33 +110,44 @@
   }
 
   /**
+   * Type of service hour (Standard, Exception or Special).
    * @member {String} type
    */
   exports.prototype['type'] = undefined;
   /**
+   * Type of service hour exception type. Valid values are: Open or Closed.
+   * @member {String} exceptionHourType
+   */
+  exports.prototype['exceptionHourType'] = undefined;
+  /**
+   * Date time where from this entry is valid.
    * @member {Date} validFrom
    */
   exports.prototype['validFrom'] = undefined;
   /**
+   * Date time to this entry is valid.
    * @member {Date} validTo
    */
   exports.prototype['validTo'] = undefined;
   /**
-   * @member {String} opens
-   */
-  exports.prototype['opens'] = undefined;
-  /**
-   * @member {String} closes
-   */
-  exports.prototype['closes'] = undefined;
-  /**
+   * Array of week numbers indices where serice hour is active (0 == sunday)
    * @member {Array.<Integer>} days
    */
   exports.prototype['days'] = undefined;
   /**
-   * @member {String} status
+   * Opening time in format HH:mm for example 08:00.
+   * @member {String} opens
    */
-  exports.prototype['status'] = undefined;
+  exports.prototype['opens'] = undefined;
+  /**
+   * Closing time in format HH:mm for example 19:00
+   * @member {String} closes
+   */
+  exports.prototype['closes'] = undefined;
+  /**
+   * @member {String} timezone
+   */
+  exports.prototype['timezone'] = undefined;
   /**
    * @member {Array.<module:model/LocalizedValue>} additionalInformation
    */
