@@ -4605,27 +4605,35 @@ definitions:
         items:
           $ref: '#/definitions/LocalizedValue'
   ServiceHour:
+    type: object
     properties:
       type: 
+        description: Type of service hour (Standard, Exception or Special).
+        type: string
+      exceptionHourType:
+        description: 'Type of service hour exception type. Valid values are: Open or Closed.'
         type: string
       validFrom:
-        type: string
         format: date-time
+        description: Date time where from this entry is valid.
+        type: string
       validTo:
-        type: string
         format: date-time
-      opens:
+        description: Date time to this entry is valid.
         type: string
-        format: time
-      closes:
-        type: string
-        format: time
       days:
         type: array
+        description: Array of week numbers indices where serice hour is active (0 == sunday)
         items:
-          type: integer
-          format: int32
-      status:
+         type: integer
+         format: int32
+      opens:
+        description: 'Opening time in format HH:mm for example 08:00.'
+        type: string
+      closes:
+        description: 'Closing time in format HH:mm for example 19:00'
+        type: string
+      timezone:
         type: string
       additionalInformation:
         type: array
