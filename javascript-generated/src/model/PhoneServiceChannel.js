@@ -34,7 +34,7 @@
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.PhoneChannel = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.ServiceHour, root.KuntaApiClient.SupportContact, root.KuntaApiClient.WebPage);
+    root.KuntaApiClient.PhoneServiceChannel = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.ServiceHour, root.KuntaApiClient.SupportContact, root.KuntaApiClient.WebPage);
   }
 }(this, function(ApiClient, LocalizedValue, ServiceHour, SupportContact, WebPage) {
   'use strict';
@@ -43,14 +43,14 @@
 
 
   /**
-   * The PhoneChannel model module.
-   * @module model/PhoneChannel
-   * @version 0.0.57
+   * The PhoneServiceChannel model module.
+   * @module model/PhoneServiceChannel
+   * @version 0.0.58
    */
 
   /**
-   * Constructs a new <code>PhoneChannel</code>.
-   * @alias module:model/PhoneChannel
+   * Constructs a new <code>PhoneServiceChannel</code>.
+   * @alias module:model/PhoneServiceChannel
    * @class
    */
   var exports = function() {
@@ -73,11 +73,11 @@
   };
 
   /**
-   * Constructs a <code>PhoneChannel</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>PhoneServiceChannel</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/PhoneChannel} obj Optional instance to populate.
-   * @return {module:model/PhoneChannel} The populated <code>PhoneChannel</code> instance.
+   * @param {module:model/PhoneServiceChannel} obj Optional instance to populate.
+   * @return {module:model/PhoneServiceChannel} The populated <code>PhoneServiceChannel</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {

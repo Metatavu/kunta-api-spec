@@ -1,4 +1,4 @@
-# KuntaApiClient.WebPageChannel
+# KuntaApiClient.WebPageServiceChannel
 
 ## Properties
 Name | Type | Description | Notes

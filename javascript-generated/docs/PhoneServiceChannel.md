@@ -1,4 +1,4 @@
-# KuntaApiClient.ElectronicChannel
+# KuntaApiClient.PhoneServiceChannel
 
 ## Properties
 Name | Type | Description | Notes
@@ -8,13 +8,12 @@ Name | Type | Description | Notes
 **organizationId** | **String** |  | [optional] 
 **names** | [**[LocalizedValue]**](LocalizedValue.md) |  | [optional] 
 **descriptions** | [**[LocalizedValue]**](LocalizedValue.md) |  | [optional] 
-**signatureQuantity** | **Integer** |  | [optional] 
-**requiresSignature** | **Boolean** |  | [optional] 
+**phoneType** | **String** |  | [optional] 
+**chargeTypes** | **[String]** |  | [optional] 
 **supportContacts** | [**[SupportContact]**](SupportContact.md) |  | [optional] 
-**requiresAuthentication** | **Boolean** |  | [optional] 
-**urls** | [**[LocalizedValue]**](LocalizedValue.md) |  | [optional] 
+**phoneNumbers** | [**[LocalizedValue]**](LocalizedValue.md) |  | [optional] 
 **languages** | **[String]** |  | [optional] 
-**attachments** | [**[ServiceChannelAttachment]**](ServiceChannelAttachment.md) |  | [optional] 
+**phoneChargeDescriptions** | [**[LocalizedValue]**](LocalizedValue.md) |  | [optional] 
 **webPages** | [**[WebPage]**](WebPage.md) |  | [optional] 
 **serviceHours** | [**[ServiceHour]**](ServiceHour.md) |  | [optional] 
 **publishingStatus** | **String** |  | [optional] 

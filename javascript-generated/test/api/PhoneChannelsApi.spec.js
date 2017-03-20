@@ -59,16 +59,6 @@
   }
 
   describe('PhoneChannelsApi', function() {
-    describe('createServicePhoneChannel', function() {
-      it('should call createServicePhoneChannel successfully', function(done) {
-        //uncomment below and update the code to test createServicePhoneChannel
-        //instance.createServicePhoneChannel(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('findServicePhoneChannel', function() {
       it('should call findServicePhoneChannel successfully', function(done) {
         //uncomment below and update the code to test findServicePhoneChannel
@@ -83,16 +73,6 @@
       it('should call listServicePhoneChannels successfully', function(done) {
         //uncomment below and update the code to test listServicePhoneChannels
         //instance.listServicePhoneChannels(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('updatePhoneChannel', function() {
-      it('should call updatePhoneChannel successfully', function(done) {
-        //uncomment below and update the code to test updatePhoneChannel
-        //instance.updatePhoneChannel(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

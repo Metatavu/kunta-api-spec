@@ -34,7 +34,7 @@
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.ElectronicChannel = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.ServiceChannelAttachment, root.KuntaApiClient.ServiceHour, root.KuntaApiClient.SupportContact, root.KuntaApiClient.WebPage);
+    root.KuntaApiClient.WebPageServiceChannel = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.ServiceChannelAttachment, root.KuntaApiClient.ServiceHour, root.KuntaApiClient.SupportContact, root.KuntaApiClient.WebPage);
   }
 }(this, function(ApiClient, LocalizedValue, ServiceChannelAttachment, ServiceHour, SupportContact, WebPage) {
   'use strict';
@@ -43,14 +43,14 @@
 
 
   /**
-   * The ElectronicChannel model module.
-   * @module model/ElectronicChannel
-   * @version 0.0.57
+   * The WebPageServiceChannel model module.
+   * @module model/WebPageServiceChannel
+   * @version 0.0.58
    */
 
   /**
-   * Constructs a new <code>ElectronicChannel</code>.
-   * @alias module:model/ElectronicChannel
+   * Constructs a new <code>WebPageServiceChannel</code>.
+   * @alias module:model/WebPageServiceChannel
    * @class
    */
   var exports = function() {
@@ -68,17 +68,14 @@
 
 
 
-
-
-
   };
 
   /**
-   * Constructs a <code>ElectronicChannel</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>WebPageServiceChannel</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/ElectronicChannel} obj Optional instance to populate.
-   * @return {module:model/ElectronicChannel} The populated <code>ElectronicChannel</code> instance.
+   * @param {module:model/WebPageServiceChannel} obj Optional instance to populate.
+   * @return {module:model/WebPageServiceChannel} The populated <code>WebPageServiceChannel</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -99,26 +96,17 @@
       if (data.hasOwnProperty('descriptions')) {
         obj['descriptions'] = ApiClient.convertToType(data['descriptions'], [LocalizedValue]);
       }
-      if (data.hasOwnProperty('signatureQuantity')) {
-        obj['signatureQuantity'] = ApiClient.convertToType(data['signatureQuantity'], 'Integer');
+      if (data.hasOwnProperty('urls')) {
+        obj['urls'] = ApiClient.convertToType(data['urls'], [LocalizedValue]);
       }
-      if (data.hasOwnProperty('requiresSignature')) {
-        obj['requiresSignature'] = ApiClient.convertToType(data['requiresSignature'], 'Boolean');
+      if (data.hasOwnProperty('attachments')) {
+        obj['attachments'] = ApiClient.convertToType(data['attachments'], [ServiceChannelAttachment]);
       }
       if (data.hasOwnProperty('supportContacts')) {
         obj['supportContacts'] = ApiClient.convertToType(data['supportContacts'], [SupportContact]);
       }
-      if (data.hasOwnProperty('requiresAuthentication')) {
-        obj['requiresAuthentication'] = ApiClient.convertToType(data['requiresAuthentication'], 'Boolean');
-      }
-      if (data.hasOwnProperty('urls')) {
-        obj['urls'] = ApiClient.convertToType(data['urls'], [LocalizedValue]);
-      }
       if (data.hasOwnProperty('languages')) {
         obj['languages'] = ApiClient.convertToType(data['languages'], ['String']);
-      }
-      if (data.hasOwnProperty('attachments')) {
-        obj['attachments'] = ApiClient.convertToType(data['attachments'], [ServiceChannelAttachment]);
       }
       if (data.hasOwnProperty('webPages')) {
         obj['webPages'] = ApiClient.convertToType(data['webPages'], [WebPage]);
@@ -154,33 +142,21 @@
    */
   exports.prototype['descriptions'] = undefined;
   /**
-   * @member {Integer} signatureQuantity
+   * @member {Array.<module:model/LocalizedValue>} urls
    */
-  exports.prototype['signatureQuantity'] = undefined;
+  exports.prototype['urls'] = undefined;
   /**
-   * @member {Boolean} requiresSignature
+   * @member {Array.<module:model/ServiceChannelAttachment>} attachments
    */
-  exports.prototype['requiresSignature'] = undefined;
+  exports.prototype['attachments'] = undefined;
   /**
    * @member {Array.<module:model/SupportContact>} supportContacts
    */
   exports.prototype['supportContacts'] = undefined;
   /**
-   * @member {Boolean} requiresAuthentication
-   */
-  exports.prototype['requiresAuthentication'] = undefined;
-  /**
-   * @member {Array.<module:model/LocalizedValue>} urls
-   */
-  exports.prototype['urls'] = undefined;
-  /**
    * @member {Array.<String>} languages
    */
   exports.prototype['languages'] = undefined;
-  /**
-   * @member {Array.<module:model/ServiceChannelAttachment>} attachments
-   */
-  exports.prototype['attachments'] = undefined;
   /**
    * @member {Array.<module:model/WebPage>} webPages
    */

@@ -25,24 +25,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/BadRequest', 'model/PhoneChannel', 'model/Forbidden', 'model/InternalServerError', 'model/NotFound'], factory);
+    define(['ApiClient', 'model/BadRequest', 'model/PhoneServiceChannel', 'model/Forbidden', 'model/InternalServerError', 'model/NotFound'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/PhoneChannel'), require('../model/Forbidden'), require('../model/InternalServerError'), require('../model/NotFound'));
+    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/PhoneServiceChannel'), require('../model/Forbidden'), require('../model/InternalServerError'), require('../model/NotFound'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.PhoneChannelsApi = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.BadRequest, root.KuntaApiClient.PhoneChannel, root.KuntaApiClient.Forbidden, root.KuntaApiClient.InternalServerError, root.KuntaApiClient.NotFound);
+    root.KuntaApiClient.PhoneChannelsApi = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.BadRequest, root.KuntaApiClient.PhoneServiceChannel, root.KuntaApiClient.Forbidden, root.KuntaApiClient.InternalServerError, root.KuntaApiClient.NotFound);
   }
-}(this, function(ApiClient, BadRequest, PhoneChannel, Forbidden, InternalServerError, NotFound) {
+}(this, function(ApiClient, BadRequest, PhoneServiceChannel, Forbidden, InternalServerError, NotFound) {
   'use strict';
 
   /**
    * PhoneChannels service.
    * @module api/PhoneChannelsApi
-   * @version 0.0.57
+   * @version 0.0.58
    */
 
   /**
@@ -58,55 +58,11 @@
 
 
     /**
-     * creates PhoneChannel
-     * creates PhoneChannel
-     * @param {String} serviceId service id
-     * @param {module:model/PhoneChannel} body Payload
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PhoneChannel}
-     */
-    this.createServicePhoneChannel = function(serviceId, body) {
-      var postBody = body;
-
-      // verify the required parameter 'serviceId' is set
-      if (serviceId == undefined || serviceId == null) {
-        throw "Missing the required parameter 'serviceId' when calling createServicePhoneChannel";
-      }
-
-      // verify the required parameter 'body' is set
-      if (body == undefined || body == null) {
-        throw "Missing the required parameter 'body' when calling createServicePhoneChannel";
-      }
-
-
-      var pathParams = {
-        'serviceId': serviceId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/json;charset=utf-8'];
-      var accepts = ['application/json;charset=utf-8'];
-      var returnType = PhoneChannel;
-
-      return this.apiClient.callApi(
-        '/services/{serviceId}/phoneChannels', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType
-      );
-    }
-
-
-    /**
      * finds PhoneChannel by phoneChannelId
      * finds PhoneChannels by phoneChannelId
      * @param {String} serviceId Service id
      * @param {String} phoneChannelId phoneChannel id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PhoneChannel}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PhoneServiceChannel}
      */
     this.findServicePhoneChannel = function(serviceId, phoneChannelId) {
       var postBody = null;
@@ -136,7 +92,7 @@
       var authNames = [];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = PhoneChannel;
+      var returnType = PhoneServiceChannel;
 
       return this.apiClient.callApi(
         '/services/{serviceId}/phoneChannels/{phoneChannelId}', 'GET',
@@ -153,7 +109,7 @@
      * @param {Object} opts Optional parameters
      * @param {Integer} opts.firstResult First result
      * @param {Integer} opts.maxResults Max results
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/PhoneChannel>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/PhoneServiceChannel>}
      */
     this.listServicePhoneChannels = function(serviceId, opts) {
       opts = opts || {};
@@ -180,61 +136,10 @@
       var authNames = [];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = [PhoneChannel];
+      var returnType = [PhoneServiceChannel];
 
       return this.apiClient.callApi(
         '/services/{serviceId}/phoneChannels', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType
-      );
-    }
-
-
-    /**
-     * Updates PhoneChannel
-     * Updates PhoneChannel
-     * @param {String} serviceId service id
-     * @param {String} phoneChannelId phoneChannel id
-     * @param {module:model/PhoneChannel} body Payload
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PhoneChannel}
-     */
-    this.updatePhoneChannel = function(serviceId, phoneChannelId, body) {
-      var postBody = body;
-
-      // verify the required parameter 'serviceId' is set
-      if (serviceId == undefined || serviceId == null) {
-        throw "Missing the required parameter 'serviceId' when calling updatePhoneChannel";
-      }
-
-      // verify the required parameter 'phoneChannelId' is set
-      if (phoneChannelId == undefined || phoneChannelId == null) {
-        throw "Missing the required parameter 'phoneChannelId' when calling updatePhoneChannel";
-      }
-
-      // verify the required parameter 'body' is set
-      if (body == undefined || body == null) {
-        throw "Missing the required parameter 'body' when calling updatePhoneChannel";
-      }
-
-
-      var pathParams = {
-        'serviceId': serviceId,
-        'phoneChannelId': phoneChannelId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/json;charset=utf-8'];
-      var accepts = ['application/json;charset=utf-8'];
-      var returnType = PhoneChannel;
-
-      return this.apiClient.callApi(
-        '/services/{serviceId}/phoneChannels/{phoneChannelId}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );

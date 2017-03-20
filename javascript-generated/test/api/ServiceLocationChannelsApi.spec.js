@@ -59,16 +59,6 @@
   }
 
   describe('ServiceLocationChannelsApi', function() {
-    describe('createServiceServiceLocationChannel', function() {
-      it('should call createServiceServiceLocationChannel successfully', function(done) {
-        //uncomment below and update the code to test createServiceServiceLocationChannel
-        //instance.createServiceServiceLocationChannel(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('findServiceServiceLocationChannel', function() {
       it('should call findServiceServiceLocationChannel successfully', function(done) {
         //uncomment below and update the code to test findServiceServiceLocationChannel
@@ -83,16 +73,6 @@
       it('should call listServiceServiceLocationChannels successfully', function(done) {
         //uncomment below and update the code to test listServiceServiceLocationChannels
         //instance.listServiceServiceLocationChannels(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('updateServiceLocationChannel', function() {
-      it('should call updateServiceLocationChannel successfully', function(done) {
-        //uncomment below and update the code to test updateServiceLocationChannel
-        //instance.updateServiceLocationChannel(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

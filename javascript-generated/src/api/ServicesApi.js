@@ -25,24 +25,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/BadRequest', 'model/Service', 'model/Forbidden', 'model/InternalServerError', 'model/ElectronicChannel', 'model/NotFound', 'model/PhoneChannel', 'model/PrintableFormChannel', 'model/ServiceLocationChannel', 'model/WebPageChannel'], factory);
+    define(['ApiClient', 'model/BadRequest', 'model/Service', 'model/Forbidden', 'model/InternalServerError', 'model/NotFound', 'model/ElectronicServiceChannel', 'model/PhoneServiceChannel', 'model/PrintableFormServiceChannel', 'model/ServiceLocationServiceChannel', 'model/WebPageServiceChannel'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/Service'), require('../model/Forbidden'), require('../model/InternalServerError'), require('../model/ElectronicChannel'), require('../model/NotFound'), require('../model/PhoneChannel'), require('../model/PrintableFormChannel'), require('../model/ServiceLocationChannel'), require('../model/WebPageChannel'));
+    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/Service'), require('../model/Forbidden'), require('../model/InternalServerError'), require('../model/NotFound'), require('../model/ElectronicServiceChannel'), require('../model/PhoneServiceChannel'), require('../model/PrintableFormServiceChannel'), require('../model/ServiceLocationServiceChannel'), require('../model/WebPageServiceChannel'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.ServicesApi = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.BadRequest, root.KuntaApiClient.Service, root.KuntaApiClient.Forbidden, root.KuntaApiClient.InternalServerError, root.KuntaApiClient.ElectronicChannel, root.KuntaApiClient.NotFound, root.KuntaApiClient.PhoneChannel, root.KuntaApiClient.PrintableFormChannel, root.KuntaApiClient.ServiceLocationChannel, root.KuntaApiClient.WebPageChannel);
+    root.KuntaApiClient.ServicesApi = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.BadRequest, root.KuntaApiClient.Service, root.KuntaApiClient.Forbidden, root.KuntaApiClient.InternalServerError, root.KuntaApiClient.NotFound, root.KuntaApiClient.ElectronicServiceChannel, root.KuntaApiClient.PhoneServiceChannel, root.KuntaApiClient.PrintableFormServiceChannel, root.KuntaApiClient.ServiceLocationServiceChannel, root.KuntaApiClient.WebPageServiceChannel);
   }
-}(this, function(ApiClient, BadRequest, Service, Forbidden, InternalServerError, ElectronicChannel, NotFound, PhoneChannel, PrintableFormChannel, ServiceLocationChannel, WebPageChannel) {
+}(this, function(ApiClient, BadRequest, Service, Forbidden, InternalServerError, NotFound, ElectronicServiceChannel, PhoneServiceChannel, PrintableFormServiceChannel, ServiceLocationServiceChannel, WebPageServiceChannel) {
   'use strict';
 
   /**
    * Services service.
    * @module api/ServicesApi
-   * @version 0.0.57
+   * @version 0.0.58
    */
 
   /**
@@ -95,226 +95,6 @@
 
 
     /**
-     * creates ElectronicChannel
-     * creates ElectronicChannel
-     * @param {String} serviceId service id
-     * @param {module:model/ElectronicChannel} body Payload
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ElectronicChannel}
-     */
-    this.createServiceElectronicChannel = function(serviceId, body) {
-      var postBody = body;
-
-      // verify the required parameter 'serviceId' is set
-      if (serviceId == undefined || serviceId == null) {
-        throw "Missing the required parameter 'serviceId' when calling createServiceElectronicChannel";
-      }
-
-      // verify the required parameter 'body' is set
-      if (body == undefined || body == null) {
-        throw "Missing the required parameter 'body' when calling createServiceElectronicChannel";
-      }
-
-
-      var pathParams = {
-        'serviceId': serviceId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/json;charset=utf-8'];
-      var accepts = ['application/json;charset=utf-8'];
-      var returnType = ElectronicChannel;
-
-      return this.apiClient.callApi(
-        '/services/{serviceId}/electronicChannels', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType
-      );
-    }
-
-
-    /**
-     * creates PhoneChannel
-     * creates PhoneChannel
-     * @param {String} serviceId service id
-     * @param {module:model/PhoneChannel} body Payload
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PhoneChannel}
-     */
-    this.createServicePhoneChannel = function(serviceId, body) {
-      var postBody = body;
-
-      // verify the required parameter 'serviceId' is set
-      if (serviceId == undefined || serviceId == null) {
-        throw "Missing the required parameter 'serviceId' when calling createServicePhoneChannel";
-      }
-
-      // verify the required parameter 'body' is set
-      if (body == undefined || body == null) {
-        throw "Missing the required parameter 'body' when calling createServicePhoneChannel";
-      }
-
-
-      var pathParams = {
-        'serviceId': serviceId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/json;charset=utf-8'];
-      var accepts = ['application/json;charset=utf-8'];
-      var returnType = PhoneChannel;
-
-      return this.apiClient.callApi(
-        '/services/{serviceId}/phoneChannels', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType
-      );
-    }
-
-
-    /**
-     * creates PrintableFormChannel
-     * creates PrintableFormChannel
-     * @param {String} serviceId service id
-     * @param {module:model/PrintableFormChannel} body Payload
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PrintableFormChannel}
-     */
-    this.createServicePrintableFormChannel = function(serviceId, body) {
-      var postBody = body;
-
-      // verify the required parameter 'serviceId' is set
-      if (serviceId == undefined || serviceId == null) {
-        throw "Missing the required parameter 'serviceId' when calling createServicePrintableFormChannel";
-      }
-
-      // verify the required parameter 'body' is set
-      if (body == undefined || body == null) {
-        throw "Missing the required parameter 'body' when calling createServicePrintableFormChannel";
-      }
-
-
-      var pathParams = {
-        'serviceId': serviceId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/json;charset=utf-8'];
-      var accepts = ['application/json;charset=utf-8'];
-      var returnType = PrintableFormChannel;
-
-      return this.apiClient.callApi(
-        '/services/{serviceId}/printableFormChannels', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType
-      );
-    }
-
-
-    /**
-     * creates ServiceLocationChannel
-     * creates ServiceLocationChannel
-     * @param {String} serviceId service id
-     * @param {module:model/ServiceLocationChannel} body Payload
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ServiceLocationChannel}
-     */
-    this.createServiceServiceLocationChannel = function(serviceId, body) {
-      var postBody = body;
-
-      // verify the required parameter 'serviceId' is set
-      if (serviceId == undefined || serviceId == null) {
-        throw "Missing the required parameter 'serviceId' when calling createServiceServiceLocationChannel";
-      }
-
-      // verify the required parameter 'body' is set
-      if (body == undefined || body == null) {
-        throw "Missing the required parameter 'body' when calling createServiceServiceLocationChannel";
-      }
-
-
-      var pathParams = {
-        'serviceId': serviceId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/json;charset=utf-8'];
-      var accepts = ['application/json;charset=utf-8'];
-      var returnType = ServiceLocationChannel;
-
-      return this.apiClient.callApi(
-        '/services/{serviceId}/serviceLocationChannels', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType
-      );
-    }
-
-
-    /**
-     * creates WebPageChannel
-     * creates WebPageChannel
-     * @param {String} serviceId service id
-     * @param {module:model/WebPageChannel} body Payload
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/WebPageChannel}
-     */
-    this.createServiceWebPageChannel = function(serviceId, body) {
-      var postBody = body;
-
-      // verify the required parameter 'serviceId' is set
-      if (serviceId == undefined || serviceId == null) {
-        throw "Missing the required parameter 'serviceId' when calling createServiceWebPageChannel";
-      }
-
-      // verify the required parameter 'body' is set
-      if (body == undefined || body == null) {
-        throw "Missing the required parameter 'body' when calling createServiceWebPageChannel";
-      }
-
-
-      var pathParams = {
-        'serviceId': serviceId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/json;charset=utf-8'];
-      var accepts = ['application/json;charset=utf-8'];
-      var returnType = WebPageChannel;
-
-      return this.apiClient.callApi(
-        '/services/{serviceId}/webPageChannels', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType
-      );
-    }
-
-
-    /**
      * Finds a service by id
      * Finds service
      * @param {String} serviceId Service id
@@ -357,7 +137,7 @@
      * finds ElectronicChannels by electronicChannelId
      * @param {String} serviceId Service id
      * @param {String} electronicChannelId electronicChannel id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ElectronicChannel}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ElectronicServiceChannel}
      */
     this.findServiceElectronicChannel = function(serviceId, electronicChannelId) {
       var postBody = null;
@@ -387,7 +167,7 @@
       var authNames = [];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = ElectronicChannel;
+      var returnType = ElectronicServiceChannel;
 
       return this.apiClient.callApi(
         '/services/{serviceId}/electronicChannels/{electronicChannelId}', 'GET',
@@ -402,7 +182,7 @@
      * finds PhoneChannels by phoneChannelId
      * @param {String} serviceId Service id
      * @param {String} phoneChannelId phoneChannel id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PhoneChannel}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PhoneServiceChannel}
      */
     this.findServicePhoneChannel = function(serviceId, phoneChannelId) {
       var postBody = null;
@@ -432,7 +212,7 @@
       var authNames = [];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = PhoneChannel;
+      var returnType = PhoneServiceChannel;
 
       return this.apiClient.callApi(
         '/services/{serviceId}/phoneChannels/{phoneChannelId}', 'GET',
@@ -447,7 +227,7 @@
      * finds PrintableFormChannels by printableFormChannelId
      * @param {String} serviceId Service id
      * @param {String} printableFormChannelId printableFormChannel id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PrintableFormChannel}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PrintableFormServiceChannel}
      */
     this.findServicePrintableFormChannel = function(serviceId, printableFormChannelId) {
       var postBody = null;
@@ -477,7 +257,7 @@
       var authNames = [];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = PrintableFormChannel;
+      var returnType = PrintableFormServiceChannel;
 
       return this.apiClient.callApi(
         '/services/{serviceId}/printableFormChannels/{printableFormChannelId}', 'GET',
@@ -492,7 +272,7 @@
      * finds ServiceLocationChannels by serviceLocationChannelId
      * @param {String} serviceId Service id
      * @param {String} serviceLocationChannelId serviceLocationChannel id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ServiceLocationChannel}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ServiceLocationServiceChannel}
      */
     this.findServiceServiceLocationChannel = function(serviceId, serviceLocationChannelId) {
       var postBody = null;
@@ -522,7 +302,7 @@
       var authNames = [];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = ServiceLocationChannel;
+      var returnType = ServiceLocationServiceChannel;
 
       return this.apiClient.callApi(
         '/services/{serviceId}/serviceLocationChannels/{serviceLocationChannelId}', 'GET',
@@ -537,7 +317,7 @@
      * finds WebPageChannels by webPageChannelId
      * @param {String} serviceId Service id
      * @param {String} webPageChannelId webPageChannel id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/WebPageChannel}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/WebPageServiceChannel}
      */
     this.findServiceWebPageChannel = function(serviceId, webPageChannelId) {
       var postBody = null;
@@ -567,7 +347,7 @@
       var authNames = [];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = WebPageChannel;
+      var returnType = WebPageServiceChannel;
 
       return this.apiClient.callApi(
         '/services/{serviceId}/webPageChannels/{webPageChannelId}', 'GET',
@@ -584,7 +364,7 @@
      * @param {Object} opts Optional parameters
      * @param {Integer} opts.firstResult First result
      * @param {Integer} opts.maxResults Max results
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ElectronicChannel>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ElectronicServiceChannel>}
      */
     this.listServiceElectronicChannels = function(serviceId, opts) {
       opts = opts || {};
@@ -611,7 +391,7 @@
       var authNames = [];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = [ElectronicChannel];
+      var returnType = [ElectronicServiceChannel];
 
       return this.apiClient.callApi(
         '/services/{serviceId}/electronicChannels', 'GET',
@@ -628,7 +408,7 @@
      * @param {Object} opts Optional parameters
      * @param {Integer} opts.firstResult First result
      * @param {Integer} opts.maxResults Max results
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/PhoneChannel>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/PhoneServiceChannel>}
      */
     this.listServicePhoneChannels = function(serviceId, opts) {
       opts = opts || {};
@@ -655,7 +435,7 @@
       var authNames = [];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = [PhoneChannel];
+      var returnType = [PhoneServiceChannel];
 
       return this.apiClient.callApi(
         '/services/{serviceId}/phoneChannels', 'GET',
@@ -672,7 +452,7 @@
      * @param {Object} opts Optional parameters
      * @param {Integer} opts.firstResult First result
      * @param {Integer} opts.maxResults Max results
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/PrintableFormChannel>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/PrintableFormServiceChannel>}
      */
     this.listServicePrintableFormChannels = function(serviceId, opts) {
       opts = opts || {};
@@ -699,7 +479,7 @@
       var authNames = [];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = [PrintableFormChannel];
+      var returnType = [PrintableFormServiceChannel];
 
       return this.apiClient.callApi(
         '/services/{serviceId}/printableFormChannels', 'GET',
@@ -716,7 +496,7 @@
      * @param {Object} opts Optional parameters
      * @param {Integer} opts.firstResult First result
      * @param {Integer} opts.maxResults Max results
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ServiceLocationChannel>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ServiceLocationServiceChannel>}
      */
     this.listServiceServiceLocationChannels = function(serviceId, opts) {
       opts = opts || {};
@@ -743,7 +523,7 @@
       var authNames = [];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = [ServiceLocationChannel];
+      var returnType = [ServiceLocationServiceChannel];
 
       return this.apiClient.callApi(
         '/services/{serviceId}/serviceLocationChannels', 'GET',
@@ -760,7 +540,7 @@
      * @param {Object} opts Optional parameters
      * @param {Integer} opts.firstResult First result
      * @param {Integer} opts.maxResults Max results
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/WebPageChannel>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/WebPageServiceChannel>}
      */
     this.listServiceWebPageChannels = function(serviceId, opts) {
       opts = opts || {};
@@ -787,7 +567,7 @@
       var authNames = [];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = [WebPageChannel];
+      var returnType = [WebPageServiceChannel];
 
       return this.apiClient.callApi(
         '/services/{serviceId}/webPageChannels', 'GET',
@@ -839,108 +619,6 @@
 
 
     /**
-     * Updates PhoneChannel
-     * Updates PhoneChannel
-     * @param {String} serviceId service id
-     * @param {String} phoneChannelId phoneChannel id
-     * @param {module:model/PhoneChannel} body Payload
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PhoneChannel}
-     */
-    this.updatePhoneChannel = function(serviceId, phoneChannelId, body) {
-      var postBody = body;
-
-      // verify the required parameter 'serviceId' is set
-      if (serviceId == undefined || serviceId == null) {
-        throw "Missing the required parameter 'serviceId' when calling updatePhoneChannel";
-      }
-
-      // verify the required parameter 'phoneChannelId' is set
-      if (phoneChannelId == undefined || phoneChannelId == null) {
-        throw "Missing the required parameter 'phoneChannelId' when calling updatePhoneChannel";
-      }
-
-      // verify the required parameter 'body' is set
-      if (body == undefined || body == null) {
-        throw "Missing the required parameter 'body' when calling updatePhoneChannel";
-      }
-
-
-      var pathParams = {
-        'serviceId': serviceId,
-        'phoneChannelId': phoneChannelId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/json;charset=utf-8'];
-      var accepts = ['application/json;charset=utf-8'];
-      var returnType = PhoneChannel;
-
-      return this.apiClient.callApi(
-        '/services/{serviceId}/phoneChannels/{phoneChannelId}', 'PUT',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType
-      );
-    }
-
-
-    /**
-     * Updates PrintableFormChannel
-     * Updates PrintableFormChannel
-     * @param {String} serviceId service id
-     * @param {String} printableFormChannelId printableFormChannel id
-     * @param {module:model/PrintableFormChannel} body Payload
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PrintableFormChannel}
-     */
-    this.updatePrintableFormChannel = function(serviceId, printableFormChannelId, body) {
-      var postBody = body;
-
-      // verify the required parameter 'serviceId' is set
-      if (serviceId == undefined || serviceId == null) {
-        throw "Missing the required parameter 'serviceId' when calling updatePrintableFormChannel";
-      }
-
-      // verify the required parameter 'printableFormChannelId' is set
-      if (printableFormChannelId == undefined || printableFormChannelId == null) {
-        throw "Missing the required parameter 'printableFormChannelId' when calling updatePrintableFormChannel";
-      }
-
-      // verify the required parameter 'body' is set
-      if (body == undefined || body == null) {
-        throw "Missing the required parameter 'body' when calling updatePrintableFormChannel";
-      }
-
-
-      var pathParams = {
-        'serviceId': serviceId,
-        'printableFormChannelId': printableFormChannelId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/json;charset=utf-8'];
-      var accepts = ['application/json;charset=utf-8'];
-      var returnType = PrintableFormChannel;
-
-      return this.apiClient.callApi(
-        '/services/{serviceId}/printableFormChannels/{printableFormChannelId}', 'PUT',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType
-      );
-    }
-
-
-    /**
      * Updates service
      * Updates service
      * @param {String} serviceId Organization service id
@@ -978,159 +656,6 @@
 
       return this.apiClient.callApi(
         '/services/{serviceId}', 'PUT',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType
-      );
-    }
-
-
-    /**
-     * Updates ElectronicChannel
-     * Updates ElectronicChannel
-     * @param {String} serviceId service id
-     * @param {String} electronicChannelId electronicChannel id
-     * @param {module:model/ElectronicChannel} body Payload
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ElectronicChannel}
-     */
-    this.updateServiceElectronicChannel = function(serviceId, electronicChannelId, body) {
-      var postBody = body;
-
-      // verify the required parameter 'serviceId' is set
-      if (serviceId == undefined || serviceId == null) {
-        throw "Missing the required parameter 'serviceId' when calling updateServiceElectronicChannel";
-      }
-
-      // verify the required parameter 'electronicChannelId' is set
-      if (electronicChannelId == undefined || electronicChannelId == null) {
-        throw "Missing the required parameter 'electronicChannelId' when calling updateServiceElectronicChannel";
-      }
-
-      // verify the required parameter 'body' is set
-      if (body == undefined || body == null) {
-        throw "Missing the required parameter 'body' when calling updateServiceElectronicChannel";
-      }
-
-
-      var pathParams = {
-        'serviceId': serviceId,
-        'electronicChannelId': electronicChannelId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/json;charset=utf-8'];
-      var accepts = ['application/json;charset=utf-8'];
-      var returnType = ElectronicChannel;
-
-      return this.apiClient.callApi(
-        '/services/{serviceId}/electronicChannels/{electronicChannelId}', 'PUT',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType
-      );
-    }
-
-
-    /**
-     * Updates ServiceLocationChannel
-     * Updates ServiceLocationChannel
-     * @param {String} serviceId service id
-     * @param {String} serviceLocationChannelId serviceLocationChannel id
-     * @param {module:model/ServiceLocationChannel} body Payload
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ServiceLocationChannel}
-     */
-    this.updateServiceLocationChannel = function(serviceId, serviceLocationChannelId, body) {
-      var postBody = body;
-
-      // verify the required parameter 'serviceId' is set
-      if (serviceId == undefined || serviceId == null) {
-        throw "Missing the required parameter 'serviceId' when calling updateServiceLocationChannel";
-      }
-
-      // verify the required parameter 'serviceLocationChannelId' is set
-      if (serviceLocationChannelId == undefined || serviceLocationChannelId == null) {
-        throw "Missing the required parameter 'serviceLocationChannelId' when calling updateServiceLocationChannel";
-      }
-
-      // verify the required parameter 'body' is set
-      if (body == undefined || body == null) {
-        throw "Missing the required parameter 'body' when calling updateServiceLocationChannel";
-      }
-
-
-      var pathParams = {
-        'serviceId': serviceId,
-        'serviceLocationChannelId': serviceLocationChannelId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/json;charset=utf-8'];
-      var accepts = ['application/json;charset=utf-8'];
-      var returnType = ServiceLocationChannel;
-
-      return this.apiClient.callApi(
-        '/services/{serviceId}/serviceLocationChannels/{serviceLocationChannelId}', 'PUT',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType
-      );
-    }
-
-
-    /**
-     * Updates WebPageChannel
-     * Updates WebPageChannel
-     * @param {String} serviceId service id
-     * @param {String} webPageChannelId webPageChannel id
-     * @param {module:model/WebPageChannel} body Payload
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/WebPageChannel}
-     */
-    this.updateWebPageChannel = function(serviceId, webPageChannelId, body) {
-      var postBody = body;
-
-      // verify the required parameter 'serviceId' is set
-      if (serviceId == undefined || serviceId == null) {
-        throw "Missing the required parameter 'serviceId' when calling updateWebPageChannel";
-      }
-
-      // verify the required parameter 'webPageChannelId' is set
-      if (webPageChannelId == undefined || webPageChannelId == null) {
-        throw "Missing the required parameter 'webPageChannelId' when calling updateWebPageChannel";
-      }
-
-      // verify the required parameter 'body' is set
-      if (body == undefined || body == null) {
-        throw "Missing the required parameter 'body' when calling updateWebPageChannel";
-      }
-
-
-      var pathParams = {
-        'serviceId': serviceId,
-        'webPageChannelId': webPageChannelId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/json;charset=utf-8'];
-      var accepts = ['application/json;charset=utf-8'];
-      var returnType = WebPageChannel;
-
-      return this.apiClient.callApi(
-        '/services/{serviceId}/webPageChannels/{webPageChannelId}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );

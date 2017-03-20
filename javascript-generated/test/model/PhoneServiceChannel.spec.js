@@ -39,7 +39,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new KuntaApiClient.PhoneChannel();
+    instance = new KuntaApiClient.PhoneServiceChannel();
   });
 
   var getProperty = function(object, getter, property) {
@@ -58,94 +58,94 @@
       object[property] = value;
   }
 
-  describe('PhoneChannel', function() {
-    it('should create an instance of PhoneChannel', function() {
-      // uncomment below and update the code to test PhoneChannel
-      //var instane = new KuntaApiClient.PhoneChannel();
-      //expect(instance).to.be.a(KuntaApiClient.PhoneChannel);
+  describe('PhoneServiceChannel', function() {
+    it('should create an instance of PhoneServiceChannel', function() {
+      // uncomment below and update the code to test PhoneServiceChannel
+      //var instane = new KuntaApiClient.PhoneServiceChannel();
+      //expect(instance).to.be.a(KuntaApiClient.PhoneServiceChannel);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new KuntaApiClient.PhoneChannel();
+      //var instane = new KuntaApiClient.PhoneServiceChannel();
       //expect(instance).to.be();
     });
 
     it('should have the property type (base name: "type")', function() {
       // uncomment below and update the code to test the property type
-      //var instane = new KuntaApiClient.PhoneChannel();
+      //var instane = new KuntaApiClient.PhoneServiceChannel();
       //expect(instance).to.be();
     });
 
     it('should have the property organizationId (base name: "organizationId")', function() {
       // uncomment below and update the code to test the property organizationId
-      //var instane = new KuntaApiClient.PhoneChannel();
+      //var instane = new KuntaApiClient.PhoneServiceChannel();
       //expect(instance).to.be();
     });
 
     it('should have the property names (base name: "names")', function() {
       // uncomment below and update the code to test the property names
-      //var instane = new KuntaApiClient.PhoneChannel();
+      //var instane = new KuntaApiClient.PhoneServiceChannel();
       //expect(instance).to.be();
     });
 
     it('should have the property descriptions (base name: "descriptions")', function() {
       // uncomment below and update the code to test the property descriptions
-      //var instane = new KuntaApiClient.PhoneChannel();
+      //var instane = new KuntaApiClient.PhoneServiceChannel();
       //expect(instance).to.be();
     });
 
     it('should have the property phoneType (base name: "phoneType")', function() {
       // uncomment below and update the code to test the property phoneType
-      //var instane = new KuntaApiClient.PhoneChannel();
+      //var instane = new KuntaApiClient.PhoneServiceChannel();
       //expect(instance).to.be();
     });
 
     it('should have the property chargeTypes (base name: "chargeTypes")', function() {
       // uncomment below and update the code to test the property chargeTypes
-      //var instane = new KuntaApiClient.PhoneChannel();
+      //var instane = new KuntaApiClient.PhoneServiceChannel();
       //expect(instance).to.be();
     });
 
     it('should have the property supportContacts (base name: "supportContacts")', function() {
       // uncomment below and update the code to test the property supportContacts
-      //var instane = new KuntaApiClient.PhoneChannel();
+      //var instane = new KuntaApiClient.PhoneServiceChannel();
       //expect(instance).to.be();
     });
 
     it('should have the property phoneNumbers (base name: "phoneNumbers")', function() {
       // uncomment below and update the code to test the property phoneNumbers
-      //var instane = new KuntaApiClient.PhoneChannel();
+      //var instane = new KuntaApiClient.PhoneServiceChannel();
       //expect(instance).to.be();
     });
 
     it('should have the property languages (base name: "languages")', function() {
       // uncomment below and update the code to test the property languages
-      //var instane = new KuntaApiClient.PhoneChannel();
+      //var instane = new KuntaApiClient.PhoneServiceChannel();
       //expect(instance).to.be();
     });
 
     it('should have the property phoneChargeDescriptions (base name: "phoneChargeDescriptions")', function() {
       // uncomment below and update the code to test the property phoneChargeDescriptions
-      //var instane = new KuntaApiClient.PhoneChannel();
+      //var instane = new KuntaApiClient.PhoneServiceChannel();
       //expect(instance).to.be();
     });
 
     it('should have the property webPages (base name: "webPages")', function() {
       // uncomment below and update the code to test the property webPages
-      //var instane = new KuntaApiClient.PhoneChannel();
+      //var instane = new KuntaApiClient.PhoneServiceChannel();
       //expect(instance).to.be();
     });
 
     it('should have the property serviceHours (base name: "serviceHours")', function() {
       // uncomment below and update the code to test the property serviceHours
-      //var instane = new KuntaApiClient.PhoneChannel();
+      //var instane = new KuntaApiClient.PhoneServiceChannel();
       //expect(instance).to.be();
     });
 
     it('should have the property publishingStatus (base name: "publishingStatus")', function() {
       // uncomment below and update the code to test the property publishingStatus
-      //var instane = new KuntaApiClient.PhoneChannel();
+      //var instane = new KuntaApiClient.PhoneServiceChannel();
       //expect(instance).to.be();
     });
 

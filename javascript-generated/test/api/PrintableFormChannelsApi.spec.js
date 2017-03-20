@@ -59,16 +59,6 @@
   }
 
   describe('PrintableFormChannelsApi', function() {
-    describe('createServicePrintableFormChannel', function() {
-      it('should call createServicePrintableFormChannel successfully', function(done) {
-        //uncomment below and update the code to test createServicePrintableFormChannel
-        //instance.createServicePrintableFormChannel(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('findServicePrintableFormChannel', function() {
       it('should call findServicePrintableFormChannel successfully', function(done) {
         //uncomment below and update the code to test findServicePrintableFormChannel
@@ -83,16 +73,6 @@
       it('should call listServicePrintableFormChannels successfully', function(done) {
         //uncomment below and update the code to test listServicePrintableFormChannels
         //instance.listServicePrintableFormChannels(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('updatePrintableFormChannel', function() {
-      it('should call updatePrintableFormChannel successfully', function(done) {
-        //uncomment below and update the code to test updatePrintableFormChannel
-        //instance.updatePrintableFormChannel(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

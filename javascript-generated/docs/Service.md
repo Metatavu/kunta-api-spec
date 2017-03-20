@@ -22,5 +22,10 @@ Name | Type | Description | Notes
 **publishingStatus** | **String** |  | [optional] 
 **chargeType** | **String** |  | [optional] 
 **additionalInformations** | [**[LocalizedValue]**](LocalizedValue.md) |  | [optional] 
+**electronicServiceChannelIds** | **[String]** |  | [optional] 
+**phoneServiceChannelIds** | **[String]** |  | [optional] 
+**printableFormServiceChannelIds** | **[String]** |  | [optional] 
+**serviceLocationServiceChannelIds** | **[String]** |  | [optional] 
+**webPageServiceChannelIds** | **[String]** |  | [optional] 
 
 

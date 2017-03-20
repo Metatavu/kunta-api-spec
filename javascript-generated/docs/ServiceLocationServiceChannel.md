@@ -1,4 +1,4 @@
-# KuntaApiClient.ServiceLocationChannel
+# KuntaApiClient.ServiceLocationServiceChannel
 
 ## Properties
 Name | Type | Description | Notes

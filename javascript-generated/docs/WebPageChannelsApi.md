@@ -4,61 +4,13 @@ All URIs are relative to *https://demo.kuntaapi.fi/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createServiceWebPageChannel**](WebPageChannelsApi.md#createServiceWebPageChannel) | **POST** /services/{serviceId}/webPageChannels | creates WebPageChannel
 [**findServiceWebPageChannel**](WebPageChannelsApi.md#findServiceWebPageChannel) | **GET** /services/{serviceId}/webPageChannels/{webPageChannelId} | finds WebPageChannel by webPageChannelId
 [**listServiceWebPageChannels**](WebPageChannelsApi.md#listServiceWebPageChannels) | **GET** /services/{serviceId}/webPageChannels | Lists WebPageChannels by serviceId
-[**updateWebPageChannel**](WebPageChannelsApi.md#updateWebPageChannel) | **PUT** /services/{serviceId}/webPageChannels/{webPageChannelId} | Updates WebPageChannel
 
-
-<a name="createServiceWebPageChannel"></a>
-# **createServiceWebPageChannel**
-> WebPageChannel createServiceWebPageChannel(serviceId, body)
-
-creates WebPageChannel
-
-creates WebPageChannel
-
-### Example
-```javascript
-var KuntaApiClient = require('kunta-api-client');
-
-var apiInstance = new KuntaApiClient.WebPageChannelsApi();
-
-var serviceId = "serviceId_example"; // String | service id
-
-var body = new KuntaApiClient.WebPageChannel(); // WebPageChannel | Payload
-
-apiInstance.createServiceWebPageChannel(serviceId, body).then(function(data) {
-  console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **serviceId** | **String**| service id | 
- **body** | [**WebPageChannel**](WebPageChannel.md)| Payload | 
-
-### Return type
-
-[**WebPageChannel**](WebPageChannel.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/json;charset=utf-8
 
 <a name="findServiceWebPageChannel"></a>
 # **findServiceWebPageChannel**
-> WebPageChannel findServiceWebPageChannel(serviceId, webPageChannelId)
+> WebPageServiceChannel findServiceWebPageChannel(serviceId, webPageChannelId)
 
 finds WebPageChannel by webPageChannelId
 
@@ -91,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WebPageChannel**](WebPageChannel.md)
+[**WebPageServiceChannel**](WebPageServiceChannel.md)
 
 ### Authorization
 
@@ -104,7 +56,7 @@ No authorization required
 
 <a name="listServiceWebPageChannels"></a>
 # **listServiceWebPageChannels**
-> [WebPageChannel] listServiceWebPageChannels(serviceId, opts)
+> [WebPageServiceChannel] listServiceWebPageChannels(serviceId, opts)
 
 Lists WebPageChannels by serviceId
 
@@ -140,56 +92,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[WebPageChannel]**](WebPageChannel.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/json;charset=utf-8
-
-<a name="updateWebPageChannel"></a>
-# **updateWebPageChannel**
-> WebPageChannel updateWebPageChannel(serviceId, webPageChannelId, body)
-
-Updates WebPageChannel
-
-Updates WebPageChannel
-
-### Example
-```javascript
-var KuntaApiClient = require('kunta-api-client');
-
-var apiInstance = new KuntaApiClient.WebPageChannelsApi();
-
-var serviceId = "serviceId_example"; // String | service id
-
-var webPageChannelId = "webPageChannelId_example"; // String | webPageChannel id
-
-var body = new KuntaApiClient.WebPageChannel(); // WebPageChannel | Payload
-
-apiInstance.updateWebPageChannel(serviceId, webPageChannelId, body).then(function(data) {
-  console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **serviceId** | **String**| service id | 
- **webPageChannelId** | **String**| webPageChannel id | 
- **body** | [**WebPageChannel**](WebPageChannel.md)| Payload | 
-
-### Return type
-
-[**WebPageChannel**](WebPageChannel.md)
+[**[WebPageServiceChannel]**](WebPageServiceChannel.md)
 
 ### Authorization
 

@@ -34,7 +34,7 @@
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.PrintableFormChannel = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Address, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.ServiceChannelAttachment, root.KuntaApiClient.ServiceHour, root.KuntaApiClient.SupportContact, root.KuntaApiClient.WebPage);
+    root.KuntaApiClient.PrintableFormServiceChannel = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Address, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.ServiceChannelAttachment, root.KuntaApiClient.ServiceHour, root.KuntaApiClient.SupportContact, root.KuntaApiClient.WebPage);
   }
 }(this, function(ApiClient, Address, LocalizedValue, ServiceChannelAttachment, ServiceHour, SupportContact, WebPage) {
   'use strict';
@@ -43,14 +43,14 @@
 
 
   /**
-   * The PrintableFormChannel model module.
-   * @module model/PrintableFormChannel
-   * @version 0.0.57
+   * The PrintableFormServiceChannel model module.
+   * @module model/PrintableFormServiceChannel
+   * @version 0.0.58
    */
 
   /**
-   * Constructs a new <code>PrintableFormChannel</code>.
-   * @alias module:model/PrintableFormChannel
+   * Constructs a new <code>PrintableFormServiceChannel</code>.
+   * @alias module:model/PrintableFormServiceChannel
    * @class
    */
   var exports = function() {
@@ -75,11 +75,11 @@
   };
 
   /**
-   * Constructs a <code>PrintableFormChannel</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>PrintableFormServiceChannel</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/PrintableFormChannel} obj Optional instance to populate.
-   * @return {module:model/PrintableFormChannel} The populated <code>PrintableFormChannel</code> instance.
+   * @param {module:model/PrintableFormServiceChannel} obj Optional instance to populate.
+   * @return {module:model/PrintableFormServiceChannel} The populated <code>PrintableFormServiceChannel</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {

@@ -59,16 +59,6 @@
   }
 
   describe('WebPageChannelsApi', function() {
-    describe('createServiceWebPageChannel', function() {
-      it('should call createServiceWebPageChannel successfully', function(done) {
-        //uncomment below and update the code to test createServiceWebPageChannel
-        //instance.createServiceWebPageChannel(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('findServiceWebPageChannel', function() {
       it('should call findServiceWebPageChannel successfully', function(done) {
         //uncomment below and update the code to test findServiceWebPageChannel
@@ -83,16 +73,6 @@
       it('should call listServiceWebPageChannels successfully', function(done) {
         //uncomment below and update the code to test listServiceWebPageChannels
         //instance.listServiceWebPageChannels(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('updateWebPageChannel', function() {
-      it('should call updateWebPageChannel successfully', function(done) {
-        //uncomment below and update the code to test updateWebPageChannel
-        //instance.updateWebPageChannel(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

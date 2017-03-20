@@ -25,24 +25,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/BadRequest', 'model/ServiceLocationChannel', 'model/Forbidden', 'model/InternalServerError', 'model/NotFound'], factory);
+    define(['ApiClient', 'model/BadRequest', 'model/ServiceLocationServiceChannel', 'model/Forbidden', 'model/InternalServerError', 'model/NotFound'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/ServiceLocationChannel'), require('../model/Forbidden'), require('../model/InternalServerError'), require('../model/NotFound'));
+    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/ServiceLocationServiceChannel'), require('../model/Forbidden'), require('../model/InternalServerError'), require('../model/NotFound'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.ServiceLocationChannelsApi = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.BadRequest, root.KuntaApiClient.ServiceLocationChannel, root.KuntaApiClient.Forbidden, root.KuntaApiClient.InternalServerError, root.KuntaApiClient.NotFound);
+    root.KuntaApiClient.ServiceLocationChannelsApi = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.BadRequest, root.KuntaApiClient.ServiceLocationServiceChannel, root.KuntaApiClient.Forbidden, root.KuntaApiClient.InternalServerError, root.KuntaApiClient.NotFound);
   }
-}(this, function(ApiClient, BadRequest, ServiceLocationChannel, Forbidden, InternalServerError, NotFound) {
+}(this, function(ApiClient, BadRequest, ServiceLocationServiceChannel, Forbidden, InternalServerError, NotFound) {
   'use strict';
 
   /**
    * ServiceLocationChannels service.
    * @module api/ServiceLocationChannelsApi
-   * @version 0.0.57
+   * @version 0.0.58
    */
 
   /**
@@ -58,55 +58,11 @@
 
 
     /**
-     * creates ServiceLocationChannel
-     * creates ServiceLocationChannel
-     * @param {String} serviceId service id
-     * @param {module:model/ServiceLocationChannel} body Payload
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ServiceLocationChannel}
-     */
-    this.createServiceServiceLocationChannel = function(serviceId, body) {
-      var postBody = body;
-
-      // verify the required parameter 'serviceId' is set
-      if (serviceId == undefined || serviceId == null) {
-        throw "Missing the required parameter 'serviceId' when calling createServiceServiceLocationChannel";
-      }
-
-      // verify the required parameter 'body' is set
-      if (body == undefined || body == null) {
-        throw "Missing the required parameter 'body' when calling createServiceServiceLocationChannel";
-      }
-
-
-      var pathParams = {
-        'serviceId': serviceId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/json;charset=utf-8'];
-      var accepts = ['application/json;charset=utf-8'];
-      var returnType = ServiceLocationChannel;
-
-      return this.apiClient.callApi(
-        '/services/{serviceId}/serviceLocationChannels', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType
-      );
-    }
-
-
-    /**
      * finds ServiceLocationChannel by serviceLocationChannelId
      * finds ServiceLocationChannels by serviceLocationChannelId
      * @param {String} serviceId Service id
      * @param {String} serviceLocationChannelId serviceLocationChannel id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ServiceLocationChannel}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ServiceLocationServiceChannel}
      */
     this.findServiceServiceLocationChannel = function(serviceId, serviceLocationChannelId) {
       var postBody = null;
@@ -136,7 +92,7 @@
       var authNames = [];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = ServiceLocationChannel;
+      var returnType = ServiceLocationServiceChannel;
 
       return this.apiClient.callApi(
         '/services/{serviceId}/serviceLocationChannels/{serviceLocationChannelId}', 'GET',
@@ -153,7 +109,7 @@
      * @param {Object} opts Optional parameters
      * @param {Integer} opts.firstResult First result
      * @param {Integer} opts.maxResults Max results
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ServiceLocationChannel>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ServiceLocationServiceChannel>}
      */
     this.listServiceServiceLocationChannels = function(serviceId, opts) {
       opts = opts || {};
@@ -180,61 +136,10 @@
       var authNames = [];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = [ServiceLocationChannel];
+      var returnType = [ServiceLocationServiceChannel];
 
       return this.apiClient.callApi(
         '/services/{serviceId}/serviceLocationChannels', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType
-      );
-    }
-
-
-    /**
-     * Updates ServiceLocationChannel
-     * Updates ServiceLocationChannel
-     * @param {String} serviceId service id
-     * @param {String} serviceLocationChannelId serviceLocationChannel id
-     * @param {module:model/ServiceLocationChannel} body Payload
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ServiceLocationChannel}
-     */
-    this.updateServiceLocationChannel = function(serviceId, serviceLocationChannelId, body) {
-      var postBody = body;
-
-      // verify the required parameter 'serviceId' is set
-      if (serviceId == undefined || serviceId == null) {
-        throw "Missing the required parameter 'serviceId' when calling updateServiceLocationChannel";
-      }
-
-      // verify the required parameter 'serviceLocationChannelId' is set
-      if (serviceLocationChannelId == undefined || serviceLocationChannelId == null) {
-        throw "Missing the required parameter 'serviceLocationChannelId' when calling updateServiceLocationChannel";
-      }
-
-      // verify the required parameter 'body' is set
-      if (body == undefined || body == null) {
-        throw "Missing the required parameter 'body' when calling updateServiceLocationChannel";
-      }
-
-
-      var pathParams = {
-        'serviceId': serviceId,
-        'serviceLocationChannelId': serviceLocationChannelId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/json;charset=utf-8'];
-      var accepts = ['application/json;charset=utf-8'];
-      var returnType = ServiceLocationChannel;
-
-      return this.apiClient.callApi(
-        '/services/{serviceId}/serviceLocationChannels/{serviceLocationChannelId}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );

@@ -34,7 +34,7 @@
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.ServiceLocationChannel = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Address, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.ServiceHour, root.KuntaApiClient.SupportContact, root.KuntaApiClient.WebPage);
+    root.KuntaApiClient.ServiceLocationServiceChannel = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Address, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.ServiceHour, root.KuntaApiClient.SupportContact, root.KuntaApiClient.WebPage);
   }
 }(this, function(ApiClient, Address, LocalizedValue, ServiceHour, SupportContact, WebPage) {
   'use strict';
@@ -43,14 +43,14 @@
 
 
   /**
-   * The ServiceLocationChannel model module.
-   * @module model/ServiceLocationChannel
-   * @version 0.0.57
+   * The ServiceLocationServiceChannel model module.
+   * @module model/ServiceLocationServiceChannel
+   * @version 0.0.58
    */
 
   /**
-   * Constructs a new <code>ServiceLocationChannel</code>.
-   * @alias module:model/ServiceLocationChannel
+   * Constructs a new <code>ServiceLocationServiceChannel</code>.
+   * @alias module:model/ServiceLocationServiceChannel
    * @class
    */
   var exports = function() {
@@ -82,11 +82,11 @@
   };
 
   /**
-   * Constructs a <code>ServiceLocationChannel</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>ServiceLocationServiceChannel</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/ServiceLocationChannel} obj Optional instance to populate.
-   * @return {module:model/ServiceLocationChannel} The populated <code>ServiceLocationChannel</code> instance.
+   * @param {module:model/ServiceLocationServiceChannel} obj Optional instance to populate.
+   * @return {module:model/ServiceLocationServiceChannel} The populated <code>ServiceLocationServiceChannel</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {

@@ -25,24 +25,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/BadRequest', 'model/ElectronicChannel', 'model/Forbidden', 'model/InternalServerError', 'model/NotFound'], factory);
+    define(['ApiClient', 'model/BadRequest', 'model/Forbidden', 'model/ElectronicServiceChannel', 'model/InternalServerError', 'model/NotFound'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/ElectronicChannel'), require('../model/Forbidden'), require('../model/InternalServerError'), require('../model/NotFound'));
+    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/Forbidden'), require('../model/ElectronicServiceChannel'), require('../model/InternalServerError'), require('../model/NotFound'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.ElectronicChannelsApi = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.BadRequest, root.KuntaApiClient.ElectronicChannel, root.KuntaApiClient.Forbidden, root.KuntaApiClient.InternalServerError, root.KuntaApiClient.NotFound);
+    root.KuntaApiClient.ElectronicChannelsApi = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.BadRequest, root.KuntaApiClient.Forbidden, root.KuntaApiClient.ElectronicServiceChannel, root.KuntaApiClient.InternalServerError, root.KuntaApiClient.NotFound);
   }
-}(this, function(ApiClient, BadRequest, ElectronicChannel, Forbidden, InternalServerError, NotFound) {
+}(this, function(ApiClient, BadRequest, Forbidden, ElectronicServiceChannel, InternalServerError, NotFound) {
   'use strict';
 
   /**
    * ElectronicChannels service.
    * @module api/ElectronicChannelsApi
-   * @version 0.0.57
+   * @version 0.0.58
    */
 
   /**
@@ -58,55 +58,11 @@
 
 
     /**
-     * creates ElectronicChannel
-     * creates ElectronicChannel
-     * @param {String} serviceId service id
-     * @param {module:model/ElectronicChannel} body Payload
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ElectronicChannel}
-     */
-    this.createServiceElectronicChannel = function(serviceId, body) {
-      var postBody = body;
-
-      // verify the required parameter 'serviceId' is set
-      if (serviceId == undefined || serviceId == null) {
-        throw "Missing the required parameter 'serviceId' when calling createServiceElectronicChannel";
-      }
-
-      // verify the required parameter 'body' is set
-      if (body == undefined || body == null) {
-        throw "Missing the required parameter 'body' when calling createServiceElectronicChannel";
-      }
-
-
-      var pathParams = {
-        'serviceId': serviceId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/json;charset=utf-8'];
-      var accepts = ['application/json;charset=utf-8'];
-      var returnType = ElectronicChannel;
-
-      return this.apiClient.callApi(
-        '/services/{serviceId}/electronicChannels', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType
-      );
-    }
-
-
-    /**
      * finds ElectronicChannel by electronicChannelId
      * finds ElectronicChannels by electronicChannelId
      * @param {String} serviceId Service id
      * @param {String} electronicChannelId electronicChannel id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ElectronicChannel}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ElectronicServiceChannel}
      */
     this.findServiceElectronicChannel = function(serviceId, electronicChannelId) {
       var postBody = null;
@@ -136,7 +92,7 @@
       var authNames = [];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = ElectronicChannel;
+      var returnType = ElectronicServiceChannel;
 
       return this.apiClient.callApi(
         '/services/{serviceId}/electronicChannels/{electronicChannelId}', 'GET',
@@ -153,7 +109,7 @@
      * @param {Object} opts Optional parameters
      * @param {Integer} opts.firstResult First result
      * @param {Integer} opts.maxResults Max results
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ElectronicChannel>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ElectronicServiceChannel>}
      */
     this.listServiceElectronicChannels = function(serviceId, opts) {
       opts = opts || {};
@@ -180,61 +136,10 @@
       var authNames = [];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = [ElectronicChannel];
+      var returnType = [ElectronicServiceChannel];
 
       return this.apiClient.callApi(
         '/services/{serviceId}/electronicChannels', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType
-      );
-    }
-
-
-    /**
-     * Updates ElectronicChannel
-     * Updates ElectronicChannel
-     * @param {String} serviceId service id
-     * @param {String} electronicChannelId electronicChannel id
-     * @param {module:model/ElectronicChannel} body Payload
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ElectronicChannel}
-     */
-    this.updateServiceElectronicChannel = function(serviceId, electronicChannelId, body) {
-      var postBody = body;
-
-      // verify the required parameter 'serviceId' is set
-      if (serviceId == undefined || serviceId == null) {
-        throw "Missing the required parameter 'serviceId' when calling updateServiceElectronicChannel";
-      }
-
-      // verify the required parameter 'electronicChannelId' is set
-      if (electronicChannelId == undefined || electronicChannelId == null) {
-        throw "Missing the required parameter 'electronicChannelId' when calling updateServiceElectronicChannel";
-      }
-
-      // verify the required parameter 'body' is set
-      if (body == undefined || body == null) {
-        throw "Missing the required parameter 'body' when calling updateServiceElectronicChannel";
-      }
-
-
-      var pathParams = {
-        'serviceId': serviceId,
-        'electronicChannelId': electronicChannelId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/json;charset=utf-8'];
-      var accepts = ['application/json;charset=utf-8'];
-      var returnType = ElectronicChannel;
-
-      return this.apiClient.callApi(
-        '/services/{serviceId}/electronicChannels/{electronicChannelId}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );

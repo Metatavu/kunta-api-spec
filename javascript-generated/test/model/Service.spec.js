@@ -179,6 +179,36 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property electronicServiceChannelIds (base name: "electronicServiceChannelIds")', function() {
+      // uncomment below and update the code to test the property electronicServiceChannelIds
+      //var instane = new KuntaApiClient.Service();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property phoneServiceChannelIds (base name: "phoneServiceChannelIds")', function() {
+      // uncomment below and update the code to test the property phoneServiceChannelIds
+      //var instane = new KuntaApiClient.Service();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property printableFormServiceChannelIds (base name: "printableFormServiceChannelIds")', function() {
+      // uncomment below and update the code to test the property printableFormServiceChannelIds
+      //var instane = new KuntaApiClient.Service();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property serviceLocationServiceChannelIds (base name: "serviceLocationServiceChannelIds")', function() {
+      // uncomment below and update the code to test the property serviceLocationServiceChannelIds
+      //var instane = new KuntaApiClient.Service();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property webPageServiceChannelIds (base name: "webPageServiceChannelIds")', function() {
+      // uncomment below and update the code to test the property webPageServiceChannelIds
+      //var instane = new KuntaApiClient.Service();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

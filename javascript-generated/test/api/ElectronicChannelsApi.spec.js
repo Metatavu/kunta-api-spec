@@ -59,16 +59,6 @@
   }
 
   describe('ElectronicChannelsApi', function() {
-    describe('createServiceElectronicChannel', function() {
-      it('should call createServiceElectronicChannel successfully', function(done) {
-        //uncomment below and update the code to test createServiceElectronicChannel
-        //instance.createServiceElectronicChannel(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('findServiceElectronicChannel', function() {
       it('should call findServiceElectronicChannel successfully', function(done) {
         //uncomment below and update the code to test findServiceElectronicChannel
@@ -83,16 +73,6 @@
       it('should call listServiceElectronicChannels successfully', function(done) {
         //uncomment below and update the code to test listServiceElectronicChannels
         //instance.listServiceElectronicChannels(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('updateServiceElectronicChannel', function() {
-      it('should call updateServiceElectronicChannel successfully', function(done) {
-        //uncomment below and update the code to test updateServiceElectronicChannel
-        //instance.updateServiceElectronicChannel(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

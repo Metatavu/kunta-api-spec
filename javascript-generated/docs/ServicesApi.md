@@ -5,11 +5,6 @@ All URIs are relative to *https://demo.kuntaapi.fi/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createService**](ServicesApi.md#createService) | **POST** /services | Create service
-[**createServiceElectronicChannel**](ServicesApi.md#createServiceElectronicChannel) | **POST** /services/{serviceId}/electronicChannels | creates ElectronicChannel
-[**createServicePhoneChannel**](ServicesApi.md#createServicePhoneChannel) | **POST** /services/{serviceId}/phoneChannels | creates PhoneChannel
-[**createServicePrintableFormChannel**](ServicesApi.md#createServicePrintableFormChannel) | **POST** /services/{serviceId}/printableFormChannels | creates PrintableFormChannel
-[**createServiceServiceLocationChannel**](ServicesApi.md#createServiceServiceLocationChannel) | **POST** /services/{serviceId}/serviceLocationChannels | creates ServiceLocationChannel
-[**createServiceWebPageChannel**](ServicesApi.md#createServiceWebPageChannel) | **POST** /services/{serviceId}/webPageChannels | creates WebPageChannel
 [**findService**](ServicesApi.md#findService) | **GET** /services/{serviceId} | Finds a service by id
 [**findServiceElectronicChannel**](ServicesApi.md#findServiceElectronicChannel) | **GET** /services/{serviceId}/electronicChannels/{electronicChannelId} | finds ElectronicChannel by electronicChannelId
 [**findServicePhoneChannel**](ServicesApi.md#findServicePhoneChannel) | **GET** /services/{serviceId}/phoneChannels/{phoneChannelId} | finds PhoneChannel by phoneChannelId
@@ -22,12 +17,7 @@ Method | HTTP request | Description
 [**listServiceServiceLocationChannels**](ServicesApi.md#listServiceServiceLocationChannels) | **GET** /services/{serviceId}/serviceLocationChannels | Lists ServiceLocationChannels by serviceId
 [**listServiceWebPageChannels**](ServicesApi.md#listServiceWebPageChannels) | **GET** /services/{serviceId}/webPageChannels | Lists WebPageChannels by serviceId
 [**listServices**](ServicesApi.md#listServices) | **GET** /services | Service list
-[**updatePhoneChannel**](ServicesApi.md#updatePhoneChannel) | **PUT** /services/{serviceId}/phoneChannels/{phoneChannelId} | Updates PhoneChannel
-[**updatePrintableFormChannel**](ServicesApi.md#updatePrintableFormChannel) | **PUT** /services/{serviceId}/printableFormChannels/{printableFormChannelId} | Updates PrintableFormChannel
 [**updateService**](ServicesApi.md#updateService) | **PUT** /services/{serviceId} | Updates service
-[**updateServiceElectronicChannel**](ServicesApi.md#updateServiceElectronicChannel) | **PUT** /services/{serviceId}/electronicChannels/{electronicChannelId} | Updates ElectronicChannel
-[**updateServiceLocationChannel**](ServicesApi.md#updateServiceLocationChannel) | **PUT** /services/{serviceId}/serviceLocationChannels/{serviceLocationChannelId} | Updates ServiceLocationChannel
-[**updateWebPageChannel**](ServicesApi.md#updateWebPageChannel) | **PUT** /services/{serviceId}/webPageChannels/{webPageChannelId} | Updates WebPageChannel
 
 
 <a name="createService"></a>
@@ -63,236 +53,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Service**](Service.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/json;charset=utf-8
-
-<a name="createServiceElectronicChannel"></a>
-# **createServiceElectronicChannel**
-> ElectronicChannel createServiceElectronicChannel(serviceId, body)
-
-creates ElectronicChannel
-
-creates ElectronicChannel
-
-### Example
-```javascript
-var KuntaApiClient = require('kunta-api-client');
-
-var apiInstance = new KuntaApiClient.ServicesApi();
-
-var serviceId = "serviceId_example"; // String | service id
-
-var body = new KuntaApiClient.ElectronicChannel(); // ElectronicChannel | Payload
-
-apiInstance.createServiceElectronicChannel(serviceId, body).then(function(data) {
-  console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **serviceId** | **String**| service id | 
- **body** | [**ElectronicChannel**](ElectronicChannel.md)| Payload | 
-
-### Return type
-
-[**ElectronicChannel**](ElectronicChannel.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/json;charset=utf-8
-
-<a name="createServicePhoneChannel"></a>
-# **createServicePhoneChannel**
-> PhoneChannel createServicePhoneChannel(serviceId, body)
-
-creates PhoneChannel
-
-creates PhoneChannel
-
-### Example
-```javascript
-var KuntaApiClient = require('kunta-api-client');
-
-var apiInstance = new KuntaApiClient.ServicesApi();
-
-var serviceId = "serviceId_example"; // String | service id
-
-var body = new KuntaApiClient.PhoneChannel(); // PhoneChannel | Payload
-
-apiInstance.createServicePhoneChannel(serviceId, body).then(function(data) {
-  console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **serviceId** | **String**| service id | 
- **body** | [**PhoneChannel**](PhoneChannel.md)| Payload | 
-
-### Return type
-
-[**PhoneChannel**](PhoneChannel.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/json;charset=utf-8
-
-<a name="createServicePrintableFormChannel"></a>
-# **createServicePrintableFormChannel**
-> PrintableFormChannel createServicePrintableFormChannel(serviceId, body)
-
-creates PrintableFormChannel
-
-creates PrintableFormChannel
-
-### Example
-```javascript
-var KuntaApiClient = require('kunta-api-client');
-
-var apiInstance = new KuntaApiClient.ServicesApi();
-
-var serviceId = "serviceId_example"; // String | service id
-
-var body = new KuntaApiClient.PrintableFormChannel(); // PrintableFormChannel | Payload
-
-apiInstance.createServicePrintableFormChannel(serviceId, body).then(function(data) {
-  console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **serviceId** | **String**| service id | 
- **body** | [**PrintableFormChannel**](PrintableFormChannel.md)| Payload | 
-
-### Return type
-
-[**PrintableFormChannel**](PrintableFormChannel.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/json;charset=utf-8
-
-<a name="createServiceServiceLocationChannel"></a>
-# **createServiceServiceLocationChannel**
-> ServiceLocationChannel createServiceServiceLocationChannel(serviceId, body)
-
-creates ServiceLocationChannel
-
-creates ServiceLocationChannel
-
-### Example
-```javascript
-var KuntaApiClient = require('kunta-api-client');
-
-var apiInstance = new KuntaApiClient.ServicesApi();
-
-var serviceId = "serviceId_example"; // String | service id
-
-var body = new KuntaApiClient.ServiceLocationChannel(); // ServiceLocationChannel | Payload
-
-apiInstance.createServiceServiceLocationChannel(serviceId, body).then(function(data) {
-  console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **serviceId** | **String**| service id | 
- **body** | [**ServiceLocationChannel**](ServiceLocationChannel.md)| Payload | 
-
-### Return type
-
-[**ServiceLocationChannel**](ServiceLocationChannel.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/json;charset=utf-8
-
-<a name="createServiceWebPageChannel"></a>
-# **createServiceWebPageChannel**
-> WebPageChannel createServiceWebPageChannel(serviceId, body)
-
-creates WebPageChannel
-
-creates WebPageChannel
-
-### Example
-```javascript
-var KuntaApiClient = require('kunta-api-client');
-
-var apiInstance = new KuntaApiClient.ServicesApi();
-
-var serviceId = "serviceId_example"; // String | service id
-
-var body = new KuntaApiClient.WebPageChannel(); // WebPageChannel | Payload
-
-apiInstance.createServiceWebPageChannel(serviceId, body).then(function(data) {
-  console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **serviceId** | **String**| service id | 
- **body** | [**WebPageChannel**](WebPageChannel.md)| Payload | 
-
-### Return type
-
-[**WebPageChannel**](WebPageChannel.md)
 
 ### Authorization
 
@@ -348,7 +108,7 @@ No authorization required
 
 <a name="findServiceElectronicChannel"></a>
 # **findServiceElectronicChannel**
-> ElectronicChannel findServiceElectronicChannel(serviceId, electronicChannelId)
+> ElectronicServiceChannel findServiceElectronicChannel(serviceId, electronicChannelId)
 
 finds ElectronicChannel by electronicChannelId
 
@@ -381,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ElectronicChannel**](ElectronicChannel.md)
+[**ElectronicServiceChannel**](ElectronicServiceChannel.md)
 
 ### Authorization
 
@@ -394,7 +154,7 @@ No authorization required
 
 <a name="findServicePhoneChannel"></a>
 # **findServicePhoneChannel**
-> PhoneChannel findServicePhoneChannel(serviceId, phoneChannelId)
+> PhoneServiceChannel findServicePhoneChannel(serviceId, phoneChannelId)
 
 finds PhoneChannel by phoneChannelId
 
@@ -427,7 +187,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PhoneChannel**](PhoneChannel.md)
+[**PhoneServiceChannel**](PhoneServiceChannel.md)
 
 ### Authorization
 
@@ -440,7 +200,7 @@ No authorization required
 
 <a name="findServicePrintableFormChannel"></a>
 # **findServicePrintableFormChannel**
-> PrintableFormChannel findServicePrintableFormChannel(serviceId, printableFormChannelId)
+> PrintableFormServiceChannel findServicePrintableFormChannel(serviceId, printableFormChannelId)
 
 finds PrintableFormChannel by printableFormChannelId
 
@@ -473,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PrintableFormChannel**](PrintableFormChannel.md)
+[**PrintableFormServiceChannel**](PrintableFormServiceChannel.md)
 
 ### Authorization
 
@@ -486,7 +246,7 @@ No authorization required
 
 <a name="findServiceServiceLocationChannel"></a>
 # **findServiceServiceLocationChannel**
-> ServiceLocationChannel findServiceServiceLocationChannel(serviceId, serviceLocationChannelId)
+> ServiceLocationServiceChannel findServiceServiceLocationChannel(serviceId, serviceLocationChannelId)
 
 finds ServiceLocationChannel by serviceLocationChannelId
 
@@ -519,7 +279,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServiceLocationChannel**](ServiceLocationChannel.md)
+[**ServiceLocationServiceChannel**](ServiceLocationServiceChannel.md)
 
 ### Authorization
 
@@ -532,7 +292,7 @@ No authorization required
 
 <a name="findServiceWebPageChannel"></a>
 # **findServiceWebPageChannel**
-> WebPageChannel findServiceWebPageChannel(serviceId, webPageChannelId)
+> WebPageServiceChannel findServiceWebPageChannel(serviceId, webPageChannelId)
 
 finds WebPageChannel by webPageChannelId
 
@@ -565,7 +325,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WebPageChannel**](WebPageChannel.md)
+[**WebPageServiceChannel**](WebPageServiceChannel.md)
 
 ### Authorization
 
@@ -578,7 +338,7 @@ No authorization required
 
 <a name="listServiceElectronicChannels"></a>
 # **listServiceElectronicChannels**
-> [ElectronicChannel] listServiceElectronicChannels(serviceId, opts)
+> [ElectronicServiceChannel] listServiceElectronicChannels(serviceId, opts)
 
 Lists ElectronicChannels by serviceId
 
@@ -614,7 +374,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[ElectronicChannel]**](ElectronicChannel.md)
+[**[ElectronicServiceChannel]**](ElectronicServiceChannel.md)
 
 ### Authorization
 
@@ -627,7 +387,7 @@ No authorization required
 
 <a name="listServicePhoneChannels"></a>
 # **listServicePhoneChannels**
-> [PhoneChannel] listServicePhoneChannels(serviceId, opts)
+> [PhoneServiceChannel] listServicePhoneChannels(serviceId, opts)
 
 Lists PhoneChannels by serviceId
 
@@ -663,7 +423,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[PhoneChannel]**](PhoneChannel.md)
+[**[PhoneServiceChannel]**](PhoneServiceChannel.md)
 
 ### Authorization
 
@@ -676,7 +436,7 @@ No authorization required
 
 <a name="listServicePrintableFormChannels"></a>
 # **listServicePrintableFormChannels**
-> [PrintableFormChannel] listServicePrintableFormChannels(serviceId, opts)
+> [PrintableFormServiceChannel] listServicePrintableFormChannels(serviceId, opts)
 
 Lists PrintableFormChannels by serviceId
 
@@ -712,7 +472,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[PrintableFormChannel]**](PrintableFormChannel.md)
+[**[PrintableFormServiceChannel]**](PrintableFormServiceChannel.md)
 
 ### Authorization
 
@@ -725,7 +485,7 @@ No authorization required
 
 <a name="listServiceServiceLocationChannels"></a>
 # **listServiceServiceLocationChannels**
-> [ServiceLocationChannel] listServiceServiceLocationChannels(serviceId, opts)
+> [ServiceLocationServiceChannel] listServiceServiceLocationChannels(serviceId, opts)
 
 Lists ServiceLocationChannels by serviceId
 
@@ -761,7 +521,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[ServiceLocationChannel]**](ServiceLocationChannel.md)
+[**[ServiceLocationServiceChannel]**](ServiceLocationServiceChannel.md)
 
 ### Authorization
 
@@ -774,7 +534,7 @@ No authorization required
 
 <a name="listServiceWebPageChannels"></a>
 # **listServiceWebPageChannels**
-> [WebPageChannel] listServiceWebPageChannels(serviceId, opts)
+> [WebPageServiceChannel] listServiceWebPageChannels(serviceId, opts)
 
 Lists WebPageChannels by serviceId
 
@@ -810,7 +570,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[WebPageChannel]**](WebPageChannel.md)
+[**[WebPageServiceChannel]**](WebPageServiceChannel.md)
 
 ### Authorization
 
@@ -871,104 +631,6 @@ No authorization required
  - **Content-Type**: application/json;charset=utf-8
  - **Accept**: application/json;charset=utf-8
 
-<a name="updatePhoneChannel"></a>
-# **updatePhoneChannel**
-> PhoneChannel updatePhoneChannel(serviceId, phoneChannelId, body)
-
-Updates PhoneChannel
-
-Updates PhoneChannel
-
-### Example
-```javascript
-var KuntaApiClient = require('kunta-api-client');
-
-var apiInstance = new KuntaApiClient.ServicesApi();
-
-var serviceId = "serviceId_example"; // String | service id
-
-var phoneChannelId = "phoneChannelId_example"; // String | phoneChannel id
-
-var body = new KuntaApiClient.PhoneChannel(); // PhoneChannel | Payload
-
-apiInstance.updatePhoneChannel(serviceId, phoneChannelId, body).then(function(data) {
-  console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **serviceId** | **String**| service id | 
- **phoneChannelId** | **String**| phoneChannel id | 
- **body** | [**PhoneChannel**](PhoneChannel.md)| Payload | 
-
-### Return type
-
-[**PhoneChannel**](PhoneChannel.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/json;charset=utf-8
-
-<a name="updatePrintableFormChannel"></a>
-# **updatePrintableFormChannel**
-> PrintableFormChannel updatePrintableFormChannel(serviceId, printableFormChannelId, body)
-
-Updates PrintableFormChannel
-
-Updates PrintableFormChannel
-
-### Example
-```javascript
-var KuntaApiClient = require('kunta-api-client');
-
-var apiInstance = new KuntaApiClient.ServicesApi();
-
-var serviceId = "serviceId_example"; // String | service id
-
-var printableFormChannelId = "printableFormChannelId_example"; // String | printableFormChannel id
-
-var body = new KuntaApiClient.PrintableFormChannel(); // PrintableFormChannel | Payload
-
-apiInstance.updatePrintableFormChannel(serviceId, printableFormChannelId, body).then(function(data) {
-  console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **serviceId** | **String**| service id | 
- **printableFormChannelId** | **String**| printableFormChannel id | 
- **body** | [**PrintableFormChannel**](PrintableFormChannel.md)| Payload | 
-
-### Return type
-
-[**PrintableFormChannel**](PrintableFormChannel.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/json;charset=utf-8
-
 <a name="updateService"></a>
 # **updateService**
 > Service updateService(serviceId, body)
@@ -1005,153 +667,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Service**](Service.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/json;charset=utf-8
-
-<a name="updateServiceElectronicChannel"></a>
-# **updateServiceElectronicChannel**
-> ElectronicChannel updateServiceElectronicChannel(serviceId, electronicChannelId, body)
-
-Updates ElectronicChannel
-
-Updates ElectronicChannel
-
-### Example
-```javascript
-var KuntaApiClient = require('kunta-api-client');
-
-var apiInstance = new KuntaApiClient.ServicesApi();
-
-var serviceId = "serviceId_example"; // String | service id
-
-var electronicChannelId = "electronicChannelId_example"; // String | electronicChannel id
-
-var body = new KuntaApiClient.ElectronicChannel(); // ElectronicChannel | Payload
-
-apiInstance.updateServiceElectronicChannel(serviceId, electronicChannelId, body).then(function(data) {
-  console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **serviceId** | **String**| service id | 
- **electronicChannelId** | **String**| electronicChannel id | 
- **body** | [**ElectronicChannel**](ElectronicChannel.md)| Payload | 
-
-### Return type
-
-[**ElectronicChannel**](ElectronicChannel.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/json;charset=utf-8
-
-<a name="updateServiceLocationChannel"></a>
-# **updateServiceLocationChannel**
-> ServiceLocationChannel updateServiceLocationChannel(serviceId, serviceLocationChannelId, body)
-
-Updates ServiceLocationChannel
-
-Updates ServiceLocationChannel
-
-### Example
-```javascript
-var KuntaApiClient = require('kunta-api-client');
-
-var apiInstance = new KuntaApiClient.ServicesApi();
-
-var serviceId = "serviceId_example"; // String | service id
-
-var serviceLocationChannelId = "serviceLocationChannelId_example"; // String | serviceLocationChannel id
-
-var body = new KuntaApiClient.ServiceLocationChannel(); // ServiceLocationChannel | Payload
-
-apiInstance.updateServiceLocationChannel(serviceId, serviceLocationChannelId, body).then(function(data) {
-  console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **serviceId** | **String**| service id | 
- **serviceLocationChannelId** | **String**| serviceLocationChannel id | 
- **body** | [**ServiceLocationChannel**](ServiceLocationChannel.md)| Payload | 
-
-### Return type
-
-[**ServiceLocationChannel**](ServiceLocationChannel.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/json;charset=utf-8
-
-<a name="updateWebPageChannel"></a>
-# **updateWebPageChannel**
-> WebPageChannel updateWebPageChannel(serviceId, webPageChannelId, body)
-
-Updates WebPageChannel
-
-Updates WebPageChannel
-
-### Example
-```javascript
-var KuntaApiClient = require('kunta-api-client');
-
-var apiInstance = new KuntaApiClient.ServicesApi();
-
-var serviceId = "serviceId_example"; // String | service id
-
-var webPageChannelId = "webPageChannelId_example"; // String | webPageChannel id
-
-var body = new KuntaApiClient.WebPageChannel(); // WebPageChannel | Payload
-
-apiInstance.updateWebPageChannel(serviceId, webPageChannelId, body).then(function(data) {
-  console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **serviceId** | **String**| service id | 
- **webPageChannelId** | **String**| webPageChannel id | 
- **body** | [**WebPageChannel**](WebPageChannel.md)| Payload | 
-
-### Return type
-
-[**WebPageChannel**](WebPageChannel.md)
 
 ### Authorization
 

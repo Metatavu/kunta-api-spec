@@ -45,7 +45,7 @@
   /**
    * The Service model module.
    * @module model/Service
-   * @version 0.0.57
+   * @version 0.0.58
    */
 
   /**
@@ -55,6 +55,11 @@
    */
   var exports = function() {
     var _this = this;
+
+
+
+
+
 
 
 
@@ -145,6 +150,21 @@
       if (data.hasOwnProperty('additionalInformations')) {
         obj['additionalInformations'] = ApiClient.convertToType(data['additionalInformations'], [LocalizedValue]);
       }
+      if (data.hasOwnProperty('electronicServiceChannelIds')) {
+        obj['electronicServiceChannelIds'] = ApiClient.convertToType(data['electronicServiceChannelIds'], ['String']);
+      }
+      if (data.hasOwnProperty('phoneServiceChannelIds')) {
+        obj['phoneServiceChannelIds'] = ApiClient.convertToType(data['phoneServiceChannelIds'], ['String']);
+      }
+      if (data.hasOwnProperty('printableFormServiceChannelIds')) {
+        obj['printableFormServiceChannelIds'] = ApiClient.convertToType(data['printableFormServiceChannelIds'], ['String']);
+      }
+      if (data.hasOwnProperty('serviceLocationServiceChannelIds')) {
+        obj['serviceLocationServiceChannelIds'] = ApiClient.convertToType(data['serviceLocationServiceChannelIds'], ['String']);
+      }
+      if (data.hasOwnProperty('webPageServiceChannelIds')) {
+        obj['webPageServiceChannelIds'] = ApiClient.convertToType(data['webPageServiceChannelIds'], ['String']);
+      }
     }
     return obj;
   }
@@ -225,6 +245,26 @@
    * @member {Array.<module:model/LocalizedValue>} additionalInformations
    */
   exports.prototype['additionalInformations'] = undefined;
+  /**
+   * @member {Array.<String>} electronicServiceChannelIds
+   */
+  exports.prototype['electronicServiceChannelIds'] = undefined;
+  /**
+   * @member {Array.<String>} phoneServiceChannelIds
+   */
+  exports.prototype['phoneServiceChannelIds'] = undefined;
+  /**
+   * @member {Array.<String>} printableFormServiceChannelIds
+   */
+  exports.prototype['printableFormServiceChannelIds'] = undefined;
+  /**
+   * @member {Array.<String>} serviceLocationServiceChannelIds
+   */
+  exports.prototype['serviceLocationServiceChannelIds'] = undefined;
+  /**
+   * @member {Array.<String>} webPageServiceChannelIds
+   */
+  exports.prototype['webPageServiceChannelIds'] = undefined;
 
 
 

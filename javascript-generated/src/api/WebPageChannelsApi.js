@@ -25,24 +25,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/BadRequest', 'model/WebPageChannel', 'model/Forbidden', 'model/InternalServerError', 'model/NotFound'], factory);
+    define(['ApiClient', 'model/BadRequest', 'model/WebPageServiceChannel', 'model/Forbidden', 'model/InternalServerError', 'model/NotFound'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/WebPageChannel'), require('../model/Forbidden'), require('../model/InternalServerError'), require('../model/NotFound'));
+    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/WebPageServiceChannel'), require('../model/Forbidden'), require('../model/InternalServerError'), require('../model/NotFound'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.WebPageChannelsApi = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.BadRequest, root.KuntaApiClient.WebPageChannel, root.KuntaApiClient.Forbidden, root.KuntaApiClient.InternalServerError, root.KuntaApiClient.NotFound);
+    root.KuntaApiClient.WebPageChannelsApi = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.BadRequest, root.KuntaApiClient.WebPageServiceChannel, root.KuntaApiClient.Forbidden, root.KuntaApiClient.InternalServerError, root.KuntaApiClient.NotFound);
   }
-}(this, function(ApiClient, BadRequest, WebPageChannel, Forbidden, InternalServerError, NotFound) {
+}(this, function(ApiClient, BadRequest, WebPageServiceChannel, Forbidden, InternalServerError, NotFound) {
   'use strict';
 
   /**
    * WebPageChannels service.
    * @module api/WebPageChannelsApi
-   * @version 0.0.57
+   * @version 0.0.58
    */
 
   /**
@@ -58,55 +58,11 @@
 
 
     /**
-     * creates WebPageChannel
-     * creates WebPageChannel
-     * @param {String} serviceId service id
-     * @param {module:model/WebPageChannel} body Payload
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/WebPageChannel}
-     */
-    this.createServiceWebPageChannel = function(serviceId, body) {
-      var postBody = body;
-
-      // verify the required parameter 'serviceId' is set
-      if (serviceId == undefined || serviceId == null) {
-        throw "Missing the required parameter 'serviceId' when calling createServiceWebPageChannel";
-      }
-
-      // verify the required parameter 'body' is set
-      if (body == undefined || body == null) {
-        throw "Missing the required parameter 'body' when calling createServiceWebPageChannel";
-      }
-
-
-      var pathParams = {
-        'serviceId': serviceId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/json;charset=utf-8'];
-      var accepts = ['application/json;charset=utf-8'];
-      var returnType = WebPageChannel;
-
-      return this.apiClient.callApi(
-        '/services/{serviceId}/webPageChannels', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType
-      );
-    }
-
-
-    /**
      * finds WebPageChannel by webPageChannelId
      * finds WebPageChannels by webPageChannelId
      * @param {String} serviceId Service id
      * @param {String} webPageChannelId webPageChannel id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/WebPageChannel}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/WebPageServiceChannel}
      */
     this.findServiceWebPageChannel = function(serviceId, webPageChannelId) {
       var postBody = null;
@@ -136,7 +92,7 @@
       var authNames = [];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = WebPageChannel;
+      var returnType = WebPageServiceChannel;
 
       return this.apiClient.callApi(
         '/services/{serviceId}/webPageChannels/{webPageChannelId}', 'GET',
@@ -153,7 +109,7 @@
      * @param {Object} opts Optional parameters
      * @param {Integer} opts.firstResult First result
      * @param {Integer} opts.maxResults Max results
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/WebPageChannel>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/WebPageServiceChannel>}
      */
     this.listServiceWebPageChannels = function(serviceId, opts) {
       opts = opts || {};
@@ -180,61 +136,10 @@
       var authNames = [];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = [WebPageChannel];
+      var returnType = [WebPageServiceChannel];
 
       return this.apiClient.callApi(
         '/services/{serviceId}/webPageChannels', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType
-      );
-    }
-
-
-    /**
-     * Updates WebPageChannel
-     * Updates WebPageChannel
-     * @param {String} serviceId service id
-     * @param {String} webPageChannelId webPageChannel id
-     * @param {module:model/WebPageChannel} body Payload
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/WebPageChannel}
-     */
-    this.updateWebPageChannel = function(serviceId, webPageChannelId, body) {
-      var postBody = body;
-
-      // verify the required parameter 'serviceId' is set
-      if (serviceId == undefined || serviceId == null) {
-        throw "Missing the required parameter 'serviceId' when calling updateWebPageChannel";
-      }
-
-      // verify the required parameter 'webPageChannelId' is set
-      if (webPageChannelId == undefined || webPageChannelId == null) {
-        throw "Missing the required parameter 'webPageChannelId' when calling updateWebPageChannel";
-      }
-
-      // verify the required parameter 'body' is set
-      if (body == undefined || body == null) {
-        throw "Missing the required parameter 'body' when calling updateWebPageChannel";
-      }
-
-
-      var pathParams = {
-        'serviceId': serviceId,
-        'webPageChannelId': webPageChannelId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/json;charset=utf-8'];
-      var accepts = ['application/json;charset=utf-8'];
-      var returnType = WebPageChannel;
-
-      return this.apiClient.callApi(
-        '/services/{serviceId}/webPageChannels/{webPageChannelId}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );

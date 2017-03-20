@@ -1,4 +1,4 @@
-# KuntaApiClient.PrintableFormChannel
+# KuntaApiClient.PrintableFormServiceChannel
 
 ## Properties
 Name | Type | Description | Notes
