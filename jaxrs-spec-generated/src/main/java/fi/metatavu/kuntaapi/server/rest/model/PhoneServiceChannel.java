@@ -1,7 +1,6 @@
 package fi.metatavu.kuntaapi.server.rest.model;
 
 import fi.metatavu.kuntaapi.server.rest.model.LocalizedValue;
-import fi.metatavu.kuntaapi.server.rest.model.ServiceChannelAttachment;
 import fi.metatavu.kuntaapi.server.rest.model.ServiceHour;
 import fi.metatavu.kuntaapi.server.rest.model.SupportContact;
 import fi.metatavu.kuntaapi.server.rest.model.WebPage;
@@ -14,24 +13,26 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class WebPageChannel   {
+public class PhoneServiceChannel   {
   
   private String id = null;
   private String type = null;
   private String organizationId = null;
   private List<LocalizedValue> names = new ArrayList<LocalizedValue>();
   private List<LocalizedValue> descriptions = new ArrayList<LocalizedValue>();
-  private List<LocalizedValue> urls = new ArrayList<LocalizedValue>();
-  private List<ServiceChannelAttachment> attachments = new ArrayList<ServiceChannelAttachment>();
+  private String phoneType = null;
+  private List<String> chargeTypes = new ArrayList<String>();
   private List<SupportContact> supportContacts = new ArrayList<SupportContact>();
+  private List<LocalizedValue> phoneNumbers = new ArrayList<LocalizedValue>();
   private List<String> languages = new ArrayList<String>();
+  private List<LocalizedValue> phoneChargeDescriptions = new ArrayList<LocalizedValue>();
   private List<WebPage> webPages = new ArrayList<WebPage>();
   private List<ServiceHour> serviceHours = new ArrayList<ServiceHour>();
   private String publishingStatus = null;
 
   /**
    **/
-  public WebPageChannel id(String id) {
+  public PhoneServiceChannel id(String id) {
     this.id = id;
     return this;
   }
@@ -47,7 +48,7 @@ public class WebPageChannel   {
 
   /**
    **/
-  public WebPageChannel type(String type) {
+  public PhoneServiceChannel type(String type) {
     this.type = type;
     return this;
   }
@@ -63,7 +64,7 @@ public class WebPageChannel   {
 
   /**
    **/
-  public WebPageChannel organizationId(String organizationId) {
+  public PhoneServiceChannel organizationId(String organizationId) {
     this.organizationId = organizationId;
     return this;
   }
@@ -79,7 +80,7 @@ public class WebPageChannel   {
 
   /**
    **/
-  public WebPageChannel names(List<LocalizedValue> names) {
+  public PhoneServiceChannel names(List<LocalizedValue> names) {
     this.names = names;
     return this;
   }
@@ -95,7 +96,7 @@ public class WebPageChannel   {
 
   /**
    **/
-  public WebPageChannel descriptions(List<LocalizedValue> descriptions) {
+  public PhoneServiceChannel descriptions(List<LocalizedValue> descriptions) {
     this.descriptions = descriptions;
     return this;
   }
@@ -111,39 +112,39 @@ public class WebPageChannel   {
 
   /**
    **/
-  public WebPageChannel urls(List<LocalizedValue> urls) {
-    this.urls = urls;
+  public PhoneServiceChannel phoneType(String phoneType) {
+    this.phoneType = phoneType;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "")
-  public List<LocalizedValue> getUrls() {
-    return urls;
+  public String getPhoneType() {
+    return phoneType;
   }
-  public void setUrls(List<LocalizedValue> urls) {
-    this.urls = urls;
+  public void setPhoneType(String phoneType) {
+    this.phoneType = phoneType;
   }
 
   /**
    **/
-  public WebPageChannel attachments(List<ServiceChannelAttachment> attachments) {
-    this.attachments = attachments;
+  public PhoneServiceChannel chargeTypes(List<String> chargeTypes) {
+    this.chargeTypes = chargeTypes;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "")
-  public List<ServiceChannelAttachment> getAttachments() {
-    return attachments;
+  public List<String> getChargeTypes() {
+    return chargeTypes;
   }
-  public void setAttachments(List<ServiceChannelAttachment> attachments) {
-    this.attachments = attachments;
+  public void setChargeTypes(List<String> chargeTypes) {
+    this.chargeTypes = chargeTypes;
   }
 
   /**
    **/
-  public WebPageChannel supportContacts(List<SupportContact> supportContacts) {
+  public PhoneServiceChannel supportContacts(List<SupportContact> supportContacts) {
     this.supportContacts = supportContacts;
     return this;
   }
@@ -159,7 +160,23 @@ public class WebPageChannel   {
 
   /**
    **/
-  public WebPageChannel languages(List<String> languages) {
+  public PhoneServiceChannel phoneNumbers(List<LocalizedValue> phoneNumbers) {
+    this.phoneNumbers = phoneNumbers;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "")
+  public List<LocalizedValue> getPhoneNumbers() {
+    return phoneNumbers;
+  }
+  public void setPhoneNumbers(List<LocalizedValue> phoneNumbers) {
+    this.phoneNumbers = phoneNumbers;
+  }
+
+  /**
+   **/
+  public PhoneServiceChannel languages(List<String> languages) {
     this.languages = languages;
     return this;
   }
@@ -175,7 +192,23 @@ public class WebPageChannel   {
 
   /**
    **/
-  public WebPageChannel webPages(List<WebPage> webPages) {
+  public PhoneServiceChannel phoneChargeDescriptions(List<LocalizedValue> phoneChargeDescriptions) {
+    this.phoneChargeDescriptions = phoneChargeDescriptions;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "")
+  public List<LocalizedValue> getPhoneChargeDescriptions() {
+    return phoneChargeDescriptions;
+  }
+  public void setPhoneChargeDescriptions(List<LocalizedValue> phoneChargeDescriptions) {
+    this.phoneChargeDescriptions = phoneChargeDescriptions;
+  }
+
+  /**
+   **/
+  public PhoneServiceChannel webPages(List<WebPage> webPages) {
     this.webPages = webPages;
     return this;
   }
@@ -191,7 +224,7 @@ public class WebPageChannel   {
 
   /**
    **/
-  public WebPageChannel serviceHours(List<ServiceHour> serviceHours) {
+  public PhoneServiceChannel serviceHours(List<ServiceHour> serviceHours) {
     this.serviceHours = serviceHours;
     return this;
   }
@@ -207,7 +240,7 @@ public class WebPageChannel   {
 
   /**
    **/
-  public WebPageChannel publishingStatus(String publishingStatus) {
+  public PhoneServiceChannel publishingStatus(String publishingStatus) {
     this.publishingStatus = publishingStatus;
     return this;
   }
@@ -230,40 +263,44 @@ public class WebPageChannel   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WebPageChannel webPageChannel = (WebPageChannel) o;
-    return Objects.equals(id, webPageChannel.id) &&
-        Objects.equals(type, webPageChannel.type) &&
-        Objects.equals(organizationId, webPageChannel.organizationId) &&
-        Objects.equals(names, webPageChannel.names) &&
-        Objects.equals(descriptions, webPageChannel.descriptions) &&
-        Objects.equals(urls, webPageChannel.urls) &&
-        Objects.equals(attachments, webPageChannel.attachments) &&
-        Objects.equals(supportContacts, webPageChannel.supportContacts) &&
-        Objects.equals(languages, webPageChannel.languages) &&
-        Objects.equals(webPages, webPageChannel.webPages) &&
-        Objects.equals(serviceHours, webPageChannel.serviceHours) &&
-        Objects.equals(publishingStatus, webPageChannel.publishingStatus);
+    PhoneServiceChannel phoneServiceChannel = (PhoneServiceChannel) o;
+    return Objects.equals(id, phoneServiceChannel.id) &&
+        Objects.equals(type, phoneServiceChannel.type) &&
+        Objects.equals(organizationId, phoneServiceChannel.organizationId) &&
+        Objects.equals(names, phoneServiceChannel.names) &&
+        Objects.equals(descriptions, phoneServiceChannel.descriptions) &&
+        Objects.equals(phoneType, phoneServiceChannel.phoneType) &&
+        Objects.equals(chargeTypes, phoneServiceChannel.chargeTypes) &&
+        Objects.equals(supportContacts, phoneServiceChannel.supportContacts) &&
+        Objects.equals(phoneNumbers, phoneServiceChannel.phoneNumbers) &&
+        Objects.equals(languages, phoneServiceChannel.languages) &&
+        Objects.equals(phoneChargeDescriptions, phoneServiceChannel.phoneChargeDescriptions) &&
+        Objects.equals(webPages, phoneServiceChannel.webPages) &&
+        Objects.equals(serviceHours, phoneServiceChannel.serviceHours) &&
+        Objects.equals(publishingStatus, phoneServiceChannel.publishingStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, organizationId, names, descriptions, urls, attachments, supportContacts, languages, webPages, serviceHours, publishingStatus);
+    return Objects.hash(id, type, organizationId, names, descriptions, phoneType, chargeTypes, supportContacts, phoneNumbers, languages, phoneChargeDescriptions, webPages, serviceHours, publishingStatus);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WebPageChannel {\n");
+    sb.append("class PhoneServiceChannel {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    organizationId: ").append(toIndentedString(organizationId)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");
     sb.append("    descriptions: ").append(toIndentedString(descriptions)).append("\n");
-    sb.append("    urls: ").append(toIndentedString(urls)).append("\n");
-    sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
+    sb.append("    phoneType: ").append(toIndentedString(phoneType)).append("\n");
+    sb.append("    chargeTypes: ").append(toIndentedString(chargeTypes)).append("\n");
     sb.append("    supportContacts: ").append(toIndentedString(supportContacts)).append("\n");
+    sb.append("    phoneNumbers: ").append(toIndentedString(phoneNumbers)).append("\n");
     sb.append("    languages: ").append(toIndentedString(languages)).append("\n");
+    sb.append("    phoneChargeDescriptions: ").append(toIndentedString(phoneChargeDescriptions)).append("\n");
     sb.append("    webPages: ").append(toIndentedString(webPages)).append("\n");
     sb.append("    serviceHours: ").append(toIndentedString(serviceHours)).append("\n");
     sb.append("    publishingStatus: ").append(toIndentedString(publishingStatus)).append("\n");

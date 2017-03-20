@@ -14,7 +14,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class ServiceLocationChannel   {
+public class ServiceLocationServiceChannel   {
   
   private String id = null;
   private String type = null;
@@ -42,7 +42,7 @@ public class ServiceLocationChannel   {
 
   /**
    **/
-  public ServiceLocationChannel id(String id) {
+  public ServiceLocationServiceChannel id(String id) {
     this.id = id;
     return this;
   }
@@ -58,7 +58,7 @@ public class ServiceLocationChannel   {
 
   /**
    **/
-  public ServiceLocationChannel type(String type) {
+  public ServiceLocationServiceChannel type(String type) {
     this.type = type;
     return this;
   }
@@ -74,7 +74,7 @@ public class ServiceLocationChannel   {
 
   /**
    **/
-  public ServiceLocationChannel organizationId(String organizationId) {
+  public ServiceLocationServiceChannel organizationId(String organizationId) {
     this.organizationId = organizationId;
     return this;
   }
@@ -90,7 +90,7 @@ public class ServiceLocationChannel   {
 
   /**
    **/
-  public ServiceLocationChannel names(List<LocalizedValue> names) {
+  public ServiceLocationServiceChannel names(List<LocalizedValue> names) {
     this.names = names;
     return this;
   }
@@ -106,7 +106,7 @@ public class ServiceLocationChannel   {
 
   /**
    **/
-  public ServiceLocationChannel descriptions(List<LocalizedValue> descriptions) {
+  public ServiceLocationServiceChannel descriptions(List<LocalizedValue> descriptions) {
     this.descriptions = descriptions;
     return this;
   }
@@ -122,7 +122,7 @@ public class ServiceLocationChannel   {
 
   /**
    **/
-  public ServiceLocationChannel serviceAreaRestricted(Boolean serviceAreaRestricted) {
+  public ServiceLocationServiceChannel serviceAreaRestricted(Boolean serviceAreaRestricted) {
     this.serviceAreaRestricted = serviceAreaRestricted;
     return this;
   }
@@ -138,7 +138,7 @@ public class ServiceLocationChannel   {
 
   /**
    **/
-  public ServiceLocationChannel supportContacts(List<SupportContact> supportContacts) {
+  public ServiceLocationServiceChannel supportContacts(List<SupportContact> supportContacts) {
     this.supportContacts = supportContacts;
     return this;
   }
@@ -154,7 +154,7 @@ public class ServiceLocationChannel   {
 
   /**
    **/
-  public ServiceLocationChannel email(String email) {
+  public ServiceLocationServiceChannel email(String email) {
     this.email = email;
     return this;
   }
@@ -170,7 +170,7 @@ public class ServiceLocationChannel   {
 
   /**
    **/
-  public ServiceLocationChannel phone(String phone) {
+  public ServiceLocationServiceChannel phone(String phone) {
     this.phone = phone;
     return this;
   }
@@ -186,7 +186,7 @@ public class ServiceLocationChannel   {
 
   /**
    **/
-  public ServiceLocationChannel languages(List<String> languages) {
+  public ServiceLocationServiceChannel languages(List<String> languages) {
     this.languages = languages;
     return this;
   }
@@ -202,7 +202,7 @@ public class ServiceLocationChannel   {
 
   /**
    **/
-  public ServiceLocationChannel fax(String fax) {
+  public ServiceLocationServiceChannel fax(String fax) {
     this.fax = fax;
     return this;
   }
@@ -218,7 +218,7 @@ public class ServiceLocationChannel   {
 
   /**
    **/
-  public ServiceLocationChannel latitude(String latitude) {
+  public ServiceLocationServiceChannel latitude(String latitude) {
     this.latitude = latitude;
     return this;
   }
@@ -234,7 +234,7 @@ public class ServiceLocationChannel   {
 
   /**
    **/
-  public ServiceLocationChannel longitude(String longitude) {
+  public ServiceLocationServiceChannel longitude(String longitude) {
     this.longitude = longitude;
     return this;
   }
@@ -250,7 +250,7 @@ public class ServiceLocationChannel   {
 
   /**
    **/
-  public ServiceLocationChannel coordinateSystem(String coordinateSystem) {
+  public ServiceLocationServiceChannel coordinateSystem(String coordinateSystem) {
     this.coordinateSystem = coordinateSystem;
     return this;
   }
@@ -266,7 +266,7 @@ public class ServiceLocationChannel   {
 
   /**
    **/
-  public ServiceLocationChannel coordinatesSetManually(Boolean coordinatesSetManually) {
+  public ServiceLocationServiceChannel coordinatesSetManually(Boolean coordinatesSetManually) {
     this.coordinatesSetManually = coordinatesSetManually;
     return this;
   }
@@ -282,7 +282,7 @@ public class ServiceLocationChannel   {
 
   /**
    **/
-  public ServiceLocationChannel phoneServiceCharge(Boolean phoneServiceCharge) {
+  public ServiceLocationServiceChannel phoneServiceCharge(Boolean phoneServiceCharge) {
     this.phoneServiceCharge = phoneServiceCharge;
     return this;
   }
@@ -298,7 +298,7 @@ public class ServiceLocationChannel   {
 
   /**
    **/
-  public ServiceLocationChannel webPages(List<WebPage> webPages) {
+  public ServiceLocationServiceChannel webPages(List<WebPage> webPages) {
     this.webPages = webPages;
     return this;
   }
@@ -314,7 +314,7 @@ public class ServiceLocationChannel   {
 
   /**
    **/
-  public ServiceLocationChannel serviceAreas(List<String> serviceAreas) {
+  public ServiceLocationServiceChannel serviceAreas(List<String> serviceAreas) {
     this.serviceAreas = serviceAreas;
     return this;
   }
@@ -330,7 +330,7 @@ public class ServiceLocationChannel   {
 
   /**
    **/
-  public ServiceLocationChannel phoneChargeDescriptions(List<LocalizedValue> phoneChargeDescriptions) {
+  public ServiceLocationServiceChannel phoneChargeDescriptions(List<LocalizedValue> phoneChargeDescriptions) {
     this.phoneChargeDescriptions = phoneChargeDescriptions;
     return this;
   }
@@ -346,7 +346,7 @@ public class ServiceLocationChannel   {
 
   /**
    **/
-  public ServiceLocationChannel addresses(List<Address> addresses) {
+  public ServiceLocationServiceChannel addresses(List<Address> addresses) {
     this.addresses = addresses;
     return this;
   }
@@ -362,7 +362,7 @@ public class ServiceLocationChannel   {
 
   /**
    **/
-  public ServiceLocationChannel chargeTypes(List<String> chargeTypes) {
+  public ServiceLocationServiceChannel chargeTypes(List<String> chargeTypes) {
     this.chargeTypes = chargeTypes;
     return this;
   }
@@ -378,7 +378,7 @@ public class ServiceLocationChannel   {
 
   /**
    **/
-  public ServiceLocationChannel serviceHours(List<ServiceHour> serviceHours) {
+  public ServiceLocationServiceChannel serviceHours(List<ServiceHour> serviceHours) {
     this.serviceHours = serviceHours;
     return this;
   }
@@ -394,7 +394,7 @@ public class ServiceLocationChannel   {
 
   /**
    **/
-  public ServiceLocationChannel publishingStatus(String publishingStatus) {
+  public ServiceLocationServiceChannel publishingStatus(String publishingStatus) {
     this.publishingStatus = publishingStatus;
     return this;
   }
@@ -417,30 +417,30 @@ public class ServiceLocationChannel   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ServiceLocationChannel serviceLocationChannel = (ServiceLocationChannel) o;
-    return Objects.equals(id, serviceLocationChannel.id) &&
-        Objects.equals(type, serviceLocationChannel.type) &&
-        Objects.equals(organizationId, serviceLocationChannel.organizationId) &&
-        Objects.equals(names, serviceLocationChannel.names) &&
-        Objects.equals(descriptions, serviceLocationChannel.descriptions) &&
-        Objects.equals(serviceAreaRestricted, serviceLocationChannel.serviceAreaRestricted) &&
-        Objects.equals(supportContacts, serviceLocationChannel.supportContacts) &&
-        Objects.equals(email, serviceLocationChannel.email) &&
-        Objects.equals(phone, serviceLocationChannel.phone) &&
-        Objects.equals(languages, serviceLocationChannel.languages) &&
-        Objects.equals(fax, serviceLocationChannel.fax) &&
-        Objects.equals(latitude, serviceLocationChannel.latitude) &&
-        Objects.equals(longitude, serviceLocationChannel.longitude) &&
-        Objects.equals(coordinateSystem, serviceLocationChannel.coordinateSystem) &&
-        Objects.equals(coordinatesSetManually, serviceLocationChannel.coordinatesSetManually) &&
-        Objects.equals(phoneServiceCharge, serviceLocationChannel.phoneServiceCharge) &&
-        Objects.equals(webPages, serviceLocationChannel.webPages) &&
-        Objects.equals(serviceAreas, serviceLocationChannel.serviceAreas) &&
-        Objects.equals(phoneChargeDescriptions, serviceLocationChannel.phoneChargeDescriptions) &&
-        Objects.equals(addresses, serviceLocationChannel.addresses) &&
-        Objects.equals(chargeTypes, serviceLocationChannel.chargeTypes) &&
-        Objects.equals(serviceHours, serviceLocationChannel.serviceHours) &&
-        Objects.equals(publishingStatus, serviceLocationChannel.publishingStatus);
+    ServiceLocationServiceChannel serviceLocationServiceChannel = (ServiceLocationServiceChannel) o;
+    return Objects.equals(id, serviceLocationServiceChannel.id) &&
+        Objects.equals(type, serviceLocationServiceChannel.type) &&
+        Objects.equals(organizationId, serviceLocationServiceChannel.organizationId) &&
+        Objects.equals(names, serviceLocationServiceChannel.names) &&
+        Objects.equals(descriptions, serviceLocationServiceChannel.descriptions) &&
+        Objects.equals(serviceAreaRestricted, serviceLocationServiceChannel.serviceAreaRestricted) &&
+        Objects.equals(supportContacts, serviceLocationServiceChannel.supportContacts) &&
+        Objects.equals(email, serviceLocationServiceChannel.email) &&
+        Objects.equals(phone, serviceLocationServiceChannel.phone) &&
+        Objects.equals(languages, serviceLocationServiceChannel.languages) &&
+        Objects.equals(fax, serviceLocationServiceChannel.fax) &&
+        Objects.equals(latitude, serviceLocationServiceChannel.latitude) &&
+        Objects.equals(longitude, serviceLocationServiceChannel.longitude) &&
+        Objects.equals(coordinateSystem, serviceLocationServiceChannel.coordinateSystem) &&
+        Objects.equals(coordinatesSetManually, serviceLocationServiceChannel.coordinatesSetManually) &&
+        Objects.equals(phoneServiceCharge, serviceLocationServiceChannel.phoneServiceCharge) &&
+        Objects.equals(webPages, serviceLocationServiceChannel.webPages) &&
+        Objects.equals(serviceAreas, serviceLocationServiceChannel.serviceAreas) &&
+        Objects.equals(phoneChargeDescriptions, serviceLocationServiceChannel.phoneChargeDescriptions) &&
+        Objects.equals(addresses, serviceLocationServiceChannel.addresses) &&
+        Objects.equals(chargeTypes, serviceLocationServiceChannel.chargeTypes) &&
+        Objects.equals(serviceHours, serviceLocationServiceChannel.serviceHours) &&
+        Objects.equals(publishingStatus, serviceLocationServiceChannel.publishingStatus);
   }
 
   @Override
@@ -451,7 +451,7 @@ public class ServiceLocationChannel   {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ServiceLocationChannel {\n");
+    sb.append("class ServiceLocationServiceChannel {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

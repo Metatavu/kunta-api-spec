@@ -1,6 +1,5 @@
 package fi.metatavu.kuntaapi.server.rest.model;
 
-import fi.metatavu.kuntaapi.server.rest.model.Address;
 import fi.metatavu.kuntaapi.server.rest.model.LocalizedValue;
 import fi.metatavu.kuntaapi.server.rest.model.ServiceChannelAttachment;
 import fi.metatavu.kuntaapi.server.rest.model.ServiceHour;
@@ -15,20 +14,19 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class PrintableFormChannel   {
+public class ElectronicServiceChannel   {
   
   private String id = null;
   private String type = null;
   private String organizationId = null;
   private List<LocalizedValue> names = new ArrayList<LocalizedValue>();
   private List<LocalizedValue> descriptions = new ArrayList<LocalizedValue>();
-  private String formIdentifier = null;
-  private String formReceiver = null;
+  private Integer signatureQuantity = null;
+  private Boolean requiresSignature = null;
   private List<SupportContact> supportContacts = new ArrayList<SupportContact>();
-  private Address deliveryAddress = null;
-  private List<LocalizedValue> channelUrls = new ArrayList<LocalizedValue>();
+  private Boolean requiresAuthentication = null;
+  private List<LocalizedValue> urls = new ArrayList<LocalizedValue>();
   private List<String> languages = new ArrayList<String>();
-  private List<LocalizedValue> deliveryAddressDescriptions = new ArrayList<LocalizedValue>();
   private List<ServiceChannelAttachment> attachments = new ArrayList<ServiceChannelAttachment>();
   private List<WebPage> webPages = new ArrayList<WebPage>();
   private List<ServiceHour> serviceHours = new ArrayList<ServiceHour>();
@@ -36,7 +34,7 @@ public class PrintableFormChannel   {
 
   /**
    **/
-  public PrintableFormChannel id(String id) {
+  public ElectronicServiceChannel id(String id) {
     this.id = id;
     return this;
   }
@@ -52,7 +50,7 @@ public class PrintableFormChannel   {
 
   /**
    **/
-  public PrintableFormChannel type(String type) {
+  public ElectronicServiceChannel type(String type) {
     this.type = type;
     return this;
   }
@@ -68,7 +66,7 @@ public class PrintableFormChannel   {
 
   /**
    **/
-  public PrintableFormChannel organizationId(String organizationId) {
+  public ElectronicServiceChannel organizationId(String organizationId) {
     this.organizationId = organizationId;
     return this;
   }
@@ -84,7 +82,7 @@ public class PrintableFormChannel   {
 
   /**
    **/
-  public PrintableFormChannel names(List<LocalizedValue> names) {
+  public ElectronicServiceChannel names(List<LocalizedValue> names) {
     this.names = names;
     return this;
   }
@@ -100,7 +98,7 @@ public class PrintableFormChannel   {
 
   /**
    **/
-  public PrintableFormChannel descriptions(List<LocalizedValue> descriptions) {
+  public ElectronicServiceChannel descriptions(List<LocalizedValue> descriptions) {
     this.descriptions = descriptions;
     return this;
   }
@@ -116,39 +114,39 @@ public class PrintableFormChannel   {
 
   /**
    **/
-  public PrintableFormChannel formIdentifier(String formIdentifier) {
-    this.formIdentifier = formIdentifier;
+  public ElectronicServiceChannel signatureQuantity(Integer signatureQuantity) {
+    this.signatureQuantity = signatureQuantity;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "")
-  public String getFormIdentifier() {
-    return formIdentifier;
+  public Integer getSignatureQuantity() {
+    return signatureQuantity;
   }
-  public void setFormIdentifier(String formIdentifier) {
-    this.formIdentifier = formIdentifier;
+  public void setSignatureQuantity(Integer signatureQuantity) {
+    this.signatureQuantity = signatureQuantity;
   }
 
   /**
    **/
-  public PrintableFormChannel formReceiver(String formReceiver) {
-    this.formReceiver = formReceiver;
+  public ElectronicServiceChannel requiresSignature(Boolean requiresSignature) {
+    this.requiresSignature = requiresSignature;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "")
-  public String getFormReceiver() {
-    return formReceiver;
+  public Boolean getRequiresSignature() {
+    return requiresSignature;
   }
-  public void setFormReceiver(String formReceiver) {
-    this.formReceiver = formReceiver;
+  public void setRequiresSignature(Boolean requiresSignature) {
+    this.requiresSignature = requiresSignature;
   }
 
   /**
    **/
-  public PrintableFormChannel supportContacts(List<SupportContact> supportContacts) {
+  public ElectronicServiceChannel supportContacts(List<SupportContact> supportContacts) {
     this.supportContacts = supportContacts;
     return this;
   }
@@ -164,39 +162,39 @@ public class PrintableFormChannel   {
 
   /**
    **/
-  public PrintableFormChannel deliveryAddress(Address deliveryAddress) {
-    this.deliveryAddress = deliveryAddress;
+  public ElectronicServiceChannel requiresAuthentication(Boolean requiresAuthentication) {
+    this.requiresAuthentication = requiresAuthentication;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "")
-  public Address getDeliveryAddress() {
-    return deliveryAddress;
+  public Boolean getRequiresAuthentication() {
+    return requiresAuthentication;
   }
-  public void setDeliveryAddress(Address deliveryAddress) {
-    this.deliveryAddress = deliveryAddress;
+  public void setRequiresAuthentication(Boolean requiresAuthentication) {
+    this.requiresAuthentication = requiresAuthentication;
   }
 
   /**
    **/
-  public PrintableFormChannel channelUrls(List<LocalizedValue> channelUrls) {
-    this.channelUrls = channelUrls;
+  public ElectronicServiceChannel urls(List<LocalizedValue> urls) {
+    this.urls = urls;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "")
-  public List<LocalizedValue> getChannelUrls() {
-    return channelUrls;
+  public List<LocalizedValue> getUrls() {
+    return urls;
   }
-  public void setChannelUrls(List<LocalizedValue> channelUrls) {
-    this.channelUrls = channelUrls;
+  public void setUrls(List<LocalizedValue> urls) {
+    this.urls = urls;
   }
 
   /**
    **/
-  public PrintableFormChannel languages(List<String> languages) {
+  public ElectronicServiceChannel languages(List<String> languages) {
     this.languages = languages;
     return this;
   }
@@ -212,23 +210,7 @@ public class PrintableFormChannel   {
 
   /**
    **/
-  public PrintableFormChannel deliveryAddressDescriptions(List<LocalizedValue> deliveryAddressDescriptions) {
-    this.deliveryAddressDescriptions = deliveryAddressDescriptions;
-    return this;
-  }
-
-  
-  @ApiModelProperty(example = "null", value = "")
-  public List<LocalizedValue> getDeliveryAddressDescriptions() {
-    return deliveryAddressDescriptions;
-  }
-  public void setDeliveryAddressDescriptions(List<LocalizedValue> deliveryAddressDescriptions) {
-    this.deliveryAddressDescriptions = deliveryAddressDescriptions;
-  }
-
-  /**
-   **/
-  public PrintableFormChannel attachments(List<ServiceChannelAttachment> attachments) {
+  public ElectronicServiceChannel attachments(List<ServiceChannelAttachment> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -244,7 +226,7 @@ public class PrintableFormChannel   {
 
   /**
    **/
-  public PrintableFormChannel webPages(List<WebPage> webPages) {
+  public ElectronicServiceChannel webPages(List<WebPage> webPages) {
     this.webPages = webPages;
     return this;
   }
@@ -260,7 +242,7 @@ public class PrintableFormChannel   {
 
   /**
    **/
-  public PrintableFormChannel serviceHours(List<ServiceHour> serviceHours) {
+  public ElectronicServiceChannel serviceHours(List<ServiceHour> serviceHours) {
     this.serviceHours = serviceHours;
     return this;
   }
@@ -276,7 +258,7 @@ public class PrintableFormChannel   {
 
   /**
    **/
-  public PrintableFormChannel publishingStatus(String publishingStatus) {
+  public ElectronicServiceChannel publishingStatus(String publishingStatus) {
     this.publishingStatus = publishingStatus;
     return this;
   }
@@ -299,47 +281,45 @@ public class PrintableFormChannel   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PrintableFormChannel printableFormChannel = (PrintableFormChannel) o;
-    return Objects.equals(id, printableFormChannel.id) &&
-        Objects.equals(type, printableFormChannel.type) &&
-        Objects.equals(organizationId, printableFormChannel.organizationId) &&
-        Objects.equals(names, printableFormChannel.names) &&
-        Objects.equals(descriptions, printableFormChannel.descriptions) &&
-        Objects.equals(formIdentifier, printableFormChannel.formIdentifier) &&
-        Objects.equals(formReceiver, printableFormChannel.formReceiver) &&
-        Objects.equals(supportContacts, printableFormChannel.supportContacts) &&
-        Objects.equals(deliveryAddress, printableFormChannel.deliveryAddress) &&
-        Objects.equals(channelUrls, printableFormChannel.channelUrls) &&
-        Objects.equals(languages, printableFormChannel.languages) &&
-        Objects.equals(deliveryAddressDescriptions, printableFormChannel.deliveryAddressDescriptions) &&
-        Objects.equals(attachments, printableFormChannel.attachments) &&
-        Objects.equals(webPages, printableFormChannel.webPages) &&
-        Objects.equals(serviceHours, printableFormChannel.serviceHours) &&
-        Objects.equals(publishingStatus, printableFormChannel.publishingStatus);
+    ElectronicServiceChannel electronicServiceChannel = (ElectronicServiceChannel) o;
+    return Objects.equals(id, electronicServiceChannel.id) &&
+        Objects.equals(type, electronicServiceChannel.type) &&
+        Objects.equals(organizationId, electronicServiceChannel.organizationId) &&
+        Objects.equals(names, electronicServiceChannel.names) &&
+        Objects.equals(descriptions, electronicServiceChannel.descriptions) &&
+        Objects.equals(signatureQuantity, electronicServiceChannel.signatureQuantity) &&
+        Objects.equals(requiresSignature, electronicServiceChannel.requiresSignature) &&
+        Objects.equals(supportContacts, electronicServiceChannel.supportContacts) &&
+        Objects.equals(requiresAuthentication, electronicServiceChannel.requiresAuthentication) &&
+        Objects.equals(urls, electronicServiceChannel.urls) &&
+        Objects.equals(languages, electronicServiceChannel.languages) &&
+        Objects.equals(attachments, electronicServiceChannel.attachments) &&
+        Objects.equals(webPages, electronicServiceChannel.webPages) &&
+        Objects.equals(serviceHours, electronicServiceChannel.serviceHours) &&
+        Objects.equals(publishingStatus, electronicServiceChannel.publishingStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, organizationId, names, descriptions, formIdentifier, formReceiver, supportContacts, deliveryAddress, channelUrls, languages, deliveryAddressDescriptions, attachments, webPages, serviceHours, publishingStatus);
+    return Objects.hash(id, type, organizationId, names, descriptions, signatureQuantity, requiresSignature, supportContacts, requiresAuthentication, urls, languages, attachments, webPages, serviceHours, publishingStatus);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PrintableFormChannel {\n");
+    sb.append("class ElectronicServiceChannel {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    organizationId: ").append(toIndentedString(organizationId)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");
     sb.append("    descriptions: ").append(toIndentedString(descriptions)).append("\n");
-    sb.append("    formIdentifier: ").append(toIndentedString(formIdentifier)).append("\n");
-    sb.append("    formReceiver: ").append(toIndentedString(formReceiver)).append("\n");
+    sb.append("    signatureQuantity: ").append(toIndentedString(signatureQuantity)).append("\n");
+    sb.append("    requiresSignature: ").append(toIndentedString(requiresSignature)).append("\n");
     sb.append("    supportContacts: ").append(toIndentedString(supportContacts)).append("\n");
-    sb.append("    deliveryAddress: ").append(toIndentedString(deliveryAddress)).append("\n");
-    sb.append("    channelUrls: ").append(toIndentedString(channelUrls)).append("\n");
+    sb.append("    requiresAuthentication: ").append(toIndentedString(requiresAuthentication)).append("\n");
+    sb.append("    urls: ").append(toIndentedString(urls)).append("\n");
     sb.append("    languages: ").append(toIndentedString(languages)).append("\n");
-    sb.append("    deliveryAddressDescriptions: ").append(toIndentedString(deliveryAddressDescriptions)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    webPages: ").append(toIndentedString(webPages)).append("\n");
     sb.append("    serviceHours: ").append(toIndentedString(serviceHours)).append("\n");
