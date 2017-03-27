@@ -5704,6 +5704,10 @@
       "properties" : {
         "hideMenuChildren" : {
           "type" : "boolean"
+        },
+        "unmappedParentId" : {
+          "type" : "string",
+          "format" : "uuid"
         }
       }
     },

@@ -10,6 +10,7 @@ import java.util.Objects;
 public class PageMeta   {
   
   private Boolean hideMenuChildren = null;
+  private String unmappedParentId = null;
 
   /**
    **/
@@ -27,6 +28,22 @@ public class PageMeta   {
     this.hideMenuChildren = hideMenuChildren;
   }
 
+  /**
+   **/
+  public PageMeta unmappedParentId(String unmappedParentId) {
+    this.unmappedParentId = unmappedParentId;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "")
+  public String getUnmappedParentId() {
+    return unmappedParentId;
+  }
+  public void setUnmappedParentId(String unmappedParentId) {
+    this.unmappedParentId = unmappedParentId;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -37,12 +54,13 @@ public class PageMeta   {
       return false;
     }
     PageMeta pageMeta = (PageMeta) o;
-    return Objects.equals(hideMenuChildren, pageMeta.hideMenuChildren);
+    return Objects.equals(hideMenuChildren, pageMeta.hideMenuChildren) &&
+        Objects.equals(unmappedParentId, pageMeta.unmappedParentId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hideMenuChildren);
+    return Objects.hash(hideMenuChildren, unmappedParentId);
   }
 
   @Override
@@ -51,6 +69,7 @@ public class PageMeta   {
     sb.append("class PageMeta {\n");
     
     sb.append("    hideMenuChildren: ").append(toIndentedString(hideMenuChildren)).append("\n");
+    sb.append("    unmappedParentId: ").append(toIndentedString(unmappedParentId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
