@@ -71,6 +71,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property unmappedParentId (base name: "unmappedParentId")', function() {
+      // uncomment below and update the code to test the property unmappedParentId
+      //var instane = new KuntaApiClient.PageMeta();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));
