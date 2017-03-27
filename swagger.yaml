@@ -4333,6 +4333,9 @@ definitions:
     properties:
       hideMenuChildren:
         type: boolean
+      unmappedParentId:
+        type: string
+        format: uuid
   Shortlink:
     properties:
       id:
