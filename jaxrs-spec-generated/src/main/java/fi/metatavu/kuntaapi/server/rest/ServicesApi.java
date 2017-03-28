@@ -25,7 +25,7 @@ import java.util.List;
 @Api(description = "the services API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-03-28T17:27:52.077+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-03-28T19:50:49.150+03:00")
 
 public abstract class ServicesApi extends AbstractApi {
 
