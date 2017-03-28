@@ -1652,6 +1652,12 @@
           "required" : false,
           "type" : "string"
         }, {
+          "name" : "tag",
+          "in" : "query",
+          "description" : "Filter by tag",
+          "required" : false,
+          "type" : "string"
+        }, {
           "name" : "publishedBefore",
           "in" : "query",
           "description" : "return only news published before the date",
@@ -5673,6 +5679,12 @@
         "published" : {
           "type" : "string",
           "format" : "date-time"
+        },
+        "tags" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
         }
       }
     },

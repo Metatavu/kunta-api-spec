@@ -1,6 +1,8 @@
 package fi.metatavu.kuntaapi.server.rest.model;
 
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 
 
@@ -16,6 +18,7 @@ public class NewsArticle   {
   private String slug = null;
   private String contents = null;
   private OffsetDateTime published = null;
+  private List<String> tags = new ArrayList<String>();
 
   /**
    **/
@@ -113,6 +116,22 @@ public class NewsArticle   {
     this.published = published;
   }
 
+  /**
+   **/
+  public NewsArticle tags(List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "")
+  public List<String> getTags() {
+    return tags;
+  }
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -128,12 +147,13 @@ public class NewsArticle   {
         Objects.equals(_abstract, newsArticle._abstract) &&
         Objects.equals(slug, newsArticle.slug) &&
         Objects.equals(contents, newsArticle.contents) &&
-        Objects.equals(published, newsArticle.published);
+        Objects.equals(published, newsArticle.published) &&
+        Objects.equals(tags, newsArticle.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, _abstract, slug, contents, published);
+    return Objects.hash(id, title, _abstract, slug, contents, published, tags);
   }
 
   @Override
@@ -147,6 +167,7 @@ public class NewsArticle   {
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("    contents: ").append(toIndentedString(contents)).append("\n");
     sb.append("    published: ").append(toIndentedString(published)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

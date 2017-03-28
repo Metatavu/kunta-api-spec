@@ -43,7 +43,7 @@ import java.util.List;
 @Api(description = "the organizations API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-03-28T12:51:21.376+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-03-28T17:27:52.077+03:00")
 
 public abstract class OrganizationsApi extends AbstractApi {
 
@@ -634,7 +634,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = NewsArticle.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = NewsArticle.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = NewsArticle.class, responseContainer = "List") })
-    public abstract Response listOrganizationNews(@PathParam("organizationId") String organizationId,@QueryParam("slug") String slug,@QueryParam("publishedBefore") String publishedBefore,@QueryParam("publishedAfter") String publishedAfter,@QueryParam("firstResult") Integer firstResult,@QueryParam("maxResults") Integer maxResults,@Context Request request);
+    public abstract Response listOrganizationNews(@PathParam("organizationId") String organizationId,@QueryParam("slug") String slug,@QueryParam("tag") String tag,@QueryParam("publishedBefore") String publishedBefore,@QueryParam("publishedAfter") String publishedAfter,@QueryParam("firstResult") Integer firstResult,@QueryParam("maxResults") Integer maxResults,@Context Request request);
 
     @GET
     @Path("/{organizationId}/news/{newsArticleId}/images")
