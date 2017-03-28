@@ -38,15 +38,10 @@
   }
 }(this, function(superagent) {
   'use strict';
-  
-  require('superagent-cache')(superagent, null, {
-    preventDuplicateCalls: true,
-    expiration: 10
-  });
 
   /**
    * @module ApiClient
-   * @version 0.0.59
+   * @version 0.0.60
    */
 
   /**
@@ -356,8 +351,8 @@
     var url = this.buildUrl(path, pathParams);
     var request = superagent(httpMethod, url);
 
-    if (typeof module === 'object' && module.exports) {
-      request.use(require('superagent-logger')({ outgoing: true }));
+    if (typeof this.beforeRequest === 'function') {
+      this.beforeRequest.call(this, request, superagent);
     }
 
     // apply authentications

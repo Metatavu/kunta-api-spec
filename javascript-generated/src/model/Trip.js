@@ -45,7 +45,7 @@
   /**
    * The Trip model module.
    * @module model/Trip
-   * @version 0.0.59
+   * @version 0.0.60
    */
 
   /**
