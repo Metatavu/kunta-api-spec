@@ -1,7 +1,7 @@
 {
   "author": "Metatavu Oy",
   "name": "kunta-api-client",
-  "version": "0.0.61",
+  "version": "0.0.62",
   "description": "Solution to combine municipality services under single API.",
   "license": "AGPL-3.0",
   "main": "src/index.js",
@@ -13,7 +13,7 @@
     "url": "git://github.com/Metatavu/kunta-api-spec.git"
   },
   "dependencies": {
-    "superagent": "3.5.2"
+    "superagent": "1.8.4"
   },
   "devDependencies": {
     "mocha": "~2.3.4",
