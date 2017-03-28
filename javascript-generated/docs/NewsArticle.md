@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **slug** | **String** |  | [optional] 
 **contents** | **String** |  | [optional] 
 **published** | **Date** |  | [optional] 
+**tags** | **[String]** |  | [optional] 
 
 

@@ -177,6 +177,7 @@ var organizationId = "organizationId_example"; // String | Organization id
 
 var opts = { 
   'slug': "slug_example", // String | Filter with slug
+  'tag': "tag_example", // String | Filter by tag
   'publishedBefore': "publishedBefore_example", // String | return only news published before the date
   'publishedAfter': "publishedAfter_example", // String | return only news published after the date
   'firstResult': 56, // Integer | first index of results
@@ -196,6 +197,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| Organization id | 
  **slug** | **String**| Filter with slug | [optional] 
+ **tag** | **String**| Filter by tag | [optional] 
  **publishedBefore** | **String**| return only news published before the date | [optional] 
  **publishedAfter** | **String**| return only news published after the date | [optional] 
  **firstResult** | **Integer**| first index of results | [optional] 
