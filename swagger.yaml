@@ -531,6 +531,11 @@ paths:
           description: Filter with slug
           required: false
           type: string
+        - name: tag
+          in: query
+          description: Filter by tag
+          required: false
+          type: string
         - name: publishedBefore
           in: query
           description: return only news published before the date
