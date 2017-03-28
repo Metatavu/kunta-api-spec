@@ -41,7 +41,7 @@
 
   /**
    * @module ApiClient
-   * @version 0.0.62
+   * @version 0.0.63
    */
 
   /**
@@ -365,7 +365,9 @@
     request.set(this.defaultHeaders).set(this.normalizeParams(headerParams));
 
     // set request timeout
-    request.timeout(this.timeout);
+    if (!this.failsafeCache) {
+      request.timeout(this.timeout);
+    }
 
     var contentType = this.jsonPreferredMime(contentTypes);
     if (contentType) {
@@ -397,13 +399,39 @@
       request.accept(accept);
     }
 
-    return new Promise(function(resolve, reject) {
+       return new Promise(function(resolve, reject) {
+      var requestTimeOut = null;
+      if (_this.failsafeCache) {
+        requestTimeOut = setTimeout(() => {
+          _this.failsafeCache.get(request.url, (cacheErr, failsafeData) => {
+            if (!cacheErr && failsafeData) {
+              resolve(JSON.parse(failsafeData));
+            }
+          });
+
+        }, _this.timeout);
+      }
+      
       request.end(function(error, response) {
+        clearTimeout(requestTimeOut);
         if (error) {
-          reject(error);
+          if (_this.failsafeCache) {
+            _this.failsafeCache.get(request.url, (cacheErr, failsafeData) => {
+              if (!cacheErr && failsafeData) {
+                resolve(JSON.parse(failsafeData));
+              } else {
+                reject(error);
+              }
+            });
+          } else {
+            reject(error);
+          }
         } else {
           var data = _this.deserialize(response, returnType);
-          resolve(data);
+          if (_this.failsafeCache) {
+            _this.failsafeCache.set(request.url, JSON.stringify(data), 60 * 60 * 24);
+          }
+          resolve(_this.deserialize(response, data));
         }
       });
     });
