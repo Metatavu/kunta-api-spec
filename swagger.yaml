@@ -2642,6 +2642,109 @@ paths:
           description: Internal server error
           schema:
             $ref: '#/definitions/InternalServerError'
+  /organizations/{organizationId}/incidents:
+    get:
+      operationId: listOrganizationIncidents
+      summary: Lists organizations incidents
+      description: |
+        Lists organizations incidents
+      parameters:
+        - name: organizationId
+          in: path
+          description: Organization id
+          required: true
+          type: string
+          format: uuid
+        - name: startBefore
+          in: query
+          type: string
+          format: date-time
+        - name: endAfter
+          in: query
+          type: string
+          format: date-time
+        - name: area
+          in: query
+          description: Return only incidents from specified area
+          type: integer
+          format: int32
+        - name: firstResult
+          in: query
+          description: First index of results
+          type: integer
+          format: int32
+        - name: maxResults
+          in: query
+          description: Maximum number of results
+          type: integer
+          format: int32
+        - name: orderBy
+          in: query
+          description: Define order (start, end)
+          type: string
+        - name: orderDir
+          in: query
+          description: Order direction (ASC, DESC). Default is ASC
+          type: string
+      tags:
+        - Incidents
+      responses:
+        200:
+          description: Returns a list of incidents
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Incident'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  /organizations/{organizationId}/incidents/{incidentId}:
+    get:
+      operationId: findOrganizationIncident
+      summary: Returns organizations incident by id
+      description: |
+        Returns organizations incident by id
+      parameters:
+        - name: organizationId
+          in: path
+          description: Organization id
+          required: true
+          type: string
+          format: uuid
+        - name: incidentId
+          in: path
+          description: Incident id
+          required: true
+          type: string
+          format: uuid
+      tags:
+        - Incidents
+      responses:
+        200:
+          description: Returns a single incident
+          schema:
+            $ref: '#/definitions/Incident'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
   /services:
     get:
       operationId: listServices
@@ -4766,6 +4869,28 @@ definitions:
       endDate:
         type: string
         format: date-time
+  Incident:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+      severity:
+        type: string
+      title:
+        type: string
+      description:
+        type: string
+      start:
+        type: string
+        format: date-time
+      end:
+        type: string
+        format: date-time
+      areas:
+        type: array
+        items:
+          type: string
   ScheduleException:
     type: object
     properties:
