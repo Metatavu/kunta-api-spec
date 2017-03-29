@@ -41,7 +41,7 @@
 
   /**
    * @module ApiClient
-   * @version 0.0.65
+   * @version 0.0.66
    */
 
   /**
@@ -78,6 +78,13 @@
      * @default 60000
      */
     this.timeout = 10000;
+
+    /**
+     * Methods that should be stored into failsafe cache ( if failsafe cache in use )
+     * @type {Array.<String>}
+     * @default ['GET', 'HEAD']
+     */
+    this.cacheableMethods = ['GET', 'HEAD'];
   };
 
   /**
@@ -400,12 +407,13 @@
     }
 
        return new Promise(function(resolve, reject) {
+      
       var requestTimeOut = null;
-      if (_this.failsafeCache) {
+      if (_this.failsafeCache && _this.cacheableMethods.indexOf(httpMethod) > -1) {
         requestTimeOut = setTimeout(() => {
           _this.failsafeCache.get(request.url, (cacheErr, failsafeData) => {
             if (!cacheErr && failsafeData) {
-              resolve(JSON.parse(failsafeData));
+              resolve(failsafeData);
             }
           });
 
@@ -415,10 +423,10 @@
       request.end(function(error, response) {
         clearTimeout(requestTimeOut);
         if (error) {
-          if (_this.failsafeCache) {
+          if (_this.failsafeCache && _this.cacheableMethods.indexOf(httpMethod) > -1) {
             _this.failsafeCache.get(request.url, (cacheErr, failsafeData) => {
               if (!cacheErr && failsafeData) {
-                resolve(JSON.parse(failsafeData));
+                resolve(failsafeData);
               } else {
                 reject(error);
               }
@@ -428,9 +436,10 @@
           }
         } else {
           var data = _this.deserialize(response, returnType);
-          if (_this.failsafeCache) {
-            _this.failsafeCache.set(request.url, JSON.stringify(data), 60 * 60 * 24);
+          if (_this.failsafeCache && _this.cacheableMethods.indexOf(httpMethod) > -1) {
+            _this.failsafeCache.set(request.url, data);
           }
+
           resolve(_this.deserialize(response, data));
         }
       });
