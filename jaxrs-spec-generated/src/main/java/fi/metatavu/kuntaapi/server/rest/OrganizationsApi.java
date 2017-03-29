@@ -13,6 +13,7 @@ import fi.metatavu.kuntaapi.server.rest.model.Contact;
 import fi.metatavu.kuntaapi.server.rest.model.Event;
 import fi.metatavu.kuntaapi.server.rest.model.FileDef;
 import fi.metatavu.kuntaapi.server.rest.model.Fragment;
+import fi.metatavu.kuntaapi.server.rest.model.Incident;
 import fi.metatavu.kuntaapi.server.rest.model.Job;
 import fi.metatavu.kuntaapi.server.rest.model.Menu;
 import fi.metatavu.kuntaapi.server.rest.model.MenuItem;
@@ -28,6 +29,7 @@ import fi.metatavu.kuntaapi.server.rest.model.NotFound;
 import fi.metatavu.kuntaapi.server.rest.model.Shortlink;
 import fi.metatavu.kuntaapi.server.rest.model.Tile;
 import fi.metatavu.kuntaapi.server.rest.model.Banner;
+import java.time.OffsetDateTime;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
@@ -43,7 +45,7 @@ import java.util.List;
 @Api(description = "the organizations API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-03-29T13:43:16.522+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-03-29T18:38:40.102+03:00")
 
 public abstract class OrganizationsApi extends AbstractApi {
 
@@ -190,6 +192,18 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Fragment.class),
         @ApiResponse(code = 500, message = "Internal server error", response = Fragment.class) })
     public abstract Response findOrganizationFragment(@PathParam("organizationId") String organizationId,@PathParam("fragmentId") String fragmentId,@Context Request request);
+
+    @GET
+    @Path("/{organizationId}/incidents/{incidentId}")
+    @Consumes({ "application/json;charset=utf-8" })
+    @Produces({ "application/json;charset=utf-8" })
+    @ApiOperation(value = "Returns organizations incident by id", notes = "Returns organizations incident by id ", response = Incident.class, tags={ "Incidents",  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Returns a single incident", response = Incident.class),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Incident.class),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Incident.class),
+        @ApiResponse(code = 500, message = "Internal server error", response = Incident.class) })
+    public abstract Response findOrganizationIncident(@PathParam("organizationId") String organizationId,@PathParam("incidentId") String incidentId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/jobs/{jobId}")
@@ -587,6 +601,18 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Fragment.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = Fragment.class, responseContainer = "List") })
     public abstract Response listOrganizationFragments(@PathParam("organizationId") String organizationId,@QueryParam("slug") String slug,@Context Request request);
+
+    @GET
+    @Path("/{organizationId}/incidents")
+    @Consumes({ "application/json;charset=utf-8" })
+    @Produces({ "application/json;charset=utf-8" })
+    @ApiOperation(value = "Lists organizations incidents", notes = "Lists organizations incidents ", response = Incident.class, responseContainer = "List", tags={ "Incidents",  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Returns a list of incidents", response = Incident.class, responseContainer = "List"),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Incident.class, responseContainer = "List"),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Incident.class, responseContainer = "List"),
+        @ApiResponse(code = 500, message = "Internal server error", response = Incident.class, responseContainer = "List") })
+    public abstract Response listOrganizationIncidents(@PathParam("organizationId") String organizationId,@QueryParam("startBefore") OffsetDateTime startBefore,@QueryParam("endAfter") OffsetDateTime endAfter,@QueryParam("area") Integer area,@QueryParam("firstResult") Integer firstResult,@QueryParam("maxResults") Integer maxResults,@QueryParam("orderBy") String orderBy,@QueryParam("orderDir") String orderDir,@Context Request request);
 
     @GET
     @Path("/{organizationId}/jobs")
