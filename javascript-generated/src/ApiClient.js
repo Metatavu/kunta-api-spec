@@ -41,7 +41,7 @@
 
   /**
    * @module ApiClient
-   * @version 0.0.66
+   * @version 0.0.67
    */
 
   /**
@@ -78,6 +78,13 @@
      * @default 60000
      */
     this.timeout = 10000;
+
+    /**
+     * The default timeout after data is fetched from failsafe cache ( if failsafe cache in use ).
+     * @type {Number}
+     * @default 1000
+     */
+    this.cacheTimeout = 1000;
 
     /**
      * Methods that should be stored into failsafe cache ( if failsafe cache in use )
@@ -372,9 +379,7 @@
     request.set(this.defaultHeaders).set(this.normalizeParams(headerParams));
 
     // set request timeout
-    if (!this.failsafeCache) {
-      request.timeout(this.timeout);
-    }
+    request.timeout(this.timeout);
 
     var contentType = this.jsonPreferredMime(contentTypes);
     if (contentType) {
@@ -406,25 +411,25 @@
       request.accept(accept);
     }
 
-       return new Promise(function(resolve, reject) {
+    return new Promise(function(resolve, reject) {
       
       var requestTimeOut = null;
       if (_this.failsafeCache && _this.cacheableMethods.indexOf(httpMethod) > -1) {
-        requestTimeOut = setTimeout(() => {
-          _this.failsafeCache.get(request.url, (cacheErr, failsafeData) => {
+        requestTimeOut = setTimeout(function() {
+          _this.failsafeCache.get(request.url, function(cacheErr, failsafeData) {
             if (!cacheErr && failsafeData) {
               resolve(failsafeData);
             }
           });
 
-        }, _this.timeout);
+        }, _this.cacheTimeout);
       }
       
       request.end(function(error, response) {
         clearTimeout(requestTimeOut);
         if (error) {
-          if (_this.failsafeCache && _this.cacheableMethods.indexOf(httpMethod) > -1) {
-            _this.failsafeCache.get(request.url, (cacheErr, failsafeData) => {
+          if (_this.failsafeCache && _this.cacheableMethods.indexOf(httpMethod) > -1 && error.status > 399 && error.status !== 404 ) {
+            _this.failsafeCache.get(request.url, function(cacheErr, failsafeData) {
               if (!cacheErr && failsafeData) {
                 resolve(failsafeData);
               } else {
