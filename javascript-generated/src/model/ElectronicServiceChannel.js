@@ -45,7 +45,7 @@
   /**
    * The ElectronicServiceChannel model module.
    * @module model/ElectronicServiceChannel
-   * @version 0.0.69
+   * @version 0.0.70
    */
 
   /**

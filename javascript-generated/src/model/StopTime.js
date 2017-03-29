@@ -45,7 +45,7 @@
   /**
    * The StopTime model module.
    * @module model/StopTime
-   * @version 0.0.69
+   * @version 0.0.70
    */
 
   /**
