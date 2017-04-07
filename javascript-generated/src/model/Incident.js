@@ -34,7 +34,7 @@
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.Organization = factory(root.KuntaApiClient.ApiClient);
+    root.KuntaApiClient.Incident = factory(root.KuntaApiClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -43,14 +43,14 @@
 
 
   /**
-   * The Organization model module.
-   * @module model/Organization
+   * The Incident model module.
+   * @module model/Incident
    * @version 0.0.70
    */
 
   /**
-   * Constructs a new <code>Organization</code>.
-   * @alias module:model/Organization
+   * Constructs a new <code>Incident</code>.
+   * @alias module:model/Incident
    * @class
    */
   var exports = function() {
@@ -59,14 +59,18 @@
 
 
 
+
+
+
+
   };
 
   /**
-   * Constructs a <code>Organization</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>Incident</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Organization} obj Optional instance to populate.
-   * @return {module:model/Organization} The populated <code>Organization</code> instance.
+   * @param {module:model/Incident} obj Optional instance to populate.
+   * @return {module:model/Incident} The populated <code>Incident</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -75,31 +79,56 @@
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
-      if (data.hasOwnProperty('businessName')) {
-        obj['businessName'] = ApiClient.convertToType(data['businessName'], 'String');
+      if (data.hasOwnProperty('severity')) {
+        obj['severity'] = ApiClient.convertToType(data['severity'], 'String');
       }
-      if (data.hasOwnProperty('businessCode')) {
-        obj['businessCode'] = ApiClient.convertToType(data['businessCode'], 'String');
+      if (data.hasOwnProperty('title')) {
+        obj['title'] = ApiClient.convertToType(data['title'], 'String');
+      }
+      if (data.hasOwnProperty('description')) {
+        obj['description'] = ApiClient.convertToType(data['description'], 'String');
+      }
+      if (data.hasOwnProperty('start')) {
+        obj['start'] = ApiClient.convertToType(data['start'], 'Date');
+      }
+      if (data.hasOwnProperty('end')) {
+        obj['end'] = ApiClient.convertToType(data['end'], 'Date');
+      }
+      if (data.hasOwnProperty('areas')) {
+        obj['areas'] = ApiClient.convertToType(data['areas'], ['String']);
       }
     }
     return obj;
   }
 
   /**
-   * Unique identifier a organization.
    * @member {String} id
    */
   exports.prototype['id'] = undefined;
   /**
-   * Primary name of organization
-   * @member {String} businessName
+   * @member {String} severity
    */
-  exports.prototype['businessName'] = undefined;
+  exports.prototype['severity'] = undefined;
   /**
-   * Business code code of organization
-   * @member {String} businessCode
+   * @member {String} title
    */
-  exports.prototype['businessCode'] = undefined;
+  exports.prototype['title'] = undefined;
+  /**
+   * @member {String} description
+   */
+  exports.prototype['description'] = undefined;
+  /**
+   * @member {Date} start
+   */
+  exports.prototype['start'] = undefined;
+  /**
+   * @member {Date} end
+   */
+  exports.prototype['end'] = undefined;
+  /**
+   * @member {Array.<String>} areas
+   */
+  exports.prototype['areas'] = undefined;
 
 
 
