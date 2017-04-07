@@ -45,7 +45,7 @@
   /**
    * The Shortlink model module.
    * @module model/Shortlink
-   * @version 0.0.71
+   * @version 0.0.72
    */
 
   /**

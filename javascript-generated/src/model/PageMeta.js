@@ -45,7 +45,7 @@
   /**
    * The PageMeta model module.
    * @module model/PageMeta
-   * @version 0.0.71
+   * @version 0.0.72
    */
 
   /**

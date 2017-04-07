@@ -45,7 +45,7 @@
   /**
    * The Page model module.
    * @module model/Page
-   * @version 0.0.71
+   * @version 0.0.72
    */
 
   /**
