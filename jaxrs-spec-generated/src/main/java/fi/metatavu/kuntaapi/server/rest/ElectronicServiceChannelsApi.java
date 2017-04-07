@@ -20,7 +20,7 @@ import java.util.List;
 @Api(description = "the electronicServiceChannels API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-03-29T18:38:40.102+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-04-07T09:52:20.756+03:00")
 
 public abstract class ElectronicServiceChannelsApi extends AbstractApi {
 
