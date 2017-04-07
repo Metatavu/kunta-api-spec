@@ -73,6 +73,72 @@
      * @default ['GET', 'HEAD']
      */
     this.cacheableMethods = ['GET', 'HEAD'];
+
+    this.cacheUtils = {
+
+      keygen: function(req){
+        var params = this.getQueryParams(req);
+        return JSON.stringify({
+          method: req.method,
+          uri: req.url,
+          params: params || null,
+        });
+      },
+
+      getQueryParams: function(req){
+        if(req && req.qs && !this.isEmpty(req.qs)){
+          return req.qs;
+        }
+        else if(req && req.qsRaw){
+          return this.arrayToObj(req.qsRaw);
+        }
+        else if(req && req.req){
+          return this.stringToObj(req.req.path);
+        }
+        else if(req && req._query){
+          return this.stringToObj(req._query.join('&'));
+        }
+        return null;
+      },
+
+      arrayToObj: function(arr){
+        if(arr && arr.length){
+          var obj = {};
+          for(var i = 0; i < arr.length; i++){
+            var str = arr[i];
+            var kvArray = str.split('&');
+            for(var j = 0; j < kvArray.length; j++){
+              var kvString = kvArray[j].split('=');
+              obj[kvString[0]] = kvString[1];
+            }
+          }
+          return obj;
+        }
+        return null;
+      },
+
+      stringToObj: function(str){
+        if(str){
+          var obj = {};
+          if(~str.indexOf('?')){
+            var strs = str.split('?');
+            str = strs[1];
+          }
+          var kvArray = str.split('&');
+          for(var i = 0; i < kvArray.length; i++){
+            var kvString = kvArray[i].split('=');
+            obj[kvString[0]] = kvString[1];
+          }
+          return obj;
+        }
+        return null;
+      },
+
+      isEmpty: function(val){
+        return (val === false || val === null || (typeof val == 'object' && Object.keys(val).length == 0));
+      }
+
+    };
   };
 
 {{#emitJSDoc}}  /**
@@ -406,7 +472,8 @@
       var requestTimeOut = null;
       if (_this.failsafeCache && _this.cacheableMethods.indexOf(httpMethod) > -1) {
         requestTimeOut = setTimeout(function() {
-          _this.failsafeCache.get(request.url, function(cacheErr, failsafeData) {
+          var cacheKey = _this.cacheUtils.keygen(request);
+          _this.failsafeCache.get(cacheKey, function(cacheErr, failsafeData) {
             if (!cacheErr && failsafeData) {
               resolve(failsafeData);
             }
@@ -419,7 +486,8 @@
         clearTimeout(requestTimeOut);
         if (error) {
           if (_this.failsafeCache && _this.cacheableMethods.indexOf(httpMethod) > -1 && error.status > 399 && error.status !== 404 ) {
-            _this.failsafeCache.get(request.url, function(cacheErr, failsafeData) {
+            var cacheKey = _this.cacheUtils.keygen(request);
+            _this.failsafeCache.get(cacheKey, function(cacheErr, failsafeData) {
               if (!cacheErr && failsafeData) {
                 resolve(failsafeData);
               } else {
@@ -432,7 +500,8 @@
         } else {
           var data = _this.deserialize(response, returnType);
           if (_this.failsafeCache && _this.cacheableMethods.indexOf(httpMethod) > -1) {
-            _this.failsafeCache.set(request.url, data);
+            var cacheKey = _this.cacheUtils.keygen(request);
+            _this.failsafeCache.set(cacheKey, data);
           }
 
           resolve(_this.deserialize(response, data));
