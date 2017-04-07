@@ -42,7 +42,7 @@
   /**
    * Banners service.
    * @module api/BannersApi
-   * @version 0.0.70
+   * @version 0.0.71
    */
 
   /**

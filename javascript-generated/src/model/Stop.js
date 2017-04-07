@@ -45,7 +45,7 @@
   /**
    * The Stop model module.
    * @module model/Stop
-   * @version 0.0.70
+   * @version 0.0.71
    */
 
   /**
