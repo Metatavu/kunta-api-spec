@@ -4220,24 +4220,45 @@ definitions:
     properties:
       id:
         format: uuid
-        type: string
-      type:
+        description: Identifier for the service channel.
         type: string
       organizationId:
         format: uuid
+        description: Organization identifier responsible for the channel.
         type: string
       names:
+        description: Localized list of service channel names.
         type: array
         items:
           $ref: '#/definitions/LocalizedValue'
       descriptions:
+        description: List of localized service channel descriptions.
         type: array
         items:
           $ref: '#/definitions/LocalizedValue'
       formIdentifier:
-        type: string
+        description: List of localized form identifier. One per language.
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
       formReceiver:
-        type: string
+        description: List of localized form receiver. One per language.
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      deliveryAddress:
+        description: Form delivery address.
+        $ref: '#/definitions/Address'
+      channelUrls:
+        description: List of localized channel urls.
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      attachments:
+        description: List of attachments.
+        type: array
+        items:
+          $ref: '#/definitions/Attachment'
       supportPhones:
         description: List of support phone numbers for the service channel.
         type: array
@@ -4248,33 +4269,27 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/Email'
-      deliveryAddress:
-        $ref: '#/definitions/Address'
-      channelUrls:
-        type: array
-        items:
-          $ref: '#/definitions/LocalizedValue'
       languages:
+        description: >-
+          List of languages the service channel is available in (two letter
+          language code).
         type: array
         items:
           type: string
-      deliveryAddressDescriptions:
-        type: array
-        items:
-          $ref: '#/definitions/LocalizedValue'
-      attachments:
-        type: array
-        items:
-          $ref: '#/definitions/ServiceChannelAttachment'
       webPages:
+        description: List of service channel web pages.
         type: array
         items:
           $ref: '#/definitions/WebPage'
       serviceHours:
+        description: List of service channel service hours.
         type: array
         items:
           $ref: '#/definitions/ServiceHour'
       publishingStatus:
+        description: >-
+          Service channel publishing status. Values: Draft, Published, Deleted,
+          Modified or OldPublished.
         type: string
   ServiceLocationServiceChannel:
     type: object
