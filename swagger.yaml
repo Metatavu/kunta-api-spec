@@ -4850,10 +4850,10 @@ definitions:
   OntologyItem:
     type: object
     properties:
-      system:
-        type: string
       name:
-        type: string
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
       code:
         type: string
       ontologyType:
