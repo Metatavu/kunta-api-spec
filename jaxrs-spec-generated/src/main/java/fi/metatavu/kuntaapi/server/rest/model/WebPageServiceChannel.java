@@ -3,7 +3,6 @@ package fi.metatavu.kuntaapi.server.rest.model;
 import fi.metatavu.kuntaapi.server.rest.model.Email;
 import fi.metatavu.kuntaapi.server.rest.model.LocalizedValue;
 import fi.metatavu.kuntaapi.server.rest.model.Phone;
-import fi.metatavu.kuntaapi.server.rest.model.ServiceChannelAttachment;
 import fi.metatavu.kuntaapi.server.rest.model.ServiceHour;
 import fi.metatavu.kuntaapi.server.rest.model.WebPage;
 import java.util.ArrayList;
@@ -18,12 +17,10 @@ import java.util.Objects;
 public class WebPageServiceChannel   {
   
   private String id = null;
-  private String type = null;
   private String organizationId = null;
   private List<LocalizedValue> names = new ArrayList<LocalizedValue>();
   private List<LocalizedValue> descriptions = new ArrayList<LocalizedValue>();
   private List<LocalizedValue> urls = new ArrayList<LocalizedValue>();
-  private List<ServiceChannelAttachment> attachments = new ArrayList<ServiceChannelAttachment>();
   private List<Phone> supportPhones = new ArrayList<Phone>();
   private List<Email> supportEmails = new ArrayList<Email>();
   private List<String> languages = new ArrayList<String>();
@@ -32,6 +29,7 @@ public class WebPageServiceChannel   {
   private String publishingStatus = null;
 
   /**
+   * Identifier for the service channel.
    **/
   public WebPageServiceChannel id(String id) {
     this.id = id;
@@ -39,7 +37,7 @@ public class WebPageServiceChannel   {
   }
 
   
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Identifier for the service channel.")
   public String getId() {
     return id;
   }
@@ -48,22 +46,7 @@ public class WebPageServiceChannel   {
   }
 
   /**
-   **/
-  public WebPageServiceChannel type(String type) {
-    this.type = type;
-    return this;
-  }
-
-  
-  @ApiModelProperty(example = "null", value = "")
-  public String getType() {
-    return type;
-  }
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  /**
+   * Organization identifier responsible for the channel.
    **/
   public WebPageServiceChannel organizationId(String organizationId) {
     this.organizationId = organizationId;
@@ -71,7 +54,7 @@ public class WebPageServiceChannel   {
   }
 
   
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Organization identifier responsible for the channel.")
   public String getOrganizationId() {
     return organizationId;
   }
@@ -80,6 +63,7 @@ public class WebPageServiceChannel   {
   }
 
   /**
+   * Localized list of service channel names.
    **/
   public WebPageServiceChannel names(List<LocalizedValue> names) {
     this.names = names;
@@ -87,7 +71,7 @@ public class WebPageServiceChannel   {
   }
 
   
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Localized list of service channel names.")
   public List<LocalizedValue> getNames() {
     return names;
   }
@@ -96,6 +80,7 @@ public class WebPageServiceChannel   {
   }
 
   /**
+   * List of localized service channel descriptions.
    **/
   public WebPageServiceChannel descriptions(List<LocalizedValue> descriptions) {
     this.descriptions = descriptions;
@@ -103,7 +88,7 @@ public class WebPageServiceChannel   {
   }
 
   
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "List of localized service channel descriptions.")
   public List<LocalizedValue> getDescriptions() {
     return descriptions;
   }
@@ -112,6 +97,7 @@ public class WebPageServiceChannel   {
   }
 
   /**
+   * List of localized urls.
    **/
   public WebPageServiceChannel urls(List<LocalizedValue> urls) {
     this.urls = urls;
@@ -119,28 +105,12 @@ public class WebPageServiceChannel   {
   }
 
   
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "List of localized urls.")
   public List<LocalizedValue> getUrls() {
     return urls;
   }
   public void setUrls(List<LocalizedValue> urls) {
     this.urls = urls;
-  }
-
-  /**
-   **/
-  public WebPageServiceChannel attachments(List<ServiceChannelAttachment> attachments) {
-    this.attachments = attachments;
-    return this;
-  }
-
-  
-  @ApiModelProperty(example = "null", value = "")
-  public List<ServiceChannelAttachment> getAttachments() {
-    return attachments;
-  }
-  public void setAttachments(List<ServiceChannelAttachment> attachments) {
-    this.attachments = attachments;
   }
 
   /**
@@ -178,6 +148,7 @@ public class WebPageServiceChannel   {
   }
 
   /**
+   * List of languages the service channel is available in (two letter language code).
    **/
   public WebPageServiceChannel languages(List<String> languages) {
     this.languages = languages;
@@ -185,7 +156,7 @@ public class WebPageServiceChannel   {
   }
 
   
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "List of languages the service channel is available in (two letter language code).")
   public List<String> getLanguages() {
     return languages;
   }
@@ -194,6 +165,7 @@ public class WebPageServiceChannel   {
   }
 
   /**
+   * List of service channel web pages.
    **/
   public WebPageServiceChannel webPages(List<WebPage> webPages) {
     this.webPages = webPages;
@@ -201,7 +173,7 @@ public class WebPageServiceChannel   {
   }
 
   
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "List of service channel web pages.")
   public List<WebPage> getWebPages() {
     return webPages;
   }
@@ -210,6 +182,7 @@ public class WebPageServiceChannel   {
   }
 
   /**
+   * List of service channel service hours.
    **/
   public WebPageServiceChannel serviceHours(List<ServiceHour> serviceHours) {
     this.serviceHours = serviceHours;
@@ -217,7 +190,7 @@ public class WebPageServiceChannel   {
   }
 
   
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "List of service channel service hours.")
   public List<ServiceHour> getServiceHours() {
     return serviceHours;
   }
@@ -226,6 +199,7 @@ public class WebPageServiceChannel   {
   }
 
   /**
+   * Service channel publishing status. Values: Draft, Published, Deleted, Modified or OldPublished.
    **/
   public WebPageServiceChannel publishingStatus(String publishingStatus) {
     this.publishingStatus = publishingStatus;
@@ -233,7 +207,7 @@ public class WebPageServiceChannel   {
   }
 
   
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Service channel publishing status. Values: Draft, Published, Deleted, Modified or OldPublished.")
   public String getPublishingStatus() {
     return publishingStatus;
   }
@@ -252,12 +226,10 @@ public class WebPageServiceChannel   {
     }
     WebPageServiceChannel webPageServiceChannel = (WebPageServiceChannel) o;
     return Objects.equals(id, webPageServiceChannel.id) &&
-        Objects.equals(type, webPageServiceChannel.type) &&
         Objects.equals(organizationId, webPageServiceChannel.organizationId) &&
         Objects.equals(names, webPageServiceChannel.names) &&
         Objects.equals(descriptions, webPageServiceChannel.descriptions) &&
         Objects.equals(urls, webPageServiceChannel.urls) &&
-        Objects.equals(attachments, webPageServiceChannel.attachments) &&
         Objects.equals(supportPhones, webPageServiceChannel.supportPhones) &&
         Objects.equals(supportEmails, webPageServiceChannel.supportEmails) &&
         Objects.equals(languages, webPageServiceChannel.languages) &&
@@ -268,7 +240,7 @@ public class WebPageServiceChannel   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, organizationId, names, descriptions, urls, attachments, supportPhones, supportEmails, languages, webPages, serviceHours, publishingStatus);
+    return Objects.hash(id, organizationId, names, descriptions, urls, supportPhones, supportEmails, languages, webPages, serviceHours, publishingStatus);
   }
 
   @Override
@@ -277,12 +249,10 @@ public class WebPageServiceChannel   {
     sb.append("class WebPageServiceChannel {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    organizationId: ").append(toIndentedString(organizationId)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");
     sb.append("    descriptions: ").append(toIndentedString(descriptions)).append("\n");
     sb.append("    urls: ").append(toIndentedString(urls)).append("\n");
-    sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    supportPhones: ").append(toIndentedString(supportPhones)).append("\n");
     sb.append("    supportEmails: ").append(toIndentedString(supportEmails)).append("\n");
     sb.append("    languages: ").append(toIndentedString(languages)).append("\n");

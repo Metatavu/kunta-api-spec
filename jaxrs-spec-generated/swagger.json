@@ -5441,34 +5441,33 @@
       "properties" : {
         "id" : {
           "type" : "string",
-          "format" : "uuid"
-        },
-        "type" : {
-          "type" : "string"
+          "format" : "uuid",
+          "description" : "Identifier for the service channel."
         },
         "organizationId" : {
           "type" : "string",
-          "format" : "uuid"
+          "format" : "uuid",
+          "description" : "Organization identifier responsible for the channel."
         },
         "names" : {
           "type" : "array",
+          "description" : "Localized list of service channel names.",
           "items" : {
             "$ref" : "#/definitions/LocalizedValue"
           }
         },
         "descriptions" : {
           "type" : "array",
+          "description" : "List of localized service channel descriptions.",
           "items" : {
             "$ref" : "#/definitions/LocalizedValue"
           }
         },
-        "phoneType" : {
-          "type" : "string"
-        },
-        "chargeTypes" : {
+        "phoneNumbers" : {
           "type" : "array",
+          "description" : "List of phone numbers for the service channel.",
           "items" : {
-            "type" : "string"
+            "$ref" : "#/definitions/Phone"
           }
         },
         "supportEmails" : {
@@ -5478,38 +5477,30 @@
             "$ref" : "#/definitions/Email"
           }
         },
-        "phoneNumbers" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/LocalizedValue"
-          }
-        },
         "languages" : {
           "type" : "array",
+          "description" : "List of languages the service channel is available in (two letter language code).",
           "items" : {
             "type" : "string"
           }
         },
-        "phoneChargeDescriptions" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/LocalizedValue"
-          }
-        },
         "webPages" : {
           "type" : "array",
+          "description" : "List of service channel web pages.",
           "items" : {
             "$ref" : "#/definitions/WebPage"
           }
         },
         "serviceHours" : {
           "type" : "array",
+          "description" : "List of service channel service hours.",
           "items" : {
             "$ref" : "#/definitions/ServiceHour"
           }
         },
         "publishingStatus" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Service channel publishing status. Values: Draft, Published, Deleted, Modified or OldPublished."
         }
       }
     },
@@ -5655,7 +5646,7 @@
           "type" : "array",
           "description" : "List email addresses for the service channel.",
           "items" : {
-            "$ref" : "#/definitions/Email"
+            "$ref" : "#/definitions/LocalizedValue"
           }
         },
         "languages" : {
@@ -5708,37 +5699,33 @@
       "properties" : {
         "id" : {
           "type" : "string",
-          "format" : "uuid"
-        },
-        "type" : {
-          "type" : "string"
+          "format" : "uuid",
+          "description" : "Identifier for the service channel."
         },
         "organizationId" : {
           "type" : "string",
-          "format" : "uuid"
+          "format" : "uuid",
+          "description" : "Organization identifier responsible for the channel."
         },
         "names" : {
           "type" : "array",
+          "description" : "Localized list of service channel names.",
           "items" : {
             "$ref" : "#/definitions/LocalizedValue"
           }
         },
         "descriptions" : {
           "type" : "array",
+          "description" : "List of localized service channel descriptions.",
           "items" : {
             "$ref" : "#/definitions/LocalizedValue"
           }
         },
         "urls" : {
           "type" : "array",
+          "description" : "List of localized urls.",
           "items" : {
             "$ref" : "#/definitions/LocalizedValue"
-          }
-        },
-        "attachments" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/ServiceChannelAttachment"
           }
         },
         "supportPhones" : {
@@ -5757,24 +5744,28 @@
         },
         "languages" : {
           "type" : "array",
+          "description" : "List of languages the service channel is available in (two letter language code).",
           "items" : {
             "type" : "string"
           }
         },
         "webPages" : {
           "type" : "array",
+          "description" : "List of service channel web pages.",
           "items" : {
             "$ref" : "#/definitions/WebPage"
           }
         },
         "serviceHours" : {
           "type" : "array",
+          "description" : "List of service channel service hours.",
           "items" : {
             "$ref" : "#/definitions/ServiceHour"
           }
         },
         "publishingStatus" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Service channel publishing status. Values: Draft, Published, Deleted, Modified or OldPublished."
         }
       }
     },
