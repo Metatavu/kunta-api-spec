@@ -5608,112 +5608,88 @@
       "properties" : {
         "id" : {
           "type" : "string",
-          "format" : "uuid"
-        },
-        "type" : {
-          "type" : "string"
+          "format" : "uuid",
+          "description" : "Identifier for the service channel."
         },
         "organizationId" : {
           "type" : "string",
-          "format" : "uuid"
+          "format" : "uuid",
+          "description" : "Organization identifier responsible for the channel."
         },
         "names" : {
           "type" : "array",
+          "description" : "Localized list of service channel names.",
           "items" : {
             "$ref" : "#/definitions/LocalizedValue"
           }
         },
         "descriptions" : {
           "type" : "array",
+          "description" : "List of localized service channel descriptions.",
           "items" : {
             "$ref" : "#/definitions/LocalizedValue"
           }
         },
         "serviceAreaRestricted" : {
-          "type" : "boolean"
+          "type" : "boolean",
+          "description" : "Is the service location channel restricted by service area."
         },
-        "supportPhones" : {
+        "phoneNumbers" : {
           "type" : "array",
-          "description" : "List of support phone numbers for the service channel.",
+          "description" : "List of phone numbers for the service channel. Includes also fax numbers.",
           "items" : {
             "$ref" : "#/definitions/Phone"
           }
         },
-        "supportEmails" : {
+        "emails" : {
           "type" : "array",
-          "description" : "List of support email addresses for the service channel.",
+          "description" : "List email addresses for the service channel.",
           "items" : {
             "$ref" : "#/definitions/Email"
           }
         },
-        "email" : {
-          "type" : "string"
-        },
-        "phone" : {
-          "type" : "string"
-        },
         "languages" : {
           "type" : "array",
+          "description" : "List of languages the service channel is available in (two letter language code).",
           "items" : {
             "type" : "string"
           }
         },
-        "fax" : {
-          "type" : "string"
-        },
-        "latitude" : {
-          "type" : "string"
-        },
-        "longitude" : {
-          "type" : "string"
-        },
-        "coordinateSystem" : {
-          "type" : "string"
-        },
-        "coordinatesSetManually" : {
-          "type" : "boolean"
-        },
         "phoneServiceCharge" : {
-          "type" : "boolean"
+          "type" : "boolean",
+          "description" : "Is the phone service charged for."
         },
         "webPages" : {
           "type" : "array",
+          "description" : "List of service channel web pages.",
           "items" : {
             "$ref" : "#/definitions/WebPage"
           }
         },
         "serviceAreas" : {
           "type" : "array",
+          "description" : "List of serviceareas. Used when location service channel is restricted by service area (ServiceAreaRestricted=true).",
           "items" : {
-            "type" : "string"
-          }
-        },
-        "phoneChargeDescriptions" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/LocalizedValue"
+            "$ref" : "#/definitions/Municipality"
           }
         },
         "addresses" : {
           "type" : "array",
+          "description" : "List of service location addresses.",
           "items" : {
             "$ref" : "#/definitions/Address"
           }
         },
-        "chargeTypes" : {
-          "type" : "array",
-          "items" : {
-            "type" : "string"
-          }
-        },
         "serviceHours" : {
           "type" : "array",
+          "description" : "List of service channel service hours.",
           "items" : {
             "$ref" : "#/definitions/ServiceHour"
           }
         },
         "publishingStatus" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Service channel publishing status. Values: Draft, Published, Deleted, Modified or OldPublished."
         }
       }
     },
@@ -6282,35 +6258,59 @@
     "Address" : {
       "type" : "object",
       "properties" : {
+        "latitude" : {
+          "type" : "string",
+          "description" : "Service location latitude coordinate."
+        },
+        "longitude" : {
+          "type" : "string",
+          "description" : "Service location longitude coordinate."
+        },
+        "coordinateState" : {
+          "type" : "string",
+          "description" : "State of coordinates. Coordinates are fetched from a service provided by Maanmittauslaitos (WFS).\r\nPossible values are: Loading, Ok, Failed, NotReceived, EmptyInputReceived, MultipleResultsReceived or WrongFormatReceived."
+        },
         "type" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Address type, Visiting or Postal."
         },
         "postOfficeBox" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Post office box like PL 310"
         },
         "postalCode" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Postal code, for example 00010."
         },
         "postOffice" : {
-          "type" : "string"
-        },
-        "streetAddress" : {
           "type" : "array",
+          "description" : "List of localized Post offices, for example Helsinki, Helsingfors.",
           "items" : {
             "$ref" : "#/definitions/LocalizedValue"
           }
         },
+        "streetAddress" : {
+          "type" : "array",
+          "description" : "List of localized street addresses.",
+          "items" : {
+            "$ref" : "#/definitions/LocalizedValue"
+          }
+        },
+        "streetNumber" : {
+          "type" : "string",
+          "description" : "Street number for street address."
+        },
         "municipality" : {
-          "type" : "string"
+          "$ref" : "#/definitions/Municipality"
         },
         "country" : {
-          "type" : "string"
-        },
-        "qualifier" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Country code (ISO 3166-1 alpha-2), for example FI.",
+          "pattern" : "^[A-Z]{2}$"
         },
         "additionalInformations" : {
           "type" : "array",
+          "description" : "Localized list of additional information about the address.",
           "items" : {
             "$ref" : "#/definitions/LocalizedValue"
           }
@@ -6612,6 +6612,21 @@
         },
         "type" : {
           "type" : "string"
+        }
+      }
+    },
+    "Municipality" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "Municipality code (like 491 or 091)."
+        },
+        "names" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/LocalizedValue"
+          }
         }
       }
     },

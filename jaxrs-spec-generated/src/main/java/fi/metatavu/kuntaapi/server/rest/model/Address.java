@@ -1,6 +1,7 @@
 package fi.metatavu.kuntaapi.server.rest.model;
 
 import fi.metatavu.kuntaapi.server.rest.model.LocalizedValue;
+import fi.metatavu.kuntaapi.server.rest.model.Municipality;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,17 +13,72 @@ import java.util.Objects;
 
 public class Address   {
   
+  private String latitude = null;
+  private String longitude = null;
+  private String coordinateState = null;
   private String type = null;
   private String postOfficeBox = null;
   private String postalCode = null;
-  private String postOffice = null;
+  private List<LocalizedValue> postOffice = new ArrayList<LocalizedValue>();
   private List<LocalizedValue> streetAddress = new ArrayList<LocalizedValue>();
-  private String municipality = null;
+  private String streetNumber = null;
+  private Municipality municipality = null;
   private String country = null;
-  private String qualifier = null;
   private List<LocalizedValue> additionalInformations = new ArrayList<LocalizedValue>();
 
   /**
+   * Service location latitude coordinate.
+   **/
+  public Address latitude(String latitude) {
+    this.latitude = latitude;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "Service location latitude coordinate.")
+  public String getLatitude() {
+    return latitude;
+  }
+  public void setLatitude(String latitude) {
+    this.latitude = latitude;
+  }
+
+  /**
+   * Service location longitude coordinate.
+   **/
+  public Address longitude(String longitude) {
+    this.longitude = longitude;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "Service location longitude coordinate.")
+  public String getLongitude() {
+    return longitude;
+  }
+  public void setLongitude(String longitude) {
+    this.longitude = longitude;
+  }
+
+  /**
+   * State of coordinates. Coordinates are fetched from a service provided by Maanmittauslaitos (WFS).  Possible values are: Loading, Ok, Failed, NotReceived, EmptyInputReceived, MultipleResultsReceived or WrongFormatReceived.
+   **/
+  public Address coordinateState(String coordinateState) {
+    this.coordinateState = coordinateState;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "State of coordinates. Coordinates are fetched from a service provided by Maanmittauslaitos (WFS).  Possible values are: Loading, Ok, Failed, NotReceived, EmptyInputReceived, MultipleResultsReceived or WrongFormatReceived.")
+  public String getCoordinateState() {
+    return coordinateState;
+  }
+  public void setCoordinateState(String coordinateState) {
+    this.coordinateState = coordinateState;
+  }
+
+  /**
+   * Address type, Visiting or Postal.
    **/
   public Address type(String type) {
     this.type = type;
@@ -30,7 +86,7 @@ public class Address   {
   }
 
   
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Address type, Visiting or Postal.")
   public String getType() {
     return type;
   }
@@ -39,6 +95,7 @@ public class Address   {
   }
 
   /**
+   * Post office box like PL 310
    **/
   public Address postOfficeBox(String postOfficeBox) {
     this.postOfficeBox = postOfficeBox;
@@ -46,7 +103,7 @@ public class Address   {
   }
 
   
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Post office box like PL 310")
   public String getPostOfficeBox() {
     return postOfficeBox;
   }
@@ -55,6 +112,7 @@ public class Address   {
   }
 
   /**
+   * Postal code, for example 00010.
    **/
   public Address postalCode(String postalCode) {
     this.postalCode = postalCode;
@@ -62,7 +120,7 @@ public class Address   {
   }
 
   
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Postal code, for example 00010.")
   public String getPostalCode() {
     return postalCode;
   }
@@ -71,22 +129,24 @@ public class Address   {
   }
 
   /**
+   * List of localized Post offices, for example Helsinki, Helsingfors.
    **/
-  public Address postOffice(String postOffice) {
+  public Address postOffice(List<LocalizedValue> postOffice) {
     this.postOffice = postOffice;
     return this;
   }
 
   
-  @ApiModelProperty(example = "null", value = "")
-  public String getPostOffice() {
+  @ApiModelProperty(example = "null", value = "List of localized Post offices, for example Helsinki, Helsingfors.")
+  public List<LocalizedValue> getPostOffice() {
     return postOffice;
   }
-  public void setPostOffice(String postOffice) {
+  public void setPostOffice(List<LocalizedValue> postOffice) {
     this.postOffice = postOffice;
   }
 
   /**
+   * List of localized street addresses.
    **/
   public Address streetAddress(List<LocalizedValue> streetAddress) {
     this.streetAddress = streetAddress;
@@ -94,7 +154,7 @@ public class Address   {
   }
 
   
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "List of localized street addresses.")
   public List<LocalizedValue> getStreetAddress() {
     return streetAddress;
   }
@@ -103,22 +163,40 @@ public class Address   {
   }
 
   /**
+   * Street number for street address.
    **/
-  public Address municipality(String municipality) {
+  public Address streetNumber(String streetNumber) {
+    this.streetNumber = streetNumber;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "Street number for street address.")
+  public String getStreetNumber() {
+    return streetNumber;
+  }
+  public void setStreetNumber(String streetNumber) {
+    this.streetNumber = streetNumber;
+  }
+
+  /**
+   **/
+  public Address municipality(Municipality municipality) {
     this.municipality = municipality;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "")
-  public String getMunicipality() {
+  public Municipality getMunicipality() {
     return municipality;
   }
-  public void setMunicipality(String municipality) {
+  public void setMunicipality(Municipality municipality) {
     this.municipality = municipality;
   }
 
   /**
+   * Country code (ISO 3166-1 alpha-2), for example FI.
    **/
   public Address country(String country) {
     this.country = country;
@@ -126,7 +204,7 @@ public class Address   {
   }
 
   
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Country code (ISO 3166-1 alpha-2), for example FI.")
   public String getCountry() {
     return country;
   }
@@ -135,22 +213,7 @@ public class Address   {
   }
 
   /**
-   **/
-  public Address qualifier(String qualifier) {
-    this.qualifier = qualifier;
-    return this;
-  }
-
-  
-  @ApiModelProperty(example = "null", value = "")
-  public String getQualifier() {
-    return qualifier;
-  }
-  public void setQualifier(String qualifier) {
-    this.qualifier = qualifier;
-  }
-
-  /**
+   * Localized list of additional information about the address.
    **/
   public Address additionalInformations(List<LocalizedValue> additionalInformations) {
     this.additionalInformations = additionalInformations;
@@ -158,7 +221,7 @@ public class Address   {
   }
 
   
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Localized list of additional information about the address.")
   public List<LocalizedValue> getAdditionalInformations() {
     return additionalInformations;
   }
@@ -176,20 +239,23 @@ public class Address   {
       return false;
     }
     Address address = (Address) o;
-    return Objects.equals(type, address.type) &&
+    return Objects.equals(latitude, address.latitude) &&
+        Objects.equals(longitude, address.longitude) &&
+        Objects.equals(coordinateState, address.coordinateState) &&
+        Objects.equals(type, address.type) &&
         Objects.equals(postOfficeBox, address.postOfficeBox) &&
         Objects.equals(postalCode, address.postalCode) &&
         Objects.equals(postOffice, address.postOffice) &&
         Objects.equals(streetAddress, address.streetAddress) &&
+        Objects.equals(streetNumber, address.streetNumber) &&
         Objects.equals(municipality, address.municipality) &&
         Objects.equals(country, address.country) &&
-        Objects.equals(qualifier, address.qualifier) &&
         Objects.equals(additionalInformations, address.additionalInformations);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, postOfficeBox, postalCode, postOffice, streetAddress, municipality, country, qualifier, additionalInformations);
+    return Objects.hash(latitude, longitude, coordinateState, type, postOfficeBox, postalCode, postOffice, streetAddress, streetNumber, municipality, country, additionalInformations);
   }
 
   @Override
@@ -197,14 +263,17 @@ public class Address   {
     StringBuilder sb = new StringBuilder();
     sb.append("class Address {\n");
     
+    sb.append("    latitude: ").append(toIndentedString(latitude)).append("\n");
+    sb.append("    longitude: ").append(toIndentedString(longitude)).append("\n");
+    sb.append("    coordinateState: ").append(toIndentedString(coordinateState)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    postOfficeBox: ").append(toIndentedString(postOfficeBox)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    postOffice: ").append(toIndentedString(postOffice)).append("\n");
     sb.append("    streetAddress: ").append(toIndentedString(streetAddress)).append("\n");
+    sb.append("    streetNumber: ").append(toIndentedString(streetNumber)).append("\n");
     sb.append("    municipality: ").append(toIndentedString(municipality)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
-    sb.append("    qualifier: ").append(toIndentedString(qualifier)).append("\n");
     sb.append("    additionalInformations: ").append(toIndentedString(additionalInformations)).append("\n");
     sb.append("}");
     return sb.toString();
