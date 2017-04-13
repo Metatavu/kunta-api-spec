@@ -5384,10 +5384,18 @@
         "requiresSignature" : {
           "type" : "boolean"
         },
-        "supportContacts" : {
+        "supportPhones" : {
           "type" : "array",
+          "description" : "List of support phone numbers for the service channel.",
           "items" : {
-            "$ref" : "#/definitions/SupportContact"
+            "$ref" : "#/definitions/Phone"
+          }
+        },
+        "supportEmails" : {
+          "type" : "array",
+          "description" : "List of support email addresses for the service channel.",
+          "items" : {
+            "$ref" : "#/definitions/Email"
           }
         },
         "requiresAuthentication" : {
@@ -5463,10 +5471,11 @@
             "type" : "string"
           }
         },
-        "supportContacts" : {
+        "supportEmails" : {
           "type" : "array",
+          "description" : "List of support email addresses for the service channel.",
           "items" : {
-            "$ref" : "#/definitions/SupportContact"
+            "$ref" : "#/definitions/Email"
           }
         },
         "phoneNumbers" : {
@@ -5536,10 +5545,18 @@
         "formReceiver" : {
           "type" : "string"
         },
-        "supportContacts" : {
+        "supportPhones" : {
           "type" : "array",
+          "description" : "List of support phone numbers for the service channel.",
           "items" : {
-            "$ref" : "#/definitions/SupportContact"
+            "$ref" : "#/definitions/Phone"
+          }
+        },
+        "supportEmails" : {
+          "type" : "array",
+          "description" : "List of support email addresses for the service channel.",
+          "items" : {
+            "$ref" : "#/definitions/Email"
           }
         },
         "deliveryAddress" : {
@@ -5615,10 +5632,18 @@
         "serviceAreaRestricted" : {
           "type" : "boolean"
         },
-        "supportContacts" : {
+        "supportPhones" : {
           "type" : "array",
+          "description" : "List of support phone numbers for the service channel.",
           "items" : {
-            "$ref" : "#/definitions/SupportContact"
+            "$ref" : "#/definitions/Phone"
+          }
+        },
+        "supportEmails" : {
+          "type" : "array",
+          "description" : "List of support email addresses for the service channel.",
+          "items" : {
+            "$ref" : "#/definitions/Email"
           }
         },
         "email" : {
@@ -5730,10 +5755,18 @@
             "$ref" : "#/definitions/ServiceChannelAttachment"
           }
         },
-        "supportContacts" : {
+        "supportPhones" : {
           "type" : "array",
+          "description" : "List of support phone numbers for the service channel.",
           "items" : {
-            "$ref" : "#/definitions/SupportContact"
+            "$ref" : "#/definitions/Phone"
+          }
+        },
+        "supportEmails" : {
+          "type" : "array",
+          "description" : "List of support email addresses for the service channel.",
+          "items" : {
+            "$ref" : "#/definitions/Email"
           }
         },
         "languages" : {
@@ -6183,26 +6216,46 @@
         }
       }
     },
-    "SupportContact" : {
+    "Email" : {
       "type" : "object",
       "properties" : {
-        "email" : {
+        "value" : {
           "type" : "string"
         },
-        "phone" : {
+        "description" : {
           "type" : "string"
         },
-        "phoneChargeDescription" : {
+        "language" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Phone" : {
+      "type" : "object",
+      "properties" : {
+        "additionalInformation" : {
+          "type" : "string"
+        },
+        "serviceChargeType" : {
+          "type" : "string"
+        },
+        "chargeDescription" : {
+          "type" : "string"
+        },
+        "prefixNumber" : {
+          "type" : "string"
+        },
+        "isFinnishServiceNumber" : {
+          "type" : "boolean"
+        },
+        "number" : {
           "type" : "string"
         },
         "language" : {
           "type" : "string"
         },
-        "serviceChargeTypes" : {
-          "type" : "array",
-          "items" : {
-            "type" : "string"
-          }
+        "type" : {
+          "type" : "string"
         }
       }
     },
@@ -6267,13 +6320,8 @@
     "ServiceHour" : {
       "type" : "object",
       "properties" : {
-        "type" : {
-          "type" : "string",
-          "description" : "Type of service hour (Standard, Exception or Special)."
-        },
-        "exceptionHourType" : {
-          "type" : "string",
-          "description" : "Type of service hour exception type. Valid values are: Open or Closed."
+        "serviceHourType" : {
+          "type" : "string"
         },
         "validFrom" : {
           "type" : "string",
@@ -6285,30 +6333,54 @@
           "format" : "date-time",
           "description" : "Date time to this entry is valid."
         },
-        "days" : {
-          "type" : "array",
-          "description" : "Array of week numbers indices where serice hour is active (0 == sunday)",
-          "items" : {
-            "type" : "integer",
-            "format" : "int32"
-          }
+        "isClosed" : {
+          "type" : "boolean",
+          "description" : "Set to true to present a time between the valid from and to times as closed."
         },
-        "opens" : {
-          "type" : "string",
-          "description" : "Opening time in format HH:mm for example 08:00."
-        },
-        "closes" : {
-          "type" : "string",
-          "description" : "Closing time in format HH:mm for example 19:00"
-        },
-        "timezone" : {
-          "type" : "string"
+        "validForNow" : {
+          "type" : "boolean",
+          "description" : "Set to true to present that this entry is valid for now."
         },
         "additionalInformation" : {
           "type" : "array",
+          "description" : "Localized list of additional information.",
           "items" : {
             "$ref" : "#/definitions/LocalizedValue"
           }
+        },
+        "openingHour" : {
+          "type" : "array",
+          "description" : "List of servicing hours (open and closes times).",
+          "items" : {
+            "$ref" : "#/definitions/DailyOpeningTime"
+          }
+        }
+      }
+    },
+    "DailyOpeningTime" : {
+      "type" : "object",
+      "properties" : {
+        "dayFrom" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Day index (0 == Sunday)"
+        },
+        "dayTo" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Day index (0 == Sunday)"
+        },
+        "from" : {
+          "type" : "string",
+          "description" : "Start time for example 10:00:00"
+        },
+        "to" : {
+          "type" : "string",
+          "description" : "End time for example 20:00:00"
+        },
+        "isExtra" : {
+          "type" : "boolean",
+          "description" : "Set to true to have extra time for a day. Enables to have open times like 10:00-14:00 and also on the same day 16:00-20:00. So the latter time is extra time."
         }
       }
     },

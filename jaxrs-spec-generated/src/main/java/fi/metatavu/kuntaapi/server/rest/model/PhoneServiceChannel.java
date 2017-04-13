@@ -1,8 +1,8 @@
 package fi.metatavu.kuntaapi.server.rest.model;
 
+import fi.metatavu.kuntaapi.server.rest.model.Email;
 import fi.metatavu.kuntaapi.server.rest.model.LocalizedValue;
 import fi.metatavu.kuntaapi.server.rest.model.ServiceHour;
-import fi.metatavu.kuntaapi.server.rest.model.SupportContact;
 import fi.metatavu.kuntaapi.server.rest.model.WebPage;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ public class PhoneServiceChannel   {
   private List<LocalizedValue> descriptions = new ArrayList<LocalizedValue>();
   private String phoneType = null;
   private List<String> chargeTypes = new ArrayList<String>();
-  private List<SupportContact> supportContacts = new ArrayList<SupportContact>();
+  private List<Email> supportEmails = new ArrayList<Email>();
   private List<LocalizedValue> phoneNumbers = new ArrayList<LocalizedValue>();
   private List<String> languages = new ArrayList<String>();
   private List<LocalizedValue> phoneChargeDescriptions = new ArrayList<LocalizedValue>();
@@ -143,19 +143,20 @@ public class PhoneServiceChannel   {
   }
 
   /**
+   * List of support email addresses for the service channel.
    **/
-  public PhoneServiceChannel supportContacts(List<SupportContact> supportContacts) {
-    this.supportContacts = supportContacts;
+  public PhoneServiceChannel supportEmails(List<Email> supportEmails) {
+    this.supportEmails = supportEmails;
     return this;
   }
 
   
-  @ApiModelProperty(example = "null", value = "")
-  public List<SupportContact> getSupportContacts() {
-    return supportContacts;
+  @ApiModelProperty(example = "null", value = "List of support email addresses for the service channel.")
+  public List<Email> getSupportEmails() {
+    return supportEmails;
   }
-  public void setSupportContacts(List<SupportContact> supportContacts) {
-    this.supportContacts = supportContacts;
+  public void setSupportEmails(List<Email> supportEmails) {
+    this.supportEmails = supportEmails;
   }
 
   /**
@@ -271,7 +272,7 @@ public class PhoneServiceChannel   {
         Objects.equals(descriptions, phoneServiceChannel.descriptions) &&
         Objects.equals(phoneType, phoneServiceChannel.phoneType) &&
         Objects.equals(chargeTypes, phoneServiceChannel.chargeTypes) &&
-        Objects.equals(supportContacts, phoneServiceChannel.supportContacts) &&
+        Objects.equals(supportEmails, phoneServiceChannel.supportEmails) &&
         Objects.equals(phoneNumbers, phoneServiceChannel.phoneNumbers) &&
         Objects.equals(languages, phoneServiceChannel.languages) &&
         Objects.equals(phoneChargeDescriptions, phoneServiceChannel.phoneChargeDescriptions) &&
@@ -282,7 +283,7 @@ public class PhoneServiceChannel   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, organizationId, names, descriptions, phoneType, chargeTypes, supportContacts, phoneNumbers, languages, phoneChargeDescriptions, webPages, serviceHours, publishingStatus);
+    return Objects.hash(id, type, organizationId, names, descriptions, phoneType, chargeTypes, supportEmails, phoneNumbers, languages, phoneChargeDescriptions, webPages, serviceHours, publishingStatus);
   }
 
   @Override
@@ -297,7 +298,7 @@ public class PhoneServiceChannel   {
     sb.append("    descriptions: ").append(toIndentedString(descriptions)).append("\n");
     sb.append("    phoneType: ").append(toIndentedString(phoneType)).append("\n");
     sb.append("    chargeTypes: ").append(toIndentedString(chargeTypes)).append("\n");
-    sb.append("    supportContacts: ").append(toIndentedString(supportContacts)).append("\n");
+    sb.append("    supportEmails: ").append(toIndentedString(supportEmails)).append("\n");
     sb.append("    phoneNumbers: ").append(toIndentedString(phoneNumbers)).append("\n");
     sb.append("    languages: ").append(toIndentedString(languages)).append("\n");
     sb.append("    phoneChargeDescriptions: ").append(toIndentedString(phoneChargeDescriptions)).append("\n");

@@ -1,9 +1,10 @@
 package fi.metatavu.kuntaapi.server.rest.model;
 
+import fi.metatavu.kuntaapi.server.rest.model.Email;
 import fi.metatavu.kuntaapi.server.rest.model.LocalizedValue;
+import fi.metatavu.kuntaapi.server.rest.model.Phone;
 import fi.metatavu.kuntaapi.server.rest.model.ServiceChannelAttachment;
 import fi.metatavu.kuntaapi.server.rest.model.ServiceHour;
-import fi.metatavu.kuntaapi.server.rest.model.SupportContact;
 import fi.metatavu.kuntaapi.server.rest.model.WebPage;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +24,8 @@ public class ElectronicServiceChannel   {
   private List<LocalizedValue> descriptions = new ArrayList<LocalizedValue>();
   private Integer signatureQuantity = null;
   private Boolean requiresSignature = null;
-  private List<SupportContact> supportContacts = new ArrayList<SupportContact>();
+  private List<Phone> supportPhones = new ArrayList<Phone>();
+  private List<Email> supportEmails = new ArrayList<Email>();
   private Boolean requiresAuthentication = null;
   private List<LocalizedValue> urls = new ArrayList<LocalizedValue>();
   private List<String> languages = new ArrayList<String>();
@@ -145,19 +147,37 @@ public class ElectronicServiceChannel   {
   }
 
   /**
+   * List of support phone numbers for the service channel.
    **/
-  public ElectronicServiceChannel supportContacts(List<SupportContact> supportContacts) {
-    this.supportContacts = supportContacts;
+  public ElectronicServiceChannel supportPhones(List<Phone> supportPhones) {
+    this.supportPhones = supportPhones;
     return this;
   }
 
   
-  @ApiModelProperty(example = "null", value = "")
-  public List<SupportContact> getSupportContacts() {
-    return supportContacts;
+  @ApiModelProperty(example = "null", value = "List of support phone numbers for the service channel.")
+  public List<Phone> getSupportPhones() {
+    return supportPhones;
   }
-  public void setSupportContacts(List<SupportContact> supportContacts) {
-    this.supportContacts = supportContacts;
+  public void setSupportPhones(List<Phone> supportPhones) {
+    this.supportPhones = supportPhones;
+  }
+
+  /**
+   * List of support email addresses for the service channel.
+   **/
+  public ElectronicServiceChannel supportEmails(List<Email> supportEmails) {
+    this.supportEmails = supportEmails;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "List of support email addresses for the service channel.")
+  public List<Email> getSupportEmails() {
+    return supportEmails;
+  }
+  public void setSupportEmails(List<Email> supportEmails) {
+    this.supportEmails = supportEmails;
   }
 
   /**
@@ -289,7 +309,8 @@ public class ElectronicServiceChannel   {
         Objects.equals(descriptions, electronicServiceChannel.descriptions) &&
         Objects.equals(signatureQuantity, electronicServiceChannel.signatureQuantity) &&
         Objects.equals(requiresSignature, electronicServiceChannel.requiresSignature) &&
-        Objects.equals(supportContacts, electronicServiceChannel.supportContacts) &&
+        Objects.equals(supportPhones, electronicServiceChannel.supportPhones) &&
+        Objects.equals(supportEmails, electronicServiceChannel.supportEmails) &&
         Objects.equals(requiresAuthentication, electronicServiceChannel.requiresAuthentication) &&
         Objects.equals(urls, electronicServiceChannel.urls) &&
         Objects.equals(languages, electronicServiceChannel.languages) &&
@@ -301,7 +322,7 @@ public class ElectronicServiceChannel   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, organizationId, names, descriptions, signatureQuantity, requiresSignature, supportContacts, requiresAuthentication, urls, languages, attachments, webPages, serviceHours, publishingStatus);
+    return Objects.hash(id, type, organizationId, names, descriptions, signatureQuantity, requiresSignature, supportPhones, supportEmails, requiresAuthentication, urls, languages, attachments, webPages, serviceHours, publishingStatus);
   }
 
   @Override
@@ -316,7 +337,8 @@ public class ElectronicServiceChannel   {
     sb.append("    descriptions: ").append(toIndentedString(descriptions)).append("\n");
     sb.append("    signatureQuantity: ").append(toIndentedString(signatureQuantity)).append("\n");
     sb.append("    requiresSignature: ").append(toIndentedString(requiresSignature)).append("\n");
-    sb.append("    supportContacts: ").append(toIndentedString(supportContacts)).append("\n");
+    sb.append("    supportPhones: ").append(toIndentedString(supportPhones)).append("\n");
+    sb.append("    supportEmails: ").append(toIndentedString(supportEmails)).append("\n");
     sb.append("    requiresAuthentication: ").append(toIndentedString(requiresAuthentication)).append("\n");
     sb.append("    urls: ").append(toIndentedString(urls)).append("\n");
     sb.append("    languages: ").append(toIndentedString(languages)).append("\n");

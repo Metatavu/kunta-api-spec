@@ -1,10 +1,11 @@
 package fi.metatavu.kuntaapi.server.rest.model;
 
 import fi.metatavu.kuntaapi.server.rest.model.Address;
+import fi.metatavu.kuntaapi.server.rest.model.Email;
 import fi.metatavu.kuntaapi.server.rest.model.LocalizedValue;
+import fi.metatavu.kuntaapi.server.rest.model.Phone;
 import fi.metatavu.kuntaapi.server.rest.model.ServiceChannelAttachment;
 import fi.metatavu.kuntaapi.server.rest.model.ServiceHour;
-import fi.metatavu.kuntaapi.server.rest.model.SupportContact;
 import fi.metatavu.kuntaapi.server.rest.model.WebPage;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,8 @@ public class PrintableFormServiceChannel   {
   private List<LocalizedValue> descriptions = new ArrayList<LocalizedValue>();
   private String formIdentifier = null;
   private String formReceiver = null;
-  private List<SupportContact> supportContacts = new ArrayList<SupportContact>();
+  private List<Phone> supportPhones = new ArrayList<Phone>();
+  private List<Email> supportEmails = new ArrayList<Email>();
   private Address deliveryAddress = null;
   private List<LocalizedValue> channelUrls = new ArrayList<LocalizedValue>();
   private List<String> languages = new ArrayList<String>();
@@ -147,19 +149,37 @@ public class PrintableFormServiceChannel   {
   }
 
   /**
+   * List of support phone numbers for the service channel.
    **/
-  public PrintableFormServiceChannel supportContacts(List<SupportContact> supportContacts) {
-    this.supportContacts = supportContacts;
+  public PrintableFormServiceChannel supportPhones(List<Phone> supportPhones) {
+    this.supportPhones = supportPhones;
     return this;
   }
 
   
-  @ApiModelProperty(example = "null", value = "")
-  public List<SupportContact> getSupportContacts() {
-    return supportContacts;
+  @ApiModelProperty(example = "null", value = "List of support phone numbers for the service channel.")
+  public List<Phone> getSupportPhones() {
+    return supportPhones;
   }
-  public void setSupportContacts(List<SupportContact> supportContacts) {
-    this.supportContacts = supportContacts;
+  public void setSupportPhones(List<Phone> supportPhones) {
+    this.supportPhones = supportPhones;
+  }
+
+  /**
+   * List of support email addresses for the service channel.
+   **/
+  public PrintableFormServiceChannel supportEmails(List<Email> supportEmails) {
+    this.supportEmails = supportEmails;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "List of support email addresses for the service channel.")
+  public List<Email> getSupportEmails() {
+    return supportEmails;
+  }
+  public void setSupportEmails(List<Email> supportEmails) {
+    this.supportEmails = supportEmails;
   }
 
   /**
@@ -307,7 +327,8 @@ public class PrintableFormServiceChannel   {
         Objects.equals(descriptions, printableFormServiceChannel.descriptions) &&
         Objects.equals(formIdentifier, printableFormServiceChannel.formIdentifier) &&
         Objects.equals(formReceiver, printableFormServiceChannel.formReceiver) &&
-        Objects.equals(supportContacts, printableFormServiceChannel.supportContacts) &&
+        Objects.equals(supportPhones, printableFormServiceChannel.supportPhones) &&
+        Objects.equals(supportEmails, printableFormServiceChannel.supportEmails) &&
         Objects.equals(deliveryAddress, printableFormServiceChannel.deliveryAddress) &&
         Objects.equals(channelUrls, printableFormServiceChannel.channelUrls) &&
         Objects.equals(languages, printableFormServiceChannel.languages) &&
@@ -320,7 +341,7 @@ public class PrintableFormServiceChannel   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, organizationId, names, descriptions, formIdentifier, formReceiver, supportContacts, deliveryAddress, channelUrls, languages, deliveryAddressDescriptions, attachments, webPages, serviceHours, publishingStatus);
+    return Objects.hash(id, type, organizationId, names, descriptions, formIdentifier, formReceiver, supportPhones, supportEmails, deliveryAddress, channelUrls, languages, deliveryAddressDescriptions, attachments, webPages, serviceHours, publishingStatus);
   }
 
   @Override
@@ -335,7 +356,8 @@ public class PrintableFormServiceChannel   {
     sb.append("    descriptions: ").append(toIndentedString(descriptions)).append("\n");
     sb.append("    formIdentifier: ").append(toIndentedString(formIdentifier)).append("\n");
     sb.append("    formReceiver: ").append(toIndentedString(formReceiver)).append("\n");
-    sb.append("    supportContacts: ").append(toIndentedString(supportContacts)).append("\n");
+    sb.append("    supportPhones: ").append(toIndentedString(supportPhones)).append("\n");
+    sb.append("    supportEmails: ").append(toIndentedString(supportEmails)).append("\n");
     sb.append("    deliveryAddress: ").append(toIndentedString(deliveryAddress)).append("\n");
     sb.append("    channelUrls: ").append(toIndentedString(channelUrls)).append("\n");
     sb.append("    languages: ").append(toIndentedString(languages)).append("\n");
