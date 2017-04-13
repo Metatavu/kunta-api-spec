@@ -4,8 +4,8 @@ import fi.metatavu.kuntaapi.server.rest.model.Address;
 import fi.metatavu.kuntaapi.server.rest.model.Email;
 import fi.metatavu.kuntaapi.server.rest.model.LocalizedValue;
 import fi.metatavu.kuntaapi.server.rest.model.Municipality;
+import fi.metatavu.kuntaapi.server.rest.model.OrganizationService;
 import fi.metatavu.kuntaapi.server.rest.model.Phone;
-import fi.metatavu.kuntaapi.server.rest.model.Service;
 import fi.metatavu.kuntaapi.server.rest.model.WebPage;
 import io.swagger.annotations.ApiModel;
 import java.util.ArrayList;
@@ -36,7 +36,7 @@ public class Organization   {
   private List<Address> addresses = new ArrayList<Address>();
   private String publishingStatus = null;
   private String parentOrganization = null;
-  private List<Service> services = new ArrayList<Service>();
+  private List<OrganizationService> services = new ArrayList<OrganizationService>();
 
   /**
    * Entity identifier.
@@ -279,17 +279,17 @@ public class Organization   {
   /**
    * List of organizations services.
    **/
-  public Organization services(List<Service> services) {
+  public Organization services(List<OrganizationService> services) {
     this.services = services;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "List of organizations services.")
-  public List<Service> getServices() {
+  public List<OrganizationService> getServices() {
     return services;
   }
-  public void setServices(List<Service> services) {
+  public void setServices(List<OrganizationService> services) {
     this.services = services;
   }
 
