@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/LocalizedValue'], factory);
+    define(['ApiClient', 'model/LocalizedValue', 'model/Municipality'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./LocalizedValue'));
+    module.exports = factory(require('../ApiClient'), require('./LocalizedValue'), require('./Municipality'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.Address = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.LocalizedValue);
+    root.KuntaApiClient.Address = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.Municipality);
   }
-}(this, function(ApiClient, LocalizedValue) {
+}(this, function(ApiClient, LocalizedValue, Municipality) {
   'use strict';
 
 
@@ -45,7 +45,7 @@
   /**
    * The Address model module.
    * @module model/Address
-   * @version 0.0.73
+   * @version 0.0.74
    */
 
   /**
@@ -55,6 +55,9 @@
    */
   var exports = function() {
     var _this = this;
+
+
+
 
 
 
@@ -78,6 +81,15 @@
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('latitude')) {
+        obj['latitude'] = ApiClient.convertToType(data['latitude'], 'String');
+      }
+      if (data.hasOwnProperty('longitude')) {
+        obj['longitude'] = ApiClient.convertToType(data['longitude'], 'String');
+      }
+      if (data.hasOwnProperty('coordinateState')) {
+        obj['coordinateState'] = ApiClient.convertToType(data['coordinateState'], 'String');
+      }
       if (data.hasOwnProperty('type')) {
         obj['type'] = ApiClient.convertToType(data['type'], 'String');
       }
@@ -88,19 +100,19 @@
         obj['postalCode'] = ApiClient.convertToType(data['postalCode'], 'String');
       }
       if (data.hasOwnProperty('postOffice')) {
-        obj['postOffice'] = ApiClient.convertToType(data['postOffice'], 'String');
+        obj['postOffice'] = ApiClient.convertToType(data['postOffice'], [LocalizedValue]);
       }
       if (data.hasOwnProperty('streetAddress')) {
         obj['streetAddress'] = ApiClient.convertToType(data['streetAddress'], [LocalizedValue]);
       }
+      if (data.hasOwnProperty('streetNumber')) {
+        obj['streetNumber'] = ApiClient.convertToType(data['streetNumber'], 'String');
+      }
       if (data.hasOwnProperty('municipality')) {
-        obj['municipality'] = ApiClient.convertToType(data['municipality'], 'String');
+        obj['municipality'] = Municipality.constructFromObject(data['municipality']);
       }
       if (data.hasOwnProperty('country')) {
         obj['country'] = ApiClient.convertToType(data['country'], 'String');
-      }
-      if (data.hasOwnProperty('qualifier')) {
-        obj['qualifier'] = ApiClient.convertToType(data['qualifier'], 'String');
       }
       if (data.hasOwnProperty('additionalInformations')) {
         obj['additionalInformations'] = ApiClient.convertToType(data['additionalInformations'], [LocalizedValue]);
@@ -110,38 +122,61 @@
   }
 
   /**
+   * Service location latitude coordinate.
+   * @member {String} latitude
+   */
+  exports.prototype['latitude'] = undefined;
+  /**
+   * Service location longitude coordinate.
+   * @member {String} longitude
+   */
+  exports.prototype['longitude'] = undefined;
+  /**
+   * State of coordinates. Coordinates are fetched from a service provided by Maanmittauslaitos (WFS).  Possible values are: Loading, Ok, Failed, NotReceived, EmptyInputReceived, MultipleResultsReceived or WrongFormatReceived.
+   * @member {String} coordinateState
+   */
+  exports.prototype['coordinateState'] = undefined;
+  /**
+   * Address type, Visiting or Postal.
    * @member {String} type
    */
   exports.prototype['type'] = undefined;
   /**
+   * Post office box like PL 310
    * @member {String} postOfficeBox
    */
   exports.prototype['postOfficeBox'] = undefined;
   /**
+   * Postal code, for example 00010.
    * @member {String} postalCode
    */
   exports.prototype['postalCode'] = undefined;
   /**
-   * @member {String} postOffice
+   * List of localized Post offices, for example Helsinki, Helsingfors.
+   * @member {Array.<module:model/LocalizedValue>} postOffice
    */
   exports.prototype['postOffice'] = undefined;
   /**
+   * List of localized street addresses.
    * @member {Array.<module:model/LocalizedValue>} streetAddress
    */
   exports.prototype['streetAddress'] = undefined;
   /**
-   * @member {String} municipality
+   * Street number for street address.
+   * @member {String} streetNumber
+   */
+  exports.prototype['streetNumber'] = undefined;
+  /**
+   * @member {module:model/Municipality} municipality
    */
   exports.prototype['municipality'] = undefined;
   /**
+   * Country code (ISO 3166-1 alpha-2), for example FI.
    * @member {String} country
    */
   exports.prototype['country'] = undefined;
   /**
-   * @member {String} qualifier
-   */
-  exports.prototype['qualifier'] = undefined;
-  /**
+   * Localized list of additional information about the address.
    * @member {Array.<module:model/LocalizedValue>} additionalInformations
    */
   exports.prototype['additionalInformations'] = undefined;

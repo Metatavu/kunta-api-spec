@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Address', 'model/Email', 'model/LocalizedValue', 'model/Phone', 'model/ServiceHour', 'model/WebPage'], factory);
+    define(['ApiClient', 'model/Address', 'model/Email', 'model/LocalizedValue', 'model/Municipality', 'model/Phone', 'model/ServiceHour', 'model/WebPage'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Address'), require('./Email'), require('./LocalizedValue'), require('./Phone'), require('./ServiceHour'), require('./WebPage'));
+    module.exports = factory(require('../ApiClient'), require('./Address'), require('./Email'), require('./LocalizedValue'), require('./Municipality'), require('./Phone'), require('./ServiceHour'), require('./WebPage'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.ServiceLocationServiceChannel = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Address, root.KuntaApiClient.Email, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.Phone, root.KuntaApiClient.ServiceHour, root.KuntaApiClient.WebPage);
+    root.KuntaApiClient.ServiceLocationServiceChannel = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Address, root.KuntaApiClient.Email, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.Municipality, root.KuntaApiClient.Phone, root.KuntaApiClient.ServiceHour, root.KuntaApiClient.WebPage);
   }
-}(this, function(ApiClient, Address, Email, LocalizedValue, Phone, ServiceHour, WebPage) {
+}(this, function(ApiClient, Address, Email, LocalizedValue, Municipality, Phone, ServiceHour, WebPage) {
   'use strict';
 
 
@@ -45,7 +45,7 @@
   /**
    * The ServiceLocationServiceChannel model module.
    * @module model/ServiceLocationServiceChannel
-   * @version 0.0.73
+   * @version 0.0.74
    */
 
   /**
@@ -55,16 +55,6 @@
    */
   var exports = function() {
     var _this = this;
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -96,9 +86,6 @@
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
-      if (data.hasOwnProperty('type')) {
-        obj['type'] = ApiClient.convertToType(data['type'], 'String');
-      }
       if (data.hasOwnProperty('organizationId')) {
         obj['organizationId'] = ApiClient.convertToType(data['organizationId'], 'String');
       }
@@ -111,35 +98,14 @@
       if (data.hasOwnProperty('serviceAreaRestricted')) {
         obj['serviceAreaRestricted'] = ApiClient.convertToType(data['serviceAreaRestricted'], 'Boolean');
       }
-      if (data.hasOwnProperty('supportPhones')) {
-        obj['supportPhones'] = ApiClient.convertToType(data['supportPhones'], [Phone]);
+      if (data.hasOwnProperty('phoneNumbers')) {
+        obj['phoneNumbers'] = ApiClient.convertToType(data['phoneNumbers'], [Phone]);
       }
-      if (data.hasOwnProperty('supportEmails')) {
-        obj['supportEmails'] = ApiClient.convertToType(data['supportEmails'], [Email]);
-      }
-      if (data.hasOwnProperty('email')) {
-        obj['email'] = ApiClient.convertToType(data['email'], 'String');
-      }
-      if (data.hasOwnProperty('phone')) {
-        obj['phone'] = ApiClient.convertToType(data['phone'], 'String');
+      if (data.hasOwnProperty('emails')) {
+        obj['emails'] = ApiClient.convertToType(data['emails'], [Email]);
       }
       if (data.hasOwnProperty('languages')) {
         obj['languages'] = ApiClient.convertToType(data['languages'], ['String']);
-      }
-      if (data.hasOwnProperty('fax')) {
-        obj['fax'] = ApiClient.convertToType(data['fax'], 'String');
-      }
-      if (data.hasOwnProperty('latitude')) {
-        obj['latitude'] = ApiClient.convertToType(data['latitude'], 'String');
-      }
-      if (data.hasOwnProperty('longitude')) {
-        obj['longitude'] = ApiClient.convertToType(data['longitude'], 'String');
-      }
-      if (data.hasOwnProperty('coordinateSystem')) {
-        obj['coordinateSystem'] = ApiClient.convertToType(data['coordinateSystem'], 'String');
-      }
-      if (data.hasOwnProperty('coordinatesSetManually')) {
-        obj['coordinatesSetManually'] = ApiClient.convertToType(data['coordinatesSetManually'], 'Boolean');
       }
       if (data.hasOwnProperty('phoneServiceCharge')) {
         obj['phoneServiceCharge'] = ApiClient.convertToType(data['phoneServiceCharge'], 'Boolean');
@@ -148,16 +114,10 @@
         obj['webPages'] = ApiClient.convertToType(data['webPages'], [WebPage]);
       }
       if (data.hasOwnProperty('serviceAreas')) {
-        obj['serviceAreas'] = ApiClient.convertToType(data['serviceAreas'], ['String']);
-      }
-      if (data.hasOwnProperty('phoneChargeDescriptions')) {
-        obj['phoneChargeDescriptions'] = ApiClient.convertToType(data['phoneChargeDescriptions'], [LocalizedValue]);
+        obj['serviceAreas'] = ApiClient.convertToType(data['serviceAreas'], [Municipality]);
       }
       if (data.hasOwnProperty('addresses')) {
         obj['addresses'] = ApiClient.convertToType(data['addresses'], [Address]);
-      }
-      if (data.hasOwnProperty('chargeTypes')) {
-        obj['chargeTypes'] = ApiClient.convertToType(data['chargeTypes'], ['String']);
       }
       if (data.hasOwnProperty('serviceHours')) {
         obj['serviceHours'] = ApiClient.convertToType(data['serviceHours'], [ServiceHour]);
@@ -170,100 +130,72 @@
   }
 
   /**
+   * Identifier for the service channel.
    * @member {String} id
    */
   exports.prototype['id'] = undefined;
   /**
-   * @member {String} type
-   */
-  exports.prototype['type'] = undefined;
-  /**
+   * Organization identifier responsible for the channel.
    * @member {String} organizationId
    */
   exports.prototype['organizationId'] = undefined;
   /**
+   * Localized list of service channel names.
    * @member {Array.<module:model/LocalizedValue>} names
    */
   exports.prototype['names'] = undefined;
   /**
+   * List of localized service channel descriptions.
    * @member {Array.<module:model/LocalizedValue>} descriptions
    */
   exports.prototype['descriptions'] = undefined;
   /**
+   * Is the service location channel restricted by service area.
    * @member {Boolean} serviceAreaRestricted
    */
   exports.prototype['serviceAreaRestricted'] = undefined;
   /**
-   * List of support phone numbers for the service channel.
-   * @member {Array.<module:model/Phone>} supportPhones
+   * List of phone numbers for the service channel. Includes also fax numbers.
+   * @member {Array.<module:model/Phone>} phoneNumbers
    */
-  exports.prototype['supportPhones'] = undefined;
+  exports.prototype['phoneNumbers'] = undefined;
   /**
-   * List of support email addresses for the service channel.
-   * @member {Array.<module:model/Email>} supportEmails
+   * List email addresses for the service channel.
+   * @member {Array.<module:model/Email>} emails
    */
-  exports.prototype['supportEmails'] = undefined;
+  exports.prototype['emails'] = undefined;
   /**
-   * @member {String} email
-   */
-  exports.prototype['email'] = undefined;
-  /**
-   * @member {String} phone
-   */
-  exports.prototype['phone'] = undefined;
-  /**
+   * List of languages the service channel is available in (two letter language code).
    * @member {Array.<String>} languages
    */
   exports.prototype['languages'] = undefined;
   /**
-   * @member {String} fax
-   */
-  exports.prototype['fax'] = undefined;
-  /**
-   * @member {String} latitude
-   */
-  exports.prototype['latitude'] = undefined;
-  /**
-   * @member {String} longitude
-   */
-  exports.prototype['longitude'] = undefined;
-  /**
-   * @member {String} coordinateSystem
-   */
-  exports.prototype['coordinateSystem'] = undefined;
-  /**
-   * @member {Boolean} coordinatesSetManually
-   */
-  exports.prototype['coordinatesSetManually'] = undefined;
-  /**
+   * Is the phone service charged for.
    * @member {Boolean} phoneServiceCharge
    */
   exports.prototype['phoneServiceCharge'] = undefined;
   /**
+   * List of service channel web pages.
    * @member {Array.<module:model/WebPage>} webPages
    */
   exports.prototype['webPages'] = undefined;
   /**
-   * @member {Array.<String>} serviceAreas
+   * List of serviceareas. Used when location service channel is restricted by service area (ServiceAreaRestricted=true).
+   * @member {Array.<module:model/Municipality>} serviceAreas
    */
   exports.prototype['serviceAreas'] = undefined;
   /**
-   * @member {Array.<module:model/LocalizedValue>} phoneChargeDescriptions
-   */
-  exports.prototype['phoneChargeDescriptions'] = undefined;
-  /**
+   * List of service location addresses.
    * @member {Array.<module:model/Address>} addresses
    */
   exports.prototype['addresses'] = undefined;
   /**
-   * @member {Array.<String>} chargeTypes
-   */
-  exports.prototype['chargeTypes'] = undefined;
-  /**
+   * List of service channel service hours.
    * @member {Array.<module:model/ServiceHour>} serviceHours
    */
   exports.prototype['serviceHours'] = undefined;
   /**
+   * Service channel publishing status. Values: Draft, Published, Deleted, Modified or OldPublished.
    * @member {String} publishingStatus
    */
   exports.prototype['publishingStatus'] = undefined;

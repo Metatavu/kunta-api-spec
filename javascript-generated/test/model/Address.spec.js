@@ -65,6 +65,24 @@
       //expect(instance).to.be.a(KuntaApiClient.Address);
     });
 
+    it('should have the property latitude (base name: "latitude")', function() {
+      // uncomment below and update the code to test the property latitude
+      //var instane = new KuntaApiClient.Address();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property longitude (base name: "longitude")', function() {
+      // uncomment below and update the code to test the property longitude
+      //var instane = new KuntaApiClient.Address();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property coordinateState (base name: "coordinateState")', function() {
+      // uncomment below and update the code to test the property coordinateState
+      //var instane = new KuntaApiClient.Address();
+      //expect(instance).to.be();
+    });
+
     it('should have the property type (base name: "type")', function() {
       // uncomment below and update the code to test the property type
       //var instane = new KuntaApiClient.Address();
@@ -95,6 +113,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property streetNumber (base name: "streetNumber")', function() {
+      // uncomment below and update the code to test the property streetNumber
+      //var instane = new KuntaApiClient.Address();
+      //expect(instance).to.be();
+    });
+
     it('should have the property municipality (base name: "municipality")', function() {
       // uncomment below and update the code to test the property municipality
       //var instane = new KuntaApiClient.Address();
@@ -103,12 +127,6 @@
 
     it('should have the property country (base name: "country")', function() {
       // uncomment below and update the code to test the property country
-      //var instane = new KuntaApiClient.Address();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property qualifier (base name: "qualifier")', function() {
-      // uncomment below and update the code to test the property qualifier
       //var instane = new KuntaApiClient.Address();
       //expect(instance).to.be();
     });

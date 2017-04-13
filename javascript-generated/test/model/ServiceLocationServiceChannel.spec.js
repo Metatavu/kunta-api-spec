@@ -71,12 +71,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property type (base name: "type")', function() {
-      // uncomment below and update the code to test the property type
-      //var instane = new KuntaApiClient.ServiceLocationServiceChannel();
-      //expect(instance).to.be();
-    });
-
     it('should have the property organizationId (base name: "organizationId")', function() {
       // uncomment below and update the code to test the property organizationId
       //var instane = new KuntaApiClient.ServiceLocationServiceChannel();
@@ -101,62 +95,20 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property supportPhones (base name: "supportPhones")', function() {
-      // uncomment below and update the code to test the property supportPhones
+    it('should have the property phoneNumbers (base name: "phoneNumbers")', function() {
+      // uncomment below and update the code to test the property phoneNumbers
       //var instane = new KuntaApiClient.ServiceLocationServiceChannel();
       //expect(instance).to.be();
     });
 
-    it('should have the property supportEmails (base name: "supportEmails")', function() {
-      // uncomment below and update the code to test the property supportEmails
-      //var instane = new KuntaApiClient.ServiceLocationServiceChannel();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property email (base name: "email")', function() {
-      // uncomment below and update the code to test the property email
-      //var instane = new KuntaApiClient.ServiceLocationServiceChannel();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property phone (base name: "phone")', function() {
-      // uncomment below and update the code to test the property phone
+    it('should have the property emails (base name: "emails")', function() {
+      // uncomment below and update the code to test the property emails
       //var instane = new KuntaApiClient.ServiceLocationServiceChannel();
       //expect(instance).to.be();
     });
 
     it('should have the property languages (base name: "languages")', function() {
       // uncomment below and update the code to test the property languages
-      //var instane = new KuntaApiClient.ServiceLocationServiceChannel();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property fax (base name: "fax")', function() {
-      // uncomment below and update the code to test the property fax
-      //var instane = new KuntaApiClient.ServiceLocationServiceChannel();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property latitude (base name: "latitude")', function() {
-      // uncomment below and update the code to test the property latitude
-      //var instane = new KuntaApiClient.ServiceLocationServiceChannel();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property longitude (base name: "longitude")', function() {
-      // uncomment below and update the code to test the property longitude
-      //var instane = new KuntaApiClient.ServiceLocationServiceChannel();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property coordinateSystem (base name: "coordinateSystem")', function() {
-      // uncomment below and update the code to test the property coordinateSystem
-      //var instane = new KuntaApiClient.ServiceLocationServiceChannel();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property coordinatesSetManually (base name: "coordinatesSetManually")', function() {
-      // uncomment below and update the code to test the property coordinatesSetManually
       //var instane = new KuntaApiClient.ServiceLocationServiceChannel();
       //expect(instance).to.be();
     });
@@ -179,20 +131,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property phoneChargeDescriptions (base name: "phoneChargeDescriptions")', function() {
-      // uncomment below and update the code to test the property phoneChargeDescriptions
-      //var instane = new KuntaApiClient.ServiceLocationServiceChannel();
-      //expect(instance).to.be();
-    });
-
     it('should have the property addresses (base name: "addresses")', function() {
       // uncomment below and update the code to test the property addresses
-      //var instane = new KuntaApiClient.ServiceLocationServiceChannel();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property chargeTypes (base name: "chargeTypes")', function() {
-      // uncomment below and update the code to test the property chargeTypes
       //var instane = new KuntaApiClient.ServiceLocationServiceChannel();
       //expect(instance).to.be();
     });
