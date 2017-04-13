@@ -5242,23 +5242,26 @@
         },
         "keywords" : {
           "type" : "array",
+          "description" : "List of localized service keywords.",
           "items" : {
-            "type" : "string"
+            "$ref" : "#/definitions/LocalizedValue"
+          }
+        },
+        "legislation" : {
+          "type" : "array",
+          "description" : "List of laws related to the service.",
+          "items" : {
+            "$ref" : "#/definitions/Law"
           }
         },
         "coverageType" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Service coverage type. Valid values are: Local or Nationwide."
         },
         "municipalities" : {
           "type" : "array",
           "items" : {
-            "type" : "string"
-          }
-        },
-        "webPages" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/WebPage"
+            "$ref" : "#/definitions/Municipality"
           }
         },
         "requirements" : {
@@ -5268,7 +5271,8 @@
           }
         },
         "publishingStatus" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Publishing status. Possible values are: Draft, Published, Deleted, Modified or OldPublished."
         },
         "chargeType" : {
           "type" : "string"
@@ -6414,6 +6418,25 @@
           "type" : "string"
         }
       }
+    },
+    "Law" : {
+      "type" : "object",
+      "properties" : {
+        "names" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/LocalizedValue"
+          }
+        },
+        "webPages" : {
+          "type" : "array",
+          "description" : "List of localized web page urls.",
+          "items" : {
+            "$ref" : "#/definitions/WebPage"
+          }
+        }
+      },
+      "description" : "a Law"
     },
     "Trip" : {
       "type" : "object",

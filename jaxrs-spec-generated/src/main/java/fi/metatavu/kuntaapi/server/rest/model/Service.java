@@ -1,8 +1,9 @@
 package fi.metatavu.kuntaapi.server.rest.model;
 
+import fi.metatavu.kuntaapi.server.rest.model.Law;
 import fi.metatavu.kuntaapi.server.rest.model.LocalizedValue;
+import fi.metatavu.kuntaapi.server.rest.model.Municipality;
 import fi.metatavu.kuntaapi.server.rest.model.OntologyItem;
-import fi.metatavu.kuntaapi.server.rest.model.WebPage;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,10 +26,10 @@ public class Service   {
   private List<LocalizedValue> names = new ArrayList<LocalizedValue>();
   private List<LocalizedValue> descriptions = new ArrayList<LocalizedValue>();
   private List<String> languages = new ArrayList<String>();
-  private List<String> keywords = new ArrayList<String>();
+  private List<LocalizedValue> keywords = new ArrayList<LocalizedValue>();
+  private List<Law> legislation = new ArrayList<Law>();
   private String coverageType = null;
-  private List<String> municipalities = new ArrayList<String>();
-  private List<WebPage> webPages = new ArrayList<WebPage>();
+  private List<Municipality> municipalities = new ArrayList<Municipality>();
   private List<LocalizedValue> requirements = new ArrayList<LocalizedValue>();
   private String publishingStatus = null;
   private String chargeType = null;
@@ -216,22 +217,41 @@ public class Service   {
   }
 
   /**
+   * List of localized service keywords.
    **/
-  public Service keywords(List<String> keywords) {
+  public Service keywords(List<LocalizedValue> keywords) {
     this.keywords = keywords;
     return this;
   }
 
   
-  @ApiModelProperty(example = "null", value = "")
-  public List<String> getKeywords() {
+  @ApiModelProperty(example = "null", value = "List of localized service keywords.")
+  public List<LocalizedValue> getKeywords() {
     return keywords;
   }
-  public void setKeywords(List<String> keywords) {
+  public void setKeywords(List<LocalizedValue> keywords) {
     this.keywords = keywords;
   }
 
   /**
+   * List of laws related to the service.
+   **/
+  public Service legislation(List<Law> legislation) {
+    this.legislation = legislation;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "List of laws related to the service.")
+  public List<Law> getLegislation() {
+    return legislation;
+  }
+  public void setLegislation(List<Law> legislation) {
+    this.legislation = legislation;
+  }
+
+  /**
+   * Service coverage type. Valid values are: Local or Nationwide.
    **/
   public Service coverageType(String coverageType) {
     this.coverageType = coverageType;
@@ -239,7 +259,7 @@ public class Service   {
   }
 
   
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Service coverage type. Valid values are: Local or Nationwide.")
   public String getCoverageType() {
     return coverageType;
   }
@@ -249,34 +269,18 @@ public class Service   {
 
   /**
    **/
-  public Service municipalities(List<String> municipalities) {
+  public Service municipalities(List<Municipality> municipalities) {
     this.municipalities = municipalities;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "")
-  public List<String> getMunicipalities() {
+  public List<Municipality> getMunicipalities() {
     return municipalities;
   }
-  public void setMunicipalities(List<String> municipalities) {
+  public void setMunicipalities(List<Municipality> municipalities) {
     this.municipalities = municipalities;
-  }
-
-  /**
-   **/
-  public Service webPages(List<WebPage> webPages) {
-    this.webPages = webPages;
-    return this;
-  }
-
-  
-  @ApiModelProperty(example = "null", value = "")
-  public List<WebPage> getWebPages() {
-    return webPages;
-  }
-  public void setWebPages(List<WebPage> webPages) {
-    this.webPages = webPages;
   }
 
   /**
@@ -296,6 +300,7 @@ public class Service   {
   }
 
   /**
+   * Publishing status. Possible values are: Draft, Published, Deleted, Modified or OldPublished.
    **/
   public Service publishingStatus(String publishingStatus) {
     this.publishingStatus = publishingStatus;
@@ -303,7 +308,7 @@ public class Service   {
   }
 
   
-  @ApiModelProperty(example = "null", value = "")
+  @ApiModelProperty(example = "null", value = "Publishing status. Possible values are: Draft, Published, Deleted, Modified or OldPublished.")
   public String getPublishingStatus() {
     return publishingStatus;
   }
@@ -445,9 +450,9 @@ public class Service   {
         Objects.equals(descriptions, service.descriptions) &&
         Objects.equals(languages, service.languages) &&
         Objects.equals(keywords, service.keywords) &&
+        Objects.equals(legislation, service.legislation) &&
         Objects.equals(coverageType, service.coverageType) &&
         Objects.equals(municipalities, service.municipalities) &&
-        Objects.equals(webPages, service.webPages) &&
         Objects.equals(requirements, service.requirements) &&
         Objects.equals(publishingStatus, service.publishingStatus) &&
         Objects.equals(chargeType, service.chargeType) &&
@@ -461,7 +466,7 @@ public class Service   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, statutoryDescriptionId, serviceClasses, ontologyTerms, targetGroups, lifeEvents, industrialClasses, names, descriptions, languages, keywords, coverageType, municipalities, webPages, requirements, publishingStatus, chargeType, additionalInformations, electronicServiceChannelIds, phoneServiceChannelIds, printableFormServiceChannelIds, serviceLocationServiceChannelIds, webPageServiceChannelIds);
+    return Objects.hash(id, type, statutoryDescriptionId, serviceClasses, ontologyTerms, targetGroups, lifeEvents, industrialClasses, names, descriptions, languages, keywords, legislation, coverageType, municipalities, requirements, publishingStatus, chargeType, additionalInformations, electronicServiceChannelIds, phoneServiceChannelIds, printableFormServiceChannelIds, serviceLocationServiceChannelIds, webPageServiceChannelIds);
   }
 
   @Override
@@ -481,9 +486,9 @@ public class Service   {
     sb.append("    descriptions: ").append(toIndentedString(descriptions)).append("\n");
     sb.append("    languages: ").append(toIndentedString(languages)).append("\n");
     sb.append("    keywords: ").append(toIndentedString(keywords)).append("\n");
+    sb.append("    legislation: ").append(toIndentedString(legislation)).append("\n");
     sb.append("    coverageType: ").append(toIndentedString(coverageType)).append("\n");
     sb.append("    municipalities: ").append(toIndentedString(municipalities)).append("\n");
-    sb.append("    webPages: ").append(toIndentedString(webPages)).append("\n");
     sb.append("    requirements: ").append(toIndentedString(requirements)).append("\n");
     sb.append("    publishingStatus: ").append(toIndentedString(publishingStatus)).append("\n");
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
