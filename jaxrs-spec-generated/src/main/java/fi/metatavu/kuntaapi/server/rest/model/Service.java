@@ -33,7 +33,6 @@ public class Service   {
   private List<LocalizedValue> requirements = new ArrayList<LocalizedValue>();
   private String publishingStatus = null;
   private String chargeType = null;
-  private List<LocalizedValue> additionalInformations = new ArrayList<LocalizedValue>();
   private List<String> electronicServiceChannelIds = new ArrayList<String>();
   private List<String> phoneServiceChannelIds = new ArrayList<String>();
   private List<String> printableFormServiceChannelIds = new ArrayList<String>();
@@ -334,22 +333,6 @@ public class Service   {
 
   /**
    **/
-  public Service additionalInformations(List<LocalizedValue> additionalInformations) {
-    this.additionalInformations = additionalInformations;
-    return this;
-  }
-
-  
-  @ApiModelProperty(example = "null", value = "")
-  public List<LocalizedValue> getAdditionalInformations() {
-    return additionalInformations;
-  }
-  public void setAdditionalInformations(List<LocalizedValue> additionalInformations) {
-    this.additionalInformations = additionalInformations;
-  }
-
-  /**
-   **/
   public Service electronicServiceChannelIds(List<String> electronicServiceChannelIds) {
     this.electronicServiceChannelIds = electronicServiceChannelIds;
     return this;
@@ -456,7 +439,6 @@ public class Service   {
         Objects.equals(requirements, service.requirements) &&
         Objects.equals(publishingStatus, service.publishingStatus) &&
         Objects.equals(chargeType, service.chargeType) &&
-        Objects.equals(additionalInformations, service.additionalInformations) &&
         Objects.equals(electronicServiceChannelIds, service.electronicServiceChannelIds) &&
         Objects.equals(phoneServiceChannelIds, service.phoneServiceChannelIds) &&
         Objects.equals(printableFormServiceChannelIds, service.printableFormServiceChannelIds) &&
@@ -466,7 +448,7 @@ public class Service   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, statutoryDescriptionId, serviceClasses, ontologyTerms, targetGroups, lifeEvents, industrialClasses, names, descriptions, languages, keywords, legislation, coverageType, municipalities, requirements, publishingStatus, chargeType, additionalInformations, electronicServiceChannelIds, phoneServiceChannelIds, printableFormServiceChannelIds, serviceLocationServiceChannelIds, webPageServiceChannelIds);
+    return Objects.hash(id, type, statutoryDescriptionId, serviceClasses, ontologyTerms, targetGroups, lifeEvents, industrialClasses, names, descriptions, languages, keywords, legislation, coverageType, municipalities, requirements, publishingStatus, chargeType, electronicServiceChannelIds, phoneServiceChannelIds, printableFormServiceChannelIds, serviceLocationServiceChannelIds, webPageServiceChannelIds);
   }
 
   @Override
@@ -492,7 +474,6 @@ public class Service   {
     sb.append("    requirements: ").append(toIndentedString(requirements)).append("\n");
     sb.append("    publishingStatus: ").append(toIndentedString(publishingStatus)).append("\n");
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
-    sb.append("    additionalInformations: ").append(toIndentedString(additionalInformations)).append("\n");
     sb.append("    electronicServiceChannelIds: ").append(toIndentedString(electronicServiceChannelIds)).append("\n");
     sb.append("    phoneServiceChannelIds: ").append(toIndentedString(phoneServiceChannelIds)).append("\n");
     sb.append("    printableFormServiceChannelIds: ").append(toIndentedString(printableFormServiceChannelIds)).append("\n");

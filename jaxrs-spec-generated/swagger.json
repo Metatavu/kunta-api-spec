@@ -5166,17 +5166,89 @@
         "id" : {
           "type" : "string",
           "format" : "uuid",
-          "description" : "Unique identifier a organization."
+          "description" : "Entity identifier."
         },
-        "businessName" : {
+        "municipality" : {
+          "description" : "Municipality including municipality code and a localized list of municipality names.",
+          "$ref" : "#/definitions/Municipality"
+        },
+        "organizationType" : {
           "type" : "string",
-          "description" : "Primary name of organization"
+          "description" : "Organization type (State, Municipality, RegionalOrganization, Organization, Company)."
         },
         "businessCode" : {
           "type" : "string",
-          "description" : "Business code code of organization"
+          "description" : "Organization business code (Y-tunnus).",
+          "pattern" : "^[0-9]{7}-[0-9]{1}$"
+        },
+        "businessName" : {
+          "type" : "string",
+          "description" : "Organization business name (name used for business code)."
+        },
+        "names" : {
+          "type" : "array",
+          "description" : "List of organization names.",
+          "items" : {
+            "$ref" : "#/definitions/LocalizedValue"
+          }
+        },
+        "displayNameType" : {
+          "type" : "string",
+          "description" : "Display name type (Name or AlternateName). Which name type should be used as the display name for the organization (OrganizationNames list)."
+        },
+        "descriptions" : {
+          "type" : "array",
+          "description" : "List of organizations descriptions.",
+          "items" : {
+            "$ref" : "#/definitions/LocalizedValue"
+          }
+        },
+        "emailAddresses" : {
+          "type" : "array",
+          "description" : "List of organizations email addresses.",
+          "items" : {
+            "$ref" : "#/definitions/Email"
+          }
+        },
+        "phoneNumbers" : {
+          "type" : "array",
+          "description" : "List of organizations phone numbers.",
+          "items" : {
+            "$ref" : "#/definitions/Phone"
+          }
+        },
+        "webPages" : {
+          "type" : "array",
+          "description" : "List of organizations web pages.",
+          "items" : {
+            "$ref" : "#/definitions/WebPage"
+          }
+        },
+        "addresses" : {
+          "type" : "array",
+          "description" : "List of organizations addresses.",
+          "items" : {
+            "$ref" : "#/definitions/Address"
+          }
+        },
+        "publishingStatus" : {
+          "type" : "string",
+          "description" : "Publishing status (Draft, Published, Deleted, Modified and OldPublished)."
+        },
+        "parentOrganization" : {
+          "type" : "string",
+          "format" : "uuid",
+          "description" : "Organizations parent organization identifier if exists."
+        },
+        "services" : {
+          "type" : "array",
+          "description" : "List of organizations services.",
+          "items" : {
+            "$ref" : "#/definitions/Service"
+          }
         }
-      }
+      },
+      "description" : "Organization"
     },
     "Service" : {
       "type" : "object",
@@ -5276,12 +5348,6 @@
         },
         "chargeType" : {
           "type" : "string"
-        },
-        "additionalInformations" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/LocalizedValue"
-          }
         },
         "electronicServiceChannelIds" : {
           "type" : "array",
