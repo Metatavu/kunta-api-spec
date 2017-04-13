@@ -4326,7 +4326,7 @@ definitions:
         description: List email addresses for the service channel.
         type: array
         items:
-          $ref: '#/definitions/Email'
+          $ref: '#/definitions/LocalizedValue'
       languages:
         description: >-
           List of languages the service channel is available in (two letter
@@ -4369,28 +4369,28 @@ definitions:
     properties:
       id:
         format: uuid
-        type: string
-      type:
+        description: Identifier for the service channel.
         type: string
       organizationId:
         format: uuid
+        description: Organization identifier responsible for the channel.
         type: string
       names:
+        description: Localized list of service channel names.
         type: array
         items:
           $ref: '#/definitions/LocalizedValue'
       descriptions:
+        description: List of localized service channel descriptions.
+        maxLength: 150
         type: array
         items:
           $ref: '#/definitions/LocalizedValue'
       urls:
+        description: List of localized urls.
         type: array
         items:
           $ref: '#/definitions/LocalizedValue'
-      attachments:
-        type: array
-        items:
-          $ref: '#/definitions/ServiceChannelAttachment'
       supportPhones:
         description: List of support phone numbers for the service channel.
         type: array
@@ -4398,22 +4398,31 @@ definitions:
           $ref: '#/definitions/Phone'
       supportEmails:
         description: List of support email addresses for the service channel.
+        maxLength: 100
         type: array
         items:
           $ref: '#/definitions/Email'
       languages:
+        description: >-
+          List of languages the service channel is available in (two letter
+          language code).
         type: array
         items:
           type: string
       webPages:
+        description: List of service channel web pages.
         type: array
         items:
           $ref: '#/definitions/WebPage'
       serviceHours:
+        description: List of service channel service hours.
         type: array
         items:
           $ref: '#/definitions/ServiceHour'
       publishingStatus:
+        description: >-
+          Service channel publishing status. Values: Draft, Published, Deleted,
+          Modified or OldPublished.
         type: string
   Event:
     properties:
