@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Address', 'model/LocalizedValue', 'model/Municipality', 'model/Phone', 'model/ServiceHour', 'model/WebPage'], factory);
+    define(['ApiClient', 'model/Address', 'model/Email', 'model/LocalizedValue', 'model/Municipality', 'model/Phone', 'model/ServiceHour', 'model/WebPage'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Address'), require('./LocalizedValue'), require('./Municipality'), require('./Phone'), require('./ServiceHour'), require('./WebPage'));
+    module.exports = factory(require('../ApiClient'), require('./Address'), require('./Email'), require('./LocalizedValue'), require('./Municipality'), require('./Phone'), require('./ServiceHour'), require('./WebPage'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.ServiceLocationServiceChannel = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Address, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.Municipality, root.KuntaApiClient.Phone, root.KuntaApiClient.ServiceHour, root.KuntaApiClient.WebPage);
+    root.KuntaApiClient.ServiceLocationServiceChannel = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Address, root.KuntaApiClient.Email, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.Municipality, root.KuntaApiClient.Phone, root.KuntaApiClient.ServiceHour, root.KuntaApiClient.WebPage);
   }
-}(this, function(ApiClient, Address, LocalizedValue, Municipality, Phone, ServiceHour, WebPage) {
+}(this, function(ApiClient, Address, Email, LocalizedValue, Municipality, Phone, ServiceHour, WebPage) {
   'use strict';
 
 
@@ -45,7 +45,7 @@
   /**
    * The ServiceLocationServiceChannel model module.
    * @module model/ServiceLocationServiceChannel
-   * @version 0.0.77
+   * @version 0.0.78
    */
 
   /**
@@ -102,7 +102,7 @@
         obj['phoneNumbers'] = ApiClient.convertToType(data['phoneNumbers'], [Phone]);
       }
       if (data.hasOwnProperty('emails')) {
-        obj['emails'] = ApiClient.convertToType(data['emails'], [LocalizedValue]);
+        obj['emails'] = ApiClient.convertToType(data['emails'], [Email]);
       }
       if (data.hasOwnProperty('languages')) {
         obj['languages'] = ApiClient.convertToType(data['languages'], ['String']);
@@ -161,7 +161,7 @@
   exports.prototype['phoneNumbers'] = undefined;
   /**
    * List email addresses for the service channel.
-   * @member {Array.<module:model/LocalizedValue>} emails
+   * @member {Array.<module:model/Email>} emails
    */
   exports.prototype['emails'] = undefined;
   /**
