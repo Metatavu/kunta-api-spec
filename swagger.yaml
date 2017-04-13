@@ -4168,52 +4168,53 @@ definitions:
     properties:
       id:
         format: uuid
-        type: string
-      type:
+        description: Identifier for the service channel.
         type: string
       organizationId:
         format: uuid
+        description: Organization identifier responsible for the channel.
         type: string
       names:
+        description: Localized list of service channel names.
         type: array
         items:
           $ref: '#/definitions/LocalizedValue'
       descriptions:
+        description: List of localized service channel descriptions.
         type: array
         items:
           $ref: '#/definitions/LocalizedValue'
-      phoneType:
-        type: string
-      chargeTypes:
+      phoneNumbers:
+        description: List of phone numbers for the service channel.
         type: array
         items:
-          type: string
+          $ref: '#/definitions/Phone'
       supportEmails:
         type: array
         description: List of support email addresses for the service channel.
         items:
           $ref: '#/definitions/Email'
-      phoneNumbers:
-        type: array
-        items:
-          $ref: '#/definitions/LocalizedValue'
       languages:
+        description: >-
+          List of languages the service channel is available in (two letter
+          language code).
         type: array
         items:
           type: string
-      phoneChargeDescriptions:
-        type: array
-        items:
-          $ref: '#/definitions/LocalizedValue'
       webPages:
+        description: List of service channel web pages.
         type: array
         items:
           $ref: '#/definitions/WebPage'
       serviceHours:
+        description: List of service channel service hours.
         type: array
         items:
           $ref: '#/definitions/ServiceHour'
       publishingStatus:
+        description: >-
+          Service channel publishing status. Values: Draft, Published, Deleted,
+          Modified or OldPublished.
         type: string
   PrintableFormServiceChannel:
     type: object
