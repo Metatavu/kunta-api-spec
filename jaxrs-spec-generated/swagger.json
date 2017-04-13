@@ -6388,15 +6388,14 @@
     "OntologyItem" : {
       "type" : "object",
       "properties" : {
-        "id" : {
-          "type" : "string",
-          "format" : "uuid"
-        },
         "system" : {
           "type" : "string"
         },
         "name" : {
-          "type" : "string"
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/LocalizedValue"
+          }
         },
         "code" : {
           "type" : "string"

@@ -1,5 +1,8 @@
 package fi.metatavu.kuntaapi.server.rest.model;
 
+import fi.metatavu.kuntaapi.server.rest.model.LocalizedValue;
+import java.util.ArrayList;
+import java.util.List;
 
 
 
@@ -9,30 +12,13 @@ import java.util.Objects;
 
 public class OntologyItem   {
   
-  private String id = null;
   private String system = null;
-  private String name = null;
+  private List<LocalizedValue> name = new ArrayList<LocalizedValue>();
   private String code = null;
   private String ontologyType = null;
   private String uri = null;
   private String parentId = null;
   private String parentUri = null;
-
-  /**
-   **/
-  public OntologyItem id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  
-  @ApiModelProperty(example = "null", value = "")
-  public String getId() {
-    return id;
-  }
-  public void setId(String id) {
-    this.id = id;
-  }
 
   /**
    **/
@@ -52,17 +38,17 @@ public class OntologyItem   {
 
   /**
    **/
-  public OntologyItem name(String name) {
+  public OntologyItem name(List<LocalizedValue> name) {
     this.name = name;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "")
-  public String getName() {
+  public List<LocalizedValue> getName() {
     return name;
   }
-  public void setName(String name) {
+  public void setName(List<LocalizedValue> name) {
     this.name = name;
   }
 
@@ -156,8 +142,7 @@ public class OntologyItem   {
       return false;
     }
     OntologyItem ontologyItem = (OntologyItem) o;
-    return Objects.equals(id, ontologyItem.id) &&
-        Objects.equals(system, ontologyItem.system) &&
+    return Objects.equals(system, ontologyItem.system) &&
         Objects.equals(name, ontologyItem.name) &&
         Objects.equals(code, ontologyItem.code) &&
         Objects.equals(ontologyType, ontologyItem.ontologyType) &&
@@ -168,7 +153,7 @@ public class OntologyItem   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, system, name, code, ontologyType, uri, parentId, parentUri);
+    return Objects.hash(system, name, code, ontologyType, uri, parentId, parentUri);
   }
 
   @Override
@@ -176,7 +161,6 @@ public class OntologyItem   {
     StringBuilder sb = new StringBuilder();
     sb.append("class OntologyItem {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    system: ").append(toIndentedString(system)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
