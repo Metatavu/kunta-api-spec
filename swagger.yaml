@@ -3973,20 +3973,83 @@ definitions:
         type: integer
         format: int64
       type:
-        type: string        
+        type: string
+
   Organization:
+    description: Organization
     type: object
     properties:
       id:
-        type: string
         format: uuid
-        description: Unique identifier a organization.
-      businessName:
+        description: Entity identifier.
         type: string
-        description: Primary name of organization
+      municipality:
+        $ref: '#/definitions/Municipality'
+        description: >-
+          Municipality including municipality code and a localized list of
+          municipality names.
+      organizationType:
+        description: >-
+          Organization type (State, Municipality, RegionalOrganization,
+          Organization, Company).
+        type: string
       businessCode:
+        description: Organization business code (Y-tunnus).
+        pattern: '^[0-9]{7}-[0-9]{1}$'
         type: string
-        description: Business code code of organization
+      businessName:
+        description: Organization business name (name used for business code).
+        type: string
+      names:
+        description: List of organization names.
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      displayNameType:
+        description: >-
+          Display name type (Name or AlternateName). Which name type should be
+          used as the display name for the organization (OrganizationNames
+          list).
+        type: string
+      descriptions:
+        description: List of organizations descriptions.
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      emailAddresses:
+        description: List of organizations email addresses.
+        type: array
+        items:
+          $ref: '#/definitions/Email'
+      phoneNumbers:
+        description: List of organizations phone numbers.
+        type: array
+        items:
+          $ref: '#/definitions/Phone'
+      webPages:
+        description: List of organizations web pages.
+        type: array
+        items:
+          $ref: '#/definitions/WebPage'
+      addresses:
+        description: List of organizations addresses.
+        type: array
+        items:
+          $ref: '#/definitions/Address'
+      publishingStatus:
+        description: >-
+          Publishing status (Draft, Published, Deleted, Modified and
+          OldPublished).
+        type: string
+      parentOrganization:
+        format: uuid
+        description: Organizations parent organization identifier if exists.
+        type: string
+      services:
+        description: List of organizations services.
+        type: array
+        items:
+          $ref: '#/definitions/Service'
   Service:
     type: object
     properties:
