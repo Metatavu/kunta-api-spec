@@ -4327,7 +4327,7 @@ definitions:
         description: List email addresses for the service channel.
         type: array
         items:
-          $ref: '#/definitions/LocalizedValue'
+          $ref: '#/definitions/Email'
       languages:
         description: >-
           List of languages the service channel is available in (two letter
