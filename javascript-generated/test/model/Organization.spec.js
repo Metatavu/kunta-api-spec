@@ -71,14 +71,86 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property businessName (base name: "businessName")', function() {
-      // uncomment below and update the code to test the property businessName
+    it('should have the property municipality (base name: "municipality")', function() {
+      // uncomment below and update the code to test the property municipality
+      //var instane = new KuntaApiClient.Organization();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property organizationType (base name: "organizationType")', function() {
+      // uncomment below and update the code to test the property organizationType
       //var instane = new KuntaApiClient.Organization();
       //expect(instance).to.be();
     });
 
     it('should have the property businessCode (base name: "businessCode")', function() {
       // uncomment below and update the code to test the property businessCode
+      //var instane = new KuntaApiClient.Organization();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property businessName (base name: "businessName")', function() {
+      // uncomment below and update the code to test the property businessName
+      //var instane = new KuntaApiClient.Organization();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property names (base name: "names")', function() {
+      // uncomment below and update the code to test the property names
+      //var instane = new KuntaApiClient.Organization();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property displayNameType (base name: "displayNameType")', function() {
+      // uncomment below and update the code to test the property displayNameType
+      //var instane = new KuntaApiClient.Organization();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property descriptions (base name: "descriptions")', function() {
+      // uncomment below and update the code to test the property descriptions
+      //var instane = new KuntaApiClient.Organization();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property emailAddresses (base name: "emailAddresses")', function() {
+      // uncomment below and update the code to test the property emailAddresses
+      //var instane = new KuntaApiClient.Organization();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property phoneNumbers (base name: "phoneNumbers")', function() {
+      // uncomment below and update the code to test the property phoneNumbers
+      //var instane = new KuntaApiClient.Organization();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property webPages (base name: "webPages")', function() {
+      // uncomment below and update the code to test the property webPages
+      //var instane = new KuntaApiClient.Organization();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property addresses (base name: "addresses")', function() {
+      // uncomment below and update the code to test the property addresses
+      //var instane = new KuntaApiClient.Organization();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property publishingStatus (base name: "publishingStatus")', function() {
+      // uncomment below and update the code to test the property publishingStatus
+      //var instane = new KuntaApiClient.Organization();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property parentOrganization (base name: "parentOrganization")', function() {
+      // uncomment below and update the code to test the property parentOrganization
+      //var instane = new KuntaApiClient.Organization();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property services (base name: "services")', function() {
+      // uncomment below and update the code to test the property services
       //var instane = new KuntaApiClient.Organization();
       //expect(instance).to.be();
     });

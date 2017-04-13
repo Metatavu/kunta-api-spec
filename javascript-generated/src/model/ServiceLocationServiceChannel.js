@@ -45,7 +45,7 @@
   /**
    * The ServiceLocationServiceChannel model module.
    * @module model/ServiceLocationServiceChannel
-   * @version 0.0.80
+   * @version 0.0.81
    */
 
   /**

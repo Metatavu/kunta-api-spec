@@ -45,7 +45,7 @@
   /**
    * The Service model module.
    * @module model/Service
-   * @version 0.0.80
+   * @version 0.0.81
    */
 
   /**
@@ -55,7 +55,6 @@
    */
   var exports = function() {
     var _this = this;
-
 
 
 
@@ -146,9 +145,6 @@
       }
       if (data.hasOwnProperty('chargeType')) {
         obj['chargeType'] = ApiClient.convertToType(data['chargeType'], 'String');
-      }
-      if (data.hasOwnProperty('additionalInformations')) {
-        obj['additionalInformations'] = ApiClient.convertToType(data['additionalInformations'], [LocalizedValue]);
       }
       if (data.hasOwnProperty('electronicServiceChannelIds')) {
         obj['electronicServiceChannelIds'] = ApiClient.convertToType(data['electronicServiceChannelIds'], ['String']);
@@ -245,10 +241,6 @@
    * @member {String} chargeType
    */
   exports.prototype['chargeType'] = undefined;
-  /**
-   * @member {Array.<module:model/LocalizedValue>} additionalInformations
-   */
-  exports.prototype['additionalInformations'] = undefined;
   /**
    * @member {Array.<String>} electronicServiceChannelIds
    */

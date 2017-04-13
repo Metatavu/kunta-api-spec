@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/Address', 'model/Email', 'model/LocalizedValue', 'model/Municipality', 'model/Phone', 'model/Service', 'model/WebPage'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./Address'), require('./Email'), require('./LocalizedValue'), require('./Municipality'), require('./Phone'), require('./Service'), require('./WebPage'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.Organization = factory(root.KuntaApiClient.ApiClient);
+    root.KuntaApiClient.Organization = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Address, root.KuntaApiClient.Email, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.Municipality, root.KuntaApiClient.Phone, root.KuntaApiClient.Service, root.KuntaApiClient.WebPage);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, Address, Email, LocalizedValue, Municipality, Phone, Service, WebPage) {
   'use strict';
 
 
@@ -45,16 +45,29 @@
   /**
    * The Organization model module.
    * @module model/Organization
-   * @version 0.0.80
+   * @version 0.0.81
    */
 
   /**
    * Constructs a new <code>Organization</code>.
+   * Organization
    * @alias module:model/Organization
    * @class
    */
   var exports = function() {
     var _this = this;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -75,31 +88,127 @@
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
-      if (data.hasOwnProperty('businessName')) {
-        obj['businessName'] = ApiClient.convertToType(data['businessName'], 'String');
+      if (data.hasOwnProperty('municipality')) {
+        obj['municipality'] = Municipality.constructFromObject(data['municipality']);
+      }
+      if (data.hasOwnProperty('organizationType')) {
+        obj['organizationType'] = ApiClient.convertToType(data['organizationType'], 'String');
       }
       if (data.hasOwnProperty('businessCode')) {
         obj['businessCode'] = ApiClient.convertToType(data['businessCode'], 'String');
+      }
+      if (data.hasOwnProperty('businessName')) {
+        obj['businessName'] = ApiClient.convertToType(data['businessName'], 'String');
+      }
+      if (data.hasOwnProperty('names')) {
+        obj['names'] = ApiClient.convertToType(data['names'], [LocalizedValue]);
+      }
+      if (data.hasOwnProperty('displayNameType')) {
+        obj['displayNameType'] = ApiClient.convertToType(data['displayNameType'], 'String');
+      }
+      if (data.hasOwnProperty('descriptions')) {
+        obj['descriptions'] = ApiClient.convertToType(data['descriptions'], [LocalizedValue]);
+      }
+      if (data.hasOwnProperty('emailAddresses')) {
+        obj['emailAddresses'] = ApiClient.convertToType(data['emailAddresses'], [Email]);
+      }
+      if (data.hasOwnProperty('phoneNumbers')) {
+        obj['phoneNumbers'] = ApiClient.convertToType(data['phoneNumbers'], [Phone]);
+      }
+      if (data.hasOwnProperty('webPages')) {
+        obj['webPages'] = ApiClient.convertToType(data['webPages'], [WebPage]);
+      }
+      if (data.hasOwnProperty('addresses')) {
+        obj['addresses'] = ApiClient.convertToType(data['addresses'], [Address]);
+      }
+      if (data.hasOwnProperty('publishingStatus')) {
+        obj['publishingStatus'] = ApiClient.convertToType(data['publishingStatus'], 'String');
+      }
+      if (data.hasOwnProperty('parentOrganization')) {
+        obj['parentOrganization'] = ApiClient.convertToType(data['parentOrganization'], 'String');
+      }
+      if (data.hasOwnProperty('services')) {
+        obj['services'] = ApiClient.convertToType(data['services'], [Service]);
       }
     }
     return obj;
   }
 
   /**
-   * Unique identifier a organization.
+   * Entity identifier.
    * @member {String} id
    */
   exports.prototype['id'] = undefined;
   /**
-   * Primary name of organization
+   * Municipality including municipality code and a localized list of municipality names.
+   * @member {module:model/Municipality} municipality
+   */
+  exports.prototype['municipality'] = undefined;
+  /**
+   * Organization type (State, Municipality, RegionalOrganization, Organization, Company).
+   * @member {String} organizationType
+   */
+  exports.prototype['organizationType'] = undefined;
+  /**
+   * Organization business code (Y-tunnus).
+   * @member {String} businessCode
+   */
+  exports.prototype['businessCode'] = undefined;
+  /**
+   * Organization business name (name used for business code).
    * @member {String} businessName
    */
   exports.prototype['businessName'] = undefined;
   /**
-   * Business code code of organization
-   * @member {String} businessCode
+   * List of organization names.
+   * @member {Array.<module:model/LocalizedValue>} names
    */
-  exports.prototype['businessCode'] = undefined;
+  exports.prototype['names'] = undefined;
+  /**
+   * Display name type (Name or AlternateName). Which name type should be used as the display name for the organization (OrganizationNames list).
+   * @member {String} displayNameType
+   */
+  exports.prototype['displayNameType'] = undefined;
+  /**
+   * List of organizations descriptions.
+   * @member {Array.<module:model/LocalizedValue>} descriptions
+   */
+  exports.prototype['descriptions'] = undefined;
+  /**
+   * List of organizations email addresses.
+   * @member {Array.<module:model/Email>} emailAddresses
+   */
+  exports.prototype['emailAddresses'] = undefined;
+  /**
+   * List of organizations phone numbers.
+   * @member {Array.<module:model/Phone>} phoneNumbers
+   */
+  exports.prototype['phoneNumbers'] = undefined;
+  /**
+   * List of organizations web pages.
+   * @member {Array.<module:model/WebPage>} webPages
+   */
+  exports.prototype['webPages'] = undefined;
+  /**
+   * List of organizations addresses.
+   * @member {Array.<module:model/Address>} addresses
+   */
+  exports.prototype['addresses'] = undefined;
+  /**
+   * Publishing status (Draft, Published, Deleted, Modified and OldPublished).
+   * @member {String} publishingStatus
+   */
+  exports.prototype['publishingStatus'] = undefined;
+  /**
+   * Organizations parent organization identifier if exists.
+   * @member {String} parentOrganization
+   */
+  exports.prototype['parentOrganization'] = undefined;
+  /**
+   * List of organizations services.
+   * @member {Array.<module:model/Service>} services
+   */
+  exports.prototype['services'] = undefined;
 
 
 
