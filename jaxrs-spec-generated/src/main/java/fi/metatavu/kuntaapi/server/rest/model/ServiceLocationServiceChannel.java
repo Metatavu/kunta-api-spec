@@ -1,6 +1,7 @@
 package fi.metatavu.kuntaapi.server.rest.model;
 
 import fi.metatavu.kuntaapi.server.rest.model.Address;
+import fi.metatavu.kuntaapi.server.rest.model.Email;
 import fi.metatavu.kuntaapi.server.rest.model.LocalizedValue;
 import fi.metatavu.kuntaapi.server.rest.model.Municipality;
 import fi.metatavu.kuntaapi.server.rest.model.Phone;
@@ -23,7 +24,7 @@ public class ServiceLocationServiceChannel   {
   private List<LocalizedValue> descriptions = new ArrayList<LocalizedValue>();
   private Boolean serviceAreaRestricted = null;
   private List<Phone> phoneNumbers = new ArrayList<Phone>();
-  private List<LocalizedValue> emails = new ArrayList<LocalizedValue>();
+  private List<Email> emails = new ArrayList<Email>();
   private List<String> languages = new ArrayList<String>();
   private Boolean phoneServiceCharge = null;
   private List<WebPage> webPages = new ArrayList<WebPage>();
@@ -137,17 +138,17 @@ public class ServiceLocationServiceChannel   {
   /**
    * List email addresses for the service channel.
    **/
-  public ServiceLocationServiceChannel emails(List<LocalizedValue> emails) {
+  public ServiceLocationServiceChannel emails(List<Email> emails) {
     this.emails = emails;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "List email addresses for the service channel.")
-  public List<LocalizedValue> getEmails() {
+  public List<Email> getEmails() {
     return emails;
   }
-  public void setEmails(List<LocalizedValue> emails) {
+  public void setEmails(List<Email> emails) {
     this.emails = emails;
   }
 

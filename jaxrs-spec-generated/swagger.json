@@ -5646,7 +5646,7 @@
           "type" : "array",
           "description" : "List email addresses for the service channel.",
           "items" : {
-            "$ref" : "#/definitions/LocalizedValue"
+            "$ref" : "#/definitions/Email"
           }
         },
         "languages" : {
