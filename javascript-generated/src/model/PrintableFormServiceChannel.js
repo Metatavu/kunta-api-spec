@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Address', 'model/Email', 'model/LocalizedValue', 'model/Phone', 'model/ServiceChannelAttachment', 'model/ServiceHour', 'model/WebPage'], factory);
+    define(['ApiClient', 'model/Address', 'model/Attachment', 'model/Email', 'model/LocalizedValue', 'model/Phone', 'model/ServiceHour', 'model/WebPage'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Address'), require('./Email'), require('./LocalizedValue'), require('./Phone'), require('./ServiceChannelAttachment'), require('./ServiceHour'), require('./WebPage'));
+    module.exports = factory(require('../ApiClient'), require('./Address'), require('./Attachment'), require('./Email'), require('./LocalizedValue'), require('./Phone'), require('./ServiceHour'), require('./WebPage'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.PrintableFormServiceChannel = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Address, root.KuntaApiClient.Email, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.Phone, root.KuntaApiClient.ServiceChannelAttachment, root.KuntaApiClient.ServiceHour, root.KuntaApiClient.WebPage);
+    root.KuntaApiClient.PrintableFormServiceChannel = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Address, root.KuntaApiClient.Attachment, root.KuntaApiClient.Email, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.Phone, root.KuntaApiClient.ServiceHour, root.KuntaApiClient.WebPage);
   }
-}(this, function(ApiClient, Address, Email, LocalizedValue, Phone, ServiceChannelAttachment, ServiceHour, WebPage) {
+}(this, function(ApiClient, Address, Attachment, Email, LocalizedValue, Phone, ServiceHour, WebPage) {
   'use strict';
 
 
@@ -45,7 +45,7 @@
   /**
    * The PrintableFormServiceChannel model module.
    * @module model/PrintableFormServiceChannel
-   * @version 0.0.74
+   * @version 0.0.75
    */
 
   /**
@@ -55,8 +55,6 @@
    */
   var exports = function() {
     var _this = this;
-
-
 
 
 
@@ -89,9 +87,6 @@
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
-      if (data.hasOwnProperty('type')) {
-        obj['type'] = ApiClient.convertToType(data['type'], 'String');
-      }
       if (data.hasOwnProperty('organizationId')) {
         obj['organizationId'] = ApiClient.convertToType(data['organizationId'], 'String');
       }
@@ -102,16 +97,10 @@
         obj['descriptions'] = ApiClient.convertToType(data['descriptions'], [LocalizedValue]);
       }
       if (data.hasOwnProperty('formIdentifier')) {
-        obj['formIdentifier'] = ApiClient.convertToType(data['formIdentifier'], 'String');
+        obj['formIdentifier'] = ApiClient.convertToType(data['formIdentifier'], [LocalizedValue]);
       }
       if (data.hasOwnProperty('formReceiver')) {
-        obj['formReceiver'] = ApiClient.convertToType(data['formReceiver'], 'String');
-      }
-      if (data.hasOwnProperty('supportPhones')) {
-        obj['supportPhones'] = ApiClient.convertToType(data['supportPhones'], [Phone]);
-      }
-      if (data.hasOwnProperty('supportEmails')) {
-        obj['supportEmails'] = ApiClient.convertToType(data['supportEmails'], [Email]);
+        obj['formReceiver'] = ApiClient.convertToType(data['formReceiver'], [LocalizedValue]);
       }
       if (data.hasOwnProperty('deliveryAddress')) {
         obj['deliveryAddress'] = Address.constructFromObject(data['deliveryAddress']);
@@ -119,14 +108,17 @@
       if (data.hasOwnProperty('channelUrls')) {
         obj['channelUrls'] = ApiClient.convertToType(data['channelUrls'], [LocalizedValue]);
       }
+      if (data.hasOwnProperty('attachments')) {
+        obj['attachments'] = ApiClient.convertToType(data['attachments'], [Attachment]);
+      }
+      if (data.hasOwnProperty('supportPhones')) {
+        obj['supportPhones'] = ApiClient.convertToType(data['supportPhones'], [Phone]);
+      }
+      if (data.hasOwnProperty('supportEmails')) {
+        obj['supportEmails'] = ApiClient.convertToType(data['supportEmails'], [Email]);
+      }
       if (data.hasOwnProperty('languages')) {
         obj['languages'] = ApiClient.convertToType(data['languages'], ['String']);
-      }
-      if (data.hasOwnProperty('deliveryAddressDescriptions')) {
-        obj['deliveryAddressDescriptions'] = ApiClient.convertToType(data['deliveryAddressDescriptions'], [LocalizedValue]);
-      }
-      if (data.hasOwnProperty('attachments')) {
-        obj['attachments'] = ApiClient.convertToType(data['attachments'], [ServiceChannelAttachment]);
       }
       if (data.hasOwnProperty('webPages')) {
         obj['webPages'] = ApiClient.convertToType(data['webPages'], [WebPage]);
@@ -142,33 +134,50 @@
   }
 
   /**
+   * Identifier for the service channel.
    * @member {String} id
    */
   exports.prototype['id'] = undefined;
   /**
-   * @member {String} type
-   */
-  exports.prototype['type'] = undefined;
-  /**
+   * Organization identifier responsible for the channel.
    * @member {String} organizationId
    */
   exports.prototype['organizationId'] = undefined;
   /**
+   * Localized list of service channel names.
    * @member {Array.<module:model/LocalizedValue>} names
    */
   exports.prototype['names'] = undefined;
   /**
+   * List of localized service channel descriptions.
    * @member {Array.<module:model/LocalizedValue>} descriptions
    */
   exports.prototype['descriptions'] = undefined;
   /**
-   * @member {String} formIdentifier
+   * List of localized form identifier. One per language.
+   * @member {Array.<module:model/LocalizedValue>} formIdentifier
    */
   exports.prototype['formIdentifier'] = undefined;
   /**
-   * @member {String} formReceiver
+   * List of localized form receiver. One per language.
+   * @member {Array.<module:model/LocalizedValue>} formReceiver
    */
   exports.prototype['formReceiver'] = undefined;
+  /**
+   * Form delivery address.
+   * @member {module:model/Address} deliveryAddress
+   */
+  exports.prototype['deliveryAddress'] = undefined;
+  /**
+   * List of localized channel urls.
+   * @member {Array.<module:model/LocalizedValue>} channelUrls
+   */
+  exports.prototype['channelUrls'] = undefined;
+  /**
+   * List of attachments.
+   * @member {Array.<module:model/Attachment>} attachments
+   */
+  exports.prototype['attachments'] = undefined;
   /**
    * List of support phone numbers for the service channel.
    * @member {Array.<module:model/Phone>} supportPhones
@@ -180,34 +189,22 @@
    */
   exports.prototype['supportEmails'] = undefined;
   /**
-   * @member {module:model/Address} deliveryAddress
-   */
-  exports.prototype['deliveryAddress'] = undefined;
-  /**
-   * @member {Array.<module:model/LocalizedValue>} channelUrls
-   */
-  exports.prototype['channelUrls'] = undefined;
-  /**
+   * List of languages the service channel is available in (two letter language code).
    * @member {Array.<String>} languages
    */
   exports.prototype['languages'] = undefined;
   /**
-   * @member {Array.<module:model/LocalizedValue>} deliveryAddressDescriptions
-   */
-  exports.prototype['deliveryAddressDescriptions'] = undefined;
-  /**
-   * @member {Array.<module:model/ServiceChannelAttachment>} attachments
-   */
-  exports.prototype['attachments'] = undefined;
-  /**
+   * List of service channel web pages.
    * @member {Array.<module:model/WebPage>} webPages
    */
   exports.prototype['webPages'] = undefined;
   /**
+   * List of service channel service hours.
    * @member {Array.<module:model/ServiceHour>} serviceHours
    */
   exports.prototype['serviceHours'] = undefined;
   /**
+   * Service channel publishing status. Values: Draft, Published, Deleted, Modified or OldPublished.
    * @member {String} publishingStatus
    */
   exports.prototype['publishingStatus'] = undefined;

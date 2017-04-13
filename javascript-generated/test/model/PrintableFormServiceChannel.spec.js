@@ -71,12 +71,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property type (base name: "type")', function() {
-      // uncomment below and update the code to test the property type
-      //var instane = new KuntaApiClient.PrintableFormServiceChannel();
-      //expect(instance).to.be();
-    });
-
     it('should have the property organizationId (base name: "organizationId")', function() {
       // uncomment below and update the code to test the property organizationId
       //var instane = new KuntaApiClient.PrintableFormServiceChannel();
@@ -107,18 +101,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property supportPhones (base name: "supportPhones")', function() {
-      // uncomment below and update the code to test the property supportPhones
-      //var instane = new KuntaApiClient.PrintableFormServiceChannel();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property supportEmails (base name: "supportEmails")', function() {
-      // uncomment below and update the code to test the property supportEmails
-      //var instane = new KuntaApiClient.PrintableFormServiceChannel();
-      //expect(instance).to.be();
-    });
-
     it('should have the property deliveryAddress (base name: "deliveryAddress")', function() {
       // uncomment below and update the code to test the property deliveryAddress
       //var instane = new KuntaApiClient.PrintableFormServiceChannel();
@@ -131,20 +113,26 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property languages (base name: "languages")', function() {
-      // uncomment below and update the code to test the property languages
-      //var instane = new KuntaApiClient.PrintableFormServiceChannel();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property deliveryAddressDescriptions (base name: "deliveryAddressDescriptions")', function() {
-      // uncomment below and update the code to test the property deliveryAddressDescriptions
-      //var instane = new KuntaApiClient.PrintableFormServiceChannel();
-      //expect(instance).to.be();
-    });
-
     it('should have the property attachments (base name: "attachments")', function() {
       // uncomment below and update the code to test the property attachments
+      //var instane = new KuntaApiClient.PrintableFormServiceChannel();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property supportPhones (base name: "supportPhones")', function() {
+      // uncomment below and update the code to test the property supportPhones
+      //var instane = new KuntaApiClient.PrintableFormServiceChannel();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property supportEmails (base name: "supportEmails")', function() {
+      // uncomment below and update the code to test the property supportEmails
+      //var instane = new KuntaApiClient.PrintableFormServiceChannel();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property languages (base name: "languages")', function() {
+      // uncomment below and update the code to test the property languages
       //var instane = new KuntaApiClient.PrintableFormServiceChannel();
       //expect(instance).to.be();
     });
