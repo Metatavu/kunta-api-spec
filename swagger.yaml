@@ -4850,9 +4850,6 @@ definitions:
   OntologyItem:
     type: object
     properties:
-      id:
-        type: string
-        format: uuid
       system:
         type: string
       name:
