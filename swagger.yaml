@@ -3974,7 +3974,6 @@ definitions:
         format: int64
       type:
         type: string
-
   Organization:
     description: Organization
     type: object
@@ -4049,7 +4048,7 @@ definitions:
         description: List of organizations services.
         type: array
         items:
-          $ref: '#/definitions/Service'
+          $ref: '#/definitions/OrganizationService'
   Service:
     type: object
     properties:
@@ -4147,26 +4146,31 @@ definitions:
           type: string
           format: uuid
   OrganizationService:
+    description: Organization service
     type: object
     properties:
-      id:
-        type: string
-        format: uuid
-      serviceId:
-        type: string
-        format: uuid
-      organizationId:
-        type: string
-        format: uuid
-      roleType:
-        type: string
-      provisionType:
-        type: string
       additionalInformation:
+        description: Localized list of additional information.
         type: array
         items:
           $ref: '#/definitions/LocalizedValue'
+      serviceId:
+        description: Service identifier.
+        type: string
+      organizationId:
+        description: >-
+          Organization identifier (organization related to the service).
+        type: string
+      roleType:
+        description: 'Role type, valid values Responsible or Producer.'
+        type: string
+      provisionType:
+        description: >-
+          Provision type, valid values SelfProduced, VoucherServices,
+          PurchaseServices or Other. Required if RoleType value is Producer.
+        type: string
       webPages:
+        description: List of web pages.
         type: array
         items:
           $ref: '#/definitions/WebPage'
