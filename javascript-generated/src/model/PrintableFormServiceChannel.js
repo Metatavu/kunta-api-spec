@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Address', 'model/Attachment', 'model/Email', 'model/LocalizedValue', 'model/Phone', 'model/ServiceHour', 'model/WebPage'], factory);
+    define(['ApiClient', 'model/Address', 'model/Email', 'model/LocalizedValue', 'model/Phone', 'model/ServiceChannelAttachment', 'model/ServiceHour', 'model/WebPage'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Address'), require('./Attachment'), require('./Email'), require('./LocalizedValue'), require('./Phone'), require('./ServiceHour'), require('./WebPage'));
+    module.exports = factory(require('../ApiClient'), require('./Address'), require('./Email'), require('./LocalizedValue'), require('./Phone'), require('./ServiceChannelAttachment'), require('./ServiceHour'), require('./WebPage'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.PrintableFormServiceChannel = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Address, root.KuntaApiClient.Attachment, root.KuntaApiClient.Email, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.Phone, root.KuntaApiClient.ServiceHour, root.KuntaApiClient.WebPage);
+    root.KuntaApiClient.PrintableFormServiceChannel = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Address, root.KuntaApiClient.Email, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.Phone, root.KuntaApiClient.ServiceChannelAttachment, root.KuntaApiClient.ServiceHour, root.KuntaApiClient.WebPage);
   }
-}(this, function(ApiClient, Address, Attachment, Email, LocalizedValue, Phone, ServiceHour, WebPage) {
+}(this, function(ApiClient, Address, Email, LocalizedValue, Phone, ServiceChannelAttachment, ServiceHour, WebPage) {
   'use strict';
 
 
@@ -45,7 +45,7 @@
   /**
    * The PrintableFormServiceChannel model module.
    * @module model/PrintableFormServiceChannel
-   * @version 0.0.75
+   * @version 0.0.76
    */
 
   /**
@@ -109,7 +109,7 @@
         obj['channelUrls'] = ApiClient.convertToType(data['channelUrls'], [LocalizedValue]);
       }
       if (data.hasOwnProperty('attachments')) {
-        obj['attachments'] = ApiClient.convertToType(data['attachments'], [Attachment]);
+        obj['attachments'] = ApiClient.convertToType(data['attachments'], [ServiceChannelAttachment]);
       }
       if (data.hasOwnProperty('supportPhones')) {
         obj['supportPhones'] = ApiClient.convertToType(data['supportPhones'], [Phone]);
@@ -175,7 +175,7 @@
   exports.prototype['channelUrls'] = undefined;
   /**
    * List of attachments.
-   * @member {Array.<module:model/Attachment>} attachments
+   * @member {Array.<module:model/ServiceChannelAttachment>} attachments
    */
   exports.prototype['attachments'] = undefined;
   /**

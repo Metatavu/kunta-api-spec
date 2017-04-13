@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **formReceiver** | [**[LocalizedValue]**](LocalizedValue.md) | List of localized form receiver. One per language. | [optional] 
 **deliveryAddress** | [**Address**](Address.md) | Form delivery address. | [optional] 
 **channelUrls** | [**[LocalizedValue]**](LocalizedValue.md) | List of localized channel urls. | [optional] 
-**attachments** | [**[Attachment]**](Attachment.md) | List of attachments. | [optional] 
+**attachments** | [**[ServiceChannelAttachment]**](ServiceChannelAttachment.md) | List of attachments. | [optional] 
 **supportPhones** | [**[Phone]**](Phone.md) | List of support phone numbers for the service channel. | [optional] 
 **supportEmails** | [**[Email]**](Email.md) | List of support email addresses for the service channel. | [optional] 
 **languages** | **[String]** | List of languages the service channel is available in (two letter language code). | [optional] 
