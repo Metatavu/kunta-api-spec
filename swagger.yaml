@@ -4777,7 +4777,7 @@ definitions:
         description: Localized list of additional information.
         type: array
         items:
-          $ref: '#/definitions/LanguageItem'
+          $ref: '#/definitions/LocalizedValue'
       openingHour:
         description: List of servicing hours (open and closes times).
         type: array
