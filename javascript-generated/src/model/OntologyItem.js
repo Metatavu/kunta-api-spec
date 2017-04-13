@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/LocalizedValue'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./LocalizedValue'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.OntologyItem = factory(root.KuntaApiClient.ApiClient);
+    root.KuntaApiClient.OntologyItem = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.LocalizedValue);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, LocalizedValue) {
   'use strict';
 
 
@@ -45,7 +45,7 @@
   /**
    * The OntologyItem model module.
    * @module model/OntologyItem
-   * @version 0.0.78
+   * @version 0.0.79
    */
 
   /**
@@ -55,7 +55,6 @@
    */
   var exports = function() {
     var _this = this;
-
 
 
 
@@ -77,14 +76,11 @@
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'String');
-      }
       if (data.hasOwnProperty('system')) {
         obj['system'] = ApiClient.convertToType(data['system'], 'String');
       }
       if (data.hasOwnProperty('name')) {
-        obj['name'] = ApiClient.convertToType(data['name'], 'String');
+        obj['name'] = ApiClient.convertToType(data['name'], [LocalizedValue]);
       }
       if (data.hasOwnProperty('code')) {
         obj['code'] = ApiClient.convertToType(data['code'], 'String');
@@ -106,15 +102,11 @@
   }
 
   /**
-   * @member {String} id
-   */
-  exports.prototype['id'] = undefined;
-  /**
    * @member {String} system
    */
   exports.prototype['system'] = undefined;
   /**
-   * @member {String} name
+   * @member {Array.<module:model/LocalizedValue>} name
    */
   exports.prototype['name'] = undefined;
   /**

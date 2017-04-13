@@ -3,9 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | [optional] 
 **system** | **String** |  | [optional] 
-**name** | **String** |  | [optional] 
+**name** | [**[LocalizedValue]**](LocalizedValue.md) |  | [optional] 
 **code** | **String** |  | [optional] 
 **ontologyType** | **String** |  | [optional] 
 **uri** | **String** |  | [optional] 
