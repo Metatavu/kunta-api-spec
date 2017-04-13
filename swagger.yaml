@@ -4031,24 +4031,30 @@ definitions:
         items:
           type: string
       keywords:
+        description: List of localized service keywords.
         type: array
         items:
-          type: string
+          $ref: '#/definitions/LocalizedValue'
+      legislation:
+        description: List of laws related to the service.
+        type: array
+        items:
+          $ref: '#/definitions/Law'
       coverageType:
         type: string
+        description: 'Service coverage type. Valid values are: Local or Nationwide.'
       municipalities:
         type: array
         items:
-          type: string
-      webPages:
-        type: array
-        items:
-          $ref: '#/definitions/WebPage'
+          $ref: '#/definitions/Municipality'
       requirements:
         type: array
         items:
           $ref: '#/definitions/LocalizedValue'
       publishingStatus:
+        description: >-
+          Publishing status. Possible values are: Draft, Published, Deleted,
+          Modified or OldPublished.
         type: string
       chargeType:
         type: string
@@ -4850,6 +4856,8 @@ definitions:
   OntologyItem:
     type: object
     properties:
+      system:
+        type: string
       name:
         type: array
         items:
@@ -4865,6 +4873,19 @@ definitions:
         format: uuid        
       parentUri:
         type: string
+  Law:
+    description: a Law
+    type: object
+    properties:
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      webPages:
+        description: List of localized web page urls.
+        type: array
+        items:
+          $ref: '#/definitions/WebPage'
   Trip:
     type: object
     properties:
