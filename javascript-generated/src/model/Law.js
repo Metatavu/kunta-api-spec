@@ -25,32 +25,33 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/LocalizedValue', 'model/WebPage'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./LocalizedValue'), require('./WebPage'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.Agency = factory(root.KuntaApiClient.ApiClient);
+    root.KuntaApiClient.Law = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.WebPage);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, LocalizedValue, WebPage) {
   'use strict';
 
 
 
 
   /**
-   * The Agency model module.
-   * @module model/Agency
+   * The Law model module.
+   * @module model/Law
    * @version 0.0.80
    */
 
   /**
-   * Constructs a new <code>Agency</code>.
-   * @alias module:model/Agency
+   * Constructs a new <code>Law</code>.
+   * a Law
+   * @alias module:model/Law
    * @class
    */
   var exports = function() {
@@ -58,53 +59,38 @@
 
 
 
-
-
   };
 
   /**
-   * Constructs a <code>Agency</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>Law</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Agency} obj Optional instance to populate.
-   * @return {module:model/Agency} The populated <code>Agency</code> instance.
+   * @param {module:model/Law} obj Optional instance to populate.
+   * @return {module:model/Law} The populated <code>Law</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'String');
+      if (data.hasOwnProperty('names')) {
+        obj['names'] = ApiClient.convertToType(data['names'], [LocalizedValue]);
       }
-      if (data.hasOwnProperty('name')) {
-        obj['name'] = ApiClient.convertToType(data['name'], 'String');
-      }
-      if (data.hasOwnProperty('url')) {
-        obj['url'] = ApiClient.convertToType(data['url'], 'String');
-      }
-      if (data.hasOwnProperty('timezone')) {
-        obj['timezone'] = ApiClient.convertToType(data['timezone'], 'String');
+      if (data.hasOwnProperty('webPages')) {
+        obj['webPages'] = ApiClient.convertToType(data['webPages'], [WebPage]);
       }
     }
     return obj;
   }
 
   /**
-   * @member {String} id
+   * @member {Array.<module:model/LocalizedValue>} names
    */
-  exports.prototype['id'] = undefined;
+  exports.prototype['names'] = undefined;
   /**
-   * @member {String} name
+   * List of localized web page urls.
+   * @member {Array.<module:model/WebPage>} webPages
    */
-  exports.prototype['name'] = undefined;
-  /**
-   * @member {String} url
-   */
-  exports.prototype['url'] = undefined;
-  /**
-   * @member {String} timezone
-   */
-  exports.prototype['timezone'] = undefined;
+  exports.prototype['webPages'] = undefined;
 
 
 

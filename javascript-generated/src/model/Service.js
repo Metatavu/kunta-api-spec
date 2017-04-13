@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/LocalizedValue', 'model/OntologyItem', 'model/WebPage'], factory);
+    define(['ApiClient', 'model/Law', 'model/LocalizedValue', 'model/Municipality', 'model/OntologyItem'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./LocalizedValue'), require('./OntologyItem'), require('./WebPage'));
+    module.exports = factory(require('../ApiClient'), require('./Law'), require('./LocalizedValue'), require('./Municipality'), require('./OntologyItem'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.Service = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.OntologyItem, root.KuntaApiClient.WebPage);
+    root.KuntaApiClient.Service = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Law, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.Municipality, root.KuntaApiClient.OntologyItem);
   }
-}(this, function(ApiClient, LocalizedValue, OntologyItem, WebPage) {
+}(this, function(ApiClient, Law, LocalizedValue, Municipality, OntologyItem) {
   'use strict';
 
 
@@ -45,7 +45,7 @@
   /**
    * The Service model module.
    * @module model/Service
-   * @version 0.0.79
+   * @version 0.0.80
    */
 
   /**
@@ -127,16 +127,16 @@
         obj['languages'] = ApiClient.convertToType(data['languages'], ['String']);
       }
       if (data.hasOwnProperty('keywords')) {
-        obj['keywords'] = ApiClient.convertToType(data['keywords'], ['String']);
+        obj['keywords'] = ApiClient.convertToType(data['keywords'], [LocalizedValue]);
+      }
+      if (data.hasOwnProperty('legislation')) {
+        obj['legislation'] = ApiClient.convertToType(data['legislation'], [Law]);
       }
       if (data.hasOwnProperty('coverageType')) {
         obj['coverageType'] = ApiClient.convertToType(data['coverageType'], 'String');
       }
       if (data.hasOwnProperty('municipalities')) {
-        obj['municipalities'] = ApiClient.convertToType(data['municipalities'], ['String']);
-      }
-      if (data.hasOwnProperty('webPages')) {
-        obj['webPages'] = ApiClient.convertToType(data['webPages'], [WebPage]);
+        obj['municipalities'] = ApiClient.convertToType(data['municipalities'], [Municipality]);
       }
       if (data.hasOwnProperty('requirements')) {
         obj['requirements'] = ApiClient.convertToType(data['requirements'], [LocalizedValue]);
@@ -214,26 +214,30 @@
    */
   exports.prototype['languages'] = undefined;
   /**
-   * @member {Array.<String>} keywords
+   * List of localized service keywords.
+   * @member {Array.<module:model/LocalizedValue>} keywords
    */
   exports.prototype['keywords'] = undefined;
   /**
+   * List of laws related to the service.
+   * @member {Array.<module:model/Law>} legislation
+   */
+  exports.prototype['legislation'] = undefined;
+  /**
+   * Service coverage type. Valid values are: Local or Nationwide.
    * @member {String} coverageType
    */
   exports.prototype['coverageType'] = undefined;
   /**
-   * @member {Array.<String>} municipalities
+   * @member {Array.<module:model/Municipality>} municipalities
    */
   exports.prototype['municipalities'] = undefined;
-  /**
-   * @member {Array.<module:model/WebPage>} webPages
-   */
-  exports.prototype['webPages'] = undefined;
   /**
    * @member {Array.<module:model/LocalizedValue>} requirements
    */
   exports.prototype['requirements'] = undefined;
   /**
+   * Publishing status. Possible values are: Draft, Published, Deleted, Modified or OldPublished.
    * @member {String} publishingStatus
    */
   exports.prototype['publishingStatus'] = undefined;

@@ -137,6 +137,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property legislation (base name: "legislation")', function() {
+      // uncomment below and update the code to test the property legislation
+      //var instane = new KuntaApiClient.Service();
+      //expect(instance).to.be();
+    });
+
     it('should have the property coverageType (base name: "coverageType")', function() {
       // uncomment below and update the code to test the property coverageType
       //var instane = new KuntaApiClient.Service();
@@ -145,12 +151,6 @@
 
     it('should have the property municipalities (base name: "municipalities")', function() {
       // uncomment below and update the code to test the property municipalities
-      //var instane = new KuntaApiClient.Service();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property webPages (base name: "webPages")', function() {
-      // uncomment below and update the code to test the property webPages
       //var instane = new KuntaApiClient.Service();
       //expect(instance).to.be();
     });

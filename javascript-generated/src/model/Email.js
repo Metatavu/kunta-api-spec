@@ -45,7 +45,7 @@
   /**
    * The Email model module.
    * @module model/Email
-   * @version 0.0.79
+   * @version 0.0.80
    */
 
   /**
