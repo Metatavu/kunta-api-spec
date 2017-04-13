@@ -4058,10 +4058,6 @@ definitions:
         type: string
       chargeType:
         type: string
-      additionalInformations:
-        type: array
-        items:
-          $ref: '#/definitions/LocalizedValue'
       electronicServiceChannelIds:
         type: array
         items:
