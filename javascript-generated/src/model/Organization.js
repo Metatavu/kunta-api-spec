@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Address', 'model/Email', 'model/LocalizedValue', 'model/Municipality', 'model/Phone', 'model/Service', 'model/WebPage'], factory);
+    define(['ApiClient', 'model/Address', 'model/Email', 'model/LocalizedValue', 'model/Municipality', 'model/OrganizationService', 'model/Phone', 'model/WebPage'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Address'), require('./Email'), require('./LocalizedValue'), require('./Municipality'), require('./Phone'), require('./Service'), require('./WebPage'));
+    module.exports = factory(require('../ApiClient'), require('./Address'), require('./Email'), require('./LocalizedValue'), require('./Municipality'), require('./OrganizationService'), require('./Phone'), require('./WebPage'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.Organization = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Address, root.KuntaApiClient.Email, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.Municipality, root.KuntaApiClient.Phone, root.KuntaApiClient.Service, root.KuntaApiClient.WebPage);
+    root.KuntaApiClient.Organization = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Address, root.KuntaApiClient.Email, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.Municipality, root.KuntaApiClient.OrganizationService, root.KuntaApiClient.Phone, root.KuntaApiClient.WebPage);
   }
-}(this, function(ApiClient, Address, Email, LocalizedValue, Municipality, Phone, Service, WebPage) {
+}(this, function(ApiClient, Address, Email, LocalizedValue, Municipality, OrganizationService, Phone, WebPage) {
   'use strict';
 
 
@@ -45,7 +45,7 @@
   /**
    * The Organization model module.
    * @module model/Organization
-   * @version 0.0.81
+   * @version 0.0.82
    */
 
   /**
@@ -128,7 +128,7 @@
         obj['parentOrganization'] = ApiClient.convertToType(data['parentOrganization'], 'String');
       }
       if (data.hasOwnProperty('services')) {
-        obj['services'] = ApiClient.convertToType(data['services'], [Service]);
+        obj['services'] = ApiClient.convertToType(data['services'], [OrganizationService]);
       }
     }
     return obj;
@@ -206,7 +206,7 @@
   exports.prototype['parentOrganization'] = undefined;
   /**
    * List of organizations services.
-   * @member {Array.<module:model/Service>} services
+   * @member {Array.<module:model/OrganizationService>} services
    */
   exports.prototype['services'] = undefined;
 

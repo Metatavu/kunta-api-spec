@@ -42,7 +42,7 @@
   /**
    * Tiles service.
    * @module api/TilesApi
-   * @version 0.0.81
+   * @version 0.0.82
    */
 
   /**

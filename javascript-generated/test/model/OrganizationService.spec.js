@@ -65,8 +65,8 @@
       //expect(instance).to.be.a(KuntaApiClient.OrganizationService);
     });
 
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
+    it('should have the property additionalInformation (base name: "additionalInformation")', function() {
+      // uncomment below and update the code to test the property additionalInformation
       //var instane = new KuntaApiClient.OrganizationService();
       //expect(instance).to.be();
     });
@@ -91,12 +91,6 @@
 
     it('should have the property provisionType (base name: "provisionType")', function() {
       // uncomment below and update the code to test the property provisionType
-      //var instane = new KuntaApiClient.OrganizationService();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property additionalInformation (base name: "additionalInformation")', function() {
-      // uncomment below and update the code to test the property additionalInformation
       //var instane = new KuntaApiClient.OrganizationService();
       //expect(instance).to.be();
     });

@@ -45,17 +45,17 @@
   /**
    * The OrganizationService model module.
    * @module model/OrganizationService
-   * @version 0.0.81
+   * @version 0.0.82
    */
 
   /**
    * Constructs a new <code>OrganizationService</code>.
+   * Organization service
    * @alias module:model/OrganizationService
    * @class
    */
   var exports = function() {
     var _this = this;
-
 
 
 
@@ -76,8 +76,8 @@
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'String');
+      if (data.hasOwnProperty('additionalInformation')) {
+        obj['additionalInformation'] = ApiClient.convertToType(data['additionalInformation'], [LocalizedValue]);
       }
       if (data.hasOwnProperty('serviceId')) {
         obj['serviceId'] = ApiClient.convertToType(data['serviceId'], 'String');
@@ -91,9 +91,6 @@
       if (data.hasOwnProperty('provisionType')) {
         obj['provisionType'] = ApiClient.convertToType(data['provisionType'], 'String');
       }
-      if (data.hasOwnProperty('additionalInformation')) {
-        obj['additionalInformation'] = ApiClient.convertToType(data['additionalInformation'], [LocalizedValue]);
-      }
       if (data.hasOwnProperty('webPages')) {
         obj['webPages'] = ApiClient.convertToType(data['webPages'], [WebPage]);
       }
@@ -102,30 +99,32 @@
   }
 
   /**
-   * @member {String} id
-   */
-  exports.prototype['id'] = undefined;
-  /**
-   * @member {String} serviceId
-   */
-  exports.prototype['serviceId'] = undefined;
-  /**
-   * @member {String} organizationId
-   */
-  exports.prototype['organizationId'] = undefined;
-  /**
-   * @member {String} roleType
-   */
-  exports.prototype['roleType'] = undefined;
-  /**
-   * @member {String} provisionType
-   */
-  exports.prototype['provisionType'] = undefined;
-  /**
+   * Localized list of additional information.
    * @member {Array.<module:model/LocalizedValue>} additionalInformation
    */
   exports.prototype['additionalInformation'] = undefined;
   /**
+   * Service identifier.
+   * @member {String} serviceId
+   */
+  exports.prototype['serviceId'] = undefined;
+  /**
+   * Organization identifier (organization related to the service).
+   * @member {String} organizationId
+   */
+  exports.prototype['organizationId'] = undefined;
+  /**
+   * Role type, valid values Responsible or Producer.
+   * @member {String} roleType
+   */
+  exports.prototype['roleType'] = undefined;
+  /**
+   * Provision type, valid values SelfProduced, VoucherServices, PurchaseServices or Other. Required if RoleType value is Producer.
+   * @member {String} provisionType
+   */
+  exports.prototype['provisionType'] = undefined;
+  /**
+   * List of web pages.
    * @member {Array.<module:model/WebPage>} webPages
    */
   exports.prototype['webPages'] = undefined;

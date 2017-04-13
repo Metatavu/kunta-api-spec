@@ -17,6 +17,6 @@ Name | Type | Description | Notes
 **addresses** | [**[Address]**](Address.md) | List of organizations addresses. | [optional] 
 **publishingStatus** | **String** | Publishing status (Draft, Published, Deleted, Modified and OldPublished). | [optional] 
 **parentOrganization** | **String** | Organizations parent organization identifier if exists. | [optional] 
-**services** | [**[Service]**](Service.md) | List of organizations services. | [optional] 
+**services** | [**[OrganizationService]**](OrganizationService.md) | List of organizations services. | [optional] 
 
 

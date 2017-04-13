@@ -45,7 +45,7 @@
   /**
    * The Banner model module.
    * @module model/Banner
-   * @version 0.0.81
+   * @version 0.0.82
    */
 
   /**
