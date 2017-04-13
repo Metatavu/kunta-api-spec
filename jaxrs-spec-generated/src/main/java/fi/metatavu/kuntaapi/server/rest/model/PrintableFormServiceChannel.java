@@ -1,10 +1,10 @@
 package fi.metatavu.kuntaapi.server.rest.model;
 
 import fi.metatavu.kuntaapi.server.rest.model.Address;
-import fi.metatavu.kuntaapi.server.rest.model.Attachment;
 import fi.metatavu.kuntaapi.server.rest.model.Email;
 import fi.metatavu.kuntaapi.server.rest.model.LocalizedValue;
 import fi.metatavu.kuntaapi.server.rest.model.Phone;
+import fi.metatavu.kuntaapi.server.rest.model.ServiceChannelAttachment;
 import fi.metatavu.kuntaapi.server.rest.model.ServiceHour;
 import fi.metatavu.kuntaapi.server.rest.model.WebPage;
 import java.util.ArrayList;
@@ -26,7 +26,7 @@ public class PrintableFormServiceChannel   {
   private List<LocalizedValue> formReceiver = new ArrayList<LocalizedValue>();
   private Address deliveryAddress = null;
   private List<LocalizedValue> channelUrls = new ArrayList<LocalizedValue>();
-  private List<Attachment> attachments = new ArrayList<Attachment>();
+  private List<ServiceChannelAttachment> attachments = new ArrayList<ServiceChannelAttachment>();
   private List<Phone> supportPhones = new ArrayList<Phone>();
   private List<Email> supportEmails = new ArrayList<Email>();
   private List<String> languages = new ArrayList<String>();
@@ -173,17 +173,17 @@ public class PrintableFormServiceChannel   {
   /**
    * List of attachments.
    **/
-  public PrintableFormServiceChannel attachments(List<Attachment> attachments) {
+  public PrintableFormServiceChannel attachments(List<ServiceChannelAttachment> attachments) {
     this.attachments = attachments;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "List of attachments.")
-  public List<Attachment> getAttachments() {
+  public List<ServiceChannelAttachment> getAttachments() {
     return attachments;
   }
-  public void setAttachments(List<Attachment> attachments) {
+  public void setAttachments(List<ServiceChannelAttachment> attachments) {
     this.attachments = attachments;
   }
 
