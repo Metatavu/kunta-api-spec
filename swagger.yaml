@@ -4281,77 +4281,73 @@ definitions:
     properties:
       id:
         format: uuid
-        type: string
-      type:
+        description: Identifier for the service channel.
         type: string
       organizationId:
         format: uuid
+        description: Organization identifier responsible for the channel.
         type: string
       names:
+        description: Localized list of service channel names.
         type: array
         items:
           $ref: '#/definitions/LocalizedValue'
       descriptions:
+        description: List of localized service channel descriptions.
         type: array
         items:
           $ref: '#/definitions/LocalizedValue'
       serviceAreaRestricted:
+        description: Is the service location channel restricted by service area.
         type: boolean
-      supportPhones:
-        description: List of support phone numbers for the service channel.
+      phoneNumbers:
+        description: >-
+          List of phone numbers for the service channel. Includes also fax
+          numbers.
         type: array
         items:
           $ref: '#/definitions/Phone'
-      supportEmails:
-        description: List of support email addresses for the service channel.
+      emails:
+        description: List email addresses for the service channel.
         type: array
         items:
           $ref: '#/definitions/Email'
-      email:
-        type: string
-      phone:
-        type: string
       languages:
+        description: >-
+          List of languages the service channel is available in (two letter
+          language code).
         type: array
         items:
           type: string
-      fax:
-        type: string
-      latitude:
-        type: string
-      longitude:
-        type: string
-      coordinateSystem:
-        type: string
-      coordinatesSetManually:
-        type: boolean
       phoneServiceCharge:
+        description: Is the phone service charged for.
         type: boolean
       webPages:
+        description: List of service channel web pages.
         type: array
         items:
           $ref: '#/definitions/WebPage'
       serviceAreas:
+        description: >-
+          List of serviceareas. Used when location service channel is restricted
+          by service area (ServiceAreaRestricted=true).
         type: array
         items:
-          type: string
-      phoneChargeDescriptions:
-        type: array
-        items:
-          $ref: '#/definitions/LocalizedValue'
+          $ref: '#/definitions/Municipality'
       addresses:
+        description: List of service location addresses.
         type: array
         items:
           $ref: '#/definitions/Address'
-      chargeTypes:
-        type: array
-        items:
-          type: string
       serviceHours:
+        description: List of service channel service hours.
         type: array
         items:
           $ref: '#/definitions/ServiceHour'
       publishingStatus:
+        description: >-
+          Service channel publishing status. Values: Draft, Published, Deleted,
+          Modified or OldPublished.
         type: string
   WebPageServiceChannel:
     type: object
@@ -4730,25 +4726,45 @@ definitions:
   Address:
     type: object
     properties:
+      latitude:
+        description: Service location latitude coordinate.
+        type: string
+      longitude:
+        description: Service location longitude coordinate.
+        type: string
+      coordinateState:
+        description: "State of coordinates. Coordinates are fetched from a service provided by Maanmittauslaitos (WFS).\r\nPossible values are: Loading, Ok, Failed, NotReceived, EmptyInputReceived, MultipleResultsReceived or WrongFormatReceived."
+        type: string
       type:
+        description: 'Address type, Visiting or Postal.'
         type: string
       postOfficeBox:
+        description: Post office box like PL 310
         type: string
       postalCode:
+        description: 'Postal code, for example 00010.'
         type: string
       postOffice:
-        type: string
-      streetAddress:
+        description: 'List of localized Post offices, for example Helsinki, Helsingfors.'
         type: array
         items:
           $ref: '#/definitions/LocalizedValue'
+      streetAddress:
+        description: List of localized street addresses.
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      streetNumber:
+        description: Street number for street address.
+        type: string
       municipality:
-        type: string
+        $ref: '#/definitions/Municipality'
       country:
-        type: string
-      qualifier:
+        description: 'Country code (ISO 3166-1 alpha-2), for example FI.'
+        pattern: '^[A-Z]{2}$'
         type: string
       additionalInformations:
+        description: Localized list of additional information about the address.
         type: array
         items:
           $ref: '#/definitions/LocalizedValue'
@@ -4965,6 +4981,16 @@ definitions:
         type: string
       type:
         type: string
+  Municipality:
+    type: object
+    properties:
+      code:
+        description: Municipality code (like 491 or 091).
+        type: string
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
   InternalServerError:
     type: object
     properties:
