@@ -5518,32 +5518,59 @@
       "properties" : {
         "id" : {
           "type" : "string",
-          "format" : "uuid"
-        },
-        "type" : {
-          "type" : "string"
+          "format" : "uuid",
+          "description" : "Identifier for the service channel."
         },
         "organizationId" : {
           "type" : "string",
-          "format" : "uuid"
+          "format" : "uuid",
+          "description" : "Organization identifier responsible for the channel."
         },
         "names" : {
           "type" : "array",
+          "description" : "Localized list of service channel names.",
           "items" : {
             "$ref" : "#/definitions/LocalizedValue"
           }
         },
         "descriptions" : {
           "type" : "array",
+          "description" : "List of localized service channel descriptions.",
           "items" : {
             "$ref" : "#/definitions/LocalizedValue"
           }
         },
         "formIdentifier" : {
-          "type" : "string"
+          "type" : "array",
+          "description" : "List of localized form identifier. One per language.",
+          "items" : {
+            "$ref" : "#/definitions/LocalizedValue"
+          }
         },
         "formReceiver" : {
-          "type" : "string"
+          "type" : "array",
+          "description" : "List of localized form receiver. One per language.",
+          "items" : {
+            "$ref" : "#/definitions/LocalizedValue"
+          }
+        },
+        "deliveryAddress" : {
+          "description" : "Form delivery address.",
+          "$ref" : "#/definitions/Address"
+        },
+        "channelUrls" : {
+          "type" : "array",
+          "description" : "List of localized channel urls.",
+          "items" : {
+            "$ref" : "#/definitions/LocalizedValue"
+          }
+        },
+        "attachments" : {
+          "type" : "array",
+          "description" : "List of attachments.",
+          "items" : {
+            "$ref" : "#/definitions/Attachment"
+          }
         },
         "supportPhones" : {
           "type" : "array",
@@ -5559,47 +5586,30 @@
             "$ref" : "#/definitions/Email"
           }
         },
-        "deliveryAddress" : {
-          "$ref" : "#/definitions/Address"
-        },
-        "channelUrls" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/LocalizedValue"
-          }
-        },
         "languages" : {
           "type" : "array",
+          "description" : "List of languages the service channel is available in (two letter language code).",
           "items" : {
             "type" : "string"
           }
         },
-        "deliveryAddressDescriptions" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/LocalizedValue"
-          }
-        },
-        "attachments" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/ServiceChannelAttachment"
-          }
-        },
         "webPages" : {
           "type" : "array",
+          "description" : "List of service channel web pages.",
           "items" : {
             "$ref" : "#/definitions/WebPage"
           }
         },
         "serviceHours" : {
           "type" : "array",
+          "description" : "List of service channel service hours.",
           "items" : {
             "$ref" : "#/definitions/ServiceHour"
           }
         },
         "publishingStatus" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Service channel publishing status. Values: Draft, Published, Deleted, Modified or OldPublished."
         }
       }
     },
