@@ -4258,7 +4258,7 @@ definitions:
         description: List of attachments.
         type: array
         items:
-          $ref: '#/definitions/Attachment'
+          $ref: '#/definitions/ServiceChannelAttachment'
       supportPhones:
         description: List of support phone numbers for the service channel.
         type: array
