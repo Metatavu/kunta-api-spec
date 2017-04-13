@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/LocalizedValue'], factory);
+    define(['ApiClient', 'model/DailyOpeningTime', 'model/LocalizedValue'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./LocalizedValue'));
+    module.exports = factory(require('../ApiClient'), require('./DailyOpeningTime'), require('./LocalizedValue'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.ServiceHour = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.LocalizedValue);
+    root.KuntaApiClient.ServiceHour = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.DailyOpeningTime, root.KuntaApiClient.LocalizedValue);
   }
-}(this, function(ApiClient, LocalizedValue) {
+}(this, function(ApiClient, DailyOpeningTime, LocalizedValue) {
   'use strict';
 
 
@@ -45,7 +45,7 @@
   /**
    * The ServiceHour model module.
    * @module model/ServiceHour
-   * @version 0.0.72
+   * @version 0.0.73
    */
 
   /**
@@ -55,8 +55,6 @@
    */
   var exports = function() {
     var _this = this;
-
-
 
 
 
@@ -78,11 +76,8 @@
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('type')) {
-        obj['type'] = ApiClient.convertToType(data['type'], 'String');
-      }
-      if (data.hasOwnProperty('exceptionHourType')) {
-        obj['exceptionHourType'] = ApiClient.convertToType(data['exceptionHourType'], 'String');
+      if (data.hasOwnProperty('serviceHourType')) {
+        obj['serviceHourType'] = ApiClient.convertToType(data['serviceHourType'], 'String');
       }
       if (data.hasOwnProperty('validFrom')) {
         obj['validFrom'] = ApiClient.convertToType(data['validFrom'], 'Date');
@@ -90,35 +85,26 @@
       if (data.hasOwnProperty('validTo')) {
         obj['validTo'] = ApiClient.convertToType(data['validTo'], 'Date');
       }
-      if (data.hasOwnProperty('days')) {
-        obj['days'] = ApiClient.convertToType(data['days'], ['Integer']);
+      if (data.hasOwnProperty('isClosed')) {
+        obj['isClosed'] = ApiClient.convertToType(data['isClosed'], 'Boolean');
       }
-      if (data.hasOwnProperty('opens')) {
-        obj['opens'] = ApiClient.convertToType(data['opens'], 'String');
-      }
-      if (data.hasOwnProperty('closes')) {
-        obj['closes'] = ApiClient.convertToType(data['closes'], 'String');
-      }
-      if (data.hasOwnProperty('timezone')) {
-        obj['timezone'] = ApiClient.convertToType(data['timezone'], 'String');
+      if (data.hasOwnProperty('validForNow')) {
+        obj['validForNow'] = ApiClient.convertToType(data['validForNow'], 'Boolean');
       }
       if (data.hasOwnProperty('additionalInformation')) {
         obj['additionalInformation'] = ApiClient.convertToType(data['additionalInformation'], [LocalizedValue]);
+      }
+      if (data.hasOwnProperty('openingHour')) {
+        obj['openingHour'] = ApiClient.convertToType(data['openingHour'], [DailyOpeningTime]);
       }
     }
     return obj;
   }
 
   /**
-   * Type of service hour (Standard, Exception or Special).
-   * @member {String} type
+   * @member {String} serviceHourType
    */
-  exports.prototype['type'] = undefined;
-  /**
-   * Type of service hour exception type. Valid values are: Open or Closed.
-   * @member {String} exceptionHourType
-   */
-  exports.prototype['exceptionHourType'] = undefined;
+  exports.prototype['serviceHourType'] = undefined;
   /**
    * Date time where from this entry is valid.
    * @member {Date} validFrom
@@ -130,28 +116,25 @@
    */
   exports.prototype['validTo'] = undefined;
   /**
-   * Array of week numbers indices where serice hour is active (0 == sunday)
-   * @member {Array.<Integer>} days
+   * Set to true to present a time between the valid from and to times as closed.
+   * @member {Boolean} isClosed
    */
-  exports.prototype['days'] = undefined;
+  exports.prototype['isClosed'] = undefined;
   /**
-   * Opening time in format HH:mm for example 08:00.
-   * @member {String} opens
+   * Set to true to present that this entry is valid for now.
+   * @member {Boolean} validForNow
    */
-  exports.prototype['opens'] = undefined;
+  exports.prototype['validForNow'] = undefined;
   /**
-   * Closing time in format HH:mm for example 19:00
-   * @member {String} closes
-   */
-  exports.prototype['closes'] = undefined;
-  /**
-   * @member {String} timezone
-   */
-  exports.prototype['timezone'] = undefined;
-  /**
+   * Localized list of additional information.
    * @member {Array.<module:model/LocalizedValue>} additionalInformation
    */
   exports.prototype['additionalInformation'] = undefined;
+  /**
+   * List of servicing hours (open and closes times).
+   * @member {Array.<module:model/DailyOpeningTime>} openingHour
+   */
+  exports.prototype['openingHour'] = undefined;
 
 
 

@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/LocalizedValue', 'model/ServiceHour', 'model/SupportContact', 'model/WebPage'], factory);
+    define(['ApiClient', 'model/Email', 'model/LocalizedValue', 'model/ServiceHour', 'model/WebPage'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./LocalizedValue'), require('./ServiceHour'), require('./SupportContact'), require('./WebPage'));
+    module.exports = factory(require('../ApiClient'), require('./Email'), require('./LocalizedValue'), require('./ServiceHour'), require('./WebPage'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.PhoneServiceChannel = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.ServiceHour, root.KuntaApiClient.SupportContact, root.KuntaApiClient.WebPage);
+    root.KuntaApiClient.PhoneServiceChannel = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Email, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.ServiceHour, root.KuntaApiClient.WebPage);
   }
-}(this, function(ApiClient, LocalizedValue, ServiceHour, SupportContact, WebPage) {
+}(this, function(ApiClient, Email, LocalizedValue, ServiceHour, WebPage) {
   'use strict';
 
 
@@ -45,7 +45,7 @@
   /**
    * The PhoneServiceChannel model module.
    * @module model/PhoneServiceChannel
-   * @version 0.0.72
+   * @version 0.0.73
    */
 
   /**
@@ -104,8 +104,8 @@
       if (data.hasOwnProperty('chargeTypes')) {
         obj['chargeTypes'] = ApiClient.convertToType(data['chargeTypes'], ['String']);
       }
-      if (data.hasOwnProperty('supportContacts')) {
-        obj['supportContacts'] = ApiClient.convertToType(data['supportContacts'], [SupportContact]);
+      if (data.hasOwnProperty('supportEmails')) {
+        obj['supportEmails'] = ApiClient.convertToType(data['supportEmails'], [Email]);
       }
       if (data.hasOwnProperty('phoneNumbers')) {
         obj['phoneNumbers'] = ApiClient.convertToType(data['phoneNumbers'], [LocalizedValue]);
@@ -158,9 +158,10 @@
    */
   exports.prototype['chargeTypes'] = undefined;
   /**
-   * @member {Array.<module:model/SupportContact>} supportContacts
+   * List of support email addresses for the service channel.
+   * @member {Array.<module:model/Email>} supportEmails
    */
-  exports.prototype['supportContacts'] = undefined;
+  exports.prototype['supportEmails'] = undefined;
   /**
    * @member {Array.<module:model/LocalizedValue>} phoneNumbers
    */

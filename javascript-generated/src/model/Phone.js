@@ -34,7 +34,7 @@
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.ServiceChannelAttachment = factory(root.KuntaApiClient.ApiClient);
+    root.KuntaApiClient.Phone = factory(root.KuntaApiClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -43,14 +43,14 @@
 
 
   /**
-   * The ServiceChannelAttachment model module.
-   * @module model/ServiceChannelAttachment
+   * The Phone model module.
+   * @module model/Phone
    * @version 0.0.73
    */
 
   /**
-   * Constructs a new <code>ServiceChannelAttachment</code>.
-   * @alias module:model/ServiceChannelAttachment
+   * Constructs a new <code>Phone</code>.
+   * @alias module:model/Phone
    * @class
    */
   var exports = function() {
@@ -61,58 +61,82 @@
 
 
 
+
+
+
   };
 
   /**
-   * Constructs a <code>ServiceChannelAttachment</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>Phone</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/ServiceChannelAttachment} obj Optional instance to populate.
-   * @return {module:model/ServiceChannelAttachment} The populated <code>ServiceChannelAttachment</code> instance.
+   * @param {module:model/Phone} obj Optional instance to populate.
+   * @return {module:model/Phone} The populated <code>Phone</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('type')) {
-        obj['type'] = ApiClient.convertToType(data['type'], 'String');
+      if (data.hasOwnProperty('additionalInformation')) {
+        obj['additionalInformation'] = ApiClient.convertToType(data['additionalInformation'], 'String');
       }
-      if (data.hasOwnProperty('name')) {
-        obj['name'] = ApiClient.convertToType(data['name'], 'String');
+      if (data.hasOwnProperty('serviceChargeType')) {
+        obj['serviceChargeType'] = ApiClient.convertToType(data['serviceChargeType'], 'String');
       }
-      if (data.hasOwnProperty('description')) {
-        obj['description'] = ApiClient.convertToType(data['description'], 'String');
+      if (data.hasOwnProperty('chargeDescription')) {
+        obj['chargeDescription'] = ApiClient.convertToType(data['chargeDescription'], 'String');
       }
-      if (data.hasOwnProperty('url')) {
-        obj['url'] = ApiClient.convertToType(data['url'], 'String');
+      if (data.hasOwnProperty('prefixNumber')) {
+        obj['prefixNumber'] = ApiClient.convertToType(data['prefixNumber'], 'String');
+      }
+      if (data.hasOwnProperty('isFinnishServiceNumber')) {
+        obj['isFinnishServiceNumber'] = ApiClient.convertToType(data['isFinnishServiceNumber'], 'Boolean');
+      }
+      if (data.hasOwnProperty('number')) {
+        obj['number'] = ApiClient.convertToType(data['number'], 'String');
       }
       if (data.hasOwnProperty('language')) {
         obj['language'] = ApiClient.convertToType(data['language'], 'String');
+      }
+      if (data.hasOwnProperty('type')) {
+        obj['type'] = ApiClient.convertToType(data['type'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * @member {String} type
+   * @member {String} additionalInformation
    */
-  exports.prototype['type'] = undefined;
+  exports.prototype['additionalInformation'] = undefined;
   /**
-   * @member {String} name
+   * @member {String} serviceChargeType
    */
-  exports.prototype['name'] = undefined;
+  exports.prototype['serviceChargeType'] = undefined;
   /**
-   * @member {String} description
+   * @member {String} chargeDescription
    */
-  exports.prototype['description'] = undefined;
+  exports.prototype['chargeDescription'] = undefined;
   /**
-   * @member {String} url
+   * @member {String} prefixNumber
    */
-  exports.prototype['url'] = undefined;
+  exports.prototype['prefixNumber'] = undefined;
+  /**
+   * @member {Boolean} isFinnishServiceNumber
+   */
+  exports.prototype['isFinnishServiceNumber'] = undefined;
+  /**
+   * @member {String} number
+   */
+  exports.prototype['number'] = undefined;
   /**
    * @member {String} language
    */
   exports.prototype['language'] = undefined;
+  /**
+   * @member {String} type
+   */
+  exports.prototype['type'] = undefined;
 
 
 

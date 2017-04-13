@@ -39,7 +39,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new KuntaApiClient.SupportContact();
+    instance = new KuntaApiClient.Phone();
   });
 
   var getProperty = function(object, getter, property) {
@@ -58,40 +58,58 @@
       object[property] = value;
   }
 
-  describe('SupportContact', function() {
-    it('should create an instance of SupportContact', function() {
-      // uncomment below and update the code to test SupportContact
-      //var instane = new KuntaApiClient.SupportContact();
-      //expect(instance).to.be.a(KuntaApiClient.SupportContact);
+  describe('Phone', function() {
+    it('should create an instance of Phone', function() {
+      // uncomment below and update the code to test Phone
+      //var instane = new KuntaApiClient.Phone();
+      //expect(instance).to.be.a(KuntaApiClient.Phone);
     });
 
-    it('should have the property email (base name: "email")', function() {
-      // uncomment below and update the code to test the property email
-      //var instane = new KuntaApiClient.SupportContact();
+    it('should have the property additionalInformation (base name: "additionalInformation")', function() {
+      // uncomment below and update the code to test the property additionalInformation
+      //var instane = new KuntaApiClient.Phone();
       //expect(instance).to.be();
     });
 
-    it('should have the property phone (base name: "phone")', function() {
-      // uncomment below and update the code to test the property phone
-      //var instane = new KuntaApiClient.SupportContact();
+    it('should have the property serviceChargeType (base name: "serviceChargeType")', function() {
+      // uncomment below and update the code to test the property serviceChargeType
+      //var instane = new KuntaApiClient.Phone();
       //expect(instance).to.be();
     });
 
-    it('should have the property phoneChargeDescription (base name: "phoneChargeDescription")', function() {
-      // uncomment below and update the code to test the property phoneChargeDescription
-      //var instane = new KuntaApiClient.SupportContact();
+    it('should have the property chargeDescription (base name: "chargeDescription")', function() {
+      // uncomment below and update the code to test the property chargeDescription
+      //var instane = new KuntaApiClient.Phone();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property prefixNumber (base name: "prefixNumber")', function() {
+      // uncomment below and update the code to test the property prefixNumber
+      //var instane = new KuntaApiClient.Phone();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property isFinnishServiceNumber (base name: "isFinnishServiceNumber")', function() {
+      // uncomment below and update the code to test the property isFinnishServiceNumber
+      //var instane = new KuntaApiClient.Phone();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property _number (base name: "number")', function() {
+      // uncomment below and update the code to test the property _number
+      //var instane = new KuntaApiClient.Phone();
       //expect(instance).to.be();
     });
 
     it('should have the property language (base name: "language")', function() {
       // uncomment below and update the code to test the property language
-      //var instane = new KuntaApiClient.SupportContact();
+      //var instane = new KuntaApiClient.Phone();
       //expect(instance).to.be();
     });
 
-    it('should have the property serviceChargeTypes (base name: "serviceChargeTypes")', function() {
-      // uncomment below and update the code to test the property serviceChargeTypes
-      //var instane = new KuntaApiClient.SupportContact();
+    it('should have the property type (base name: "type")', function() {
+      // uncomment below and update the code to test the property type
+      //var instane = new KuntaApiClient.Phone();
       //expect(instance).to.be();
     });
 

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **descriptions** | [**[LocalizedValue]**](LocalizedValue.md) |  | [optional] 
 **phoneType** | **String** |  | [optional] 
 **chargeTypes** | **[String]** |  | [optional] 
-**supportContacts** | [**[SupportContact]**](SupportContact.md) |  | [optional] 
+**supportEmails** | [**[Email]**](Email.md) | List of support email addresses for the service channel. | [optional] 
 **phoneNumbers** | [**[LocalizedValue]**](LocalizedValue.md) |  | [optional] 
 **languages** | **[String]** |  | [optional] 
 **phoneChargeDescriptions** | [**[LocalizedValue]**](LocalizedValue.md) |  | [optional] 

@@ -34,7 +34,7 @@
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.ContactPhone = factory(root.KuntaApiClient.ApiClient);
+    root.KuntaApiClient.DailyOpeningTime = factory(root.KuntaApiClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -43,14 +43,14 @@
 
 
   /**
-   * The ContactPhone model module.
-   * @module model/ContactPhone
+   * The DailyOpeningTime model module.
+   * @module model/DailyOpeningTime
    * @version 0.0.73
    */
 
   /**
-   * Constructs a new <code>ContactPhone</code>.
-   * @alias module:model/ContactPhone
+   * Constructs a new <code>DailyOpeningTime</code>.
+   * @alias module:model/DailyOpeningTime
    * @class
    */
   var exports = function() {
@@ -58,37 +58,66 @@
 
 
 
+
+
+
   };
 
   /**
-   * Constructs a <code>ContactPhone</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>DailyOpeningTime</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/ContactPhone} obj Optional instance to populate.
-   * @return {module:model/ContactPhone} The populated <code>ContactPhone</code> instance.
+   * @param {module:model/DailyOpeningTime} obj Optional instance to populate.
+   * @return {module:model/DailyOpeningTime} The populated <code>DailyOpeningTime</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('type')) {
-        obj['type'] = ApiClient.convertToType(data['type'], 'String');
+      if (data.hasOwnProperty('dayFrom')) {
+        obj['dayFrom'] = ApiClient.convertToType(data['dayFrom'], 'Integer');
       }
-      if (data.hasOwnProperty('number')) {
-        obj['number'] = ApiClient.convertToType(data['number'], 'String');
+      if (data.hasOwnProperty('dayTo')) {
+        obj['dayTo'] = ApiClient.convertToType(data['dayTo'], 'Integer');
+      }
+      if (data.hasOwnProperty('from')) {
+        obj['from'] = ApiClient.convertToType(data['from'], 'String');
+      }
+      if (data.hasOwnProperty('to')) {
+        obj['to'] = ApiClient.convertToType(data['to'], 'String');
+      }
+      if (data.hasOwnProperty('isExtra')) {
+        obj['isExtra'] = ApiClient.convertToType(data['isExtra'], 'Boolean');
       }
     }
     return obj;
   }
 
   /**
-   * @member {String} type
+   * Day index (0 == Sunday)
+   * @member {Integer} dayFrom
    */
-  exports.prototype['type'] = undefined;
+  exports.prototype['dayFrom'] = undefined;
   /**
-   * @member {String} number
+   * Day index (0 == Sunday)
+   * @member {Integer} dayTo
    */
-  exports.prototype['number'] = undefined;
+  exports.prototype['dayTo'] = undefined;
+  /**
+   * Start time for example 10:00:00
+   * @member {String} from
+   */
+  exports.prototype['from'] = undefined;
+  /**
+   * End time for example 20:00:00
+   * @member {String} to
+   */
+  exports.prototype['to'] = undefined;
+  /**
+   * Set to true to have extra time for a day. Enables to have open times like 10:00-14:00 and also on the same day 16:00-20:00. So the latter time is extra time.
+   * @member {Boolean} isExtra
+   */
+  exports.prototype['isExtra'] = undefined;
 
 
 

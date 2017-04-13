@@ -39,7 +39,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new KuntaApiClient.ServiceHour();
+    instance = new KuntaApiClient.DailyOpeningTime();
   });
 
   var getProperty = function(object, getter, property) {
@@ -58,52 +58,40 @@
       object[property] = value;
   }
 
-  describe('ServiceHour', function() {
-    it('should create an instance of ServiceHour', function() {
-      // uncomment below and update the code to test ServiceHour
-      //var instane = new KuntaApiClient.ServiceHour();
-      //expect(instance).to.be.a(KuntaApiClient.ServiceHour);
+  describe('DailyOpeningTime', function() {
+    it('should create an instance of DailyOpeningTime', function() {
+      // uncomment below and update the code to test DailyOpeningTime
+      //var instane = new KuntaApiClient.DailyOpeningTime();
+      //expect(instance).to.be.a(KuntaApiClient.DailyOpeningTime);
     });
 
-    it('should have the property serviceHourType (base name: "serviceHourType")', function() {
-      // uncomment below and update the code to test the property serviceHourType
-      //var instane = new KuntaApiClient.ServiceHour();
+    it('should have the property dayFrom (base name: "dayFrom")', function() {
+      // uncomment below and update the code to test the property dayFrom
+      //var instane = new KuntaApiClient.DailyOpeningTime();
       //expect(instance).to.be();
     });
 
-    it('should have the property validFrom (base name: "validFrom")', function() {
-      // uncomment below and update the code to test the property validFrom
-      //var instane = new KuntaApiClient.ServiceHour();
+    it('should have the property dayTo (base name: "dayTo")', function() {
+      // uncomment below and update the code to test the property dayTo
+      //var instane = new KuntaApiClient.DailyOpeningTime();
       //expect(instance).to.be();
     });
 
-    it('should have the property validTo (base name: "validTo")', function() {
-      // uncomment below and update the code to test the property validTo
-      //var instane = new KuntaApiClient.ServiceHour();
+    it('should have the property from (base name: "from")', function() {
+      // uncomment below and update the code to test the property from
+      //var instane = new KuntaApiClient.DailyOpeningTime();
       //expect(instance).to.be();
     });
 
-    it('should have the property isClosed (base name: "isClosed")', function() {
-      // uncomment below and update the code to test the property isClosed
-      //var instane = new KuntaApiClient.ServiceHour();
+    it('should have the property to (base name: "to")', function() {
+      // uncomment below and update the code to test the property to
+      //var instane = new KuntaApiClient.DailyOpeningTime();
       //expect(instance).to.be();
     });
 
-    it('should have the property validForNow (base name: "validForNow")', function() {
-      // uncomment below and update the code to test the property validForNow
-      //var instane = new KuntaApiClient.ServiceHour();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property additionalInformation (base name: "additionalInformation")', function() {
-      // uncomment below and update the code to test the property additionalInformation
-      //var instane = new KuntaApiClient.ServiceHour();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property openingHour (base name: "openingHour")', function() {
-      // uncomment below and update the code to test the property openingHour
-      //var instane = new KuntaApiClient.ServiceHour();
+    it('should have the property isExtra (base name: "isExtra")', function() {
+      // uncomment below and update the code to test the property isExtra
+      //var instane = new KuntaApiClient.DailyOpeningTime();
       //expect(instance).to.be();
     });
 

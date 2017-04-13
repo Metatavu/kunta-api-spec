@@ -45,7 +45,7 @@
   /**
    * The Agency model module.
    * @module model/Agency
-   * @version 0.0.72
+   * @version 0.0.73
    */
 
   /**

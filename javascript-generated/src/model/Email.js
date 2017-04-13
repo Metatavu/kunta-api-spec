@@ -34,7 +34,7 @@
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.SupportContact = factory(root.KuntaApiClient.ApiClient);
+    root.KuntaApiClient.Email = factory(root.KuntaApiClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -43,14 +43,14 @@
 
 
   /**
-   * The SupportContact model module.
-   * @module model/SupportContact
-   * @version 0.0.72
+   * The Email model module.
+   * @module model/Email
+   * @version 0.0.73
    */
 
   /**
-   * Constructs a new <code>SupportContact</code>.
-   * @alias module:model/SupportContact
+   * Constructs a new <code>Email</code>.
+   * @alias module:model/Email
    * @class
    */
   var exports = function() {
@@ -59,60 +59,44 @@
 
 
 
-
-
   };
 
   /**
-   * Constructs a <code>SupportContact</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>Email</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/SupportContact} obj Optional instance to populate.
-   * @return {module:model/SupportContact} The populated <code>SupportContact</code> instance.
+   * @param {module:model/Email} obj Optional instance to populate.
+   * @return {module:model/Email} The populated <code>Email</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('email')) {
-        obj['email'] = ApiClient.convertToType(data['email'], 'String');
+      if (data.hasOwnProperty('value')) {
+        obj['value'] = ApiClient.convertToType(data['value'], 'String');
       }
-      if (data.hasOwnProperty('phone')) {
-        obj['phone'] = ApiClient.convertToType(data['phone'], 'String');
-      }
-      if (data.hasOwnProperty('phoneChargeDescription')) {
-        obj['phoneChargeDescription'] = ApiClient.convertToType(data['phoneChargeDescription'], 'String');
+      if (data.hasOwnProperty('description')) {
+        obj['description'] = ApiClient.convertToType(data['description'], 'String');
       }
       if (data.hasOwnProperty('language')) {
         obj['language'] = ApiClient.convertToType(data['language'], 'String');
-      }
-      if (data.hasOwnProperty('serviceChargeTypes')) {
-        obj['serviceChargeTypes'] = ApiClient.convertToType(data['serviceChargeTypes'], ['String']);
       }
     }
     return obj;
   }
 
   /**
-   * @member {String} email
+   * @member {String} value
    */
-  exports.prototype['email'] = undefined;
+  exports.prototype['value'] = undefined;
   /**
-   * @member {String} phone
+   * @member {String} description
    */
-  exports.prototype['phone'] = undefined;
-  /**
-   * @member {String} phoneChargeDescription
-   */
-  exports.prototype['phoneChargeDescription'] = undefined;
+  exports.prototype['description'] = undefined;
   /**
    * @member {String} language
    */
   exports.prototype['language'] = undefined;
-  /**
-   * @member {Array.<String>} serviceChargeTypes
-   */
-  exports.prototype['serviceChargeTypes'] = undefined;
 
 
 

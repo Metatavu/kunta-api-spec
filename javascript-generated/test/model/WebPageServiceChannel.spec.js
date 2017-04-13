@@ -107,8 +107,14 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property supportContacts (base name: "supportContacts")', function() {
-      // uncomment below and update the code to test the property supportContacts
+    it('should have the property supportPhones (base name: "supportPhones")', function() {
+      // uncomment below and update the code to test the property supportPhones
+      //var instane = new KuntaApiClient.WebPageServiceChannel();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property supportEmails (base name: "supportEmails")', function() {
+      // uncomment below and update the code to test the property supportEmails
       //var instane = new KuntaApiClient.WebPageServiceChannel();
       //expect(instance).to.be();
     });

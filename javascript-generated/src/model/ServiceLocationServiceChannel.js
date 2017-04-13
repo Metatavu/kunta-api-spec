@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Address', 'model/LocalizedValue', 'model/ServiceHour', 'model/SupportContact', 'model/WebPage'], factory);
+    define(['ApiClient', 'model/Address', 'model/Email', 'model/LocalizedValue', 'model/Phone', 'model/ServiceHour', 'model/WebPage'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Address'), require('./LocalizedValue'), require('./ServiceHour'), require('./SupportContact'), require('./WebPage'));
+    module.exports = factory(require('../ApiClient'), require('./Address'), require('./Email'), require('./LocalizedValue'), require('./Phone'), require('./ServiceHour'), require('./WebPage'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.ServiceLocationServiceChannel = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Address, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.ServiceHour, root.KuntaApiClient.SupportContact, root.KuntaApiClient.WebPage);
+    root.KuntaApiClient.ServiceLocationServiceChannel = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Address, root.KuntaApiClient.Email, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.Phone, root.KuntaApiClient.ServiceHour, root.KuntaApiClient.WebPage);
   }
-}(this, function(ApiClient, Address, LocalizedValue, ServiceHour, SupportContact, WebPage) {
+}(this, function(ApiClient, Address, Email, LocalizedValue, Phone, ServiceHour, WebPage) {
   'use strict';
 
 
@@ -45,7 +45,7 @@
   /**
    * The ServiceLocationServiceChannel model module.
    * @module model/ServiceLocationServiceChannel
-   * @version 0.0.72
+   * @version 0.0.73
    */
 
   /**
@@ -55,6 +55,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -110,8 +111,11 @@
       if (data.hasOwnProperty('serviceAreaRestricted')) {
         obj['serviceAreaRestricted'] = ApiClient.convertToType(data['serviceAreaRestricted'], 'Boolean');
       }
-      if (data.hasOwnProperty('supportContacts')) {
-        obj['supportContacts'] = ApiClient.convertToType(data['supportContacts'], [SupportContact]);
+      if (data.hasOwnProperty('supportPhones')) {
+        obj['supportPhones'] = ApiClient.convertToType(data['supportPhones'], [Phone]);
+      }
+      if (data.hasOwnProperty('supportEmails')) {
+        obj['supportEmails'] = ApiClient.convertToType(data['supportEmails'], [Email]);
       }
       if (data.hasOwnProperty('email')) {
         obj['email'] = ApiClient.convertToType(data['email'], 'String');
@@ -190,9 +194,15 @@
    */
   exports.prototype['serviceAreaRestricted'] = undefined;
   /**
-   * @member {Array.<module:model/SupportContact>} supportContacts
+   * List of support phone numbers for the service channel.
+   * @member {Array.<module:model/Phone>} supportPhones
    */
-  exports.prototype['supportContacts'] = undefined;
+  exports.prototype['supportPhones'] = undefined;
+  /**
+   * List of support email addresses for the service channel.
+   * @member {Array.<module:model/Email>} supportEmails
+   */
+  exports.prototype['supportEmails'] = undefined;
   /**
    * @member {String} email
    */
