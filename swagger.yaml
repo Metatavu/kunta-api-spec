@@ -4129,10 +4129,16 @@ definitions:
         type: integer
       requiresSignature:
         type: boolean
-      supportContacts:
+      supportPhones:
         type: array
+        description: List of support phone numbers for the service channel.
         items:
-          $ref: '#/definitions/SupportContact'
+          $ref: '#/definitions/Phone'
+      supportEmails:
+        type: array
+        description: List of support email addresses for the service channel.
+        items:
+          $ref: '#/definitions/Email'
       requiresAuthentication:
         type: boolean
       urls:
@@ -4182,10 +4188,11 @@ definitions:
         type: array
         items:
           type: string
-      supportContacts:
+      supportEmails:
         type: array
+        description: List of support email addresses for the service channel.
         items:
-          $ref: '#/definitions/SupportContact'
+          $ref: '#/definitions/Email'
       phoneNumbers:
         type: array
         items:
@@ -4231,10 +4238,16 @@ definitions:
         type: string
       formReceiver:
         type: string
-      supportContacts:
+      supportPhones:
+        description: List of support phone numbers for the service channel.
         type: array
         items:
-          $ref: '#/definitions/SupportContact'
+          $ref: '#/definitions/Phone'
+      supportEmails:
+        description: List of support email addresses for the service channel.
+        type: array
+        items:
+          $ref: '#/definitions/Email'
       deliveryAddress:
         $ref: '#/definitions/Address'
       channelUrls:
@@ -4284,10 +4297,16 @@ definitions:
           $ref: '#/definitions/LocalizedValue'
       serviceAreaRestricted:
         type: boolean
-      supportContacts:
+      supportPhones:
+        description: List of support phone numbers for the service channel.
         type: array
         items:
-          $ref: '#/definitions/SupportContact'
+          $ref: '#/definitions/Phone'
+      supportEmails:
+        description: List of support email addresses for the service channel.
+        type: array
+        items:
+          $ref: '#/definitions/Email'
       email:
         type: string
       phone:
@@ -4361,10 +4380,16 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/ServiceChannelAttachment'
-      supportContacts:
+      supportPhones:
+        description: List of support phone numbers for the service channel.
         type: array
         items:
-          $ref: '#/definitions/SupportContact'
+          $ref: '#/definitions/Phone'
+      supportEmails:
+        description: List of support email addresses for the service channel.
+        type: array
+        items:
+          $ref: '#/definitions/Email'
       languages:
         type: array
         items:
@@ -4661,21 +4686,34 @@ definitions:
         type: string
       type:
         type: string 
-  SupportContact:
+  Email:
     type: object
     properties:
-      email:
+      value:
         type: string
-      phone:
-        type: string
-      phoneChargeDescription:
+      description:
         type: string
       language:
         type: string
-      serviceChargeTypes:
-        type: array
-        items:
-          type: string
+  Phone:
+    type: object
+    properties:
+      additionalInformation:
+        type: string
+      serviceChargeType:
+        type: string
+      chargeDescription:
+        type: string
+      prefixNumber:
+        type: string
+      isFinnishServiceNumber:
+        type: boolean
+      number:
+        type: string
+      language:
+        type: string
+      type:
+        type: string
   ServiceChannelAttachment:
     type: object
     properties:
