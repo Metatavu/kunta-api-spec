@@ -71,12 +71,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property type (base name: "type")', function() {
-      // uncomment below and update the code to test the property type
-      //var instane = new KuntaApiClient.WebPageServiceChannel();
-      //expect(instance).to.be();
-    });
-
     it('should have the property organizationId (base name: "organizationId")', function() {
       // uncomment below and update the code to test the property organizationId
       //var instane = new KuntaApiClient.WebPageServiceChannel();
@@ -97,12 +91,6 @@
 
     it('should have the property urls (base name: "urls")', function() {
       // uncomment below and update the code to test the property urls
-      //var instane = new KuntaApiClient.WebPageServiceChannel();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property attachments (base name: "attachments")', function() {
-      // uncomment below and update the code to test the property attachments
       //var instane = new KuntaApiClient.WebPageServiceChannel();
       //expect(instance).to.be();
     });

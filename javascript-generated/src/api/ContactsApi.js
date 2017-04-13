@@ -42,7 +42,7 @@
   /**
    * Contacts service.
    * @module api/ContactsApi
-   * @version 0.0.76
+   * @version 0.0.77
    */
 
   /**
