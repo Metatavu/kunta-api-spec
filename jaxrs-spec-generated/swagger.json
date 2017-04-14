@@ -1321,14 +1321,12 @@
           "name" : "startBefore",
           "in" : "query",
           "required" : false,
-          "type" : "string",
-          "format" : "date-time"
+          "type" : "string"
         }, {
           "name" : "endAfter",
           "in" : "query",
           "required" : false,
-          "type" : "string",
-          "format" : "date-time"
+          "type" : "string"
         }, {
           "name" : "area",
           "in" : "query",

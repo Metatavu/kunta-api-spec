@@ -29,7 +29,6 @@ import fi.metatavu.kuntaapi.server.rest.model.NotFound;
 import fi.metatavu.kuntaapi.server.rest.model.Shortlink;
 import fi.metatavu.kuntaapi.server.rest.model.Tile;
 import fi.metatavu.kuntaapi.server.rest.model.Banner;
-import java.time.OffsetDateTime;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
@@ -45,7 +44,7 @@ import java.util.List;
 @Api(description = "the organizations API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-04-14T07:40:07.576+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-04-14T17:22:35.869+03:00")
 
 public abstract class OrganizationsApi extends AbstractApi {
 
@@ -612,7 +611,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Incident.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Incident.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = Incident.class, responseContainer = "List") })
-    public abstract Response listOrganizationIncidents(@PathParam("organizationId") String organizationId,@QueryParam("startBefore") OffsetDateTime startBefore,@QueryParam("endAfter") OffsetDateTime endAfter,@QueryParam("area") Integer area,@QueryParam("firstResult") Integer firstResult,@QueryParam("maxResults") Integer maxResults,@QueryParam("orderBy") String orderBy,@QueryParam("orderDir") String orderDir,@Context Request request);
+    public abstract Response listOrganizationIncidents(@PathParam("organizationId") String organizationId,@QueryParam("startBefore") String startBefore,@QueryParam("endAfter") String endAfter,@QueryParam("area") Integer area,@QueryParam("firstResult") Integer firstResult,@QueryParam("maxResults") Integer maxResults,@QueryParam("orderBy") String orderBy,@QueryParam("orderDir") String orderDir,@Context Request request);
 
     @GET
     @Path("/{organizationId}/jobs")
