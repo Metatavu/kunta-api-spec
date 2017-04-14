@@ -42,7 +42,7 @@
   /**
    * PhoneServiceChannels service.
    * @module api/PhoneServiceChannelsApi
-   * @version 0.0.82
+   * @version 0.0.83
    */
 
   /**

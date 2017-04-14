@@ -34,7 +34,7 @@
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.OrganizationService = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.WebPage);
+    root.KuntaApiClient.ServiceOrganization = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.WebPage);
   }
 }(this, function(ApiClient, LocalizedValue, WebPage) {
   'use strict';
@@ -43,15 +43,15 @@
 
 
   /**
-   * The OrganizationService model module.
-   * @module model/OrganizationService
+   * The ServiceOrganization model module.
+   * @module model/ServiceOrganization
    * @version 0.0.83
    */
 
   /**
-   * Constructs a new <code>OrganizationService</code>.
-   * Organization service
-   * @alias module:model/OrganizationService
+   * Constructs a new <code>ServiceOrganization</code>.
+   * Service organization
+   * @alias module:model/ServiceOrganization
    * @class
    */
   var exports = function() {
@@ -62,15 +62,14 @@
 
 
 
-
   };
 
   /**
-   * Constructs a <code>OrganizationService</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>ServiceOrganization</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/OrganizationService} obj Optional instance to populate.
-   * @return {module:model/OrganizationService} The populated <code>OrganizationService</code> instance.
+   * @param {module:model/ServiceOrganization} obj Optional instance to populate.
+   * @return {module:model/ServiceOrganization} The populated <code>ServiceOrganization</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -78,9 +77,6 @@
 
       if (data.hasOwnProperty('additionalInformation')) {
         obj['additionalInformation'] = ApiClient.convertToType(data['additionalInformation'], [LocalizedValue]);
-      }
-      if (data.hasOwnProperty('serviceId')) {
-        obj['serviceId'] = ApiClient.convertToType(data['serviceId'], 'String');
       }
       if (data.hasOwnProperty('organizationId')) {
         obj['organizationId'] = ApiClient.convertToType(data['organizationId'], 'String');
@@ -104,12 +100,7 @@
    */
   exports.prototype['additionalInformation'] = undefined;
   /**
-   * Service identifier.
-   * @member {String} serviceId
-   */
-  exports.prototype['serviceId'] = undefined;
-  /**
-   * Organization identifier (organization related to the service).
+   * Organization identifier (organization related to the service). Required if role type is Responsible or if ProvisionType is SelfProduced.
    * @member {String} organizationId
    */
   exports.prototype['organizationId'] = undefined;

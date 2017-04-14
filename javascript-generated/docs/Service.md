@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **requirements** | [**[LocalizedValue]**](LocalizedValue.md) |  | [optional] 
 **publishingStatus** | **String** | Publishing status. Possible values are: Draft, Published, Deleted, Modified or OldPublished. | [optional] 
 **chargeType** | **String** |  | [optional] 
+**organizations** | [**[ServiceOrganization]**](ServiceOrganization.md) |  | [optional] 
 **electronicServiceChannelIds** | **[String]** |  | [optional] 
 **phoneServiceChannelIds** | **[String]** |  | [optional] 
 **printableFormServiceChannelIds** | **[String]** |  | [optional] 

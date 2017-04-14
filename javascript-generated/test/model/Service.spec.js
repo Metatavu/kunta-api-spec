@@ -173,6 +173,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property organizations (base name: "organizations")', function() {
+      // uncomment below and update the code to test the property organizations
+      //var instane = new KuntaApiClient.Service();
+      //expect(instance).to.be();
+    });
+
     it('should have the property electronicServiceChannelIds (base name: "electronicServiceChannelIds")', function() {
       // uncomment below and update the code to test the property electronicServiceChannelIds
       //var instane = new KuntaApiClient.Service();

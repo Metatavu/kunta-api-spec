@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Law', 'model/LocalizedValue', 'model/Municipality', 'model/OntologyItem'], factory);
+    define(['ApiClient', 'model/Law', 'model/LocalizedValue', 'model/Municipality', 'model/OntologyItem', 'model/ServiceOrganization'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Law'), require('./LocalizedValue'), require('./Municipality'), require('./OntologyItem'));
+    module.exports = factory(require('../ApiClient'), require('./Law'), require('./LocalizedValue'), require('./Municipality'), require('./OntologyItem'), require('./ServiceOrganization'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.Service = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Law, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.Municipality, root.KuntaApiClient.OntologyItem);
+    root.KuntaApiClient.Service = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Law, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.Municipality, root.KuntaApiClient.OntologyItem, root.KuntaApiClient.ServiceOrganization);
   }
-}(this, function(ApiClient, Law, LocalizedValue, Municipality, OntologyItem) {
+}(this, function(ApiClient, Law, LocalizedValue, Municipality, OntologyItem, ServiceOrganization) {
   'use strict';
 
 
@@ -45,7 +45,7 @@
   /**
    * The Service model module.
    * @module model/Service
-   * @version 0.0.82
+   * @version 0.0.83
    */
 
   /**
@@ -55,6 +55,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -145,6 +146,9 @@
       }
       if (data.hasOwnProperty('chargeType')) {
         obj['chargeType'] = ApiClient.convertToType(data['chargeType'], 'String');
+      }
+      if (data.hasOwnProperty('organizations')) {
+        obj['organizations'] = ApiClient.convertToType(data['organizations'], [ServiceOrganization]);
       }
       if (data.hasOwnProperty('electronicServiceChannelIds')) {
         obj['electronicServiceChannelIds'] = ApiClient.convertToType(data['electronicServiceChannelIds'], ['String']);
@@ -241,6 +245,10 @@
    * @member {String} chargeType
    */
   exports.prototype['chargeType'] = undefined;
+  /**
+   * @member {Array.<module:model/ServiceOrganization>} organizations
+   */
+  exports.prototype['organizations'] = undefined;
   /**
    * @member {Array.<String>} electronicServiceChannelIds
    */

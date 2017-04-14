@@ -42,7 +42,7 @@
   /**
    * PublicTransport service.
    * @module api/PublicTransportApi
-   * @version 0.0.82
+   * @version 0.0.83
    */
 
   /**
