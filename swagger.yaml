@@ -4120,6 +4120,10 @@ definitions:
         type: string
       chargeType:
         type: string
+      organizations:
+        type: array
+        items:
+          $ref: '#/definitions/ServiceOrganization'
       electronicServiceChannelIds:
         type: array
         items:
@@ -4145,6 +4149,34 @@ definitions:
         items:
           type: string
           format: uuid
+  ServiceOrganization:
+    description: Service organization
+    type: object
+    properties:
+      additionalInformation:
+        description: Localized list of additional information.
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      organizationId:
+        description: >-
+          Organization identifier (organization related to the service).
+          Required if role type is Responsible or if ProvisionType is
+          SelfProduced.
+        type: string
+      roleType:
+        description: 'Role type, valid values Responsible or Producer.'
+        type: string
+      provisionType:
+        description: >-
+          Provision type, valid values SelfProduced, VoucherServices,
+          PurchaseServices or Other. Required if RoleType value is Producer.
+        type: string
+      webPages:
+        description: List of web pages.
+        type: array
+        items:
+          $ref: '#/definitions/WebPage'
   OrganizationService:
     description: Organization service
     type: object
