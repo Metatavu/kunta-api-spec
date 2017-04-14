@@ -5349,6 +5349,12 @@
         "chargeType" : {
           "type" : "string"
         },
+        "organizations" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ServiceOrganization"
+          }
+        },
         "electronicServiceChannelIds" : {
           "type" : "array",
           "items" : {
@@ -5385,6 +5391,38 @@
           }
         }
       }
+    },
+    "ServiceOrganization" : {
+      "type" : "object",
+      "properties" : {
+        "additionalInformation" : {
+          "type" : "array",
+          "description" : "Localized list of additional information.",
+          "items" : {
+            "$ref" : "#/definitions/LocalizedValue"
+          }
+        },
+        "organizationId" : {
+          "type" : "string",
+          "description" : "Organization identifier (organization related to the service). Required if role type is Responsible or if ProvisionType is SelfProduced."
+        },
+        "roleType" : {
+          "type" : "string",
+          "description" : "Role type, valid values Responsible or Producer."
+        },
+        "provisionType" : {
+          "type" : "string",
+          "description" : "Provision type, valid values SelfProduced, VoucherServices, PurchaseServices or Other. Required if RoleType value is Producer."
+        },
+        "webPages" : {
+          "type" : "array",
+          "description" : "List of web pages.",
+          "items" : {
+            "$ref" : "#/definitions/WebPage"
+          }
+        }
+      },
+      "description" : "Service organization"
     },
     "OrganizationService" : {
       "type" : "object",
