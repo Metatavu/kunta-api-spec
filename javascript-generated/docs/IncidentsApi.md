@@ -71,8 +71,8 @@ var apiInstance = new KuntaApiClient.IncidentsApi();
 var organizationId = "organizationId_example"; // String | Organization id
 
 var opts = { 
-  'startBefore': new Date("2013-10-20T19:20:30+01:00"), // Date | 
-  'endAfter': new Date("2013-10-20T19:20:30+01:00"), // Date | 
+  'startBefore': "startBefore_example", // String | 
+  'endAfter': "endAfter_example", // String | 
   'area': 56, // Integer | Return only incidents from specified area
   'firstResult': 56, // Integer | First index of results
   'maxResults': 56, // Integer | Maximum number of results
@@ -92,8 +92,8 @@ apiInstance.listOrganizationIncidents(organizationId, opts).then(function(data) 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| Organization id | 
- **startBefore** | **Date**|  | [optional] 
- **endAfter** | **Date**|  | [optional] 
+ **startBefore** | **String**|  | [optional] 
+ **endAfter** | **String**|  | [optional] 
  **area** | **Integer**| Return only incidents from specified area | [optional] 
  **firstResult** | **Integer**| First index of results | [optional] 
  **maxResults** | **Integer**| Maximum number of results | [optional] 

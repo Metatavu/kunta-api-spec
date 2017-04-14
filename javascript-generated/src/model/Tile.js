@@ -45,7 +45,7 @@
   /**
    * The Tile model module.
    * @module model/Tile
-   * @version 0.0.83
+   * @version 0.0.84
    */
 
   /**
