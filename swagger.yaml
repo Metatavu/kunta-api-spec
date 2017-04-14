@@ -2658,11 +2658,9 @@ paths:
         - name: startBefore
           in: query
           type: string
-          format: date-time
         - name: endAfter
           in: query
           type: string
-          format: date-time
         - name: area
           in: query
           description: Return only incidents from specified area
