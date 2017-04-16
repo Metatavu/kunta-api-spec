@@ -4210,8 +4210,6 @@ definitions:
       id:
         format: uuid
         type: string
-      type:
-        type: string
       organizationId:
         format: uuid
         type: string
