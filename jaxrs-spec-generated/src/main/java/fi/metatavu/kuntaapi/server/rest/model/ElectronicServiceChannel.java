@@ -18,7 +18,6 @@ import java.util.Objects;
 public class ElectronicServiceChannel   {
   
   private String id = null;
-  private String type = null;
   private String organizationId = null;
   private List<LocalizedValue> names = new ArrayList<LocalizedValue>();
   private List<LocalizedValue> descriptions = new ArrayList<LocalizedValue>();
@@ -48,22 +47,6 @@ public class ElectronicServiceChannel   {
   }
   public void setId(String id) {
     this.id = id;
-  }
-
-  /**
-   **/
-  public ElectronicServiceChannel type(String type) {
-    this.type = type;
-    return this;
-  }
-
-  
-  @ApiModelProperty(example = "null", value = "")
-  public String getType() {
-    return type;
-  }
-  public void setType(String type) {
-    this.type = type;
   }
 
   /**
@@ -303,7 +286,6 @@ public class ElectronicServiceChannel   {
     }
     ElectronicServiceChannel electronicServiceChannel = (ElectronicServiceChannel) o;
     return Objects.equals(id, electronicServiceChannel.id) &&
-        Objects.equals(type, electronicServiceChannel.type) &&
         Objects.equals(organizationId, electronicServiceChannel.organizationId) &&
         Objects.equals(names, electronicServiceChannel.names) &&
         Objects.equals(descriptions, electronicServiceChannel.descriptions) &&
@@ -322,7 +304,7 @@ public class ElectronicServiceChannel   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, organizationId, names, descriptions, signatureQuantity, requiresSignature, supportPhones, supportEmails, requiresAuthentication, urls, languages, attachments, webPages, serviceHours, publishingStatus);
+    return Objects.hash(id, organizationId, names, descriptions, signatureQuantity, requiresSignature, supportPhones, supportEmails, requiresAuthentication, urls, languages, attachments, webPages, serviceHours, publishingStatus);
   }
 
   @Override
@@ -331,7 +313,6 @@ public class ElectronicServiceChannel   {
     sb.append("class ElectronicServiceChannel {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    organizationId: ").append(toIndentedString(organizationId)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");
     sb.append("    descriptions: ").append(toIndentedString(descriptions)).append("\n");
