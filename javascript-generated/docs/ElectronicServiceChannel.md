@@ -4,7 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | [optional] 
-**type** | **String** |  | [optional] 
 **organizationId** | **String** |  | [optional] 
 **names** | [**[LocalizedValue]**](LocalizedValue.md) |  | [optional] 
 **descriptions** | [**[LocalizedValue]**](LocalizedValue.md) |  | [optional] 

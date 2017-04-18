@@ -42,7 +42,7 @@
   /**
    * ElectronicChannels service.
    * @module api/ElectronicChannelsApi
-   * @version 0.0.84
+   * @version 0.0.85
    */
 
   /**

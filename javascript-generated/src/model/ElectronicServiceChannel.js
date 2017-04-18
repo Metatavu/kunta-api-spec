@@ -45,7 +45,7 @@
   /**
    * The ElectronicServiceChannel model module.
    * @module model/ElectronicServiceChannel
-   * @version 0.0.84
+   * @version 0.0.85
    */
 
   /**
@@ -55,7 +55,6 @@
    */
   var exports = function() {
     var _this = this;
-
 
 
 
@@ -87,9 +86,6 @@
 
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
-      }
-      if (data.hasOwnProperty('type')) {
-        obj['type'] = ApiClient.convertToType(data['type'], 'String');
       }
       if (data.hasOwnProperty('organizationId')) {
         obj['organizationId'] = ApiClient.convertToType(data['organizationId'], 'String');
@@ -141,10 +137,6 @@
    * @member {String} id
    */
   exports.prototype['id'] = undefined;
-  /**
-   * @member {String} type
-   */
-  exports.prototype['type'] = undefined;
   /**
    * @member {String} organizationId
    */

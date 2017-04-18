@@ -71,12 +71,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property type (base name: "type")', function() {
-      // uncomment below and update the code to test the property type
-      //var instane = new KuntaApiClient.ElectronicServiceChannel();
-      //expect(instance).to.be();
-    });
-
     it('should have the property organizationId (base name: "organizationId")', function() {
       // uncomment below and update the code to test the property organizationId
       //var instane = new KuntaApiClient.ElectronicServiceChannel();

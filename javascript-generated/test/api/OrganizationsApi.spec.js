@@ -59,16 +59,6 @@
   }
 
   describe('OrganizationsApi', function() {
-    describe('createOrganizationService', function() {
-      it('should call createOrganizationService successfully', function(done) {
-        //uncomment below and update the code to test createOrganizationService
-        //instance.createOrganizationService(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('findOrganization', function() {
       it('should call findOrganization successfully', function(done) {
         //uncomment below and update the code to test findOrganization
@@ -79,40 +69,10 @@
         done();
       });
     });
-    describe('findOrganizationService', function() {
-      it('should call findOrganizationService successfully', function(done) {
-        //uncomment below and update the code to test findOrganizationService
-        //instance.findOrganizationService(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('listOrganizationOrganizationServices', function() {
-      it('should call listOrganizationOrganizationServices successfully', function(done) {
-        //uncomment below and update the code to test listOrganizationOrganizationServices
-        //instance.listOrganizationOrganizationServices(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('listOrganizations', function() {
       it('should call listOrganizations successfully', function(done) {
         //uncomment below and update the code to test listOrganizations
         //instance.listOrganizations(pet, function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('updateOrganizationService', function() {
-      it('should call updateOrganizationService successfully', function(done) {
-        //uncomment below and update the code to test updateOrganizationService
-        //instance.updateOrganizationService(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
