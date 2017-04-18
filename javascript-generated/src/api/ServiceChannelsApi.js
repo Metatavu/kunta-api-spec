@@ -42,7 +42,7 @@
   /**
    * ServiceChannels service.
    * @module api/ServiceChannelsApi
-   * @version 0.0.85
+   * @version 0.0.86
    */
 
   /**
@@ -362,6 +362,7 @@
      * Lists service location service channels
      * Lists service location service channels
      * @param {Object} opts Optional parameters
+     * @param {String} opts.search Search service location channels by free-text query
      * @param {Integer} opts.firstResult First result
      * @param {Integer} opts.maxResults Max results
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ServiceLocationServiceChannel>}
@@ -374,6 +375,7 @@
       var pathParams = {
       };
       var queryParams = {
+        'search': opts['search'],
         'firstResult': opts['firstResult'],
         'maxResults': opts['maxResults']
       };
