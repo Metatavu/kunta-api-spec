@@ -3446,6 +3446,11 @@ paths:
         - ServiceChannels
         - ServiceLocationServiceChannels
       parameters:
+        - name: search
+          in: query
+          description: Search service location channels by free-text query
+          required: false
+          type: string
         - name: firstResult
           in: query
           description: First result
