@@ -42,7 +42,7 @@
   /**
    * ServiceLocationServiceChannels service.
    * @module api/ServiceLocationServiceChannelsApi
-   * @version 0.0.86
+   * @version 0.0.87
    */
 
   /**
@@ -99,6 +99,7 @@
      * Lists service location service channels
      * Lists service location service channels
      * @param {Object} opts Optional parameters
+     * @param {String} opts.organizationId Organization id
      * @param {String} opts.search Search service location channels by free-text query
      * @param {Integer} opts.firstResult First result
      * @param {Integer} opts.maxResults Max results
@@ -112,6 +113,7 @@
       var pathParams = {
       };
       var queryParams = {
+        'organizationId': opts['organizationId'],
         'search': opts['search'],
         'firstResult': opts['firstResult'],
         'maxResults': opts['maxResults']

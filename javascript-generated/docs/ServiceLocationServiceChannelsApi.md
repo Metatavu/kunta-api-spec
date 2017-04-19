@@ -66,6 +66,7 @@ var KuntaApiClient = require('kunta-api-client');
 var apiInstance = new KuntaApiClient.ServiceLocationServiceChannelsApi();
 
 var opts = { 
+  'organizationId': "organizationId_example", // String | Organization id
   'search': "search_example", // String | Search service location channels by free-text query
   'firstResult': 789, // Integer | First result
   'maxResults': 789 // Integer | Max results
@@ -82,6 +83,7 @@ apiInstance.listServiceLocationServiceChannels(opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| Organization id | [optional] 
  **search** | **String**| Search service location channels by free-text query | [optional] 
  **firstResult** | **Integer**| First result | [optional] 
  **maxResults** | **Integer**| Max results | [optional] 
