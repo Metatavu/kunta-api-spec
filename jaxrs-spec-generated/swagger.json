@@ -3881,6 +3881,13 @@
         "description" : "Lists service location service channels",
         "operationId" : "listServiceLocationServiceChannels",
         "parameters" : [ {
+          "name" : "organizationId",
+          "in" : "query",
+          "description" : "Organization id",
+          "required" : false,
+          "type" : "string",
+          "format" : "uuid"
+        }, {
           "name" : "search",
           "in" : "query",
           "description" : "Search service location channels by free-text query",
