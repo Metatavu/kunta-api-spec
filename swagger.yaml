@@ -3446,6 +3446,11 @@ paths:
         - ServiceChannels
         - ServiceLocationServiceChannels
       parameters:
+        - name: organizationId
+          in: query
+          description: Organization id
+          type: string
+          format: uuid
         - name: search
           in: query
           description: Search service location channels by free-text query
