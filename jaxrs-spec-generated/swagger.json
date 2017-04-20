@@ -4961,8 +4961,7 @@
         },
         "businessCode" : {
           "type" : "string",
-          "description" : "Organization business code (Y-tunnus).",
-          "pattern" : "^[0-9]{7}-[0-9]{1}$"
+          "description" : "Organization business code (Y-tunnus)."
         },
         "businessName" : {
           "type" : "string",
@@ -6195,8 +6194,7 @@
         },
         "country" : {
           "type" : "string",
-          "description" : "Country code (ISO 3166-1 alpha-2), for example FI.",
-          "pattern" : "^[A-Z]{2}$"
+          "description" : "Country code (ISO 3166-1 alpha-2), for example FI."
         },
         "additionalInformations" : {
           "type" : "array",
