@@ -3827,7 +3827,6 @@ definitions:
         type: string
       businessCode:
         description: Organization business code (Y-tunnus).
-        pattern: '^[0-9]{7}-[0-9]{1}$'
         type: string
       businessName:
         description: Organization business name (name used for business code).
@@ -4718,7 +4717,6 @@ definitions:
         $ref: '#/definitions/Municipality'
       country:
         description: 'Country code (ISO 3166-1 alpha-2), for example FI.'
-        pattern: '^[A-Z]{2}$'
         type: string
       additionalInformations:
         description: Localized list of additional information about the address.
