@@ -42,7 +42,7 @@
   /**
    * Jobs service.
    * @module api/JobsApi
-   * @version 0.0.88
+   * @version 0.0.89
    */
 
   /**
@@ -89,7 +89,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['basicAuth'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
       var returnType = Job;
@@ -137,7 +137,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['basicAuth'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
       var returnType = [Job];
