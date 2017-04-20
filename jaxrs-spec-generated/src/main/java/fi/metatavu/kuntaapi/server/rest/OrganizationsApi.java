@@ -42,7 +42,7 @@ import java.util.List;
 @Api(description = "the organizations API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-04-20T09:55:26.071+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-04-20T17:08:22.220+03:00")
 
 public abstract class OrganizationsApi extends AbstractApi {
 
@@ -50,7 +50,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/settings/")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Creates organization setting", notes = "Creates organization setting ", response = OrganizationSetting.class, tags={ "Settings",  })
+    @ApiOperation(value = "Creates organization setting", notes = "Creates organization setting ", response = OrganizationSetting.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Settings",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns create organization setting", response = OrganizationSetting.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = OrganizationSetting.class),
@@ -62,7 +64,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/settings/{settingId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Deletes an organization setting", notes = "Deletes an organization setting ", response = void.class, tags={ "Settings",  })
+    @ApiOperation(value = "Deletes an organization setting", notes = "Deletes an organization setting ", response = void.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Settings",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 204, message = "Successful removal", response = void.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = void.class),
@@ -74,7 +78,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Find organization", notes = "Find organization", response = Organization.class, tags={ "Organizations",  })
+    @ApiOperation(value = "Find organization", notes = "Find organization", response = Organization.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Organizations",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns an organization", response = Organization.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Organization.class),
@@ -86,7 +92,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/announcements/{announcementId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Finds an organizations announcement", notes = "Finds organization's single announcement ", response = Announcement.class, tags={ "Announcements",  })
+    @ApiOperation(value = "Finds an organizations announcement", notes = "Finds organization's single announcement ", response = Announcement.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Announcements",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a single announcement", response = Announcement.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Announcement.class),
@@ -98,7 +106,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/banners/{bannerId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Finds organizations banner", notes = "Finds single organization banner ", response = NewsArticle.class, tags={ "Banners",  })
+    @ApiOperation(value = "Finds organizations banner", notes = "Finds single organization banner ", response = NewsArticle.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Banners",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a single organization banner", response = NewsArticle.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = NewsArticle.class),
@@ -110,7 +120,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/banners/{bannerId}/images/{imageId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Returns a single organiztion banner image", notes = "Returns a single organiztion banner image ", response = Attachment.class, tags={ "Banners",  })
+    @ApiOperation(value = "Returns a single organiztion banner image", notes = "Returns a single organiztion banner image ", response = Attachment.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Banners",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns an organization banner image", response = Attachment.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Attachment.class),
@@ -122,7 +134,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/contacts/{contactId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Finds an organizations contact", notes = "Finds organization's single contact ", response = Contact.class, tags={ "Contacts",  })
+    @ApiOperation(value = "Finds an organizations contact", notes = "Finds organization's single contact ", response = Contact.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Contacts",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a single contact", response = Contact.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Contact.class),
@@ -134,7 +148,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/events/{eventId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Returns organizations event by id", notes = "Returns organizations event by id ", response = Event.class, tags={ "Events",  })
+    @ApiOperation(value = "Returns organizations event by id", notes = "Returns organizations event by id ", response = Event.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Events",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a single event", response = Event.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Event.class),
@@ -146,7 +162,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/events/{eventId}/images/{imageId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Returns an event image", notes = "Returns an event image  ", response = Attachment.class, tags={ "Events",  })
+    @ApiOperation(value = "Returns an event image", notes = "Returns an event image  ", response = Attachment.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Events",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns an event image", response = Attachment.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Attachment.class),
@@ -158,7 +176,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/files/{fileId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Finds organizations file", notes = "Finds single organization file ", response = FileDef.class, tags={ "Files",  })
+    @ApiOperation(value = "Finds organizations file", notes = "Finds single organization file ", response = FileDef.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Files",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a single organization file", response = FileDef.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = FileDef.class),
@@ -170,7 +190,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/fragments/{fragmentId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Finds organizations page fragment", notes = "Finds single organization page fragment ", response = Fragment.class, tags={ "Fragments",  })
+    @ApiOperation(value = "Finds organizations page fragment", notes = "Finds single organization page fragment ", response = Fragment.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Fragments",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a single organization page fragment", response = Fragment.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Fragment.class),
@@ -182,7 +204,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/incidents/{incidentId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Returns organizations incident by id", notes = "Returns organizations incident by id ", response = Incident.class, tags={ "Incidents",  })
+    @ApiOperation(value = "Returns organizations incident by id", notes = "Returns organizations incident by id ", response = Incident.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Incidents",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a single incident", response = Incident.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Incident.class),
@@ -194,7 +218,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/jobs/{jobId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Finds organizations job", notes = "Finds single organization job ", response = Job.class, tags={ "Jobs",  })
+    @ApiOperation(value = "Finds organizations job", notes = "Finds single organization job ", response = Job.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Jobs",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a single organization job", response = Job.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Job.class),
@@ -206,7 +232,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/menus/{menuId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Finds organizations menu", notes = "Finds single organization menu ", response = Menu.class, tags={ "Menus",  })
+    @ApiOperation(value = "Finds organizations menu", notes = "Finds single organization menu ", response = Menu.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Menus",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a single organization menu", response = Menu.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Menu.class),
@@ -218,7 +246,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/menus/{menuId}/items/{menuItemId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Finds organization menu item", notes = "Finds single organization menu item ", response = MenuItem.class, tags={ "Menus",  })
+    @ApiOperation(value = "Finds organization menu item", notes = "Finds single organization menu item ", response = MenuItem.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Menus",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a single organization menu item", response = MenuItem.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = MenuItem.class),
@@ -230,7 +260,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/news/{newsArticleId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Finds organizations news article", notes = "Finds organizations single news article ", response = NewsArticle.class, tags={ "News",  })
+    @ApiOperation(value = "Finds organizations news article", notes = "Finds organizations single news article ", response = NewsArticle.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "News",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a single news article", response = NewsArticle.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = NewsArticle.class),
@@ -242,7 +274,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/news/{newsArticleId}/images/{imageId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Returns an news article image", notes = "Returns an news article image ", response = Attachment.class, tags={ "News",  })
+    @ApiOperation(value = "Returns an news article image", notes = "Returns an news article image ", response = Attachment.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "News",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns an news article image", response = Attachment.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Attachment.class),
@@ -254,7 +288,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/pages/{pageId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Finds organizations page", notes = "Finds single organization page ", response = Page.class, tags={ "Pages",  })
+    @ApiOperation(value = "Finds organizations page", notes = "Finds single organization page ", response = Page.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Pages",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a single organization page", response = Page.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Page.class),
@@ -266,7 +302,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/pages/{pageId}/content")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Returns organizations page content in all available languages", notes = "Returns single organization page content in all available languages ", response = LocalizedValue.class, responseContainer = "List", tags={ "Pages",  })
+    @ApiOperation(value = "Returns organizations page content in all available languages", notes = "Returns single organization page content in all available languages ", response = LocalizedValue.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Pages",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns single page content in all available languages", response = LocalizedValue.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = LocalizedValue.class, responseContainer = "List"),
@@ -278,7 +316,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/pages/{pageId}/images/{imageId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Returns a single organiztion page image", notes = "Returns a single organiztion page image ", response = Attachment.class, tags={ "Pages",  })
+    @ApiOperation(value = "Returns a single organiztion page image", notes = "Returns a single organiztion page image ", response = Attachment.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Pages",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns an organization page image", response = Attachment.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Attachment.class),
@@ -290,7 +330,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/transportAgencies/{agencyId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Finds an organizations public transport agency", notes = "Finds organization's single public transport agency ", response = Agency.class, tags={ "Public transport",  })
+    @ApiOperation(value = "Finds an organizations public transport agency", notes = "Finds organization's single public transport agency ", response = Agency.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Public transport",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a single public transport agency", response = Agency.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Agency.class),
@@ -302,7 +344,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/transportRoutes/{routeId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Finds an organizations public transport route", notes = "Finds organization's single public transport route ", response = Route.class, tags={ "Public transport",  })
+    @ApiOperation(value = "Finds an organizations public transport route", notes = "Finds organization's single public transport route ", response = Route.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Public transport",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a single public transport route", response = Route.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Route.class),
@@ -314,7 +358,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/transportSchedules/{scheduleId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Finds organizations public transport schedule", notes = "Finds organizations public transport schedule ", response = Schedule.class, tags={ "Public transport",  })
+    @ApiOperation(value = "Finds organizations public transport schedule", notes = "Finds organizations public transport schedule ", response = Schedule.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Public transport",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "returns an organizations public transport schedule", response = Schedule.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Schedule.class),
@@ -326,7 +372,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/transportStops/{stopId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Finds a stop of organizations public transport route", notes = "Finds a stop of organizations public transport route ", response = Stop.class, tags={ "Public transport",  })
+    @ApiOperation(value = "Finds a stop of organizations public transport route", notes = "Finds a stop of organizations public transport route ", response = Stop.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Public transport",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "returns organizations public transport route stop", response = Stop.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Stop.class),
@@ -338,7 +386,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/transportStopTimes/{stopTimeId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Finds organizations public transport stopTime", notes = "Finds organizations public transport stopTime ", response = StopTime.class, tags={ "Public transport",  })
+    @ApiOperation(value = "Finds organizations public transport stopTime", notes = "Finds organizations public transport stopTime ", response = StopTime.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Public transport",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "returns an organizations public transport stopTime", response = StopTime.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = StopTime.class),
@@ -350,7 +400,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/transportTrips/{tripId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Finds organizations public transport trip", notes = "Finds organizations public transport trip ", response = Trip.class, tags={ "Public transport",  })
+    @ApiOperation(value = "Finds organizations public transport trip", notes = "Finds organizations public transport trip ", response = Trip.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Public transport",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "returns an organizations public transport trip", response = Trip.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Trip.class),
@@ -362,7 +414,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/settings/{settingId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Finds organizations setting", notes = "Finds single organization setting ", response = OrganizationSetting.class, tags={ "Settings",  })
+    @ApiOperation(value = "Finds organizations setting", notes = "Finds single organization setting ", response = OrganizationSetting.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Settings",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a single organization setting", response = OrganizationSetting.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = OrganizationSetting.class),
@@ -374,7 +428,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/shortlinks/{shortlinkId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Finds organization shortlink", notes = "Finds single organization shortlink ", response = Shortlink.class, tags={ "Shortlinks",  })
+    @ApiOperation(value = "Finds organization shortlink", notes = "Finds single organization shortlink ", response = Shortlink.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Shortlinks",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a single organization shortlink", response = Shortlink.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Shortlink.class),
@@ -386,7 +442,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/tiles/{tileId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Finds organizations tile", notes = "Finds single organization tile ", response = Tile.class, tags={ "Tiles",  })
+    @ApiOperation(value = "Finds organizations tile", notes = "Finds single organization tile ", response = Tile.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Tiles",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a single organization tile", response = Tile.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Tile.class),
@@ -398,7 +456,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/tiles/{tileId}/images/{imageId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Returns a single organiztion tile image", notes = "Returns a single organiztion tile image ", response = Attachment.class, tags={ "Tiles",  })
+    @ApiOperation(value = "Returns a single organiztion tile image", notes = "Returns a single organiztion tile image ", response = Attachment.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Tiles",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns an organization tile image", response = Attachment.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Attachment.class),
@@ -410,7 +470,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/banners/{bannerId}/images/{imageId}/data")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/octet-stream" })
-    @ApiOperation(value = "Returns an organization banner image data", notes = "Returns an organization banner image data ", response = byte[].class, tags={ "Banners",  })
+    @ApiOperation(value = "Returns an organization banner image data", notes = "Returns an organization banner image data ", response = byte[].class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Banners",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns an organization banner image data", response = byte[].class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = byte[].class),
@@ -422,7 +484,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/events/{eventId}/images/{imageId}/data")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/octet-stream" })
-    @ApiOperation(value = "Returns an event image data", notes = "Returns an event image data ", response = byte[].class, tags={ "Events",  })
+    @ApiOperation(value = "Returns an event image data", notes = "Returns an event image data ", response = byte[].class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Events",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns an event image data", response = byte[].class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = byte[].class),
@@ -434,7 +498,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/files/{fileId}/data")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/octet-stream" })
-    @ApiOperation(value = "Returns an organization file data", notes = "Returns an organization file data ", response = byte[].class, tags={ "Files",  })
+    @ApiOperation(value = "Returns an organization file data", notes = "Returns an organization file data ", response = byte[].class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Files",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns an organization file data", response = byte[].class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = byte[].class),
@@ -446,7 +512,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/news/{newsArticleId}/images/{imageId}/data")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/octet-stream" })
-    @ApiOperation(value = "Returns a news article image data", notes = "Returns a news article image data ", response = byte[].class, tags={ "News",  })
+    @ApiOperation(value = "Returns a news article image data", notes = "Returns a news article image data ", response = byte[].class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "News",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a news article image data", response = byte[].class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = byte[].class),
@@ -458,7 +526,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/pages/{pageId}/images/{imageId}/data")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/octet-stream" })
-    @ApiOperation(value = "Returns an organization page image data", notes = "Returns an organization page image data ", response = byte[].class, tags={ "Pages",  })
+    @ApiOperation(value = "Returns an organization page image data", notes = "Returns an organization page image data ", response = byte[].class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Pages",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns an organization page image data", response = byte[].class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = byte[].class),
@@ -470,7 +540,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/tiles/{tileId}/images/{imageId}/data")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/octet-stream" })
-    @ApiOperation(value = "Returns an organization tile image data", notes = "Returns an organization tile image data ", response = byte[].class, tags={ "Tiles",  })
+    @ApiOperation(value = "Returns an organization tile image data", notes = "Returns an organization tile image data ", response = byte[].class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Tiles",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns an organization tile image data", response = byte[].class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = byte[].class),
@@ -482,7 +554,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/announcements")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists organizations announcements", notes = "Lists organizations announcements ", response = Announcement.class, responseContainer = "List", tags={ "Announcements",  })
+    @ApiOperation(value = "Lists organizations announcements", notes = "Lists organizations announcements ", response = Announcement.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Announcements",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a list of announcements", response = Announcement.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Announcement.class, responseContainer = "List"),
@@ -494,7 +568,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/banners/{bannerId}/images")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Returns a list of organization banner images", notes = "Returns a list of organization banner images ", response = Attachment.class, responseContainer = "List", tags={ "Banners",  })
+    @ApiOperation(value = "Returns a list of organization banner images", notes = "Returns a list of organization banner images ", response = Attachment.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Banners",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns list of organization banner images", response = Attachment.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Attachment.class, responseContainer = "List"),
@@ -506,7 +582,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/banners")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists organizations banners", notes = "Lists organizations banners ", response = Banner.class, responseContainer = "List", tags={ "Banners",  })
+    @ApiOperation(value = "Lists organizations banners", notes = "Lists organizations banners ", response = Banner.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Banners",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a list of banners", response = Banner.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Banner.class, responseContainer = "List"),
@@ -518,7 +596,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/contacts")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists organizations contacts", notes = "Lists organizations contacts ", response = Contact.class, responseContainer = "List", tags={ "Contacts",  })
+    @ApiOperation(value = "Lists organizations contacts", notes = "Lists organizations contacts ", response = Contact.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Contacts",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a list of contacts", response = Contact.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Contact.class, responseContainer = "List"),
@@ -530,7 +610,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/events/{eventId}/images")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Returns list of event images", notes = "Returns list of event images ", response = Attachment.class, responseContainer = "List", tags={ "Events",  })
+    @ApiOperation(value = "Returns list of event images", notes = "Returns list of event images ", response = Attachment.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Events",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a list of event images", response = Attachment.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Attachment.class, responseContainer = "List"),
@@ -542,7 +624,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/events")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists organizations events", notes = "Lists organizations events ", response = Event.class, responseContainer = "List", tags={ "Events",  })
+    @ApiOperation(value = "Lists organizations events", notes = "Lists organizations events ", response = Event.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Events",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a list of events", response = Event.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Event.class, responseContainer = "List"),
@@ -554,7 +638,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/files")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists organizations files", notes = "Lists organizations files ", response = FileDef.class, responseContainer = "List", tags={ "Files",  })
+    @ApiOperation(value = "Lists organizations files", notes = "Lists organizations files ", response = FileDef.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Files",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a list of organizations files", response = FileDef.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = FileDef.class, responseContainer = "List"),
@@ -566,7 +652,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/fragments")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists organizations page fragments", notes = "Lists organizations page fragments ", response = Fragment.class, responseContainer = "List", tags={ "Fragments",  })
+    @ApiOperation(value = "Lists organizations page fragments", notes = "Lists organizations page fragments ", response = Fragment.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Fragments",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a list of page fragments", response = Fragment.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Fragment.class, responseContainer = "List"),
@@ -578,7 +666,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/incidents")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists organizations incidents", notes = "Lists organizations incidents ", response = Incident.class, responseContainer = "List", tags={ "Incidents",  })
+    @ApiOperation(value = "Lists organizations incidents", notes = "Lists organizations incidents ", response = Incident.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Incidents",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a list of incidents", response = Incident.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Incident.class, responseContainer = "List"),
@@ -590,7 +680,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/jobs")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists organizations jobs", notes = "Lists organizations jobs ", response = Job.class, responseContainer = "List", tags={ "Jobs",  })
+    @ApiOperation(value = "Lists organizations jobs", notes = "Lists organizations jobs ", response = Job.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Jobs",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a list of organizations jobs", response = Job.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Job.class, responseContainer = "List"),
@@ -602,7 +694,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/menus/{menuId}/items")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists organizations menu items", notes = "Lists organization menu items ", response = MenuItem.class, responseContainer = "List", tags={ "Menus",  })
+    @ApiOperation(value = "Lists organizations menu items", notes = "Lists organization menu items ", response = MenuItem.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Menus",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a list of organizations menu items", response = MenuItem.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = MenuItem.class, responseContainer = "List"),
@@ -614,7 +708,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/menus")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists organizations menus", notes = "Lists organizations menus ", response = Menu.class, responseContainer = "List", tags={ "Menus",  })
+    @ApiOperation(value = "Lists organizations menus", notes = "Lists organizations menus ", response = Menu.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Menus",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a list of organizations menus", response = Menu.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Menu.class, responseContainer = "List"),
@@ -626,7 +722,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/news")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists organizations news", notes = "Lists organizations news ", response = NewsArticle.class, responseContainer = "List", tags={ "News",  })
+    @ApiOperation(value = "Lists organizations news", notes = "Lists organizations news ", response = NewsArticle.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "News",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a list of news", response = NewsArticle.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = NewsArticle.class, responseContainer = "List"),
@@ -638,7 +736,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/news/{newsArticleId}/images")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Returns list of news article images", notes = "Returns list of news article images ", response = Attachment.class, responseContainer = "List", tags={ "News",  })
+    @ApiOperation(value = "Returns list of news article images", notes = "Returns list of news article images ", response = Attachment.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "News",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a news article images", response = Attachment.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Attachment.class, responseContainer = "List"),
@@ -650,7 +750,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/pages/{pageId}/images")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Returns a list of organization page images", notes = "Returns a list of organization page images ", response = Attachment.class, responseContainer = "List", tags={ "Pages",  })
+    @ApiOperation(value = "Returns a list of organization page images", notes = "Returns a list of organization page images ", response = Attachment.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Pages",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns list of organization page images", response = Attachment.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Attachment.class, responseContainer = "List"),
@@ -662,7 +764,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/pages")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists organizations pages", notes = "Lists organizations pages ", response = Page.class, responseContainer = "List", tags={ "Pages",  })
+    @ApiOperation(value = "Lists organizations pages", notes = "Lists organizations pages ", response = Page.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Pages",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a list of pages", response = Page.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Page.class, responseContainer = "List"),
@@ -674,7 +778,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/transportAgencies")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists organizations public transport agencies", notes = "Lists organizations public transport agencies ", response = Agency.class, responseContainer = "List", tags={ "Public transport",  })
+    @ApiOperation(value = "Lists organizations public transport agencies", notes = "Lists organizations public transport agencies ", response = Agency.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Public transport",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a list of public transport agencies", response = Agency.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Agency.class, responseContainer = "List"),
@@ -686,7 +792,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/transportRoutes")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists organizations public transport routes", notes = "Lists organizations public transport routes ", response = Route.class, responseContainer = "List", tags={ "Public transport",  })
+    @ApiOperation(value = "Lists organizations public transport routes", notes = "Lists organizations public transport routes ", response = Route.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Public transport",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a list of public transport routes", response = Route.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Route.class, responseContainer = "List"),
@@ -698,7 +806,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/transportSchedules")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists schedules of organization's public transport schedules", notes = "Lists schedules of organization's public transport schedules ", response = Schedule.class, responseContainer = "List", tags={ "Public transport",  })
+    @ApiOperation(value = "Lists schedules of organization's public transport schedules", notes = "Lists schedules of organization's public transport schedules ", response = Schedule.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Public transport",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a list of organization's public transport schedules", response = Schedule.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Schedule.class, responseContainer = "List"),
@@ -710,7 +820,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/transportStopTimes")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists stopTimes of organization's public transport stopTimes", notes = "Lists stopTimes of organization's public transport stopTimes ", response = StopTime.class, responseContainer = "List", tags={ "Public transport",  })
+    @ApiOperation(value = "Lists stopTimes of organization's public transport stopTimes", notes = "Lists stopTimes of organization's public transport stopTimes ", response = StopTime.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Public transport",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a list of organization's public transport stopTimes", response = StopTime.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = StopTime.class, responseContainer = "List"),
@@ -722,7 +834,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/transportStops")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists organizations public transport stops", notes = "Lists organizations public transport stops ", response = Stop.class, responseContainer = "List", tags={ "Public transport",  })
+    @ApiOperation(value = "Lists organizations public transport stops", notes = "Lists organizations public transport stops ", response = Stop.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Public transport",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a list of public transport stops", response = Stop.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Stop.class, responseContainer = "List"),
@@ -734,7 +848,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/transportTrips")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists trips of organization's public transport trips", notes = "Lists trips of organization's public transport trips ", response = Trip.class, responseContainer = "List", tags={ "Public transport",  })
+    @ApiOperation(value = "Lists trips of organization's public transport trips", notes = "Lists trips of organization's public transport trips ", response = Trip.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Public transport",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a list of organization's public transport trips", response = Trip.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Trip.class, responseContainer = "List"),
@@ -746,7 +862,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/settings/")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists organizations settings", notes = "Lists organizations settings ", response = OrganizationSetting.class, responseContainer = "List", tags={ "Settings",  })
+    @ApiOperation(value = "Lists organizations settings", notes = "Lists organizations settings ", response = OrganizationSetting.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Settings",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a list of settings", response = OrganizationSetting.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = OrganizationSetting.class, responseContainer = "List"),
@@ -758,7 +876,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/shortlinks")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists organizations shortlinks", notes = "Lists organizations shortlinks ", response = Shortlink.class, responseContainer = "List", tags={ "Shortlinks",  })
+    @ApiOperation(value = "Lists organizations shortlinks", notes = "Lists organizations shortlinks ", response = Shortlink.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Shortlinks",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a list of shortlinks", response = Shortlink.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Shortlink.class, responseContainer = "List"),
@@ -770,7 +890,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/tiles/{tileId}/images")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Returns a list of organization tile images", notes = "Returns a list of organization tile images ", response = Attachment.class, responseContainer = "List", tags={ "Tiles",  })
+    @ApiOperation(value = "Returns a list of organization tile images", notes = "Returns a list of organization tile images ", response = Attachment.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Tiles",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns list of organization tile images", response = Attachment.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Attachment.class, responseContainer = "List"),
@@ -782,7 +904,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/tiles")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists organizations tiles", notes = "Lists organizations tiles ", response = Tile.class, responseContainer = "List", tags={ "Tiles",  })
+    @ApiOperation(value = "Lists organizations tiles", notes = "Lists organizations tiles ", response = Tile.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Tiles",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a list of tiles", response = Tile.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Tile.class, responseContainer = "List"),
@@ -794,7 +918,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "List organizations", notes = "List organizations", response = Organization.class, responseContainer = "List", tags={ "Organizations",  })
+    @ApiOperation(value = "List organizations", notes = "List organizations", response = Organization.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Organizations",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "An array of organizations", response = Organization.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Organization.class, responseContainer = "List"),
@@ -806,7 +932,9 @@ public abstract class OrganizationsApi extends AbstractApi {
     @Path("/{organizationId}/settings/{settingId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Updates an organization setting", notes = "Updates an organization setting ", response = OrganizationSetting.class, tags={ "Settings" })
+    @ApiOperation(value = "Updates an organization setting", notes = "Updates an organization setting ", response = OrganizationSetting.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Settings" })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a single an updated organization setting", response = OrganizationSetting.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = OrganizationSetting.class),

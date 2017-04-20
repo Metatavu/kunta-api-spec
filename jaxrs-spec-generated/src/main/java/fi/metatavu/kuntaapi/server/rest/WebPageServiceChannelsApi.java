@@ -20,7 +20,7 @@ import java.util.List;
 @Api(description = "the webPageServiceChannels API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-04-20T09:55:26.071+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-04-20T17:08:22.220+03:00")
 
 public abstract class WebPageServiceChannelsApi extends AbstractApi {
 
@@ -28,7 +28,9 @@ public abstract class WebPageServiceChannelsApi extends AbstractApi {
     @Path("/{webPageServiceChannelId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Finds a web page service channel by id", notes = "Finds a web page service channel by id", response = WebPageServiceChannel.class, tags={ "ServiceChannels", "WebPageServiceChannels",  })
+    @ApiOperation(value = "Finds a web page service channel by id", notes = "Finds a web page service channel by id", response = WebPageServiceChannel.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "ServiceChannels", "WebPageServiceChannels",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a web page service channel", response = WebPageServiceChannel.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = WebPageServiceChannel.class),
@@ -41,7 +43,9 @@ public abstract class WebPageServiceChannelsApi extends AbstractApi {
     
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists web page service channels", notes = "Lists web page service channels", response = WebPageServiceChannel.class, responseContainer = "List", tags={ "ServiceChannels", "WebPageServiceChannels" })
+    @ApiOperation(value = "Lists web page service channels", notes = "Lists web page service channels", response = WebPageServiceChannel.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "ServiceChannels", "WebPageServiceChannels" })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns array of web page service channels", response = WebPageServiceChannel.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = WebPageServiceChannel.class, responseContainer = "List"),

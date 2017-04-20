@@ -20,7 +20,7 @@ import java.util.List;
 @Api(description = "the printableFormServiceChannels API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-04-20T09:55:26.071+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-04-20T17:08:22.220+03:00")
 
 public abstract class PrintableFormServiceChannelsApi extends AbstractApi {
 
@@ -28,7 +28,9 @@ public abstract class PrintableFormServiceChannelsApi extends AbstractApi {
     @Path("/{printableFormServiceChannelId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Finds a printable form service channel", notes = "Finds a printable form service channel", response = PrintableFormServiceChannel.class, tags={ "ServiceChannels", "PrintableFormServiceChannels",  })
+    @ApiOperation(value = "Finds a printable form service channel", notes = "Finds a printable form service channel", response = PrintableFormServiceChannel.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "ServiceChannels", "PrintableFormServiceChannels",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns printable form service channel", response = PrintableFormServiceChannel.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = PrintableFormServiceChannel.class),
@@ -41,7 +43,9 @@ public abstract class PrintableFormServiceChannelsApi extends AbstractApi {
     
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists printable form service channels", notes = "Lists printable form service channels", response = PrintableFormServiceChannel.class, responseContainer = "List", tags={ "ServiceChannels", "PrintableFormServiceChannels" })
+    @ApiOperation(value = "Lists printable form service channels", notes = "Lists printable form service channels", response = PrintableFormServiceChannel.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "ServiceChannels", "PrintableFormServiceChannels" })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns array of printable form service channels", response = PrintableFormServiceChannel.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = PrintableFormServiceChannel.class, responseContainer = "List"),
