@@ -22,6 +22,12 @@ Finds single organization banner
 ### Example
 ```javascript
 var KuntaApiClient = require('kunta-api-client');
+var defaultClient = KuntaApiClient.ApiClient.default;
+
+// Configure HTTP basic authorization: basicAuth
+var basicAuth = defaultClient.authentications['basicAuth'];
+basicAuth.username = 'YOUR USERNAME';
+basicAuth.password = 'YOUR PASSWORD';
 
 var apiInstance = new KuntaApiClient.BannersApi();
 
@@ -50,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -68,6 +74,12 @@ Returns a single organiztion banner image
 ### Example
 ```javascript
 var KuntaApiClient = require('kunta-api-client');
+var defaultClient = KuntaApiClient.ApiClient.default;
+
+// Configure HTTP basic authorization: basicAuth
+var basicAuth = defaultClient.authentications['basicAuth'];
+basicAuth.username = 'YOUR USERNAME';
+basicAuth.password = 'YOUR PASSWORD';
 
 var apiInstance = new KuntaApiClient.BannersApi();
 
@@ -99,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -117,6 +129,12 @@ Returns an organization banner image data
 ### Example
 ```javascript
 var KuntaApiClient = require('kunta-api-client');
+var defaultClient = KuntaApiClient.ApiClient.default;
+
+// Configure HTTP basic authorization: basicAuth
+var basicAuth = defaultClient.authentications['basicAuth'];
+basicAuth.username = 'YOUR USERNAME';
+basicAuth.password = 'YOUR PASSWORD';
 
 var apiInstance = new KuntaApiClient.BannersApi();
 
@@ -152,7 +170,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -170,6 +188,12 @@ Returns a list of organization banner images
 ### Example
 ```javascript
 var KuntaApiClient = require('kunta-api-client');
+var defaultClient = KuntaApiClient.ApiClient.default;
+
+// Configure HTTP basic authorization: basicAuth
+var basicAuth = defaultClient.authentications['basicAuth'];
+basicAuth.username = 'YOUR USERNAME';
+basicAuth.password = 'YOUR PASSWORD';
 
 var apiInstance = new KuntaApiClient.BannersApi();
 
@@ -198,7 +222,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -216,6 +240,12 @@ Lists organizations banners
 ### Example
 ```javascript
 var KuntaApiClient = require('kunta-api-client');
+var defaultClient = KuntaApiClient.ApiClient.default;
+
+// Configure HTTP basic authorization: basicAuth
+var basicAuth = defaultClient.authentications['basicAuth'];
+basicAuth.username = 'YOUR USERNAME';
+basicAuth.password = 'YOUR PASSWORD';
 
 var apiInstance = new KuntaApiClient.BannersApi();
 
@@ -241,7 +271,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 

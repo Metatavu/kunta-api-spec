@@ -42,7 +42,7 @@
   /**
    * Services service.
    * @module api/ServicesApi
-   * @version 0.0.88
+   * @version 0.0.90
    */
 
   /**
@@ -81,7 +81,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['basicAuth'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
       var returnType = Service;
@@ -119,7 +119,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['basicAuth'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
       var returnType = Service;
@@ -164,7 +164,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['basicAuth'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
       var returnType = ElectronicServiceChannel;
@@ -209,7 +209,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['basicAuth'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
       var returnType = PhoneServiceChannel;
@@ -254,7 +254,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['basicAuth'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
       var returnType = PrintableFormServiceChannel;
@@ -299,7 +299,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['basicAuth'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
       var returnType = ServiceLocationServiceChannel;
@@ -344,7 +344,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['basicAuth'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
       var returnType = WebPageServiceChannel;
@@ -388,7 +388,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['basicAuth'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
       var returnType = [ElectronicServiceChannel];
@@ -432,7 +432,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['basicAuth'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
       var returnType = [PhoneServiceChannel];
@@ -476,7 +476,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['basicAuth'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
       var returnType = [PrintableFormServiceChannel];
@@ -520,7 +520,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['basicAuth'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
       var returnType = [ServiceLocationServiceChannel];
@@ -564,7 +564,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['basicAuth'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
       var returnType = [WebPageServiceChannel];
@@ -605,7 +605,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['basicAuth'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
       var returnType = [Service];
@@ -649,7 +649,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['basicAuth'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
       var returnType = Service;

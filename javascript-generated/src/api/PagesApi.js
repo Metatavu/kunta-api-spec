@@ -42,7 +42,7 @@
   /**
    * Pages service.
    * @module api/PagesApi
-   * @version 0.0.88
+   * @version 0.0.90
    */
 
   /**
@@ -89,7 +89,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['basicAuth'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
       var returnType = Page;
@@ -134,7 +134,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['basicAuth'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
       var returnType = [LocalizedValue];
@@ -186,7 +186,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['basicAuth'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
       var returnType = Attachment;
@@ -242,7 +242,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['basicAuth'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/octet-stream'];
       var returnType = 'String';
@@ -291,7 +291,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['basicAuth'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
       var returnType = [Attachment];
@@ -341,7 +341,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['basicAuth'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
       var returnType = [Page];

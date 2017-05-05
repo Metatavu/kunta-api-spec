@@ -20,6 +20,12 @@ Finds single organization file
 ### Example
 ```javascript
 var KuntaApiClient = require('kunta-api-client');
+var defaultClient = KuntaApiClient.ApiClient.default;
+
+// Configure HTTP basic authorization: basicAuth
+var basicAuth = defaultClient.authentications['basicAuth'];
+basicAuth.username = 'YOUR USERNAME';
+basicAuth.password = 'YOUR PASSWORD';
 
 var apiInstance = new KuntaApiClient.FilesApi();
 
@@ -48,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -66,6 +72,12 @@ Returns an organization file data
 ### Example
 ```javascript
 var KuntaApiClient = require('kunta-api-client');
+var defaultClient = KuntaApiClient.ApiClient.default;
+
+// Configure HTTP basic authorization: basicAuth
+var basicAuth = defaultClient.authentications['basicAuth'];
+basicAuth.username = 'YOUR USERNAME';
+basicAuth.password = 'YOUR PASSWORD';
 
 var apiInstance = new KuntaApiClient.FilesApi();
 
@@ -94,7 +106,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -112,6 +124,12 @@ Lists organizations files
 ### Example
 ```javascript
 var KuntaApiClient = require('kunta-api-client');
+var defaultClient = KuntaApiClient.ApiClient.default;
+
+// Configure HTTP basic authorization: basicAuth
+var basicAuth = defaultClient.authentications['basicAuth'];
+basicAuth.username = 'YOUR USERNAME';
+basicAuth.password = 'YOUR PASSWORD';
 
 var apiInstance = new KuntaApiClient.FilesApi();
 
@@ -147,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 

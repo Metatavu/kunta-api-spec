@@ -20,7 +20,7 @@ import java.util.List;
 @Api(description = "the serviceLocationServiceChannels API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-04-20T09:55:26.071+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-04-20T17:15:35.224+03:00")
 
 public abstract class ServiceLocationServiceChannelsApi extends AbstractApi {
 
@@ -28,7 +28,9 @@ public abstract class ServiceLocationServiceChannelsApi extends AbstractApi {
     @Path("/{serviceLocationServiceChannelId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Finds a service location service by id", notes = "Finds a service location service by id", response = ServiceLocationServiceChannel.class, tags={ "ServiceChannels", "ServiceLocationServiceChannels",  })
+    @ApiOperation(value = "Finds a service location service by id", notes = "Finds a service location service by id", response = ServiceLocationServiceChannel.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "ServiceChannels", "ServiceLocationServiceChannels",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a service location service channel", response = ServiceLocationServiceChannel.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = ServiceLocationServiceChannel.class),
@@ -41,7 +43,9 @@ public abstract class ServiceLocationServiceChannelsApi extends AbstractApi {
     
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists service location service channels", notes = "Lists service location service channels", response = ServiceLocationServiceChannel.class, responseContainer = "List", tags={ "ServiceChannels", "ServiceLocationServiceChannels" })
+    @ApiOperation(value = "Lists service location service channels", notes = "Lists service location service channels", response = ServiceLocationServiceChannel.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "ServiceChannels", "ServiceLocationServiceChannels" })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns array of service location service channels", response = ServiceLocationServiceChannel.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = ServiceLocationServiceChannel.class, responseContainer = "List"),

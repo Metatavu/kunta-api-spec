@@ -20,7 +20,7 @@ import java.util.List;
 @Api(description = "the phoneServiceChannels API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-04-20T09:55:26.071+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-04-20T17:15:35.224+03:00")
 
 public abstract class PhoneServiceChannelsApi extends AbstractApi {
 
@@ -28,7 +28,9 @@ public abstract class PhoneServiceChannelsApi extends AbstractApi {
     @Path("/{phoneServiceChannelId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Finds a phone service channel by id", notes = "Finds a phone service channel by id", response = PhoneServiceChannel.class, tags={ "ServiceChannels", "PhoneServiceChannels",  })
+    @ApiOperation(value = "Finds a phone service channel by id", notes = "Finds a phone service channel by id", response = PhoneServiceChannel.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "ServiceChannels", "PhoneServiceChannels",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a phone service channel", response = PhoneServiceChannel.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = PhoneServiceChannel.class),
@@ -41,7 +43,9 @@ public abstract class PhoneServiceChannelsApi extends AbstractApi {
     
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists phone service channels", notes = "Lists phone service channels", response = PhoneServiceChannel.class, responseContainer = "List", tags={ "ServiceChannels", "PhoneServiceChannels" })
+    @ApiOperation(value = "Lists phone service channels", notes = "Lists phone service channels", response = PhoneServiceChannel.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "ServiceChannels", "PhoneServiceChannels" })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns array of phone service channels", response = PhoneServiceChannel.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = PhoneServiceChannel.class, responseContainer = "List"),

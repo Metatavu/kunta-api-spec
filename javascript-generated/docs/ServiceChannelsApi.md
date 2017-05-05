@@ -27,6 +27,12 @@ Finds an electronic service channel by id
 ### Example
 ```javascript
 var KuntaApiClient = require('kunta-api-client');
+var defaultClient = KuntaApiClient.ApiClient.default;
+
+// Configure HTTP basic authorization: basicAuth
+var basicAuth = defaultClient.authentications['basicAuth'];
+basicAuth.username = 'YOUR USERNAME';
+basicAuth.password = 'YOUR PASSWORD';
 
 var apiInstance = new KuntaApiClient.ServiceChannelsApi();
 
@@ -52,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -70,6 +76,12 @@ Finds a phone service channel by id
 ### Example
 ```javascript
 var KuntaApiClient = require('kunta-api-client');
+var defaultClient = KuntaApiClient.ApiClient.default;
+
+// Configure HTTP basic authorization: basicAuth
+var basicAuth = defaultClient.authentications['basicAuth'];
+basicAuth.username = 'YOUR USERNAME';
+basicAuth.password = 'YOUR PASSWORD';
 
 var apiInstance = new KuntaApiClient.ServiceChannelsApi();
 
@@ -95,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -113,6 +125,12 @@ Finds a printable form service channel
 ### Example
 ```javascript
 var KuntaApiClient = require('kunta-api-client');
+var defaultClient = KuntaApiClient.ApiClient.default;
+
+// Configure HTTP basic authorization: basicAuth
+var basicAuth = defaultClient.authentications['basicAuth'];
+basicAuth.username = 'YOUR USERNAME';
+basicAuth.password = 'YOUR PASSWORD';
 
 var apiInstance = new KuntaApiClient.ServiceChannelsApi();
 
@@ -138,7 +156,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -156,6 +174,12 @@ Finds a service location service by id
 ### Example
 ```javascript
 var KuntaApiClient = require('kunta-api-client');
+var defaultClient = KuntaApiClient.ApiClient.default;
+
+// Configure HTTP basic authorization: basicAuth
+var basicAuth = defaultClient.authentications['basicAuth'];
+basicAuth.username = 'YOUR USERNAME';
+basicAuth.password = 'YOUR PASSWORD';
 
 var apiInstance = new KuntaApiClient.ServiceChannelsApi();
 
@@ -181,7 +205,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -199,6 +223,12 @@ Finds a web page service channel by id
 ### Example
 ```javascript
 var KuntaApiClient = require('kunta-api-client');
+var defaultClient = KuntaApiClient.ApiClient.default;
+
+// Configure HTTP basic authorization: basicAuth
+var basicAuth = defaultClient.authentications['basicAuth'];
+basicAuth.username = 'YOUR USERNAME';
+basicAuth.password = 'YOUR PASSWORD';
 
 var apiInstance = new KuntaApiClient.ServiceChannelsApi();
 
@@ -224,7 +254,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -242,6 +272,12 @@ Lists electronic service channels
 ### Example
 ```javascript
 var KuntaApiClient = require('kunta-api-client');
+var defaultClient = KuntaApiClient.ApiClient.default;
+
+// Configure HTTP basic authorization: basicAuth
+var basicAuth = defaultClient.authentications['basicAuth'];
+basicAuth.username = 'YOUR USERNAME';
+basicAuth.password = 'YOUR PASSWORD';
 
 var apiInstance = new KuntaApiClient.ServiceChannelsApi();
 
@@ -270,7 +306,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -288,6 +324,12 @@ Lists phone service channels
 ### Example
 ```javascript
 var KuntaApiClient = require('kunta-api-client');
+var defaultClient = KuntaApiClient.ApiClient.default;
+
+// Configure HTTP basic authorization: basicAuth
+var basicAuth = defaultClient.authentications['basicAuth'];
+basicAuth.username = 'YOUR USERNAME';
+basicAuth.password = 'YOUR PASSWORD';
 
 var apiInstance = new KuntaApiClient.ServiceChannelsApi();
 
@@ -316,7 +358,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -334,6 +376,12 @@ Lists printable form service channels
 ### Example
 ```javascript
 var KuntaApiClient = require('kunta-api-client');
+var defaultClient = KuntaApiClient.ApiClient.default;
+
+// Configure HTTP basic authorization: basicAuth
+var basicAuth = defaultClient.authentications['basicAuth'];
+basicAuth.username = 'YOUR USERNAME';
+basicAuth.password = 'YOUR PASSWORD';
 
 var apiInstance = new KuntaApiClient.ServiceChannelsApi();
 
@@ -362,7 +410,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -380,6 +428,12 @@ Lists service location service channels
 ### Example
 ```javascript
 var KuntaApiClient = require('kunta-api-client');
+var defaultClient = KuntaApiClient.ApiClient.default;
+
+// Configure HTTP basic authorization: basicAuth
+var basicAuth = defaultClient.authentications['basicAuth'];
+basicAuth.username = 'YOUR USERNAME';
+basicAuth.password = 'YOUR PASSWORD';
 
 var apiInstance = new KuntaApiClient.ServiceChannelsApi();
 
@@ -412,7 +466,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -430,6 +484,12 @@ Lists web page service channels
 ### Example
 ```javascript
 var KuntaApiClient = require('kunta-api-client');
+var defaultClient = KuntaApiClient.ApiClient.default;
+
+// Configure HTTP basic authorization: basicAuth
+var basicAuth = defaultClient.authentications['basicAuth'];
+basicAuth.username = 'YOUR USERNAME';
+basicAuth.password = 'YOUR PASSWORD';
 
 var apiInstance = new KuntaApiClient.ServiceChannelsApi();
 
@@ -458,7 +518,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 

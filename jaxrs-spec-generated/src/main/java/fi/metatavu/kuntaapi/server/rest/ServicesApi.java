@@ -25,7 +25,7 @@ import java.util.List;
 @Api(description = "the services API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-04-20T09:55:26.071+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-04-20T17:15:35.224+03:00")
 
 public abstract class ServicesApi extends AbstractApi {
 
@@ -33,7 +33,9 @@ public abstract class ServicesApi extends AbstractApi {
     
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Create service", notes = "Creates new service", response = Service.class, tags={ "Services",  })
+    @ApiOperation(value = "Create service", notes = "Creates new service", response = Service.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Services",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Created service", response = Service.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Service.class),
@@ -45,7 +47,9 @@ public abstract class ServicesApi extends AbstractApi {
     @Path("/{serviceId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Finds a service by id", notes = "Finds service", response = Service.class, tags={ "Services",  })
+    @ApiOperation(value = "Finds a service by id", notes = "Finds service", response = Service.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Services",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns a service", response = Service.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Service.class),
@@ -58,7 +62,9 @@ public abstract class ServicesApi extends AbstractApi {
     @Path("/{serviceId}/electronicChannels/{electronicChannelId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "finds ElectronicChannel by electronicChannelId", notes = "finds ElectronicChannels by electronicChannelId", response = ElectronicServiceChannel.class, tags={ "Services", "ElectronicChannels",  })
+    @ApiOperation(value = "finds ElectronicChannel by electronicChannelId", notes = "finds ElectronicChannels by electronicChannelId", response = ElectronicServiceChannel.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Services", "ElectronicChannels",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns ElectronicChannel", response = ElectronicServiceChannel.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = ElectronicServiceChannel.class),
@@ -71,7 +77,9 @@ public abstract class ServicesApi extends AbstractApi {
     @Path("/{serviceId}/phoneChannels/{phoneChannelId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "finds PhoneChannel by phoneChannelId", notes = "finds PhoneChannels by phoneChannelId", response = PhoneServiceChannel.class, tags={ "Services", "PhoneChannels",  })
+    @ApiOperation(value = "finds PhoneChannel by phoneChannelId", notes = "finds PhoneChannels by phoneChannelId", response = PhoneServiceChannel.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Services", "PhoneChannels",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns PhoneChannel", response = PhoneServiceChannel.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = PhoneServiceChannel.class),
@@ -84,7 +92,9 @@ public abstract class ServicesApi extends AbstractApi {
     @Path("/{serviceId}/printableFormChannels/{printableFormChannelId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "finds PrintableFormChannel by printableFormChannelId", notes = "finds PrintableFormChannels by printableFormChannelId", response = PrintableFormServiceChannel.class, tags={ "Services", "PrintableFormChannels",  })
+    @ApiOperation(value = "finds PrintableFormChannel by printableFormChannelId", notes = "finds PrintableFormChannels by printableFormChannelId", response = PrintableFormServiceChannel.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Services", "PrintableFormChannels",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns PrintableFormChannel", response = PrintableFormServiceChannel.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = PrintableFormServiceChannel.class),
@@ -97,7 +107,9 @@ public abstract class ServicesApi extends AbstractApi {
     @Path("/{serviceId}/serviceLocationChannels/{serviceLocationChannelId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "finds ServiceLocationChannel by serviceLocationChannelId", notes = "finds ServiceLocationChannels by serviceLocationChannelId", response = ServiceLocationServiceChannel.class, tags={ "Services", "ServiceLocationChannels",  })
+    @ApiOperation(value = "finds ServiceLocationChannel by serviceLocationChannelId", notes = "finds ServiceLocationChannels by serviceLocationChannelId", response = ServiceLocationServiceChannel.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Services", "ServiceLocationChannels",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns ServiceLocationChannel", response = ServiceLocationServiceChannel.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = ServiceLocationServiceChannel.class),
@@ -110,7 +122,9 @@ public abstract class ServicesApi extends AbstractApi {
     @Path("/{serviceId}/webPageChannels/{webPageChannelId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "finds WebPageChannel by webPageChannelId", notes = "finds WebPageChannels by webPageChannelId", response = WebPageServiceChannel.class, tags={ "Services", "WebPageChannels",  })
+    @ApiOperation(value = "finds WebPageChannel by webPageChannelId", notes = "finds WebPageChannels by webPageChannelId", response = WebPageServiceChannel.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Services", "WebPageChannels",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns WebPageChannel", response = WebPageServiceChannel.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = WebPageServiceChannel.class),
@@ -123,7 +137,9 @@ public abstract class ServicesApi extends AbstractApi {
     @Path("/{serviceId}/electronicChannels")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists ElectronicChannels by serviceId", notes = "Lists ElectronicChannels by serviceId", response = ElectronicServiceChannel.class, responseContainer = "List", tags={ "Services", "ElectronicChannels",  })
+    @ApiOperation(value = "Lists ElectronicChannels by serviceId", notes = "Lists ElectronicChannels by serviceId", response = ElectronicServiceChannel.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Services", "ElectronicChannels",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns array of ElectronicChannels", response = ElectronicServiceChannel.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = ElectronicServiceChannel.class, responseContainer = "List"),
@@ -136,7 +152,9 @@ public abstract class ServicesApi extends AbstractApi {
     @Path("/{serviceId}/phoneChannels")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists PhoneChannels by serviceId", notes = "Lists PhoneChannels by serviceId", response = PhoneServiceChannel.class, responseContainer = "List", tags={ "Services", "PhoneChannels",  })
+    @ApiOperation(value = "Lists PhoneChannels by serviceId", notes = "Lists PhoneChannels by serviceId", response = PhoneServiceChannel.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Services", "PhoneChannels",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns array of PhoneChannels", response = PhoneServiceChannel.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = PhoneServiceChannel.class, responseContainer = "List"),
@@ -149,7 +167,9 @@ public abstract class ServicesApi extends AbstractApi {
     @Path("/{serviceId}/printableFormChannels")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists PrintableFormChannels by serviceId", notes = "Lists PrintableFormChannels by serviceId", response = PrintableFormServiceChannel.class, responseContainer = "List", tags={ "Services", "PrintableFormChannels",  })
+    @ApiOperation(value = "Lists PrintableFormChannels by serviceId", notes = "Lists PrintableFormChannels by serviceId", response = PrintableFormServiceChannel.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Services", "PrintableFormChannels",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns array of PrintableFormChannels", response = PrintableFormServiceChannel.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = PrintableFormServiceChannel.class, responseContainer = "List"),
@@ -162,7 +182,9 @@ public abstract class ServicesApi extends AbstractApi {
     @Path("/{serviceId}/serviceLocationChannels")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists ServiceLocationChannels by serviceId", notes = "Lists ServiceLocationChannels by serviceId", response = ServiceLocationServiceChannel.class, responseContainer = "List", tags={ "Services", "ServiceLocationChannels",  })
+    @ApiOperation(value = "Lists ServiceLocationChannels by serviceId", notes = "Lists ServiceLocationChannels by serviceId", response = ServiceLocationServiceChannel.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Services", "ServiceLocationChannels",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns array of ServiceLocationChannels", response = ServiceLocationServiceChannel.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = ServiceLocationServiceChannel.class, responseContainer = "List"),
@@ -175,7 +197,9 @@ public abstract class ServicesApi extends AbstractApi {
     @Path("/{serviceId}/webPageChannels")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists WebPageChannels by serviceId", notes = "Lists WebPageChannels by serviceId", response = WebPageServiceChannel.class, responseContainer = "List", tags={ "Services", "WebPageChannels",  })
+    @ApiOperation(value = "Lists WebPageChannels by serviceId", notes = "Lists WebPageChannels by serviceId", response = WebPageServiceChannel.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Services", "WebPageChannels",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns array of WebPageChannels", response = WebPageServiceChannel.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = WebPageServiceChannel.class, responseContainer = "List"),
@@ -188,7 +212,9 @@ public abstract class ServicesApi extends AbstractApi {
     
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Service list", notes = "Lists services", response = Service.class, responseContainer = "List", tags={ "Services",  })
+    @ApiOperation(value = "Service list", notes = "Lists services", response = Service.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Services",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "An array of services", response = Service.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Service.class, responseContainer = "List"),
@@ -201,7 +227,9 @@ public abstract class ServicesApi extends AbstractApi {
     @Path("/{serviceId}")
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Updates service", notes = "Updates service", response = Service.class, tags={ "Services" })
+    @ApiOperation(value = "Updates service", notes = "Updates service", response = Service.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Services" })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns an updated service", response = Service.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Service.class),

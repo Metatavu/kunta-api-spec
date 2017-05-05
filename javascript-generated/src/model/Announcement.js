@@ -45,7 +45,7 @@
   /**
    * The Announcement model module.
    * @module model/Announcement
-   * @version 0.0.88
+   * @version 0.0.90
    */
 
   /**
