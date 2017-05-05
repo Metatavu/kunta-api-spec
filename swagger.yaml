@@ -3815,16 +3815,20 @@ definitions:
         format: uuid
         description: Entity identifier.
         type: string
-      municipality:
-        $ref: '#/definitions/Municipality'
-        description: >-
-          Municipality including municipality code and a localized list of
-          municipality names.
+      parentOrganization:
+        format: uuid
+        description: Organizations parent organization identifier if exists.
+        type: string
       organizationType:
         description: >-
           Organization type (State, Municipality, RegionalOrganization,
           Organization, Company).
         type: string
+      municipality:
+        $ref: '#/definitions/Municipality'
+        description: >-
+          Municipality including municipality code and a localized list of
+          municipality names.
       businessCode:
         description: Organization business code (Y-tunnus).
         type: string
@@ -3838,10 +3842,19 @@ definitions:
           $ref: '#/definitions/LocalizedValue'
       displayNameType:
         description: >-
-          Display name type (Name or AlternateName). Which name type should be
-          used as the display name for the organization (OrganizationNames
-          list).
+          List of Display name types (Name or AlternateName) for each language
+          version of OrganizationNames.
+        type: array
+        items:
+          $ref: '#/definitions/NameTypeByLanguage'
+      areaType:
+        description: 'Area type (WholeCountry, WholeCountryExceptAlandIslands, AreaType).'
         type: string
+      areas:
+        description: List of organization areas.
+        type: array
+        items:
+          $ref: '#/definitions/Area'
       descriptions:
         description: List of organizations descriptions.
         type: array
@@ -3872,10 +3885,6 @@ definitions:
           Publishing status (Draft, Published, Deleted, Modified and
           OldPublished).
         type: string
-      parentOrganization:
-        format: uuid
-        description: Organizations parent organization identifier if exists.
-        type: string
       services:
         description: List of organizations services.
         type: array
@@ -3892,6 +3901,28 @@ definitions:
       statutoryDescriptionId:
         format: uuid
         type: string
+      chargeType:
+        type: string
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      areaType:
+        description: 'Area type (WholeCountry, WholeCountryExceptAlandIslands, AreaType).'
+        type: string
+      areas:
+        description: List of service areas.
+        type: array
+        items:
+          $ref: '#/definitions/Area'
+      descriptions:
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      languages:
+        type: array
+        items:
+          type: string
       serviceClasses:
         type: array
         items:
@@ -3912,35 +3943,16 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/OntologyItem'
-      names:
-        type: array
-        items:
-          $ref: '#/definitions/LocalizedValue'
-      descriptions:
-        type: array
-        items:
-          $ref: '#/definitions/LocalizedValue'
-      languages:
-        type: array
-        items:
-          type: string
-      keywords:
-        description: List of localized service keywords.
-        type: array
-        items:
-          $ref: '#/definitions/LocalizedValue'
       legislation:
         description: List of laws related to the service.
         type: array
         items:
           $ref: '#/definitions/Law'
-      coverageType:
-        type: string
-        description: 'Service coverage type. Valid values are: Local or Nationwide.'
-      municipalities:
+      keywords:
+        description: List of localized service keywords.
         type: array
         items:
-          $ref: '#/definitions/Municipality'
+          $ref: '#/definitions/LocalizedValue'
       requirements:
         type: array
         items:
@@ -3949,8 +3961,6 @@ definitions:
         description: >-
           Publishing status. Possible values are: Draft, Published, Deleted,
           Modified or OldPublished.
-        type: string
-      chargeType:
         type: string
       organizations:
         type: array
@@ -4244,9 +4254,6 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/LocalizedValue'
-      serviceAreaRestricted:
-        description: Is the service location channel restricted by service area.
-        type: boolean
       phoneNumbers:
         description: >-
           List of phone numbers for the service channel. Includes also fax
@@ -4274,13 +4281,14 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/WebPage'
-      serviceAreas:
-        description: >-
-          List of serviceareas. Used when location service channel is restricted
-          by service area (ServiceAreaRestricted=true).
+      areaType:
+        description: 'Area type (WholeCountry, WholeCountryExceptAlandIslands, AreaType).'
+        type: string
+      areas:
+        description: List of service channel areas.
         type: array
         items:
-          $ref: '#/definitions/Municipality'
+          $ref: '#/definitions/Area'
       addresses:
         description: List of service location addresses.
         type: array
@@ -4696,7 +4704,9 @@ definitions:
         type: string
       postOfficeBox:
         description: Post office box like PL 310
-        type: string
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
       postalCode:
         description: 'Postal code, for example 00010.'
         type: string
@@ -4958,6 +4968,40 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/LocalizedValue'
+  Area:
+    description: Area
+    type: object
+    properties:
+      type:
+        description: >-
+          Type of the area (Municipality, Province, BusinessRegions,
+          HospitalRegions).
+        type: string
+      code:
+        description: Code of the area.
+        type: string
+      name:
+        description: Localized list of names for the area
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      municipalities:
+        description: >-
+          List of municipalities including municipality code and a localized
+          list of municipality names.
+        type: array
+        items:
+          $ref: '#/definitions/Municipality'
+  NameTypeByLanguage:
+    description: Name type by language
+    type: object
+    properties:
+      type:
+        description: DisplayNameType preferred by language code (Name or AlternateName).
+        type: string
+      language:
+        description: Language code.
+        type: string
   InternalServerError:
     type: object
     properties:
