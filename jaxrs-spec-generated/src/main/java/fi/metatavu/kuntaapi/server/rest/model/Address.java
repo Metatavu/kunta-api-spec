@@ -17,7 +17,7 @@ public class Address   {
   private String longitude = null;
   private String coordinateState = null;
   private String type = null;
-  private String postOfficeBox = null;
+  private List<LocalizedValue> postOfficeBox = new ArrayList<LocalizedValue>();
   private String postalCode = null;
   private List<LocalizedValue> postOffice = new ArrayList<LocalizedValue>();
   private List<LocalizedValue> streetAddress = new ArrayList<LocalizedValue>();
@@ -97,17 +97,17 @@ public class Address   {
   /**
    * Post office box like PL 310
    **/
-  public Address postOfficeBox(String postOfficeBox) {
+  public Address postOfficeBox(List<LocalizedValue> postOfficeBox) {
     this.postOfficeBox = postOfficeBox;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "Post office box like PL 310")
-  public String getPostOfficeBox() {
+  public List<LocalizedValue> getPostOfficeBox() {
     return postOfficeBox;
   }
-  public void setPostOfficeBox(String postOfficeBox) {
+  public void setPostOfficeBox(List<LocalizedValue> postOfficeBox) {
     this.postOfficeBox = postOfficeBox;
   }
 

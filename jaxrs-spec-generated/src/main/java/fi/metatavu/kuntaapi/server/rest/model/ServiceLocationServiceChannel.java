@@ -1,9 +1,9 @@
 package fi.metatavu.kuntaapi.server.rest.model;
 
 import fi.metatavu.kuntaapi.server.rest.model.Address;
+import fi.metatavu.kuntaapi.server.rest.model.Area;
 import fi.metatavu.kuntaapi.server.rest.model.Email;
 import fi.metatavu.kuntaapi.server.rest.model.LocalizedValue;
-import fi.metatavu.kuntaapi.server.rest.model.Municipality;
 import fi.metatavu.kuntaapi.server.rest.model.Phone;
 import fi.metatavu.kuntaapi.server.rest.model.ServiceHour;
 import fi.metatavu.kuntaapi.server.rest.model.WebPage;
@@ -22,13 +22,13 @@ public class ServiceLocationServiceChannel   {
   private String organizationId = null;
   private List<LocalizedValue> names = new ArrayList<LocalizedValue>();
   private List<LocalizedValue> descriptions = new ArrayList<LocalizedValue>();
-  private Boolean serviceAreaRestricted = null;
   private List<Phone> phoneNumbers = new ArrayList<Phone>();
   private List<Email> emails = new ArrayList<Email>();
   private List<String> languages = new ArrayList<String>();
   private Boolean phoneServiceCharge = null;
   private List<WebPage> webPages = new ArrayList<WebPage>();
-  private List<Municipality> serviceAreas = new ArrayList<Municipality>();
+  private String areaType = null;
+  private List<Area> areas = new ArrayList<Area>();
   private List<Address> addresses = new ArrayList<Address>();
   private List<ServiceHour> serviceHours = new ArrayList<ServiceHour>();
   private String publishingStatus = null;
@@ -99,23 +99,6 @@ public class ServiceLocationServiceChannel   {
   }
   public void setDescriptions(List<LocalizedValue> descriptions) {
     this.descriptions = descriptions;
-  }
-
-  /**
-   * Is the service location channel restricted by service area.
-   **/
-  public ServiceLocationServiceChannel serviceAreaRestricted(Boolean serviceAreaRestricted) {
-    this.serviceAreaRestricted = serviceAreaRestricted;
-    return this;
-  }
-
-  
-  @ApiModelProperty(example = "null", value = "Is the service location channel restricted by service area.")
-  public Boolean getServiceAreaRestricted() {
-    return serviceAreaRestricted;
-  }
-  public void setServiceAreaRestricted(Boolean serviceAreaRestricted) {
-    this.serviceAreaRestricted = serviceAreaRestricted;
   }
 
   /**
@@ -204,20 +187,37 @@ public class ServiceLocationServiceChannel   {
   }
 
   /**
-   * List of serviceareas. Used when location service channel is restricted by service area (ServiceAreaRestricted=true).
+   * Area type (WholeCountry, WholeCountryExceptAlandIslands, AreaType).
    **/
-  public ServiceLocationServiceChannel serviceAreas(List<Municipality> serviceAreas) {
-    this.serviceAreas = serviceAreas;
+  public ServiceLocationServiceChannel areaType(String areaType) {
+    this.areaType = areaType;
     return this;
   }
 
   
-  @ApiModelProperty(example = "null", value = "List of serviceareas. Used when location service channel is restricted by service area (ServiceAreaRestricted=true).")
-  public List<Municipality> getServiceAreas() {
-    return serviceAreas;
+  @ApiModelProperty(example = "null", value = "Area type (WholeCountry, WholeCountryExceptAlandIslands, AreaType).")
+  public String getAreaType() {
+    return areaType;
   }
-  public void setServiceAreas(List<Municipality> serviceAreas) {
-    this.serviceAreas = serviceAreas;
+  public void setAreaType(String areaType) {
+    this.areaType = areaType;
+  }
+
+  /**
+   * List of service channel areas.
+   **/
+  public ServiceLocationServiceChannel areas(List<Area> areas) {
+    this.areas = areas;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "List of service channel areas.")
+  public List<Area> getAreas() {
+    return areas;
+  }
+  public void setAreas(List<Area> areas) {
+    this.areas = areas;
   }
 
   /**
@@ -285,13 +285,13 @@ public class ServiceLocationServiceChannel   {
         Objects.equals(organizationId, serviceLocationServiceChannel.organizationId) &&
         Objects.equals(names, serviceLocationServiceChannel.names) &&
         Objects.equals(descriptions, serviceLocationServiceChannel.descriptions) &&
-        Objects.equals(serviceAreaRestricted, serviceLocationServiceChannel.serviceAreaRestricted) &&
         Objects.equals(phoneNumbers, serviceLocationServiceChannel.phoneNumbers) &&
         Objects.equals(emails, serviceLocationServiceChannel.emails) &&
         Objects.equals(languages, serviceLocationServiceChannel.languages) &&
         Objects.equals(phoneServiceCharge, serviceLocationServiceChannel.phoneServiceCharge) &&
         Objects.equals(webPages, serviceLocationServiceChannel.webPages) &&
-        Objects.equals(serviceAreas, serviceLocationServiceChannel.serviceAreas) &&
+        Objects.equals(areaType, serviceLocationServiceChannel.areaType) &&
+        Objects.equals(areas, serviceLocationServiceChannel.areas) &&
         Objects.equals(addresses, serviceLocationServiceChannel.addresses) &&
         Objects.equals(serviceHours, serviceLocationServiceChannel.serviceHours) &&
         Objects.equals(publishingStatus, serviceLocationServiceChannel.publishingStatus);
@@ -299,7 +299,7 @@ public class ServiceLocationServiceChannel   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, organizationId, names, descriptions, serviceAreaRestricted, phoneNumbers, emails, languages, phoneServiceCharge, webPages, serviceAreas, addresses, serviceHours, publishingStatus);
+    return Objects.hash(id, organizationId, names, descriptions, phoneNumbers, emails, languages, phoneServiceCharge, webPages, areaType, areas, addresses, serviceHours, publishingStatus);
   }
 
   @Override
@@ -311,13 +311,13 @@ public class ServiceLocationServiceChannel   {
     sb.append("    organizationId: ").append(toIndentedString(organizationId)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");
     sb.append("    descriptions: ").append(toIndentedString(descriptions)).append("\n");
-    sb.append("    serviceAreaRestricted: ").append(toIndentedString(serviceAreaRestricted)).append("\n");
     sb.append("    phoneNumbers: ").append(toIndentedString(phoneNumbers)).append("\n");
     sb.append("    emails: ").append(toIndentedString(emails)).append("\n");
     sb.append("    languages: ").append(toIndentedString(languages)).append("\n");
     sb.append("    phoneServiceCharge: ").append(toIndentedString(phoneServiceCharge)).append("\n");
     sb.append("    webPages: ").append(toIndentedString(webPages)).append("\n");
-    sb.append("    serviceAreas: ").append(toIndentedString(serviceAreas)).append("\n");
+    sb.append("    areaType: ").append(toIndentedString(areaType)).append("\n");
+    sb.append("    areas: ").append(toIndentedString(areas)).append("\n");
     sb.append("    addresses: ").append(toIndentedString(addresses)).append("\n");
     sb.append("    serviceHours: ").append(toIndentedString(serviceHours)).append("\n");
     sb.append("    publishingStatus: ").append(toIndentedString(publishingStatus)).append("\n");

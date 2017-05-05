@@ -1,8 +1,8 @@
 package fi.metatavu.kuntaapi.server.rest.model;
 
+import fi.metatavu.kuntaapi.server.rest.model.Area;
 import fi.metatavu.kuntaapi.server.rest.model.Law;
 import fi.metatavu.kuntaapi.server.rest.model.LocalizedValue;
-import fi.metatavu.kuntaapi.server.rest.model.Municipality;
 import fi.metatavu.kuntaapi.server.rest.model.OntologyItem;
 import fi.metatavu.kuntaapi.server.rest.model.ServiceOrganization;
 import java.util.ArrayList;
@@ -19,21 +19,21 @@ public class Service   {
   private String id = null;
   private String type = null;
   private String statutoryDescriptionId = null;
+  private String chargeType = null;
+  private List<LocalizedValue> names = new ArrayList<LocalizedValue>();
+  private String areaType = null;
+  private List<Area> areas = new ArrayList<Area>();
+  private List<LocalizedValue> descriptions = new ArrayList<LocalizedValue>();
+  private List<String> languages = new ArrayList<String>();
   private List<OntologyItem> serviceClasses = new ArrayList<OntologyItem>();
   private List<OntologyItem> ontologyTerms = new ArrayList<OntologyItem>();
   private List<OntologyItem> targetGroups = new ArrayList<OntologyItem>();
   private List<OntologyItem> lifeEvents = new ArrayList<OntologyItem>();
   private List<OntologyItem> industrialClasses = new ArrayList<OntologyItem>();
-  private List<LocalizedValue> names = new ArrayList<LocalizedValue>();
-  private List<LocalizedValue> descriptions = new ArrayList<LocalizedValue>();
-  private List<String> languages = new ArrayList<String>();
-  private List<LocalizedValue> keywords = new ArrayList<LocalizedValue>();
   private List<Law> legislation = new ArrayList<Law>();
-  private String coverageType = null;
-  private List<Municipality> municipalities = new ArrayList<Municipality>();
+  private List<LocalizedValue> keywords = new ArrayList<LocalizedValue>();
   private List<LocalizedValue> requirements = new ArrayList<LocalizedValue>();
   private String publishingStatus = null;
-  private String chargeType = null;
   private List<ServiceOrganization> organizations = new ArrayList<ServiceOrganization>();
   private List<String> electronicServiceChannelIds = new ArrayList<String>();
   private List<String> phoneServiceChannelIds = new ArrayList<String>();
@@ -87,6 +87,104 @@ public class Service   {
   }
   public void setStatutoryDescriptionId(String statutoryDescriptionId) {
     this.statutoryDescriptionId = statutoryDescriptionId;
+  }
+
+  /**
+   **/
+  public Service chargeType(String chargeType) {
+    this.chargeType = chargeType;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "")
+  public String getChargeType() {
+    return chargeType;
+  }
+  public void setChargeType(String chargeType) {
+    this.chargeType = chargeType;
+  }
+
+  /**
+   **/
+  public Service names(List<LocalizedValue> names) {
+    this.names = names;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "")
+  public List<LocalizedValue> getNames() {
+    return names;
+  }
+  public void setNames(List<LocalizedValue> names) {
+    this.names = names;
+  }
+
+  /**
+   * Area type (WholeCountry, WholeCountryExceptAlandIslands, AreaType).
+   **/
+  public Service areaType(String areaType) {
+    this.areaType = areaType;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "Area type (WholeCountry, WholeCountryExceptAlandIslands, AreaType).")
+  public String getAreaType() {
+    return areaType;
+  }
+  public void setAreaType(String areaType) {
+    this.areaType = areaType;
+  }
+
+  /**
+   * List of service areas.
+   **/
+  public Service areas(List<Area> areas) {
+    this.areas = areas;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "List of service areas.")
+  public List<Area> getAreas() {
+    return areas;
+  }
+  public void setAreas(List<Area> areas) {
+    this.areas = areas;
+  }
+
+  /**
+   **/
+  public Service descriptions(List<LocalizedValue> descriptions) {
+    this.descriptions = descriptions;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "")
+  public List<LocalizedValue> getDescriptions() {
+    return descriptions;
+  }
+  public void setDescriptions(List<LocalizedValue> descriptions) {
+    this.descriptions = descriptions;
+  }
+
+  /**
+   **/
+  public Service languages(List<String> languages) {
+    this.languages = languages;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "")
+  public List<String> getLanguages() {
+    return languages;
+  }
+  public void setLanguages(List<String> languages) {
+    this.languages = languages;
   }
 
   /**
@@ -170,71 +268,6 @@ public class Service   {
   }
 
   /**
-   **/
-  public Service names(List<LocalizedValue> names) {
-    this.names = names;
-    return this;
-  }
-
-  
-  @ApiModelProperty(example = "null", value = "")
-  public List<LocalizedValue> getNames() {
-    return names;
-  }
-  public void setNames(List<LocalizedValue> names) {
-    this.names = names;
-  }
-
-  /**
-   **/
-  public Service descriptions(List<LocalizedValue> descriptions) {
-    this.descriptions = descriptions;
-    return this;
-  }
-
-  
-  @ApiModelProperty(example = "null", value = "")
-  public List<LocalizedValue> getDescriptions() {
-    return descriptions;
-  }
-  public void setDescriptions(List<LocalizedValue> descriptions) {
-    this.descriptions = descriptions;
-  }
-
-  /**
-   **/
-  public Service languages(List<String> languages) {
-    this.languages = languages;
-    return this;
-  }
-
-  
-  @ApiModelProperty(example = "null", value = "")
-  public List<String> getLanguages() {
-    return languages;
-  }
-  public void setLanguages(List<String> languages) {
-    this.languages = languages;
-  }
-
-  /**
-   * List of localized service keywords.
-   **/
-  public Service keywords(List<LocalizedValue> keywords) {
-    this.keywords = keywords;
-    return this;
-  }
-
-  
-  @ApiModelProperty(example = "null", value = "List of localized service keywords.")
-  public List<LocalizedValue> getKeywords() {
-    return keywords;
-  }
-  public void setKeywords(List<LocalizedValue> keywords) {
-    this.keywords = keywords;
-  }
-
-  /**
    * List of laws related to the service.
    **/
   public Service legislation(List<Law> legislation) {
@@ -252,36 +285,20 @@ public class Service   {
   }
 
   /**
-   * Service coverage type. Valid values are: Local or Nationwide.
+   * List of localized service keywords.
    **/
-  public Service coverageType(String coverageType) {
-    this.coverageType = coverageType;
+  public Service keywords(List<LocalizedValue> keywords) {
+    this.keywords = keywords;
     return this;
   }
 
   
-  @ApiModelProperty(example = "null", value = "Service coverage type. Valid values are: Local or Nationwide.")
-  public String getCoverageType() {
-    return coverageType;
+  @ApiModelProperty(example = "null", value = "List of localized service keywords.")
+  public List<LocalizedValue> getKeywords() {
+    return keywords;
   }
-  public void setCoverageType(String coverageType) {
-    this.coverageType = coverageType;
-  }
-
-  /**
-   **/
-  public Service municipalities(List<Municipality> municipalities) {
-    this.municipalities = municipalities;
-    return this;
-  }
-
-  
-  @ApiModelProperty(example = "null", value = "")
-  public List<Municipality> getMunicipalities() {
-    return municipalities;
-  }
-  public void setMunicipalities(List<Municipality> municipalities) {
-    this.municipalities = municipalities;
+  public void setKeywords(List<LocalizedValue> keywords) {
+    this.keywords = keywords;
   }
 
   /**
@@ -315,22 +332,6 @@ public class Service   {
   }
   public void setPublishingStatus(String publishingStatus) {
     this.publishingStatus = publishingStatus;
-  }
-
-  /**
-   **/
-  public Service chargeType(String chargeType) {
-    this.chargeType = chargeType;
-    return this;
-  }
-
-  
-  @ApiModelProperty(example = "null", value = "")
-  public String getChargeType() {
-    return chargeType;
-  }
-  public void setChargeType(String chargeType) {
-    this.chargeType = chargeType;
   }
 
   /**
@@ -442,21 +443,21 @@ public class Service   {
     return Objects.equals(id, service.id) &&
         Objects.equals(type, service.type) &&
         Objects.equals(statutoryDescriptionId, service.statutoryDescriptionId) &&
+        Objects.equals(chargeType, service.chargeType) &&
+        Objects.equals(names, service.names) &&
+        Objects.equals(areaType, service.areaType) &&
+        Objects.equals(areas, service.areas) &&
+        Objects.equals(descriptions, service.descriptions) &&
+        Objects.equals(languages, service.languages) &&
         Objects.equals(serviceClasses, service.serviceClasses) &&
         Objects.equals(ontologyTerms, service.ontologyTerms) &&
         Objects.equals(targetGroups, service.targetGroups) &&
         Objects.equals(lifeEvents, service.lifeEvents) &&
         Objects.equals(industrialClasses, service.industrialClasses) &&
-        Objects.equals(names, service.names) &&
-        Objects.equals(descriptions, service.descriptions) &&
-        Objects.equals(languages, service.languages) &&
-        Objects.equals(keywords, service.keywords) &&
         Objects.equals(legislation, service.legislation) &&
-        Objects.equals(coverageType, service.coverageType) &&
-        Objects.equals(municipalities, service.municipalities) &&
+        Objects.equals(keywords, service.keywords) &&
         Objects.equals(requirements, service.requirements) &&
         Objects.equals(publishingStatus, service.publishingStatus) &&
-        Objects.equals(chargeType, service.chargeType) &&
         Objects.equals(organizations, service.organizations) &&
         Objects.equals(electronicServiceChannelIds, service.electronicServiceChannelIds) &&
         Objects.equals(phoneServiceChannelIds, service.phoneServiceChannelIds) &&
@@ -467,7 +468,7 @@ public class Service   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, statutoryDescriptionId, serviceClasses, ontologyTerms, targetGroups, lifeEvents, industrialClasses, names, descriptions, languages, keywords, legislation, coverageType, municipalities, requirements, publishingStatus, chargeType, organizations, electronicServiceChannelIds, phoneServiceChannelIds, printableFormServiceChannelIds, serviceLocationServiceChannelIds, webPageServiceChannelIds);
+    return Objects.hash(id, type, statutoryDescriptionId, chargeType, names, areaType, areas, descriptions, languages, serviceClasses, ontologyTerms, targetGroups, lifeEvents, industrialClasses, legislation, keywords, requirements, publishingStatus, organizations, electronicServiceChannelIds, phoneServiceChannelIds, printableFormServiceChannelIds, serviceLocationServiceChannelIds, webPageServiceChannelIds);
   }
 
   @Override
@@ -478,21 +479,21 @@ public class Service   {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    statutoryDescriptionId: ").append(toIndentedString(statutoryDescriptionId)).append("\n");
+    sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
+    sb.append("    names: ").append(toIndentedString(names)).append("\n");
+    sb.append("    areaType: ").append(toIndentedString(areaType)).append("\n");
+    sb.append("    areas: ").append(toIndentedString(areas)).append("\n");
+    sb.append("    descriptions: ").append(toIndentedString(descriptions)).append("\n");
+    sb.append("    languages: ").append(toIndentedString(languages)).append("\n");
     sb.append("    serviceClasses: ").append(toIndentedString(serviceClasses)).append("\n");
     sb.append("    ontologyTerms: ").append(toIndentedString(ontologyTerms)).append("\n");
     sb.append("    targetGroups: ").append(toIndentedString(targetGroups)).append("\n");
     sb.append("    lifeEvents: ").append(toIndentedString(lifeEvents)).append("\n");
     sb.append("    industrialClasses: ").append(toIndentedString(industrialClasses)).append("\n");
-    sb.append("    names: ").append(toIndentedString(names)).append("\n");
-    sb.append("    descriptions: ").append(toIndentedString(descriptions)).append("\n");
-    sb.append("    languages: ").append(toIndentedString(languages)).append("\n");
-    sb.append("    keywords: ").append(toIndentedString(keywords)).append("\n");
     sb.append("    legislation: ").append(toIndentedString(legislation)).append("\n");
-    sb.append("    coverageType: ").append(toIndentedString(coverageType)).append("\n");
-    sb.append("    municipalities: ").append(toIndentedString(municipalities)).append("\n");
+    sb.append("    keywords: ").append(toIndentedString(keywords)).append("\n");
     sb.append("    requirements: ").append(toIndentedString(requirements)).append("\n");
     sb.append("    publishingStatus: ").append(toIndentedString(publishingStatus)).append("\n");
-    sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
     sb.append("    organizations: ").append(toIndentedString(organizations)).append("\n");
     sb.append("    electronicServiceChannelIds: ").append(toIndentedString(electronicServiceChannelIds)).append("\n");
     sb.append("    phoneServiceChannelIds: ").append(toIndentedString(phoneServiceChannelIds)).append("\n");

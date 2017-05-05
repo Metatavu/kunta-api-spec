@@ -1,9 +1,11 @@
 package fi.metatavu.kuntaapi.server.rest.model;
 
 import fi.metatavu.kuntaapi.server.rest.model.Address;
+import fi.metatavu.kuntaapi.server.rest.model.Area;
 import fi.metatavu.kuntaapi.server.rest.model.Email;
 import fi.metatavu.kuntaapi.server.rest.model.LocalizedValue;
 import fi.metatavu.kuntaapi.server.rest.model.Municipality;
+import fi.metatavu.kuntaapi.server.rest.model.NameTypeByLanguage;
 import fi.metatavu.kuntaapi.server.rest.model.OrganizationService;
 import fi.metatavu.kuntaapi.server.rest.model.Phone;
 import fi.metatavu.kuntaapi.server.rest.model.WebPage;
@@ -23,19 +25,21 @@ import java.util.Objects;
 public class Organization   {
   
   private String id = null;
-  private Municipality municipality = null;
+  private String parentOrganization = null;
   private String organizationType = null;
+  private Municipality municipality = null;
   private String businessCode = null;
   private String businessName = null;
   private List<LocalizedValue> names = new ArrayList<LocalizedValue>();
-  private String displayNameType = null;
+  private List<NameTypeByLanguage> displayNameType = new ArrayList<NameTypeByLanguage>();
+  private String areaType = null;
+  private List<Area> areas = new ArrayList<Area>();
   private List<LocalizedValue> descriptions = new ArrayList<LocalizedValue>();
   private List<Email> emailAddresses = new ArrayList<Email>();
   private List<Phone> phoneNumbers = new ArrayList<Phone>();
   private List<WebPage> webPages = new ArrayList<WebPage>();
   private List<Address> addresses = new ArrayList<Address>();
   private String publishingStatus = null;
-  private String parentOrganization = null;
   private List<OrganizationService> services = new ArrayList<OrganizationService>();
 
   /**
@@ -56,20 +60,20 @@ public class Organization   {
   }
 
   /**
-   * Municipality including municipality code and a localized list of municipality names.
+   * Organizations parent organization identifier if exists.
    **/
-  public Organization municipality(Municipality municipality) {
-    this.municipality = municipality;
+  public Organization parentOrganization(String parentOrganization) {
+    this.parentOrganization = parentOrganization;
     return this;
   }
 
   
-  @ApiModelProperty(example = "null", value = "Municipality including municipality code and a localized list of municipality names.")
-  public Municipality getMunicipality() {
-    return municipality;
+  @ApiModelProperty(example = "null", value = "Organizations parent organization identifier if exists.")
+  public String getParentOrganization() {
+    return parentOrganization;
   }
-  public void setMunicipality(Municipality municipality) {
-    this.municipality = municipality;
+  public void setParentOrganization(String parentOrganization) {
+    this.parentOrganization = parentOrganization;
   }
 
   /**
@@ -87,6 +91,23 @@ public class Organization   {
   }
   public void setOrganizationType(String organizationType) {
     this.organizationType = organizationType;
+  }
+
+  /**
+   * Municipality including municipality code and a localized list of municipality names.
+   **/
+  public Organization municipality(Municipality municipality) {
+    this.municipality = municipality;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "Municipality including municipality code and a localized list of municipality names.")
+  public Municipality getMunicipality() {
+    return municipality;
+  }
+  public void setMunicipality(Municipality municipality) {
+    this.municipality = municipality;
   }
 
   /**
@@ -141,20 +162,54 @@ public class Organization   {
   }
 
   /**
-   * Display name type (Name or AlternateName). Which name type should be used as the display name for the organization (OrganizationNames list).
+   * List of Display name types (Name or AlternateName) for each language version of OrganizationNames.
    **/
-  public Organization displayNameType(String displayNameType) {
+  public Organization displayNameType(List<NameTypeByLanguage> displayNameType) {
     this.displayNameType = displayNameType;
     return this;
   }
 
   
-  @ApiModelProperty(example = "null", value = "Display name type (Name or AlternateName). Which name type should be used as the display name for the organization (OrganizationNames list).")
-  public String getDisplayNameType() {
+  @ApiModelProperty(example = "null", value = "List of Display name types (Name or AlternateName) for each language version of OrganizationNames.")
+  public List<NameTypeByLanguage> getDisplayNameType() {
     return displayNameType;
   }
-  public void setDisplayNameType(String displayNameType) {
+  public void setDisplayNameType(List<NameTypeByLanguage> displayNameType) {
     this.displayNameType = displayNameType;
+  }
+
+  /**
+   * Area type (WholeCountry, WholeCountryExceptAlandIslands, AreaType).
+   **/
+  public Organization areaType(String areaType) {
+    this.areaType = areaType;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "Area type (WholeCountry, WholeCountryExceptAlandIslands, AreaType).")
+  public String getAreaType() {
+    return areaType;
+  }
+  public void setAreaType(String areaType) {
+    this.areaType = areaType;
+  }
+
+  /**
+   * List of organization areas.
+   **/
+  public Organization areas(List<Area> areas) {
+    this.areas = areas;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "List of organization areas.")
+  public List<Area> getAreas() {
+    return areas;
+  }
+  public void setAreas(List<Area> areas) {
+    this.areas = areas;
   }
 
   /**
@@ -260,23 +315,6 @@ public class Organization   {
   }
 
   /**
-   * Organizations parent organization identifier if exists.
-   **/
-  public Organization parentOrganization(String parentOrganization) {
-    this.parentOrganization = parentOrganization;
-    return this;
-  }
-
-  
-  @ApiModelProperty(example = "null", value = "Organizations parent organization identifier if exists.")
-  public String getParentOrganization() {
-    return parentOrganization;
-  }
-  public void setParentOrganization(String parentOrganization) {
-    this.parentOrganization = parentOrganization;
-  }
-
-  /**
    * List of organizations services.
    **/
   public Organization services(List<OrganizationService> services) {
@@ -304,25 +342,27 @@ public class Organization   {
     }
     Organization organization = (Organization) o;
     return Objects.equals(id, organization.id) &&
-        Objects.equals(municipality, organization.municipality) &&
+        Objects.equals(parentOrganization, organization.parentOrganization) &&
         Objects.equals(organizationType, organization.organizationType) &&
+        Objects.equals(municipality, organization.municipality) &&
         Objects.equals(businessCode, organization.businessCode) &&
         Objects.equals(businessName, organization.businessName) &&
         Objects.equals(names, organization.names) &&
         Objects.equals(displayNameType, organization.displayNameType) &&
+        Objects.equals(areaType, organization.areaType) &&
+        Objects.equals(areas, organization.areas) &&
         Objects.equals(descriptions, organization.descriptions) &&
         Objects.equals(emailAddresses, organization.emailAddresses) &&
         Objects.equals(phoneNumbers, organization.phoneNumbers) &&
         Objects.equals(webPages, organization.webPages) &&
         Objects.equals(addresses, organization.addresses) &&
         Objects.equals(publishingStatus, organization.publishingStatus) &&
-        Objects.equals(parentOrganization, organization.parentOrganization) &&
         Objects.equals(services, organization.services);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, municipality, organizationType, businessCode, businessName, names, displayNameType, descriptions, emailAddresses, phoneNumbers, webPages, addresses, publishingStatus, parentOrganization, services);
+    return Objects.hash(id, parentOrganization, organizationType, municipality, businessCode, businessName, names, displayNameType, areaType, areas, descriptions, emailAddresses, phoneNumbers, webPages, addresses, publishingStatus, services);
   }
 
   @Override
@@ -331,19 +371,21 @@ public class Organization   {
     sb.append("class Organization {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    municipality: ").append(toIndentedString(municipality)).append("\n");
+    sb.append("    parentOrganization: ").append(toIndentedString(parentOrganization)).append("\n");
     sb.append("    organizationType: ").append(toIndentedString(organizationType)).append("\n");
+    sb.append("    municipality: ").append(toIndentedString(municipality)).append("\n");
     sb.append("    businessCode: ").append(toIndentedString(businessCode)).append("\n");
     sb.append("    businessName: ").append(toIndentedString(businessName)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");
     sb.append("    displayNameType: ").append(toIndentedString(displayNameType)).append("\n");
+    sb.append("    areaType: ").append(toIndentedString(areaType)).append("\n");
+    sb.append("    areas: ").append(toIndentedString(areas)).append("\n");
     sb.append("    descriptions: ").append(toIndentedString(descriptions)).append("\n");
     sb.append("    emailAddresses: ").append(toIndentedString(emailAddresses)).append("\n");
     sb.append("    phoneNumbers: ").append(toIndentedString(phoneNumbers)).append("\n");
     sb.append("    webPages: ").append(toIndentedString(webPages)).append("\n");
     sb.append("    addresses: ").append(toIndentedString(addresses)).append("\n");
     sb.append("    publishingStatus: ").append(toIndentedString(publishingStatus)).append("\n");
-    sb.append("    parentOrganization: ").append(toIndentedString(parentOrganization)).append("\n");
     sb.append("    services: ").append(toIndentedString(services)).append("\n");
     sb.append("}");
     return sb.toString();
