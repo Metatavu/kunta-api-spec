@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Law', 'model/LocalizedValue', 'model/Municipality', 'model/OntologyItem', 'model/ServiceOrganization'], factory);
+    define(['ApiClient', 'model/Area', 'model/Law', 'model/LocalizedValue', 'model/OntologyItem', 'model/ServiceOrganization'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Law'), require('./LocalizedValue'), require('./Municipality'), require('./OntologyItem'), require('./ServiceOrganization'));
+    module.exports = factory(require('../ApiClient'), require('./Area'), require('./Law'), require('./LocalizedValue'), require('./OntologyItem'), require('./ServiceOrganization'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.Service = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Law, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.Municipality, root.KuntaApiClient.OntologyItem, root.KuntaApiClient.ServiceOrganization);
+    root.KuntaApiClient.Service = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Area, root.KuntaApiClient.Law, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.OntologyItem, root.KuntaApiClient.ServiceOrganization);
   }
-}(this, function(ApiClient, Law, LocalizedValue, Municipality, OntologyItem, ServiceOrganization) {
+}(this, function(ApiClient, Area, Law, LocalizedValue, OntologyItem, ServiceOrganization) {
   'use strict';
 
 
@@ -45,7 +45,7 @@
   /**
    * The Service model module.
    * @module model/Service
-   * @version 0.0.90
+   * @version 0.0.91
    */
 
   /**
@@ -102,6 +102,24 @@
       if (data.hasOwnProperty('statutoryDescriptionId')) {
         obj['statutoryDescriptionId'] = ApiClient.convertToType(data['statutoryDescriptionId'], 'String');
       }
+      if (data.hasOwnProperty('chargeType')) {
+        obj['chargeType'] = ApiClient.convertToType(data['chargeType'], 'String');
+      }
+      if (data.hasOwnProperty('names')) {
+        obj['names'] = ApiClient.convertToType(data['names'], [LocalizedValue]);
+      }
+      if (data.hasOwnProperty('areaType')) {
+        obj['areaType'] = ApiClient.convertToType(data['areaType'], 'String');
+      }
+      if (data.hasOwnProperty('areas')) {
+        obj['areas'] = ApiClient.convertToType(data['areas'], [Area]);
+      }
+      if (data.hasOwnProperty('descriptions')) {
+        obj['descriptions'] = ApiClient.convertToType(data['descriptions'], [LocalizedValue]);
+      }
+      if (data.hasOwnProperty('languages')) {
+        obj['languages'] = ApiClient.convertToType(data['languages'], ['String']);
+      }
       if (data.hasOwnProperty('serviceClasses')) {
         obj['serviceClasses'] = ApiClient.convertToType(data['serviceClasses'], [OntologyItem]);
       }
@@ -117,35 +135,17 @@
       if (data.hasOwnProperty('industrialClasses')) {
         obj['industrialClasses'] = ApiClient.convertToType(data['industrialClasses'], [OntologyItem]);
       }
-      if (data.hasOwnProperty('names')) {
-        obj['names'] = ApiClient.convertToType(data['names'], [LocalizedValue]);
-      }
-      if (data.hasOwnProperty('descriptions')) {
-        obj['descriptions'] = ApiClient.convertToType(data['descriptions'], [LocalizedValue]);
-      }
-      if (data.hasOwnProperty('languages')) {
-        obj['languages'] = ApiClient.convertToType(data['languages'], ['String']);
-      }
-      if (data.hasOwnProperty('keywords')) {
-        obj['keywords'] = ApiClient.convertToType(data['keywords'], [LocalizedValue]);
-      }
       if (data.hasOwnProperty('legislation')) {
         obj['legislation'] = ApiClient.convertToType(data['legislation'], [Law]);
       }
-      if (data.hasOwnProperty('coverageType')) {
-        obj['coverageType'] = ApiClient.convertToType(data['coverageType'], 'String');
-      }
-      if (data.hasOwnProperty('municipalities')) {
-        obj['municipalities'] = ApiClient.convertToType(data['municipalities'], [Municipality]);
+      if (data.hasOwnProperty('keywords')) {
+        obj['keywords'] = ApiClient.convertToType(data['keywords'], [LocalizedValue]);
       }
       if (data.hasOwnProperty('requirements')) {
         obj['requirements'] = ApiClient.convertToType(data['requirements'], [LocalizedValue]);
       }
       if (data.hasOwnProperty('publishingStatus')) {
         obj['publishingStatus'] = ApiClient.convertToType(data['publishingStatus'], 'String');
-      }
-      if (data.hasOwnProperty('chargeType')) {
-        obj['chargeType'] = ApiClient.convertToType(data['chargeType'], 'String');
       }
       if (data.hasOwnProperty('organizations')) {
         obj['organizations'] = ApiClient.convertToType(data['organizations'], [ServiceOrganization]);
@@ -182,6 +182,32 @@
    */
   exports.prototype['statutoryDescriptionId'] = undefined;
   /**
+   * @member {String} chargeType
+   */
+  exports.prototype['chargeType'] = undefined;
+  /**
+   * @member {Array.<module:model/LocalizedValue>} names
+   */
+  exports.prototype['names'] = undefined;
+  /**
+   * Area type (WholeCountry, WholeCountryExceptAlandIslands, AreaType).
+   * @member {String} areaType
+   */
+  exports.prototype['areaType'] = undefined;
+  /**
+   * List of service areas.
+   * @member {Array.<module:model/Area>} areas
+   */
+  exports.prototype['areas'] = undefined;
+  /**
+   * @member {Array.<module:model/LocalizedValue>} descriptions
+   */
+  exports.prototype['descriptions'] = undefined;
+  /**
+   * @member {Array.<String>} languages
+   */
+  exports.prototype['languages'] = undefined;
+  /**
    * @member {Array.<module:model/OntologyItem>} serviceClasses
    */
   exports.prototype['serviceClasses'] = undefined;
@@ -202,36 +228,15 @@
    */
   exports.prototype['industrialClasses'] = undefined;
   /**
-   * @member {Array.<module:model/LocalizedValue>} names
-   */
-  exports.prototype['names'] = undefined;
-  /**
-   * @member {Array.<module:model/LocalizedValue>} descriptions
-   */
-  exports.prototype['descriptions'] = undefined;
-  /**
-   * @member {Array.<String>} languages
-   */
-  exports.prototype['languages'] = undefined;
-  /**
-   * List of localized service keywords.
-   * @member {Array.<module:model/LocalizedValue>} keywords
-   */
-  exports.prototype['keywords'] = undefined;
-  /**
    * List of laws related to the service.
    * @member {Array.<module:model/Law>} legislation
    */
   exports.prototype['legislation'] = undefined;
   /**
-   * Service coverage type. Valid values are: Local or Nationwide.
-   * @member {String} coverageType
+   * List of localized service keywords.
+   * @member {Array.<module:model/LocalizedValue>} keywords
    */
-  exports.prototype['coverageType'] = undefined;
-  /**
-   * @member {Array.<module:model/Municipality>} municipalities
-   */
-  exports.prototype['municipalities'] = undefined;
+  exports.prototype['keywords'] = undefined;
   /**
    * @member {Array.<module:model/LocalizedValue>} requirements
    */
@@ -241,10 +246,6 @@
    * @member {String} publishingStatus
    */
   exports.prototype['publishingStatus'] = undefined;
-  /**
-   * @member {String} chargeType
-   */
-  exports.prototype['chargeType'] = undefined;
   /**
    * @member {Array.<module:model/ServiceOrganization>} organizations
    */

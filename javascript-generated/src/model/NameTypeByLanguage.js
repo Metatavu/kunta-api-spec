@@ -34,7 +34,7 @@
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.Attachment = factory(root.KuntaApiClient.ApiClient);
+    root.KuntaApiClient.NameTypeByLanguage = factory(root.KuntaApiClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -43,14 +43,15 @@
 
 
   /**
-   * The Attachment model module.
-   * @module model/Attachment
+   * The NameTypeByLanguage model module.
+   * @module model/NameTypeByLanguage
    * @version 0.0.91
    */
 
   /**
-   * Constructs a new <code>Attachment</code>.
-   * @alias module:model/Attachment
+   * Constructs a new <code>NameTypeByLanguage</code>.
+   * Name type by language
+   * @alias module:model/NameTypeByLanguage
    * @class
    */
   var exports = function() {
@@ -58,53 +59,39 @@
 
 
 
-
-
   };
 
   /**
-   * Constructs a <code>Attachment</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>NameTypeByLanguage</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Attachment} obj Optional instance to populate.
-   * @return {module:model/Attachment} The populated <code>Attachment</code> instance.
+   * @param {module:model/NameTypeByLanguage} obj Optional instance to populate.
+   * @return {module:model/NameTypeByLanguage} The populated <code>NameTypeByLanguage</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'String');
-      }
-      if (data.hasOwnProperty('contentType')) {
-        obj['contentType'] = ApiClient.convertToType(data['contentType'], 'String');
-      }
-      if (data.hasOwnProperty('size')) {
-        obj['size'] = ApiClient.convertToType(data['size'], 'Integer');
-      }
       if (data.hasOwnProperty('type')) {
         obj['type'] = ApiClient.convertToType(data['type'], 'String');
+      }
+      if (data.hasOwnProperty('language')) {
+        obj['language'] = ApiClient.convertToType(data['language'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * @member {String} id
-   */
-  exports.prototype['id'] = undefined;
-  /**
-   * @member {String} contentType
-   */
-  exports.prototype['contentType'] = undefined;
-  /**
-   * @member {Integer} size
-   */
-  exports.prototype['size'] = undefined;
-  /**
+   * DisplayNameType preferred by language code (Name or AlternateName).
    * @member {String} type
    */
   exports.prototype['type'] = undefined;
+  /**
+   * Language code.
+   * @member {String} language
+   */
+  exports.prototype['language'] = undefined;
 
 
 

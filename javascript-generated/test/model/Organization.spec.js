@@ -71,14 +71,20 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property municipality (base name: "municipality")', function() {
-      // uncomment below and update the code to test the property municipality
+    it('should have the property parentOrganization (base name: "parentOrganization")', function() {
+      // uncomment below and update the code to test the property parentOrganization
       //var instane = new KuntaApiClient.Organization();
       //expect(instance).to.be();
     });
 
     it('should have the property organizationType (base name: "organizationType")', function() {
       // uncomment below and update the code to test the property organizationType
+      //var instane = new KuntaApiClient.Organization();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property municipality (base name: "municipality")', function() {
+      // uncomment below and update the code to test the property municipality
       //var instane = new KuntaApiClient.Organization();
       //expect(instance).to.be();
     });
@@ -103,6 +109,18 @@
 
     it('should have the property displayNameType (base name: "displayNameType")', function() {
       // uncomment below and update the code to test the property displayNameType
+      //var instane = new KuntaApiClient.Organization();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property areaType (base name: "areaType")', function() {
+      // uncomment below and update the code to test the property areaType
+      //var instane = new KuntaApiClient.Organization();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property areas (base name: "areas")', function() {
+      // uncomment below and update the code to test the property areas
       //var instane = new KuntaApiClient.Organization();
       //expect(instance).to.be();
     });
@@ -139,12 +157,6 @@
 
     it('should have the property publishingStatus (base name: "publishingStatus")', function() {
       // uncomment below and update the code to test the property publishingStatus
-      //var instane = new KuntaApiClient.Organization();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property parentOrganization (base name: "parentOrganization")', function() {
-      // uncomment below and update the code to test the property parentOrganization
       //var instane = new KuntaApiClient.Organization();
       //expect(instance).to.be();
     });

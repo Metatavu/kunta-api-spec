@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Address', 'model/Email', 'model/LocalizedValue', 'model/Municipality', 'model/OrganizationService', 'model/Phone', 'model/WebPage'], factory);
+    define(['ApiClient', 'model/Address', 'model/Area', 'model/Email', 'model/LocalizedValue', 'model/Municipality', 'model/NameTypeByLanguage', 'model/OrganizationService', 'model/Phone', 'model/WebPage'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Address'), require('./Email'), require('./LocalizedValue'), require('./Municipality'), require('./OrganizationService'), require('./Phone'), require('./WebPage'));
+    module.exports = factory(require('../ApiClient'), require('./Address'), require('./Area'), require('./Email'), require('./LocalizedValue'), require('./Municipality'), require('./NameTypeByLanguage'), require('./OrganizationService'), require('./Phone'), require('./WebPage'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.Organization = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Address, root.KuntaApiClient.Email, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.Municipality, root.KuntaApiClient.OrganizationService, root.KuntaApiClient.Phone, root.KuntaApiClient.WebPage);
+    root.KuntaApiClient.Organization = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Address, root.KuntaApiClient.Area, root.KuntaApiClient.Email, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.Municipality, root.KuntaApiClient.NameTypeByLanguage, root.KuntaApiClient.OrganizationService, root.KuntaApiClient.Phone, root.KuntaApiClient.WebPage);
   }
-}(this, function(ApiClient, Address, Email, LocalizedValue, Municipality, OrganizationService, Phone, WebPage) {
+}(this, function(ApiClient, Address, Area, Email, LocalizedValue, Municipality, NameTypeByLanguage, OrganizationService, Phone, WebPage) {
   'use strict';
 
 
@@ -45,7 +45,7 @@
   /**
    * The Organization model module.
    * @module model/Organization
-   * @version 0.0.90
+   * @version 0.0.91
    */
 
   /**
@@ -56,6 +56,8 @@
    */
   var exports = function() {
     var _this = this;
+
+
 
 
 
@@ -88,11 +90,14 @@
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
-      if (data.hasOwnProperty('municipality')) {
-        obj['municipality'] = Municipality.constructFromObject(data['municipality']);
+      if (data.hasOwnProperty('parentOrganization')) {
+        obj['parentOrganization'] = ApiClient.convertToType(data['parentOrganization'], 'String');
       }
       if (data.hasOwnProperty('organizationType')) {
         obj['organizationType'] = ApiClient.convertToType(data['organizationType'], 'String');
+      }
+      if (data.hasOwnProperty('municipality')) {
+        obj['municipality'] = Municipality.constructFromObject(data['municipality']);
       }
       if (data.hasOwnProperty('businessCode')) {
         obj['businessCode'] = ApiClient.convertToType(data['businessCode'], 'String');
@@ -104,7 +109,13 @@
         obj['names'] = ApiClient.convertToType(data['names'], [LocalizedValue]);
       }
       if (data.hasOwnProperty('displayNameType')) {
-        obj['displayNameType'] = ApiClient.convertToType(data['displayNameType'], 'String');
+        obj['displayNameType'] = ApiClient.convertToType(data['displayNameType'], [NameTypeByLanguage]);
+      }
+      if (data.hasOwnProperty('areaType')) {
+        obj['areaType'] = ApiClient.convertToType(data['areaType'], 'String');
+      }
+      if (data.hasOwnProperty('areas')) {
+        obj['areas'] = ApiClient.convertToType(data['areas'], [Area]);
       }
       if (data.hasOwnProperty('descriptions')) {
         obj['descriptions'] = ApiClient.convertToType(data['descriptions'], [LocalizedValue]);
@@ -124,9 +135,6 @@
       if (data.hasOwnProperty('publishingStatus')) {
         obj['publishingStatus'] = ApiClient.convertToType(data['publishingStatus'], 'String');
       }
-      if (data.hasOwnProperty('parentOrganization')) {
-        obj['parentOrganization'] = ApiClient.convertToType(data['parentOrganization'], 'String');
-      }
       if (data.hasOwnProperty('services')) {
         obj['services'] = ApiClient.convertToType(data['services'], [OrganizationService]);
       }
@@ -140,15 +148,20 @@
    */
   exports.prototype['id'] = undefined;
   /**
-   * Municipality including municipality code and a localized list of municipality names.
-   * @member {module:model/Municipality} municipality
+   * Organizations parent organization identifier if exists.
+   * @member {String} parentOrganization
    */
-  exports.prototype['municipality'] = undefined;
+  exports.prototype['parentOrganization'] = undefined;
   /**
    * Organization type (State, Municipality, RegionalOrganization, Organization, Company).
    * @member {String} organizationType
    */
   exports.prototype['organizationType'] = undefined;
+  /**
+   * Municipality including municipality code and a localized list of municipality names.
+   * @member {module:model/Municipality} municipality
+   */
+  exports.prototype['municipality'] = undefined;
   /**
    * Organization business code (Y-tunnus).
    * @member {String} businessCode
@@ -165,10 +178,20 @@
    */
   exports.prototype['names'] = undefined;
   /**
-   * Display name type (Name or AlternateName). Which name type should be used as the display name for the organization (OrganizationNames list).
-   * @member {String} displayNameType
+   * List of Display name types (Name or AlternateName) for each language version of OrganizationNames.
+   * @member {Array.<module:model/NameTypeByLanguage>} displayNameType
    */
   exports.prototype['displayNameType'] = undefined;
+  /**
+   * Area type (WholeCountry, WholeCountryExceptAlandIslands, AreaType).
+   * @member {String} areaType
+   */
+  exports.prototype['areaType'] = undefined;
+  /**
+   * List of organization areas.
+   * @member {Array.<module:model/Area>} areas
+   */
+  exports.prototype['areas'] = undefined;
   /**
    * List of organizations descriptions.
    * @member {Array.<module:model/LocalizedValue>} descriptions
@@ -199,11 +222,6 @@
    * @member {String} publishingStatus
    */
   exports.prototype['publishingStatus'] = undefined;
-  /**
-   * Organizations parent organization identifier if exists.
-   * @member {String} parentOrganization
-   */
-  exports.prototype['parentOrganization'] = undefined;
   /**
    * List of organizations services.
    * @member {Array.<module:model/OrganizationService>} services

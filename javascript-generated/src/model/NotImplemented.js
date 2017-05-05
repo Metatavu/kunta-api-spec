@@ -45,7 +45,7 @@
   /**
    * The NotImplemented model module.
    * @module model/NotImplemented
-   * @version 0.0.90
+   * @version 0.0.91
    */
 
   /**

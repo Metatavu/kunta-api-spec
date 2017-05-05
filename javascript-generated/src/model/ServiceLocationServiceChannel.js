@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Address', 'model/Email', 'model/LocalizedValue', 'model/Municipality', 'model/Phone', 'model/ServiceHour', 'model/WebPage'], factory);
+    define(['ApiClient', 'model/Address', 'model/Area', 'model/Email', 'model/LocalizedValue', 'model/Phone', 'model/ServiceHour', 'model/WebPage'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Address'), require('./Email'), require('./LocalizedValue'), require('./Municipality'), require('./Phone'), require('./ServiceHour'), require('./WebPage'));
+    module.exports = factory(require('../ApiClient'), require('./Address'), require('./Area'), require('./Email'), require('./LocalizedValue'), require('./Phone'), require('./ServiceHour'), require('./WebPage'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.ServiceLocationServiceChannel = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Address, root.KuntaApiClient.Email, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.Municipality, root.KuntaApiClient.Phone, root.KuntaApiClient.ServiceHour, root.KuntaApiClient.WebPage);
+    root.KuntaApiClient.ServiceLocationServiceChannel = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Address, root.KuntaApiClient.Area, root.KuntaApiClient.Email, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.Phone, root.KuntaApiClient.ServiceHour, root.KuntaApiClient.WebPage);
   }
-}(this, function(ApiClient, Address, Email, LocalizedValue, Municipality, Phone, ServiceHour, WebPage) {
+}(this, function(ApiClient, Address, Area, Email, LocalizedValue, Phone, ServiceHour, WebPage) {
   'use strict';
 
 
@@ -45,7 +45,7 @@
   /**
    * The ServiceLocationServiceChannel model module.
    * @module model/ServiceLocationServiceChannel
-   * @version 0.0.90
+   * @version 0.0.91
    */
 
   /**
@@ -95,9 +95,6 @@
       if (data.hasOwnProperty('descriptions')) {
         obj['descriptions'] = ApiClient.convertToType(data['descriptions'], [LocalizedValue]);
       }
-      if (data.hasOwnProperty('serviceAreaRestricted')) {
-        obj['serviceAreaRestricted'] = ApiClient.convertToType(data['serviceAreaRestricted'], 'Boolean');
-      }
       if (data.hasOwnProperty('phoneNumbers')) {
         obj['phoneNumbers'] = ApiClient.convertToType(data['phoneNumbers'], [Phone]);
       }
@@ -113,8 +110,11 @@
       if (data.hasOwnProperty('webPages')) {
         obj['webPages'] = ApiClient.convertToType(data['webPages'], [WebPage]);
       }
-      if (data.hasOwnProperty('serviceAreas')) {
-        obj['serviceAreas'] = ApiClient.convertToType(data['serviceAreas'], [Municipality]);
+      if (data.hasOwnProperty('areaType')) {
+        obj['areaType'] = ApiClient.convertToType(data['areaType'], 'String');
+      }
+      if (data.hasOwnProperty('areas')) {
+        obj['areas'] = ApiClient.convertToType(data['areas'], [Area]);
       }
       if (data.hasOwnProperty('addresses')) {
         obj['addresses'] = ApiClient.convertToType(data['addresses'], [Address]);
@@ -150,11 +150,6 @@
    */
   exports.prototype['descriptions'] = undefined;
   /**
-   * Is the service location channel restricted by service area.
-   * @member {Boolean} serviceAreaRestricted
-   */
-  exports.prototype['serviceAreaRestricted'] = undefined;
-  /**
    * List of phone numbers for the service channel. Includes also fax numbers.
    * @member {Array.<module:model/Phone>} phoneNumbers
    */
@@ -180,10 +175,15 @@
    */
   exports.prototype['webPages'] = undefined;
   /**
-   * List of serviceareas. Used when location service channel is restricted by service area (ServiceAreaRestricted=true).
-   * @member {Array.<module:model/Municipality>} serviceAreas
+   * Area type (WholeCountry, WholeCountryExceptAlandIslands, AreaType).
+   * @member {String} areaType
    */
-  exports.prototype['serviceAreas'] = undefined;
+  exports.prototype['areaType'] = undefined;
+  /**
+   * List of service channel areas.
+   * @member {Array.<module:model/Area>} areas
+   */
+  exports.prototype['areas'] = undefined;
   /**
    * List of service location addresses.
    * @member {Array.<module:model/Address>} addresses

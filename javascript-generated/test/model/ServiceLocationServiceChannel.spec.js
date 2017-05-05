@@ -89,12 +89,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property serviceAreaRestricted (base name: "serviceAreaRestricted")', function() {
-      // uncomment below and update the code to test the property serviceAreaRestricted
-      //var instane = new KuntaApiClient.ServiceLocationServiceChannel();
-      //expect(instance).to.be();
-    });
-
     it('should have the property phoneNumbers (base name: "phoneNumbers")', function() {
       // uncomment below and update the code to test the property phoneNumbers
       //var instane = new KuntaApiClient.ServiceLocationServiceChannel();
@@ -125,8 +119,14 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property serviceAreas (base name: "serviceAreas")', function() {
-      // uncomment below and update the code to test the property serviceAreas
+    it('should have the property areaType (base name: "areaType")', function() {
+      // uncomment below and update the code to test the property areaType
+      //var instane = new KuntaApiClient.ServiceLocationServiceChannel();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property areas (base name: "areas")', function() {
+      // uncomment below and update the code to test the property areas
       //var instane = new KuntaApiClient.ServiceLocationServiceChannel();
       //expect(instance).to.be();
     });

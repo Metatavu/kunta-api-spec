@@ -83,6 +83,42 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property chargeType (base name: "chargeType")', function() {
+      // uncomment below and update the code to test the property chargeType
+      //var instane = new KuntaApiClient.Service();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property names (base name: "names")', function() {
+      // uncomment below and update the code to test the property names
+      //var instane = new KuntaApiClient.Service();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property areaType (base name: "areaType")', function() {
+      // uncomment below and update the code to test the property areaType
+      //var instane = new KuntaApiClient.Service();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property areas (base name: "areas")', function() {
+      // uncomment below and update the code to test the property areas
+      //var instane = new KuntaApiClient.Service();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property descriptions (base name: "descriptions")', function() {
+      // uncomment below and update the code to test the property descriptions
+      //var instane = new KuntaApiClient.Service();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property languages (base name: "languages")', function() {
+      // uncomment below and update the code to test the property languages
+      //var instane = new KuntaApiClient.Service();
+      //expect(instance).to.be();
+    });
+
     it('should have the property serviceClasses (base name: "serviceClasses")', function() {
       // uncomment below and update the code to test the property serviceClasses
       //var instane = new KuntaApiClient.Service();
@@ -113,44 +149,14 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property names (base name: "names")', function() {
-      // uncomment below and update the code to test the property names
-      //var instane = new KuntaApiClient.Service();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property descriptions (base name: "descriptions")', function() {
-      // uncomment below and update the code to test the property descriptions
-      //var instane = new KuntaApiClient.Service();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property languages (base name: "languages")', function() {
-      // uncomment below and update the code to test the property languages
-      //var instane = new KuntaApiClient.Service();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property keywords (base name: "keywords")', function() {
-      // uncomment below and update the code to test the property keywords
-      //var instane = new KuntaApiClient.Service();
-      //expect(instance).to.be();
-    });
-
     it('should have the property legislation (base name: "legislation")', function() {
       // uncomment below and update the code to test the property legislation
       //var instane = new KuntaApiClient.Service();
       //expect(instance).to.be();
     });
 
-    it('should have the property coverageType (base name: "coverageType")', function() {
-      // uncomment below and update the code to test the property coverageType
-      //var instane = new KuntaApiClient.Service();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property municipalities (base name: "municipalities")', function() {
-      // uncomment below and update the code to test the property municipalities
+    it('should have the property keywords (base name: "keywords")', function() {
+      // uncomment below and update the code to test the property keywords
       //var instane = new KuntaApiClient.Service();
       //expect(instance).to.be();
     });
@@ -163,12 +169,6 @@
 
     it('should have the property publishingStatus (base name: "publishingStatus")', function() {
       // uncomment below and update the code to test the property publishingStatus
-      //var instane = new KuntaApiClient.Service();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property chargeType (base name: "chargeType")', function() {
-      // uncomment below and update the code to test the property chargeType
       //var instane = new KuntaApiClient.Service();
       //expect(instance).to.be();
     });

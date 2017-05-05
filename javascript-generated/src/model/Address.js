@@ -45,7 +45,7 @@
   /**
    * The Address model module.
    * @module model/Address
-   * @version 0.0.90
+   * @version 0.0.91
    */
 
   /**
@@ -94,7 +94,7 @@
         obj['type'] = ApiClient.convertToType(data['type'], 'String');
       }
       if (data.hasOwnProperty('postOfficeBox')) {
-        obj['postOfficeBox'] = ApiClient.convertToType(data['postOfficeBox'], 'String');
+        obj['postOfficeBox'] = ApiClient.convertToType(data['postOfficeBox'], [LocalizedValue]);
       }
       if (data.hasOwnProperty('postalCode')) {
         obj['postalCode'] = ApiClient.convertToType(data['postalCode'], 'String');
@@ -143,7 +143,7 @@
   exports.prototype['type'] = undefined;
   /**
    * Post office box like PL 310
-   * @member {String} postOfficeBox
+   * @member {Array.<module:model/LocalizedValue>} postOfficeBox
    */
   exports.prototype['postOfficeBox'] = undefined;
   /**

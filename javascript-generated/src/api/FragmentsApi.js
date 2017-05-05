@@ -42,7 +42,7 @@
   /**
    * Fragments service.
    * @module api/FragmentsApi
-   * @version 0.0.90
+   * @version 0.0.91
    */
 
   /**
