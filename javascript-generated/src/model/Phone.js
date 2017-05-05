@@ -45,7 +45,7 @@
   /**
    * The Phone model module.
    * @module model/Phone
-   * @version 0.0.91
+   * @version 0.0.92
    */
 
   /**
