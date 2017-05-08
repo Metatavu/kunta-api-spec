@@ -42,7 +42,7 @@
   /**
    * News service.
    * @module api/NewsApi
-   * @version 0.0.92
+   * @version 0.0.93
    */
 
   /**
@@ -219,6 +219,7 @@
      * @param {String} opts.tag Filter by tag
      * @param {String} opts.publishedBefore return only news published before the date
      * @param {String} opts.publishedAfter return only news published after the date
+     * @param {String} opts.search Search news by free-text query
      * @param {Integer} opts.firstResult first index of results
      * @param {Integer} opts.maxResults maximum number of results
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/NewsArticle>}
@@ -241,6 +242,7 @@
         'tag': opts['tag'],
         'publishedBefore': opts['publishedBefore'],
         'publishedAfter': opts['publishedAfter'],
+        'search': opts['search'],
         'firstResult': opts['firstResult'],
         'maxResults': opts['maxResults']
       };
