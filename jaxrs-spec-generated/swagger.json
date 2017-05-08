@@ -1807,6 +1807,12 @@
           "required" : false,
           "type" : "string"
         }, {
+          "name" : "search",
+          "in" : "query",
+          "description" : "Search news by free-text query",
+          "required" : false,
+          "type" : "string"
+        }, {
           "name" : "firstResult",
           "in" : "query",
           "description" : "first index of results",

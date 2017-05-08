@@ -20,7 +20,7 @@ import java.util.List;
 @Api(description = "the phoneServiceChannels API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-05-05T07:08:25.745+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-05-08T19:31:18.867+03:00")
 
 public abstract class PhoneServiceChannelsApi extends AbstractApi {
 
