@@ -42,7 +42,7 @@
   /**
    * News service.
    * @module api/NewsApi
-   * @version 0.0.94
+   * @version 0.0.95
    */
 
   /**
@@ -220,7 +220,7 @@
      * @param {String} opts.publishedBefore return only news published before the date
      * @param {String} opts.publishedAfter return only news published after the date
      * @param {String} opts.search Search news by free-text query
-     * @param {String} opts.sortOrder define order (NATURAL or SCORE). Default is NATURAL
+     * @param {String} opts.sortBy define order (NATURAL or SCORE). Default is NATURAL
      * @param {String} opts.sortDir ASC or DESC. Default is ASC
      * @param {Integer} opts.firstResult first index of results
      * @param {Integer} opts.maxResults maximum number of results
@@ -245,7 +245,7 @@
         'publishedBefore': opts['publishedBefore'],
         'publishedAfter': opts['publishedAfter'],
         'search': opts['search'],
-        'sortOrder': opts['sortOrder'],
+        'sortBy': opts['sortBy'],
         'sortDir': opts['sortDir'],
         'firstResult': opts['firstResult'],
         'maxResults': opts['maxResults']

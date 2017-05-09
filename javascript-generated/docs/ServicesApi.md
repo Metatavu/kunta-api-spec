@@ -676,7 +676,7 @@ var apiInstance = new KuntaApiClient.ServicesApi();
 var opts = { 
   'organizationId': "organizationId_example", // String | Return only services belonging to specified organization
   'search': "search_example", // String | Search services by free-text query
-  'sortOrder': "sortOrder_example", // String | define order (NATURAL or SCORE). Default is NATURAL
+  'sortBy': "sortBy_example", // String | define order (NATURAL or SCORE). Default is NATURAL
   'sortDir': "sortDir_example", // String | ASC or DESC. Default is ASC
   'firstResult': 789, // Integer | First result
   'maxResults': 789 // Integer | Max results
@@ -695,7 +695,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| Return only services belonging to specified organization | [optional] 
  **search** | **String**| Search services by free-text query | [optional] 
- **sortOrder** | **String**| define order (NATURAL or SCORE). Default is NATURAL | [optional] 
+ **sortBy** | **String**| define order (NATURAL or SCORE). Default is NATURAL | [optional] 
  **sortDir** | **String**| ASC or DESC. Default is ASC | [optional] 
  **firstResult** | **Integer**| First result | [optional] 
  **maxResults** | **Integer**| Max results | [optional] 

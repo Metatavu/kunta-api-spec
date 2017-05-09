@@ -80,7 +80,7 @@ var apiInstance = new KuntaApiClient.ServiceLocationServiceChannelsApi();
 var opts = { 
   'organizationId': "organizationId_example", // String | Organization id
   'search': "search_example", // String | Search service location channels by free-text query
-  'sortOrder': "sortOrder_example", // String | define order (NATURAL or SCORE). Default is NATURAL
+  'sortBy': "sortBy_example", // String | define order (NATURAL or SCORE). Default is NATURAL
   'sortDir': "sortDir_example", // String | ASC or DESC. Default is ASC
   'firstResult': 789, // Integer | First result
   'maxResults': 789 // Integer | Max results
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| Organization id | [optional] 
  **search** | **String**| Search service location channels by free-text query | [optional] 
- **sortOrder** | **String**| define order (NATURAL or SCORE). Default is NATURAL | [optional] 
+ **sortBy** | **String**| define order (NATURAL or SCORE). Default is NATURAL | [optional] 
  **sortDir** | **String**| ASC or DESC. Default is ASC | [optional] 
  **firstResult** | **Integer**| First result | [optional] 
  **maxResults** | **Integer**| Max results | [optional] 

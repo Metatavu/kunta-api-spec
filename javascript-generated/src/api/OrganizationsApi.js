@@ -42,7 +42,7 @@
   /**
    * Organizations service.
    * @module api/OrganizationsApi
-   * @version 0.0.94
+   * @version 0.0.95
    */
 
   /**
@@ -102,7 +102,7 @@
      * @param {String} opts.businessName Filter by organization&#39;s business name
      * @param {String} opts.businessCode Filter by organization&#39;s business code
      * @param {String} opts.search Search organizations by free-text query
-     * @param {String} opts.sortOrder define order (NATURAL or SCORE). Default is NATURAL
+     * @param {String} opts.sortBy define order (NATURAL or SCORE). Default is NATURAL
      * @param {String} opts.sortDir ASC or DESC. Default is ASC
      * @param {Integer} opts.firstResult First result
      * @param {Integer} opts.maxResults Max results
@@ -119,7 +119,7 @@
         'businessName': opts['businessName'],
         'businessCode': opts['businessCode'],
         'search': opts['search'],
-        'sortOrder': opts['sortOrder'],
+        'sortBy': opts['sortBy'],
         'sortDir': opts['sortDir'],
         'firstResult': opts['firstResult'],
         'maxResults': opts['maxResults']
