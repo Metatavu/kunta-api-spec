@@ -36,6 +36,14 @@ paths:
           description: Search organizations by free-text query
           required: false
           type: string
+        - name: sortOrder
+          in: query
+          description: define order (NATURAL or SCORE). Default is NATURAL
+          type: string
+        - name: sortDir
+          in: query
+          description: ASC or DESC. Default is ASC
+          type: string
         - name: firstResult
           in: query
           description: First result
@@ -378,6 +386,14 @@ paths:
           in: query
           description: Search news by free-text query
           required: false
+          type: string
+        - name: sortOrder
+          in: query
+          description: define order (NATURAL or SCORE). Default is NATURAL
+          type: string
+        - name: sortDir
+          in: query
+          description: ASC or DESC. Default is ASC
           type: string
         - name: firstResult
           in: query
@@ -1031,6 +1047,14 @@ paths:
           in: query
           description: Search pages by free-text query
           required: false
+          type: string
+        - name: sortOrder
+          in: query
+          description: define order (NATURAL or SCORE). Default is NATURAL
+          type: string
+        - name: sortDir
+          in: query
+          description: ASC or DESC. Default is ASC
           type: string
         - name: firstResult
           in: query
@@ -2597,6 +2621,14 @@ paths:
           description: Search services by free-text query
           required: false
           type: string
+        - name: sortOrder
+          in: query
+          description: define order (NATURAL or SCORE). Default is NATURAL
+          type: string
+        - name: sortDir
+          in: query
+          description: ASC or DESC. Default is ASC
+          type: string          
         - name: firstResult
           in: query
           description: First result
@@ -3466,6 +3498,14 @@ paths:
           description: Search service location channels by free-text query
           required: false
           type: string
+        - name: sortOrder
+          in: query
+          description: define order (NATURAL or SCORE). Default is NATURAL
+          type: string
+        - name: sortDir
+          in: query
+          description: ASC or DESC. Default is ASC
+          type: string          
         - name: firstResult
           in: query
           description: First result
