@@ -42,7 +42,7 @@ import java.util.List;
 @Api(description = "the organizations API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-05-09T12:11:47.007+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-05-09T12:21:44.123+03:00")
 
 public abstract class OrganizationsApi extends AbstractApi {
 
@@ -730,7 +730,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = NewsArticle.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = NewsArticle.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = NewsArticle.class, responseContainer = "List") })
-    public abstract Response listOrganizationNews(@PathParam("organizationId") String organizationId,@QueryParam("slug") String slug,@QueryParam("tag") String tag,@QueryParam("publishedBefore") String publishedBefore,@QueryParam("publishedAfter") String publishedAfter,@QueryParam("search") String search,@QueryParam("sortOrder") String sortOrder,@QueryParam("sortDir") String sortDir,@QueryParam("firstResult") Integer firstResult,@QueryParam("maxResults") Integer maxResults,@Context Request request);
+    public abstract Response listOrganizationNews(@PathParam("organizationId") String organizationId,@QueryParam("slug") String slug,@QueryParam("tag") String tag,@QueryParam("publishedBefore") String publishedBefore,@QueryParam("publishedAfter") String publishedAfter,@QueryParam("search") String search,@QueryParam("sortBy") String sortBy,@QueryParam("sortDir") String sortDir,@QueryParam("firstResult") Integer firstResult,@QueryParam("maxResults") Integer maxResults,@Context Request request);
 
     @GET
     @Path("/{organizationId}/news/{newsArticleId}/images")
@@ -772,7 +772,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Page.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Page.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = Page.class, responseContainer = "List") })
-    public abstract Response listOrganizationPages(@PathParam("organizationId") String organizationId,@QueryParam("parentId") String parentId,@QueryParam("path") String path,@QueryParam("search") String search,@QueryParam("sortOrder") String sortOrder,@QueryParam("sortDir") String sortDir,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
+    public abstract Response listOrganizationPages(@PathParam("organizationId") String organizationId,@QueryParam("parentId") String parentId,@QueryParam("path") String path,@QueryParam("search") String search,@QueryParam("sortBy") String sortBy,@QueryParam("sortDir") String sortDir,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
 
     @GET
     @Path("/{organizationId}/transportAgencies")
@@ -926,7 +926,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Organization.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Organization.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = Organization.class, responseContainer = "List") })
-    public abstract Response listOrganizations(@QueryParam("businessName") String businessName,@QueryParam("businessCode") String businessCode,@QueryParam("search") String search,@QueryParam("sortOrder") String sortOrder,@QueryParam("sortDir") String sortDir,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
+    public abstract Response listOrganizations(@QueryParam("businessName") String businessName,@QueryParam("businessCode") String businessCode,@QueryParam("search") String search,@QueryParam("sortBy") String sortBy,@QueryParam("sortDir") String sortDir,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
 
     @PUT
     @Path("/{organizationId}/settings/{settingId}")

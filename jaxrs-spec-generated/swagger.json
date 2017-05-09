@@ -142,7 +142,7 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "sortOrder",
+          "name" : "sortBy",
           "in" : "query",
           "description" : "define order (NATURAL or SCORE). Default is NATURAL",
           "required" : false,
@@ -1825,7 +1825,7 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "sortOrder",
+          "name" : "sortBy",
           "in" : "query",
           "description" : "define order (NATURAL or SCORE). Default is NATURAL",
           "required" : false,
@@ -2137,7 +2137,7 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "sortOrder",
+          "name" : "sortBy",
           "in" : "query",
           "description" : "define order (NATURAL or SCORE). Default is NATURAL",
           "required" : false,
@@ -3936,7 +3936,7 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "sortOrder",
+          "name" : "sortBy",
           "in" : "query",
           "description" : "define order (NATURAL or SCORE). Default is NATURAL",
           "required" : false,
@@ -4067,7 +4067,7 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "sortOrder",
+          "name" : "sortBy",
           "in" : "query",
           "description" : "define order (NATURAL or SCORE). Default is NATURAL",
           "required" : false,

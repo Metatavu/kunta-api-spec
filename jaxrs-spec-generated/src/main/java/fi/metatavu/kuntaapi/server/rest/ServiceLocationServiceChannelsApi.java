@@ -20,7 +20,7 @@ import java.util.List;
 @Api(description = "the serviceLocationServiceChannels API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-05-09T12:11:47.007+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-05-09T12:21:44.123+03:00")
 
 public abstract class ServiceLocationServiceChannelsApi extends AbstractApi {
 
@@ -52,7 +52,7 @@ public abstract class ServiceLocationServiceChannelsApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = ServiceLocationServiceChannel.class, responseContainer = "List"),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = ServiceLocationServiceChannel.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = ServiceLocationServiceChannel.class, responseContainer = "List") })
-    public abstract Response listServiceLocationServiceChannels(@QueryParam("organizationId") String organizationId,@QueryParam("search") String search,@QueryParam("sortOrder") String sortOrder,@QueryParam("sortDir") String sortDir,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
+    public abstract Response listServiceLocationServiceChannels(@QueryParam("organizationId") String organizationId,@QueryParam("search") String search,@QueryParam("sortBy") String sortBy,@QueryParam("sortDir") String sortDir,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
 
 }
 
