@@ -25,7 +25,7 @@ import java.util.List;
 @Api(description = "the services API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-05-08T19:31:18.867+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-05-09T12:11:47.007+03:00")
 
 public abstract class ServicesApi extends AbstractApi {
 
@@ -221,7 +221,7 @@ public abstract class ServicesApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Service.class, responseContainer = "List"),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = Service.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = Service.class, responseContainer = "List") })
-    public abstract Response listServices(@QueryParam("organizationId") String organizationId,@QueryParam("search") String search,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
+    public abstract Response listServices(@QueryParam("organizationId") String organizationId,@QueryParam("search") String search,@QueryParam("sortOrder") String sortOrder,@QueryParam("sortDir") String sortDir,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
 
     @PUT
     @Path("/{serviceId}")

@@ -142,6 +142,18 @@
           "required" : false,
           "type" : "string"
         }, {
+          "name" : "sortOrder",
+          "in" : "query",
+          "description" : "define order (NATURAL or SCORE). Default is NATURAL",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "sortDir",
+          "in" : "query",
+          "description" : "ASC or DESC. Default is ASC",
+          "required" : false,
+          "type" : "string"
+        }, {
           "name" : "firstResult",
           "in" : "query",
           "description" : "First result",
@@ -1813,6 +1825,18 @@
           "required" : false,
           "type" : "string"
         }, {
+          "name" : "sortOrder",
+          "in" : "query",
+          "description" : "define order (NATURAL or SCORE). Default is NATURAL",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "sortDir",
+          "in" : "query",
+          "description" : "ASC or DESC. Default is ASC",
+          "required" : false,
+          "type" : "string"
+        }, {
           "name" : "firstResult",
           "in" : "query",
           "description" : "first index of results",
@@ -2110,6 +2134,18 @@
           "name" : "search",
           "in" : "query",
           "description" : "Search pages by free-text query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "sortOrder",
+          "in" : "query",
+          "description" : "define order (NATURAL or SCORE). Default is NATURAL",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "sortDir",
+          "in" : "query",
+          "description" : "ASC or DESC. Default is ASC",
           "required" : false,
           "type" : "string"
         }, {
@@ -3900,6 +3936,18 @@
           "required" : false,
           "type" : "string"
         }, {
+          "name" : "sortOrder",
+          "in" : "query",
+          "description" : "define order (NATURAL or SCORE). Default is NATURAL",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "sortDir",
+          "in" : "query",
+          "description" : "ASC or DESC. Default is ASC",
+          "required" : false,
+          "type" : "string"
+        }, {
           "name" : "firstResult",
           "in" : "query",
           "description" : "First result",
@@ -4016,6 +4064,18 @@
           "name" : "search",
           "in" : "query",
           "description" : "Search services by free-text query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "sortOrder",
+          "in" : "query",
+          "description" : "define order (NATURAL or SCORE). Default is NATURAL",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "sortDir",
+          "in" : "query",
+          "description" : "ASC or DESC. Default is ASC",
           "required" : false,
           "type" : "string"
         }, {
