@@ -42,7 +42,7 @@
   /**
    * Services service.
    * @module api/ServicesApi
-   * @version 0.0.93
+   * @version 0.0.94
    */
 
   /**
@@ -583,6 +583,8 @@
      * @param {Object} opts Optional parameters
      * @param {String} opts.organizationId Return only services belonging to specified organization
      * @param {String} opts.search Search services by free-text query
+     * @param {String} opts.sortOrder define order (NATURAL or SCORE). Default is NATURAL
+     * @param {String} opts.sortDir ASC or DESC. Default is ASC
      * @param {Integer} opts.firstResult First result
      * @param {Integer} opts.maxResults Max results
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Service>}
@@ -597,6 +599,8 @@
       var queryParams = {
         'organizationId': opts['organizationId'],
         'search': opts['search'],
+        'sortOrder': opts['sortOrder'],
+        'sortDir': opts['sortDir'],
         'firstResult': opts['firstResult'],
         'maxResults': opts['maxResults']
       };

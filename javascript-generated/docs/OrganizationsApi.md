@@ -81,6 +81,8 @@ var opts = {
   'businessName': "businessName_example", // String | Filter by organization's business name
   'businessCode': "businessCode_example", // String | Filter by organization's business code
   'search': "search_example", // String | Search organizations by free-text query
+  'sortOrder': "sortOrder_example", // String | define order (NATURAL or SCORE). Default is NATURAL
+  'sortDir': "sortDir_example", // String | ASC or DESC. Default is ASC
   'firstResult': 789, // Integer | First result
   'maxResults': 789 // Integer | Max results
 };
@@ -99,6 +101,8 @@ Name | Type | Description  | Notes
  **businessName** | **String**| Filter by organization&#39;s business name | [optional] 
  **businessCode** | **String**| Filter by organization&#39;s business code | [optional] 
  **search** | **String**| Search organizations by free-text query | [optional] 
+ **sortOrder** | **String**| define order (NATURAL or SCORE). Default is NATURAL | [optional] 
+ **sortDir** | **String**| ASC or DESC. Default is ASC | [optional] 
  **firstResult** | **Integer**| First result | [optional] 
  **maxResults** | **Integer**| Max results | [optional] 
 

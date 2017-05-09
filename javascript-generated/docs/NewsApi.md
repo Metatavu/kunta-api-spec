@@ -205,6 +205,8 @@ var opts = {
   'publishedBefore': "publishedBefore_example", // String | return only news published before the date
   'publishedAfter': "publishedAfter_example", // String | return only news published after the date
   'search': "search_example", // String | Search news by free-text query
+  'sortOrder': "sortOrder_example", // String | define order (NATURAL or SCORE). Default is NATURAL
+  'sortDir': "sortDir_example", // String | ASC or DESC. Default is ASC
   'firstResult': 56, // Integer | first index of results
   'maxResults': 56 // Integer | maximum number of results
 };
@@ -226,6 +228,8 @@ Name | Type | Description  | Notes
  **publishedBefore** | **String**| return only news published before the date | [optional] 
  **publishedAfter** | **String**| return only news published after the date | [optional] 
  **search** | **String**| Search news by free-text query | [optional] 
+ **sortOrder** | **String**| define order (NATURAL or SCORE). Default is NATURAL | [optional] 
+ **sortDir** | **String**| ASC or DESC. Default is ASC | [optional] 
  **firstResult** | **Integer**| first index of results | [optional] 
  **maxResults** | **Integer**| maximum number of results | [optional] 
 

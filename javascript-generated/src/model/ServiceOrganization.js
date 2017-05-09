@@ -45,7 +45,7 @@
   /**
    * The ServiceOrganization model module.
    * @module model/ServiceOrganization
-   * @version 0.0.93
+   * @version 0.0.94
    */
 
   /**
