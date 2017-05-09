@@ -36,7 +36,7 @@ paths:
           description: Search organizations by free-text query
           required: false
           type: string
-        - name: sortOrder
+        - name: sortBy
           in: query
           description: define order (NATURAL or SCORE). Default is NATURAL
           type: string
@@ -387,7 +387,7 @@ paths:
           description: Search news by free-text query
           required: false
           type: string
-        - name: sortOrder
+        - name: sortBy
           in: query
           description: define order (NATURAL or SCORE). Default is NATURAL
           type: string
@@ -1048,7 +1048,7 @@ paths:
           description: Search pages by free-text query
           required: false
           type: string
-        - name: sortOrder
+        - name: sortBy
           in: query
           description: define order (NATURAL or SCORE). Default is NATURAL
           type: string
@@ -2621,7 +2621,7 @@ paths:
           description: Search services by free-text query
           required: false
           type: string
-        - name: sortOrder
+        - name: sortBy
           in: query
           description: define order (NATURAL or SCORE). Default is NATURAL
           type: string
@@ -3498,7 +3498,7 @@ paths:
           description: Search service location channels by free-text query
           required: false
           type: string
-        - name: sortOrder
+        - name: sortBy
           in: query
           description: define order (NATURAL or SCORE). Default is NATURAL
           type: string
