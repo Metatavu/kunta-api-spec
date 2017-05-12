@@ -2514,6 +2514,11 @@ paths:
           required: true
           type: string
           format: uuid
+        - name: slug
+          in: query
+          description: Filter with slug
+          required: false
+          type: string
         - name: startBefore
           in: query
           type: string
@@ -4975,6 +4980,8 @@ definitions:
       id:
         type: string
         format: uuid
+      slug:
+        type: string
       severity:
         type: string
       title:
