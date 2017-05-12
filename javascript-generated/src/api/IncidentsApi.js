@@ -42,7 +42,7 @@
   /**
    * Incidents service.
    * @module api/IncidentsApi
-   * @version 0.0.95
+   * @version 0.0.96
    */
 
   /**
@@ -107,6 +107,7 @@
      * Lists organizations incidents 
      * @param {String} organizationId Organization id
      * @param {Object} opts Optional parameters
+     * @param {String} opts.slug Filter with slug
      * @param {String} opts.startBefore 
      * @param {String} opts.endAfter 
      * @param {Integer} opts.area Return only incidents from specified area
@@ -130,6 +131,7 @@
         'organizationId': organizationId
       };
       var queryParams = {
+        'slug': opts['slug'],
         'startBefore': opts['startBefore'],
         'endAfter': opts['endAfter'],
         'area': opts['area'],

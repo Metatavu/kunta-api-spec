@@ -45,7 +45,7 @@
   /**
    * The Incident model module.
    * @module model/Incident
-   * @version 0.0.95
+   * @version 0.0.96
    */
 
   /**
@@ -55,6 +55,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -78,6 +79,9 @@
 
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
+      }
+      if (data.hasOwnProperty('slug')) {
+        obj['slug'] = ApiClient.convertToType(data['slug'], 'String');
       }
       if (data.hasOwnProperty('severity')) {
         obj['severity'] = ApiClient.convertToType(data['severity'], 'String');
@@ -105,6 +109,10 @@
    * @member {String} id
    */
   exports.prototype['id'] = undefined;
+  /**
+   * @member {String} slug
+   */
+  exports.prototype['slug'] = undefined;
   /**
    * @member {String} severity
    */

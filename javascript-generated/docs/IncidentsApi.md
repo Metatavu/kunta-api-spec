@@ -83,6 +83,7 @@ var apiInstance = new KuntaApiClient.IncidentsApi();
 var organizationId = "organizationId_example"; // String | Organization id
 
 var opts = { 
+  'slug': "slug_example", // String | Filter with slug
   'startBefore': "startBefore_example", // String | 
   'endAfter': "endAfter_example", // String | 
   'area': 56, // Integer | Return only incidents from specified area
@@ -104,6 +105,7 @@ apiInstance.listOrganizationIncidents(organizationId, opts).then(function(data) 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| Organization id | 
+ **slug** | **String**| Filter with slug | [optional] 
  **startBefore** | **String**|  | [optional] 
  **endAfter** | **String**|  | [optional] 
  **area** | **Integer**| Return only incidents from specified area | [optional] 
