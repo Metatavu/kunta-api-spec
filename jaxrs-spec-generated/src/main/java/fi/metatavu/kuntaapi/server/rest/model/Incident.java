@@ -13,6 +13,7 @@ import java.util.Objects;
 public class Incident   {
   
   private String id = null;
+  private String slug = null;
   private String severity = null;
   private String title = null;
   private String description = null;
@@ -34,6 +35,22 @@ public class Incident   {
   }
   public void setId(String id) {
     this.id = id;
+  }
+
+  /**
+   **/
+  public Incident slug(String slug) {
+    this.slug = slug;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "")
+  public String getSlug() {
+    return slug;
+  }
+  public void setSlug(String slug) {
+    this.slug = slug;
   }
 
   /**
@@ -143,6 +160,7 @@ public class Incident   {
     }
     Incident incident = (Incident) o;
     return Objects.equals(id, incident.id) &&
+        Objects.equals(slug, incident.slug) &&
         Objects.equals(severity, incident.severity) &&
         Objects.equals(title, incident.title) &&
         Objects.equals(description, incident.description) &&
@@ -153,7 +171,7 @@ public class Incident   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, severity, title, description, start, end, areas);
+    return Objects.hash(id, slug, severity, title, description, start, end, areas);
   }
 
   @Override
@@ -162,6 +180,7 @@ public class Incident   {
     sb.append("class Incident {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("    severity: ").append(toIndentedString(severity)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
