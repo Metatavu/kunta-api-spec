@@ -42,7 +42,7 @@
   /**
    * Settings service.
    * @module api/SettingsApi
-   * @version 0.0.96
+   * @version 0.0.97
    */
 
   /**

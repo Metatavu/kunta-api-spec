@@ -34,7 +34,7 @@
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.Forbidden = factory(root.KuntaApiClient.ApiClient);
+    root.KuntaApiClient.EmergencySource = factory(root.KuntaApiClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -43,14 +43,14 @@
 
 
   /**
-   * The Forbidden model module.
-   * @module model/Forbidden
+   * The EmergencySource model module.
+   * @module model/EmergencySource
    * @version 0.0.97
    */
 
   /**
-   * Constructs a new <code>Forbidden</code>.
-   * @alias module:model/Forbidden
+   * Constructs a new <code>EmergencySource</code>.
+   * @alias module:model/EmergencySource
    * @class
    */
   var exports = function() {
@@ -61,34 +61,34 @@
   };
 
   /**
-   * Constructs a <code>Forbidden</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>EmergencySource</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Forbidden} obj Optional instance to populate.
-   * @return {module:model/Forbidden} The populated <code>Forbidden</code> instance.
+   * @param {module:model/EmergencySource} obj Optional instance to populate.
+   * @return {module:model/EmergencySource} The populated <code>EmergencySource</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('code')) {
-        obj['code'] = ApiClient.convertToType(data['code'], 'Integer');
+      if (data.hasOwnProperty('name')) {
+        obj['name'] = ApiClient.convertToType(data['name'], 'String');
       }
-      if (data.hasOwnProperty('message')) {
-        obj['message'] = ApiClient.convertToType(data['message'], 'String');
+      if (data.hasOwnProperty('url')) {
+        obj['url'] = ApiClient.convertToType(data['url'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * @member {Integer} code
+   * @member {String} name
    */
-  exports.prototype['code'] = undefined;
+  exports.prototype['name'] = undefined;
   /**
-   * @member {String} message
+   * @member {String} url
    */
-  exports.prototype['message'] = undefined;
+  exports.prototype['url'] = undefined;
 
 
 

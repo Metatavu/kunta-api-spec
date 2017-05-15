@@ -25,29 +25,29 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/BadRequest', 'model/Forbidden', 'model/Shortlink', 'model/InternalServerError'], factory);
+    define(['ApiClient', 'model/BadRequest', 'model/Forbidden', 'model/Emergency', 'model/InternalServerError'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/Forbidden'), require('../model/Shortlink'), require('../model/InternalServerError'));
+    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/Forbidden'), require('../model/Emergency'), require('../model/InternalServerError'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.ShortlinksApi = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.BadRequest, root.KuntaApiClient.Forbidden, root.KuntaApiClient.Shortlink, root.KuntaApiClient.InternalServerError);
+    root.KuntaApiClient.EmergenciesApi = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.BadRequest, root.KuntaApiClient.Forbidden, root.KuntaApiClient.Emergency, root.KuntaApiClient.InternalServerError);
   }
-}(this, function(ApiClient, BadRequest, Forbidden, Shortlink, InternalServerError) {
+}(this, function(ApiClient, BadRequest, Forbidden, Emergency, InternalServerError) {
   'use strict';
 
   /**
-   * Shortlinks service.
-   * @module api/ShortlinksApi
+   * Emergencies service.
+   * @module api/EmergenciesApi
    * @version 0.0.97
    */
 
   /**
-   * Constructs a new ShortlinksApi. 
-   * @alias module:api/ShortlinksApi
+   * Constructs a new EmergenciesApi. 
+   * @alias module:api/EmergenciesApi
    * @class
    * @param {module:ApiClient} apiClient Optional API client implementation to use,
    * default to {@link module:ApiClient#instance} if unspecified.
@@ -58,29 +58,29 @@
 
 
     /**
-     * Finds organization shortlink
-     * Finds single organization shortlink 
+     * Returns organizations emergency by id
+     * Returns organizations emergency by id 
      * @param {String} organizationId Organization id
-     * @param {String} shortlinkId shortlink id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Shortlink}
+     * @param {String} emergencyId Emergency id
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Emergency}
      */
-    this.findOrganizationShortlink = function(organizationId, shortlinkId) {
+    this.findOrganizationEmergency = function(organizationId, emergencyId) {
       var postBody = null;
 
       // verify the required parameter 'organizationId' is set
       if (organizationId == undefined || organizationId == null) {
-        throw "Missing the required parameter 'organizationId' when calling findOrganizationShortlink";
+        throw "Missing the required parameter 'organizationId' when calling findOrganizationEmergency";
       }
 
-      // verify the required parameter 'shortlinkId' is set
-      if (shortlinkId == undefined || shortlinkId == null) {
-        throw "Missing the required parameter 'shortlinkId' when calling findOrganizationShortlink";
+      // verify the required parameter 'emergencyId' is set
+      if (emergencyId == undefined || emergencyId == null) {
+        throw "Missing the required parameter 'emergencyId' when calling findOrganizationEmergency";
       }
 
 
       var pathParams = {
         'organizationId': organizationId,
-        'shortlinkId': shortlinkId
+        'emergencyId': emergencyId
       };
       var queryParams = {
       };
@@ -92,10 +92,10 @@
       var authNames = ['basicAuth'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = Shortlink;
+      var returnType = Emergency;
 
       return this.apiClient.callApi(
-        '/organizations/{organizationId}/shortlinks/{shortlinkId}', 'GET',
+        '/organizations/{organizationId}/emergencies/{emergencyId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );
@@ -103,22 +103,26 @@
 
 
     /**
-     * Lists organizations shortlinks
-     * Lists organizations shortlinks 
+     * Lists organizations emergencies
+     * Lists organizations emergencies 
      * @param {String} organizationId Organization id
      * @param {Object} opts Optional parameters
-     * @param {String} opts.path Filter results by path
-     * @param {Integer} opts.firstResult First result
-     * @param {Integer} opts.maxResults Max results
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Shortlink>}
+     * @param {String} opts.location Return emergencies by location
+     * @param {String} opts.before Return emergencies before specified time
+     * @param {String} opts.after Return emergencies after specified time
+     * @param {Integer} opts.firstResult First index of results
+     * @param {Integer} opts.maxResults Maximum number of results
+     * @param {String} opts.orderBy Define order (NATURAL, START)
+     * @param {String} opts.orderDir Order direction (ASC, DESC). Default is ASC
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Emergency>}
      */
-    this.listOrganizationShortlinks = function(organizationId, opts) {
+    this.listOrganizationEmergencies = function(organizationId, opts) {
       opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'organizationId' is set
       if (organizationId == undefined || organizationId == null) {
-        throw "Missing the required parameter 'organizationId' when calling listOrganizationShortlinks";
+        throw "Missing the required parameter 'organizationId' when calling listOrganizationEmergencies";
       }
 
 
@@ -126,9 +130,13 @@
         'organizationId': organizationId
       };
       var queryParams = {
-        'path': opts['path'],
+        'location': opts['location'],
+        'before': opts['before'],
+        'after': opts['after'],
         'firstResult': opts['firstResult'],
-        'maxResults': opts['maxResults']
+        'maxResults': opts['maxResults'],
+        'orderBy': opts['orderBy'],
+        'orderDir': opts['orderDir']
       };
       var headerParams = {
       };
@@ -138,10 +146,10 @@
       var authNames = ['basicAuth'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = [Shortlink];
+      var returnType = [Emergency];
 
       return this.apiClient.callApi(
-        '/organizations/{organizationId}/shortlinks', 'GET',
+        '/organizations/{organizationId}/emergencies', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );

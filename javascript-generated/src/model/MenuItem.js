@@ -45,7 +45,7 @@
   /**
    * The MenuItem model module.
    * @module model/MenuItem
-   * @version 0.0.96
+   * @version 0.0.97
    */
 
   /**
