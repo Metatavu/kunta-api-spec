@@ -13,6 +13,7 @@ import java.util.Objects;
 
 public class Emergency   {
   
+  private String id = null;
   private String location = null;
   private OffsetDateTime time = null;
   private String description = null;
@@ -22,6 +23,22 @@ public class Emergency   {
   private String latitude = null;
   private String longitude = null;
   private List<EmergencySource> sources = new ArrayList<EmergencySource>();
+
+  /**
+   **/
+  public Emergency id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "")
+  public String getId() {
+    return id;
+  }
+  public void setId(String id) {
+    this.id = id;
+  }
 
   /**
    **/
@@ -180,7 +197,8 @@ public class Emergency   {
       return false;
     }
     Emergency emergency = (Emergency) o;
-    return Objects.equals(location, emergency.location) &&
+    return Objects.equals(id, emergency.id) &&
+        Objects.equals(location, emergency.location) &&
         Objects.equals(time, emergency.time) &&
         Objects.equals(description, emergency.description) &&
         Objects.equals(extent, emergency.extent) &&
@@ -193,7 +211,7 @@ public class Emergency   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(location, time, description, extent, type, url, latitude, longitude, sources);
+    return Objects.hash(id, location, time, description, extent, type, url, latitude, longitude, sources);
   }
 
   @Override
@@ -201,6 +219,7 @@ public class Emergency   {
     StringBuilder sb = new StringBuilder();
     sb.append("class Emergency {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    location: ").append(toIndentedString(location)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
