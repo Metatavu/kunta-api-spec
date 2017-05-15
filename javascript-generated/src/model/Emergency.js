@@ -45,7 +45,7 @@
   /**
    * The Emergency model module.
    * @module model/Emergency
-   * @version 0.0.97
+   * @version 0.0.98
    */
 
   /**
@@ -55,6 +55,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -92,6 +93,9 @@
       if (data.hasOwnProperty('type')) {
         obj['type'] = ApiClient.convertToType(data['type'], 'String');
       }
+      if (data.hasOwnProperty('url')) {
+        obj['url'] = ApiClient.convertToType(data['url'], 'String');
+      }
       if (data.hasOwnProperty('latitude')) {
         obj['latitude'] = ApiClient.convertToType(data['latitude'], 'String');
       }
@@ -125,6 +129,10 @@
    * @member {String} type
    */
   exports.prototype['type'] = undefined;
+  /**
+   * @member {String} url
+   */
+  exports.prototype['url'] = undefined;
   /**
    * Emergency latitude coordinate.
    * @member {String} latitude

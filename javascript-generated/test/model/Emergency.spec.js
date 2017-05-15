@@ -95,6 +95,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property url (base name: "url")', function() {
+      // uncomment below and update the code to test the property url
+      //var instane = new KuntaApiClient.Emergency();
+      //expect(instance).to.be();
+    });
+
     it('should have the property latitude (base name: "latitude")', function() {
       // uncomment below and update the code to test the property latitude
       //var instane = new KuntaApiClient.Emergency();
