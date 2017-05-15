@@ -20,7 +20,7 @@ import java.util.List;
 @Api(description = "the printableFormServiceChannels API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-05-15T19:08:01.214+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-05-15T20:14:26.199+03:00")
 
 public abstract class PrintableFormServiceChannelsApi extends AbstractApi {
 

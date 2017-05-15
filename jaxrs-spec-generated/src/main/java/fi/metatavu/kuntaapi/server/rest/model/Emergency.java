@@ -14,7 +14,7 @@ import java.util.Objects;
 public class Emergency   {
   
   private String location = null;
-  private OffsetDateTime published = null;
+  private OffsetDateTime time = null;
   private String description = null;
   private String extent = null;
   private String type = null;
@@ -41,18 +41,18 @@ public class Emergency   {
 
   /**
    **/
-  public Emergency published(OffsetDateTime published) {
-    this.published = published;
+  public Emergency time(OffsetDateTime time) {
+    this.time = time;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "")
-  public OffsetDateTime getPublished() {
-    return published;
+  public OffsetDateTime getTime() {
+    return time;
   }
-  public void setPublished(OffsetDateTime published) {
-    this.published = published;
+  public void setTime(OffsetDateTime time) {
+    this.time = time;
   }
 
   /**
@@ -181,7 +181,7 @@ public class Emergency   {
     }
     Emergency emergency = (Emergency) o;
     return Objects.equals(location, emergency.location) &&
-        Objects.equals(published, emergency.published) &&
+        Objects.equals(time, emergency.time) &&
         Objects.equals(description, emergency.description) &&
         Objects.equals(extent, emergency.extent) &&
         Objects.equals(type, emergency.type) &&
@@ -193,7 +193,7 @@ public class Emergency   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(location, published, description, extent, type, url, latitude, longitude, sources);
+    return Objects.hash(location, time, description, extent, type, url, latitude, longitude, sources);
   }
 
   @Override
@@ -202,7 +202,7 @@ public class Emergency   {
     sb.append("class Emergency {\n");
     
     sb.append("    location: ").append(toIndentedString(location)).append("\n");
-    sb.append("    published: ").append(toIndentedString(published)).append("\n");
+    sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    extent: ").append(toIndentedString(extent)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
