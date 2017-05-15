@@ -5132,7 +5132,7 @@ definitions:
     properties:
       location:
         type: string
-      published:
+      time:
         type: string
         format: date-time
       description:
