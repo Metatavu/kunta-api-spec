@@ -5141,6 +5141,8 @@ definitions:
         type: string
       type:
         type: string
+      url:
+        type: string
       latitude:
         description: Emergency latitude coordinate.
         type: string
