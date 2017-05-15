@@ -6791,6 +6791,9 @@
         "type" : {
           "type" : "string"
         },
+        "url" : {
+          "type" : "string"
+        },
         "latitude" : {
           "type" : "string",
           "description" : "Emergency latitude coordinate."

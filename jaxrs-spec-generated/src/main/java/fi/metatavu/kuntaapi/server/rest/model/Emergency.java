@@ -18,6 +18,7 @@ public class Emergency   {
   private String description = null;
   private String extent = null;
   private String type = null;
+  private String url = null;
   private String latitude = null;
   private String longitude = null;
   private List<EmergencySource> sources = new ArrayList<EmergencySource>();
@@ -103,6 +104,22 @@ public class Emergency   {
   }
 
   /**
+   **/
+  public Emergency url(String url) {
+    this.url = url;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "")
+  public String getUrl() {
+    return url;
+  }
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  /**
    * Emergency latitude coordinate.
    **/
   public Emergency latitude(String latitude) {
@@ -168,6 +185,7 @@ public class Emergency   {
         Objects.equals(description, emergency.description) &&
         Objects.equals(extent, emergency.extent) &&
         Objects.equals(type, emergency.type) &&
+        Objects.equals(url, emergency.url) &&
         Objects.equals(latitude, emergency.latitude) &&
         Objects.equals(longitude, emergency.longitude) &&
         Objects.equals(sources, emergency.sources);
@@ -175,7 +193,7 @@ public class Emergency   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(location, published, description, extent, type, latitude, longitude, sources);
+    return Objects.hash(location, published, description, extent, type, url, latitude, longitude, sources);
   }
 
   @Override
@@ -188,6 +206,7 @@ public class Emergency   {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    extent: ").append(toIndentedString(extent)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    latitude: ").append(toIndentedString(latitude)).append("\n");
     sb.append("    longitude: ").append(toIndentedString(longitude)).append("\n");
     sb.append("    sources: ").append(toIndentedString(sources)).append("\n");
