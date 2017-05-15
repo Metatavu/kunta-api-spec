@@ -727,6 +727,144 @@
         }
       }
     },
+    "/organizations/{organizationId}/emergencies" : {
+      "get" : {
+        "tags" : [ "Emergencies" ],
+        "summary" : "Lists organizations emergencies",
+        "description" : "Lists organizations emergencies\n",
+        "operationId" : "listOrganizationEmergencies",
+        "parameters" : [ {
+          "name" : "organizationId",
+          "in" : "path",
+          "description" : "Organization id",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        }, {
+          "name" : "location",
+          "in" : "query",
+          "description" : "Return emergencies by location",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "before",
+          "in" : "query",
+          "description" : "Return emergencies before specified time",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "after",
+          "in" : "query",
+          "description" : "Return emergencies after specified time",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "firstResult",
+          "in" : "query",
+          "description" : "First index of results",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "description" : "Maximum number of results",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "orderBy",
+          "in" : "query",
+          "description" : "Define order (NATURAL, START)",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "orderDir",
+          "in" : "query",
+          "description" : "Order direction (ASC, DESC). Default is ASC",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a list of emergencies",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Emergency"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid request was sent to the server",
+            "schema" : {
+              "$ref" : "#/definitions/BadRequest"
+            }
+          },
+          "403" : {
+            "description" : "Attempted to make a call with unauthorized client",
+            "schema" : {
+              "$ref" : "#/definitions/Forbidden"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "schema" : {
+              "$ref" : "#/definitions/InternalServerError"
+            }
+          }
+        }
+      }
+    },
+    "/organizations/{organizationId}/emergencies/{emergencyId}" : {
+      "get" : {
+        "tags" : [ "Emergencies" ],
+        "summary" : "Returns organizations emergency by id",
+        "description" : "Returns organizations emergency by id\n",
+        "operationId" : "findOrganizationEmergency",
+        "parameters" : [ {
+          "name" : "organizationId",
+          "in" : "path",
+          "description" : "Organization id",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        }, {
+          "name" : "emergencyId",
+          "in" : "path",
+          "description" : "Emergency id",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a single emergency",
+            "schema" : {
+              "$ref" : "#/definitions/Emergency"
+            }
+          },
+          "400" : {
+            "description" : "Invalid request was sent to the server",
+            "schema" : {
+              "$ref" : "#/definitions/BadRequest"
+            }
+          },
+          "403" : {
+            "description" : "Attempted to make a call with unauthorized client",
+            "schema" : {
+              "$ref" : "#/definitions/Forbidden"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "schema" : {
+              "$ref" : "#/definitions/InternalServerError"
+            }
+          }
+        }
+      }
+    },
     "/organizations/{organizationId}/events" : {
       "get" : {
         "tags" : [ "Events" ],
@@ -6631,6 +6769,53 @@
           "items" : {
             "$ref" : "#/definitions/LocalizedValue"
           }
+        }
+      }
+    },
+    "Emergency" : {
+      "type" : "object",
+      "properties" : {
+        "location" : {
+          "type" : "string"
+        },
+        "published" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "extent" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string"
+        },
+        "latitude" : {
+          "type" : "string",
+          "description" : "Emergency latitude coordinate."
+        },
+        "longitude" : {
+          "type" : "string",
+          "description" : "Emergency longitude coordinate."
+        },
+        "sources" : {
+          "type" : "array",
+          "description" : "List of emergency source",
+          "items" : {
+            "$ref" : "#/definitions/EmergencySource"
+          }
+        }
+      }
+    },
+    "EmergencySource" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "url" : {
+          "type" : "string"
         }
       }
     },
