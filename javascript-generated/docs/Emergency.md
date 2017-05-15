@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **location** | **String** |  | [optional] 
-**published** | **Date** |  | [optional] 
+**time** | **Date** |  | [optional] 
 **description** | **String** |  | [optional] 
 **extent** | **String** |  | [optional] 
 **type** | **String** |  | [optional] 

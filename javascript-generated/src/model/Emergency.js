@@ -45,7 +45,7 @@
   /**
    * The Emergency model module.
    * @module model/Emergency
-   * @version 0.0.98
+   * @version 0.0.99
    */
 
   /**
@@ -81,8 +81,8 @@
       if (data.hasOwnProperty('location')) {
         obj['location'] = ApiClient.convertToType(data['location'], 'String');
       }
-      if (data.hasOwnProperty('published')) {
-        obj['published'] = ApiClient.convertToType(data['published'], 'Date');
+      if (data.hasOwnProperty('time')) {
+        obj['time'] = ApiClient.convertToType(data['time'], 'Date');
       }
       if (data.hasOwnProperty('description')) {
         obj['description'] = ApiClient.convertToType(data['description'], 'String');
@@ -114,9 +114,9 @@
    */
   exports.prototype['location'] = undefined;
   /**
-   * @member {Date} published
+   * @member {Date} time
    */
-  exports.prototype['published'] = undefined;
+  exports.prototype['time'] = undefined;
   /**
    * @member {String} description
    */

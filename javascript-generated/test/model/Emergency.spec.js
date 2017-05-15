@@ -71,8 +71,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property published (base name: "published")', function() {
-      // uncomment below and update the code to test the property published
+    it('should have the property time (base name: "time")', function() {
+      // uncomment below and update the code to test the property time
       //var instane = new KuntaApiClient.Emergency();
       //expect(instance).to.be();
     });
