@@ -65,6 +65,12 @@
       //expect(instance).to.be.a(KuntaApiClient.Emergency);
     });
 
+    it('should have the property id (base name: "id")', function() {
+      // uncomment below and update the code to test the property id
+      //var instane = new KuntaApiClient.Emergency();
+      //expect(instance).to.be();
+    });
+
     it('should have the property location (base name: "location")', function() {
       // uncomment below and update the code to test the property location
       //var instane = new KuntaApiClient.Emergency();

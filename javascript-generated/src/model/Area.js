@@ -45,7 +45,7 @@
   /**
    * The Area model module.
    * @module model/Area
-   * @version 0.0.99
+   * @version 0.0.100
    */
 
   /**

@@ -45,7 +45,7 @@
   /**
    * The LocalizedValue model module.
    * @module model/LocalizedValue
-   * @version 0.0.99
+   * @version 0.0.100
    */
 
   /**

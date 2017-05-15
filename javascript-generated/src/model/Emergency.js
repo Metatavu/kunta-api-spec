@@ -45,7 +45,7 @@
   /**
    * The Emergency model module.
    * @module model/Emergency
-   * @version 0.0.99
+   * @version 0.0.100
    */
 
   /**
@@ -55,6 +55,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -78,6 +79,9 @@
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('id')) {
+        obj['id'] = ApiClient.convertToType(data['id'], 'String');
+      }
       if (data.hasOwnProperty('location')) {
         obj['location'] = ApiClient.convertToType(data['location'], 'String');
       }
@@ -109,6 +113,10 @@
     return obj;
   }
 
+  /**
+   * @member {String} id
+   */
+  exports.prototype['id'] = undefined;
   /**
    * @member {String} location
    */
