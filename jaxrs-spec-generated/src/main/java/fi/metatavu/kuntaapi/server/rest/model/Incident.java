@@ -17,6 +17,8 @@ public class Incident   {
   private String severity = null;
   private String title = null;
   private String description = null;
+  private String detailsLink = null;
+  private String detailsLinkText = null;
   private OffsetDateTime start = null;
   private OffsetDateTime end = null;
   private List<String> areas = new ArrayList<String>();
@@ -103,6 +105,38 @@ public class Incident   {
 
   /**
    **/
+  public Incident detailsLink(String detailsLink) {
+    this.detailsLink = detailsLink;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "")
+  public String getDetailsLink() {
+    return detailsLink;
+  }
+  public void setDetailsLink(String detailsLink) {
+    this.detailsLink = detailsLink;
+  }
+
+  /**
+   **/
+  public Incident detailsLinkText(String detailsLinkText) {
+    this.detailsLinkText = detailsLinkText;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "")
+  public String getDetailsLinkText() {
+    return detailsLinkText;
+  }
+  public void setDetailsLinkText(String detailsLinkText) {
+    this.detailsLinkText = detailsLinkText;
+  }
+
+  /**
+   **/
   public Incident start(OffsetDateTime start) {
     this.start = start;
     return this;
@@ -164,6 +198,8 @@ public class Incident   {
         Objects.equals(severity, incident.severity) &&
         Objects.equals(title, incident.title) &&
         Objects.equals(description, incident.description) &&
+        Objects.equals(detailsLink, incident.detailsLink) &&
+        Objects.equals(detailsLinkText, incident.detailsLinkText) &&
         Objects.equals(start, incident.start) &&
         Objects.equals(end, incident.end) &&
         Objects.equals(areas, incident.areas);
@@ -171,7 +207,7 @@ public class Incident   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, slug, severity, title, description, start, end, areas);
+    return Objects.hash(id, slug, severity, title, description, detailsLink, detailsLinkText, start, end, areas);
   }
 
   @Override
@@ -184,6 +220,8 @@ public class Incident   {
     sb.append("    severity: ").append(toIndentedString(severity)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    detailsLink: ").append(toIndentedString(detailsLink)).append("\n");
+    sb.append("    detailsLinkText: ").append(toIndentedString(detailsLinkText)).append("\n");
     sb.append("    start: ").append(toIndentedString(start)).append("\n");
     sb.append("    end: ").append(toIndentedString(end)).append("\n");
     sb.append("    areas: ").append(toIndentedString(areas)).append("\n");
