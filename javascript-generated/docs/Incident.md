@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **severity** | **String** |  | [optional] 
 **title** | **String** |  | [optional] 
 **description** | **String** |  | [optional] 
+**detailsLink** | **String** |  | [optional] 
+**detailsLinkText** | **String** |  | [optional] 
 **start** | **Date** |  | [optional] 
 **end** | **Date** |  | [optional] 
 **areas** | **[String]** |  | [optional] 

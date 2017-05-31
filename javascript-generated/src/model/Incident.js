@@ -45,7 +45,7 @@
   /**
    * The Incident model module.
    * @module model/Incident
-   * @version 0.0.100
+   * @version 0.0.101
    */
 
   /**
@@ -55,6 +55,8 @@
    */
   var exports = function() {
     var _this = this;
+
+
 
 
 
@@ -92,6 +94,12 @@
       if (data.hasOwnProperty('description')) {
         obj['description'] = ApiClient.convertToType(data['description'], 'String');
       }
+      if (data.hasOwnProperty('detailsLink')) {
+        obj['detailsLink'] = ApiClient.convertToType(data['detailsLink'], 'String');
+      }
+      if (data.hasOwnProperty('detailsLinkText')) {
+        obj['detailsLinkText'] = ApiClient.convertToType(data['detailsLinkText'], 'String');
+      }
       if (data.hasOwnProperty('start')) {
         obj['start'] = ApiClient.convertToType(data['start'], 'Date');
       }
@@ -125,6 +133,14 @@
    * @member {String} description
    */
   exports.prototype['description'] = undefined;
+  /**
+   * @member {String} detailsLink
+   */
+  exports.prototype['detailsLink'] = undefined;
+  /**
+   * @member {String} detailsLinkText
+   */
+  exports.prototype['detailsLinkText'] = undefined;
   /**
    * @member {Date} start
    */

@@ -95,6 +95,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property detailsLink (base name: "detailsLink")', function() {
+      // uncomment below and update the code to test the property detailsLink
+      //var instane = new KuntaApiClient.Incident();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property detailsLinkText (base name: "detailsLinkText")', function() {
+      // uncomment below and update the code to test the property detailsLinkText
+      //var instane = new KuntaApiClient.Incident();
+      //expect(instance).to.be();
+    });
+
     it('should have the property start (base name: "start")', function() {
       // uncomment below and update the code to test the property start
       //var instane = new KuntaApiClient.Incident();

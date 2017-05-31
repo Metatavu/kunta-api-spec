@@ -1,7 +1,7 @@
 {
   "author": "Metatavu Oy",
   "name": "kunta-api-client",
-  "version": "0.0.101",
+  "version": "0.0.102",
   "description": "Solution to combine municipality services under single API.",
   "license": "AGPL-3.0",
   "main": "src/index.js",
