@@ -5090,6 +5090,11 @@ definitions:
         type: string
       description:
         type: string
+      detailsLink:
+        type: string
+        format: url
+      detailsLinkText:
+        type: string
       start:
         type: string
         format: date-time
