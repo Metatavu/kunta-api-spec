@@ -25,24 +25,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/BadRequest', 'model/Forbidden', 'model/Page', 'model/InternalServerError', 'model/LocalizedValue', 'model/Attachment'], factory);
+    define(['ApiClient', 'model/BadRequest', 'model/Forbidden', 'model/InternalServerError', 'model/Page', 'model/LocalizedValue', 'model/Attachment'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/Forbidden'), require('../model/Page'), require('../model/InternalServerError'), require('../model/LocalizedValue'), require('../model/Attachment'));
+    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/Forbidden'), require('../model/InternalServerError'), require('../model/Page'), require('../model/LocalizedValue'), require('../model/Attachment'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.PagesApi = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.BadRequest, root.KuntaApiClient.Forbidden, root.KuntaApiClient.Page, root.KuntaApiClient.InternalServerError, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.Attachment);
+    root.KuntaApiClient.PagesApi = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.BadRequest, root.KuntaApiClient.Forbidden, root.KuntaApiClient.InternalServerError, root.KuntaApiClient.Page, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.Attachment);
   }
-}(this, function(ApiClient, BadRequest, Forbidden, Page, InternalServerError, LocalizedValue, Attachment) {
+}(this, function(ApiClient, BadRequest, Forbidden, InternalServerError, Page, LocalizedValue, Attachment) {
   'use strict';
 
   /**
    * Pages service.
    * @module api/PagesApi
-   * @version 0.0.101
+   * @version 0.0.102
    */
 
   /**
@@ -55,6 +55,51 @@
   var exports = function(apiClient) {
     this.apiClient = apiClient || ApiClient.instance;
 
+
+
+    /**
+     * Deletes an organizations page
+     * Deletes single organization page 
+     * @param {String} organizationId Organization id
+     * @param {String} pageId page id
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     */
+    this.deleteOrganizationPage = function(organizationId, pageId) {
+      var postBody = null;
+
+      // verify the required parameter 'organizationId' is set
+      if (organizationId == undefined || organizationId == null) {
+        throw "Missing the required parameter 'organizationId' when calling deleteOrganizationPage";
+      }
+
+      // verify the required parameter 'pageId' is set
+      if (pageId == undefined || pageId == null) {
+        throw "Missing the required parameter 'pageId' when calling deleteOrganizationPage";
+      }
+
+
+      var pathParams = {
+        'organizationId': organizationId,
+        'pageId': pageId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['basicAuth'];
+      var contentTypes = ['application/json;charset=utf-8'];
+      var accepts = ['application/json;charset=utf-8'];
+      var returnType = null;
+
+      return this.apiClient.callApi(
+        '/organizations/{organizationId}/pages/{pageId}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
 
 
     /**

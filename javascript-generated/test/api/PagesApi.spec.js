@@ -59,6 +59,16 @@
   }
 
   describe('PagesApi', function() {
+    describe('deleteOrganizationPage', function() {
+      it('should call deleteOrganizationPage successfully', function(done) {
+        //uncomment below and update the code to test deleteOrganizationPage
+        //instance.deleteOrganizationPage(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('findOrganizationPage', function() {
       it('should call findOrganizationPage successfully', function(done) {
         //uncomment below and update the code to test findOrganizationPage
