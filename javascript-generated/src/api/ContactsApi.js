@@ -42,7 +42,7 @@
   /**
    * Contacts service.
    * @module api/ContactsApi
-   * @version 0.0.102
+   * @version 0.0.103
    */
 
   /**
@@ -106,9 +106,16 @@
      * Lists organizations contacts
      * Lists organizations contacts 
      * @param {String} organizationId Organization id
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.search Search contacts by free-text query
+     * @param {String} opts.sortBy define order (NATURAL or SCORE). Default is NATURAL
+     * @param {String} opts.sortDir ASC or DESC. Default is ASC
+     * @param {Integer} opts.firstResult First result
+     * @param {Integer} opts.maxResults Max results
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Contact>}
      */
-    this.listOrganizationContacts = function(organizationId) {
+    this.listOrganizationContacts = function(organizationId, opts) {
+      opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'organizationId' is set
@@ -121,6 +128,11 @@
         'organizationId': organizationId
       };
       var queryParams = {
+        'search': opts['search'],
+        'sortBy': opts['sortBy'],
+        'sortDir': opts['sortDir'],
+        'firstResult': opts['firstResult'],
+        'maxResults': opts['maxResults']
       };
       var headerParams = {
       };

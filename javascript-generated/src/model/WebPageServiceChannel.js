@@ -45,7 +45,7 @@
   /**
    * The WebPageServiceChannel model module.
    * @module model/WebPageServiceChannel
-   * @version 0.0.102
+   * @version 0.0.103
    */
 
   /**

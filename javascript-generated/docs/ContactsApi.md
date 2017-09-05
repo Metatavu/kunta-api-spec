@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 <a name="listOrganizationContacts"></a>
 # **listOrganizationContacts**
-> [Contact] listOrganizationContacts(organizationId)
+> [Contact] listOrganizationContacts(organizationId, opts)
 
 Lists organizations contacts
 
@@ -82,7 +82,14 @@ var apiInstance = new KuntaApiClient.ContactsApi();
 
 var organizationId = "organizationId_example"; // String | Organization id
 
-apiInstance.listOrganizationContacts(organizationId).then(function(data) {
+var opts = { 
+  'search': "search_example", // String | Search contacts by free-text query
+  'sortBy': "sortBy_example", // String | define order (NATURAL or SCORE). Default is NATURAL
+  'sortDir': "sortDir_example", // String | ASC or DESC. Default is ASC
+  'firstResult': 789, // Integer | First result
+  'maxResults': 789 // Integer | Max results
+};
+apiInstance.listOrganizationContacts(organizationId, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -95,6 +102,11 @@ apiInstance.listOrganizationContacts(organizationId).then(function(data) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| Organization id | 
+ **search** | **String**| Search contacts by free-text query | [optional] 
+ **sortBy** | **String**| define order (NATURAL or SCORE). Default is NATURAL | [optional] 
+ **sortDir** | **String**| ASC or DESC. Default is ASC | [optional] 
+ **firstResult** | **Integer**| First result | [optional] 
+ **maxResults** | **Integer**| Max results | [optional] 
 
 ### Return type
 
