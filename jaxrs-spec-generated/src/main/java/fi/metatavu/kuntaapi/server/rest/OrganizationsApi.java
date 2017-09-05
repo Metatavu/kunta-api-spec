@@ -43,7 +43,7 @@ import java.util.List;
 @Api(description = "the organizations API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-06-05T17:06:34.823+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-09-05T07:47:31.908+03:00")
 
 public abstract class OrganizationsApi extends AbstractApi {
 
@@ -633,7 +633,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Contact.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Contact.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = Contact.class, responseContainer = "List") })
-    public abstract Response listOrganizationContacts(@PathParam("organizationId") String organizationId,@Context Request request);
+    public abstract Response listOrganizationContacts(@PathParam("organizationId") String organizationId,@QueryParam("search") String search,@QueryParam("sortBy") String sortBy,@QueryParam("sortDir") String sortDir,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
 
     @GET
     @Path("/{organizationId}/emergencies")
