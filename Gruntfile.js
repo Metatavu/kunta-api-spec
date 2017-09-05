@@ -109,8 +109,10 @@ module.exports = function(grunt) {
   });
   
   grunt.registerTask('download-dependencies', 'if-missing:curl:swagger-codegen');
-  grunt.registerTask('jaxrs-spec', ['download-dependencies', 'clean:jaxrs-spec-sources', 'shell:jaxrs-spec-generate', 'clean:jaxrs-spec-cruft', 'copy:jaxrs-spec-extras', 'shell:jaxrs-spec-install', 'shell:jaxrs-spec-release' ]);
-  grunt.registerTask('javascript', ['download-dependencies', 'clean:javascript-sources', 'shell:javascript-generate', 'shell:javascript-bump-version', 'shell:javascript-push', 'publish:publish-javascript-client']);
+  grunt.registerTask('jaxrs-gen', [ 'download-dependencies', 'clean:jaxrs-spec-sources', 'shell:jaxrs-spec-generate', 'clean:jaxrs-spec-cruft', 'copy:jaxrs-spec-extras', 'shell:jaxrs-spec-install' ]);
+  grunt.registerTask('jaxrs-spec', [ 'jaxrs-gen', 'shell:jaxrs-spec-release' ]);
+  grunt.registerTask('javascript-gen', [ 'download-dependencies', 'clean:javascript-sources', 'shell:javascript-generate' ]);
+  grunt.registerTask('javascript', [ 'javascript-gen', 'shell:javascript-bump-version', 'shell:javascript-push', 'publish:publish-javascript-client']);
   grunt.registerTask('php', ['shell:php-client-generate', 'shell:php-client-publish']);
 
   grunt.registerTask('default', ['jaxrs-spec', 'javascript', 'php']);
