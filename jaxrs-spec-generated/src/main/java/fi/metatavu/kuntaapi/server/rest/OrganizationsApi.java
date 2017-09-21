@@ -43,7 +43,7 @@ import java.util.List;
 @Api(description = "the organizations API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-09-05T07:47:31.908+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-09-21T12:17:43.749+03:00")
 
 public abstract class OrganizationsApi extends AbstractApi {
 
@@ -60,6 +60,20 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = OrganizationSetting.class),
         @ApiResponse(code = 500, message = "Internal server error", response = OrganizationSetting.class) })
     public abstract Response createOrganizationSetting(@PathParam("organizationId") String organizationId,OrganizationSetting setting,@Context Request request);
+
+    @DELETE
+    @Path("/{organizationId}/files/{fileId}")
+    @Consumes({ "application/json;charset=utf-8" })
+    @Produces({ "application/json;charset=utf-8" })
+    @ApiOperation(value = "Deletes an organization file", notes = "Deletes single organization file ", response = void.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Files",  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 204, message = "Successful removal", response = void.class),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = void.class),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = void.class),
+        @ApiResponse(code = 500, message = "Internal server error", response = void.class) })
+    public abstract Response deleteOrganizationFile(@PathParam("organizationId") String organizationId,@PathParam("fileId") String fileId,@Context Request request);
 
     @DELETE
     @Path("/{organizationId}/pages/{pageId}")
