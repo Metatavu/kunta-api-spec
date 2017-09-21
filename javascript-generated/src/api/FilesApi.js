@@ -25,24 +25,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/BadRequest', 'model/FileDef', 'model/Forbidden', 'model/InternalServerError'], factory);
+    define(['ApiClient', 'model/BadRequest', 'model/Forbidden', 'model/InternalServerError', 'model/FileDef'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/FileDef'), require('../model/Forbidden'), require('../model/InternalServerError'));
+    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/Forbidden'), require('../model/InternalServerError'), require('../model/FileDef'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.FilesApi = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.BadRequest, root.KuntaApiClient.FileDef, root.KuntaApiClient.Forbidden, root.KuntaApiClient.InternalServerError);
+    root.KuntaApiClient.FilesApi = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.BadRequest, root.KuntaApiClient.Forbidden, root.KuntaApiClient.InternalServerError, root.KuntaApiClient.FileDef);
   }
-}(this, function(ApiClient, BadRequest, FileDef, Forbidden, InternalServerError) {
+}(this, function(ApiClient, BadRequest, Forbidden, InternalServerError, FileDef) {
   'use strict';
 
   /**
    * Files service.
    * @module api/FilesApi
-   * @version 0.0.103
+   * @version 0.0.104
    */
 
   /**
@@ -55,6 +55,51 @@
   var exports = function(apiClient) {
     this.apiClient = apiClient || ApiClient.instance;
 
+
+
+    /**
+     * Deletes an organization file
+     * Deletes single organization file 
+     * @param {String} organizationId Organization id
+     * @param {String} fileId file id
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     */
+    this.deleteOrganizationFile = function(organizationId, fileId) {
+      var postBody = null;
+
+      // verify the required parameter 'organizationId' is set
+      if (organizationId == undefined || organizationId == null) {
+        throw "Missing the required parameter 'organizationId' when calling deleteOrganizationFile";
+      }
+
+      // verify the required parameter 'fileId' is set
+      if (fileId == undefined || fileId == null) {
+        throw "Missing the required parameter 'fileId' when calling deleteOrganizationFile";
+      }
+
+
+      var pathParams = {
+        'organizationId': organizationId,
+        'fileId': fileId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['basicAuth'];
+      var contentTypes = ['application/json;charset=utf-8'];
+      var accepts = ['application/json;charset=utf-8'];
+      var returnType = null;
+
+      return this.apiClient.callApi(
+        '/organizations/{organizationId}/files/{fileId}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
 
 
     /**

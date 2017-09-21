@@ -4,10 +4,63 @@ All URIs are relative to *https://demo.kuntaapi.fi/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**deleteOrganizationFile**](FilesApi.md#deleteOrganizationFile) | **DELETE** /organizations/{organizationId}/files/{fileId} | Deletes an organization file
 [**findOrganizationFile**](FilesApi.md#findOrganizationFile) | **GET** /organizations/{organizationId}/files/{fileId} | Finds organizations file
 [**getOrganizationFileData**](FilesApi.md#getOrganizationFileData) | **GET** /organizations/{organizationId}/files/{fileId}/data | Returns an organization file data
 [**listOrganizationFiles**](FilesApi.md#listOrganizationFiles) | **GET** /organizations/{organizationId}/files | Lists organizations files
 
+
+<a name="deleteOrganizationFile"></a>
+# **deleteOrganizationFile**
+> deleteOrganizationFile(organizationId, fileId)
+
+Deletes an organization file
+
+Deletes single organization file 
+
+### Example
+```javascript
+var KuntaApiClient = require('kunta-api-client');
+var defaultClient = KuntaApiClient.ApiClient.default;
+
+// Configure HTTP basic authorization: basicAuth
+var basicAuth = defaultClient.authentications['basicAuth'];
+basicAuth.username = 'YOUR USERNAME';
+basicAuth.password = 'YOUR PASSWORD';
+
+var apiInstance = new KuntaApiClient.FilesApi();
+
+var organizationId = "organizationId_example"; // String | Organization id
+
+var fileId = "fileId_example"; // String | file id
+
+apiInstance.deleteOrganizationFile(organizationId, fileId).then(function() {
+  console.log('API called successfully.');
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| Organization id | 
+ **fileId** | **String**| file id | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
 
 <a name="findOrganizationFile"></a>
 # **findOrganizationFile**
