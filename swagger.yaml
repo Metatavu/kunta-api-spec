@@ -1527,6 +1527,41 @@ paths:
           description: Internal server error
           schema:
             $ref: '#/definitions/InternalServerError'
+    delete:
+      operationId: deleteOrganizationFile
+      summary: Deletes an organization file
+      description: |
+        Deletes single organization file
+      parameters:
+        - name: organizationId
+          in: path
+          description: Organization id
+          required: true
+          type: string
+          format: uuid
+        - name: fileId
+          in: path
+          description: file id
+          required: true
+          type: string
+          format: uuid
+      tags:
+        - Files
+      responses:
+        204:
+          description: Successful removal 
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
   /organizations/{organizationId}/files/{fileId}/data:
     get:
       produces:
