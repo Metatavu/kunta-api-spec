@@ -18,7 +18,7 @@ public class Contact   {
   private String displayName = null;
   private String firstName = null;
   private String lastName = null;
-  private Boolean privateNumber = null;
+  private Boolean privateContact = null;
   private String title = null;
   private String organization = null;
   private List<String> organizationUnits = new ArrayList<String>();
@@ -94,18 +94,18 @@ public class Contact   {
 
   /**
    **/
-  public Contact privateNumber(Boolean privateNumber) {
-    this.privateNumber = privateNumber;
+  public Contact privateContact(Boolean privateContact) {
+    this.privateContact = privateContact;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "")
-  public Boolean getPrivateNumber() {
-    return privateNumber;
+  public Boolean getPrivateContact() {
+    return privateContact;
   }
-  public void setPrivateNumber(Boolean privateNumber) {
-    this.privateNumber = privateNumber;
+  public void setPrivateContact(Boolean privateContact) {
+    this.privateContact = privateContact;
   }
 
   /**
@@ -250,7 +250,7 @@ public class Contact   {
         Objects.equals(displayName, contact.displayName) &&
         Objects.equals(firstName, contact.firstName) &&
         Objects.equals(lastName, contact.lastName) &&
-        Objects.equals(privateNumber, contact.privateNumber) &&
+        Objects.equals(privateContact, contact.privateContact) &&
         Objects.equals(title, contact.title) &&
         Objects.equals(organization, contact.organization) &&
         Objects.equals(organizationUnits, contact.organizationUnits) &&
@@ -263,7 +263,7 @@ public class Contact   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, displayName, firstName, lastName, privateNumber, title, organization, organizationUnits, additionalInformations, emails, phones, addresses, statuses);
+    return Objects.hash(id, displayName, firstName, lastName, privateContact, title, organization, organizationUnits, additionalInformations, emails, phones, addresses, statuses);
   }
 
   @Override
@@ -275,7 +275,7 @@ public class Contact   {
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
-    sb.append("    privateNumber: ").append(toIndentedString(privateNumber)).append("\n");
+    sb.append("    privateContact: ").append(toIndentedString(privateContact)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    organization: ").append(toIndentedString(organization)).append("\n");
     sb.append("    organizationUnits: ").append(toIndentedString(organizationUnits)).append("\n");

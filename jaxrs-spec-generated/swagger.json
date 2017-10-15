@@ -6350,7 +6350,7 @@
         "lastName" : {
           "type" : "string"
         },
-        "privateNumber" : {
+        "privateContact" : {
           "type" : "boolean"
         },
         "title" : {
