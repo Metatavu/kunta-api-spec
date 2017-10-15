@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **displayName** | **String** |  | [optional] 
 **firstName** | **String** |  | [optional] 
 **lastName** | **String** |  | [optional] 
-**privateNumber** | **Boolean** |  | [optional] 
+**privateContact** | **Boolean** |  | [optional] 
 **title** | **String** |  | [optional] 
 **organization** | **String** |  | [optional] 
 **organizationUnits** | **[String]** |  | [optional] 

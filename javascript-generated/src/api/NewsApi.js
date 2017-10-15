@@ -42,7 +42,7 @@
   /**
    * News service.
    * @module api/NewsApi
-   * @version 0.0.105
+   * @version 0.0.106
    */
 
   /**
