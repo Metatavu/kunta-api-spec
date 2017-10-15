@@ -4844,7 +4844,7 @@ definitions:
         type: string
       lastName:     
         type: string
-      privateNumber:
+      privateContact:
         type: boolean
       title:     
         type: string
