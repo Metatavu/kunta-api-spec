@@ -2052,7 +2052,7 @@ paths:
           type: string
         - name: sortBy
           in: query
-          description: define order (NATURAL or SCORE). Default is NATURAL
+          description: define order (NATURAL, DISPLAY_NAME or SCORE). Default is NATURAL
           type: string
         - name: sortDir
           in: query
@@ -4844,6 +4844,8 @@ definitions:
         type: string
       lastName:     
         type: string
+      privateNumber:
+        type: boolean
       title:     
         type: string
       organization:     
