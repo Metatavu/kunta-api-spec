@@ -42,7 +42,7 @@
   /**
    * Contacts service.
    * @module api/ContactsApi
-   * @version 0.0.104
+   * @version 0.0.105
    */
 
   /**
@@ -108,7 +108,7 @@
      * @param {String} organizationId Organization id
      * @param {Object} opts Optional parameters
      * @param {String} opts.search Search contacts by free-text query
-     * @param {String} opts.sortBy define order (NATURAL or SCORE). Default is NATURAL
+     * @param {String} opts.sortBy define order (NATURAL, DISPLAY_NAME or SCORE). Default is NATURAL
      * @param {String} opts.sortDir ASC or DESC. Default is ASC
      * @param {Integer} opts.firstResult First result
      * @param {Integer} opts.maxResults Max results

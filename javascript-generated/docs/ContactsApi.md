@@ -84,7 +84,7 @@ var organizationId = "organizationId_example"; // String | Organization id
 
 var opts = { 
   'search': "search_example", // String | Search contacts by free-text query
-  'sortBy': "sortBy_example", // String | define order (NATURAL or SCORE). Default is NATURAL
+  'sortBy': "sortBy_example", // String | define order (NATURAL, DISPLAY_NAME or SCORE). Default is NATURAL
   'sortDir': "sortDir_example", // String | ASC or DESC. Default is ASC
   'firstResult': 789, // Integer | First result
   'maxResults': 789 // Integer | Max results
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| Organization id | 
  **search** | **String**| Search contacts by free-text query | [optional] 
- **sortBy** | **String**| define order (NATURAL or SCORE). Default is NATURAL | [optional] 
+ **sortBy** | **String**| define order (NATURAL, DISPLAY_NAME or SCORE). Default is NATURAL | [optional] 
  **sortDir** | **String**| ASC or DESC. Default is ASC | [optional] 
  **firstResult** | **Integer**| First result | [optional] 
  **maxResults** | **Integer**| Max results | [optional] 

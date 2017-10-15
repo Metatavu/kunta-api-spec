@@ -89,6 +89,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property privateNumber (base name: "privateNumber")', function() {
+      // uncomment below and update the code to test the property privateNumber
+      //var instane = new KuntaApiClient.Contact();
+      //expect(instance).to.be();
+    });
+
     it('should have the property title (base name: "title")', function() {
       // uncomment below and update the code to test the property title
       //var instane = new KuntaApiClient.Contact();

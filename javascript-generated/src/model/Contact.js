@@ -45,7 +45,7 @@
   /**
    * The Contact model module.
    * @module model/Contact
-   * @version 0.0.104
+   * @version 0.0.105
    */
 
   /**
@@ -55,6 +55,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -92,6 +93,9 @@
       }
       if (data.hasOwnProperty('lastName')) {
         obj['lastName'] = ApiClient.convertToType(data['lastName'], 'String');
+      }
+      if (data.hasOwnProperty('privateNumber')) {
+        obj['privateNumber'] = ApiClient.convertToType(data['privateNumber'], 'Boolean');
       }
       if (data.hasOwnProperty('title')) {
         obj['title'] = ApiClient.convertToType(data['title'], 'String');
@@ -137,6 +141,10 @@
    * @member {String} lastName
    */
   exports.prototype['lastName'] = undefined;
+  /**
+   * @member {Boolean} privateNumber
+   */
+  exports.prototype['privateNumber'] = undefined;
   /**
    * @member {String} title
    */
