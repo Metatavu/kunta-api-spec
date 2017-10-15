@@ -655,7 +655,7 @@
         }, {
           "name" : "sortBy",
           "in" : "query",
-          "description" : "define order (NATURAL or SCORE). Default is NATURAL",
+          "description" : "define order (NATURAL, DISPLAY_NAME or SCORE). Default is NATURAL",
           "required" : false,
           "type" : "string"
         }, {
@@ -6349,6 +6349,9 @@
         },
         "lastName" : {
           "type" : "string"
+        },
+        "privateNumber" : {
+          "type" : "boolean"
         },
         "title" : {
           "type" : "string"
