@@ -42,7 +42,7 @@
   /**
    * ServiceLocationServiceChannels service.
    * @module api/ServiceLocationServiceChannelsApi
-   * @version 0.0.106
+   * @version 0.0.107
    */
 
   /**
@@ -134,6 +134,50 @@
 
       return this.apiClient.callApi(
         '/serviceLocationServiceChannels', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+
+    /**
+     * Updates a service location channel
+     * Updates a service location channel
+     * @param {String} serviceLocationServiceChannelId serviceLocationChannel id
+     * @param {module:model/ServiceLocationServiceChannel} serviceLocationChannel New service location channel data
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ServiceLocationServiceChannel}
+     */
+    this.updateServiceLocationServiceChannel = function(serviceLocationServiceChannelId, serviceLocationChannel) {
+      var postBody = serviceLocationChannel;
+
+      // verify the required parameter 'serviceLocationServiceChannelId' is set
+      if (serviceLocationServiceChannelId == undefined || serviceLocationServiceChannelId == null) {
+        throw "Missing the required parameter 'serviceLocationServiceChannelId' when calling updateServiceLocationServiceChannel";
+      }
+
+      // verify the required parameter 'serviceLocationChannel' is set
+      if (serviceLocationChannel == undefined || serviceLocationChannel == null) {
+        throw "Missing the required parameter 'serviceLocationChannel' when calling updateServiceLocationServiceChannel";
+      }
+
+
+      var pathParams = {
+        'serviceLocationServiceChannelId': serviceLocationServiceChannelId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['basicAuth'];
+      var contentTypes = ['application/json;charset=utf-8'];
+      var accepts = ['application/json;charset=utf-8'];
+      var returnType = ServiceLocationServiceChannel;
+
+      return this.apiClient.callApi(
+        '/serviceLocationServiceChannels/{serviceLocationServiceChannelId}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );

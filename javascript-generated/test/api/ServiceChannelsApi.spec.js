@@ -159,6 +159,16 @@
         done();
       });
     });
+    describe('updateServiceLocationServiceChannel', function() {
+      it('should call updateServiceLocationServiceChannel successfully', function(done) {
+        //uncomment below and update the code to test updateServiceLocationServiceChannel
+        //instance.updateServiceLocationServiceChannel(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
   });
 
 }));

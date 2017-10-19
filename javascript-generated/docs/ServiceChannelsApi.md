@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**listPrintableFormServiceChannels**](ServiceChannelsApi.md#listPrintableFormServiceChannels) | **GET** /printableFormServiceChannels | Lists printable form service channels
 [**listServiceLocationServiceChannels**](ServiceChannelsApi.md#listServiceLocationServiceChannels) | **GET** /serviceLocationServiceChannels | Lists service location service channels
 [**listWebPageServiceChannels**](ServiceChannelsApi.md#listWebPageServiceChannels) | **GET** /webPageServiceChannels | Lists web page service channels
+[**updateServiceLocationServiceChannel**](ServiceChannelsApi.md#updateServiceLocationServiceChannel) | **PUT** /serviceLocationServiceChannels/{serviceLocationServiceChannelId} | Updates a service location channel
 
 
 <a name="findElectronicServiceChannel"></a>
@@ -519,6 +520,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[WebPageServiceChannel]**](WebPageServiceChannel.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
+
+<a name="updateServiceLocationServiceChannel"></a>
+# **updateServiceLocationServiceChannel**
+> ServiceLocationServiceChannel updateServiceLocationServiceChannel(serviceLocationServiceChannelId, serviceLocationChannel)
+
+Updates a service location channel
+
+Updates a service location channel
+
+### Example
+```javascript
+var KuntaApiClient = require('kunta-api-client');
+var defaultClient = KuntaApiClient.ApiClient.default;
+
+// Configure HTTP basic authorization: basicAuth
+var basicAuth = defaultClient.authentications['basicAuth'];
+basicAuth.username = 'YOUR USERNAME';
+basicAuth.password = 'YOUR PASSWORD';
+
+var apiInstance = new KuntaApiClient.ServiceChannelsApi();
+
+var serviceLocationServiceChannelId = "serviceLocationServiceChannelId_example"; // String | serviceLocationChannel id
+
+var serviceLocationChannel = new KuntaApiClient.ServiceLocationServiceChannel(); // ServiceLocationServiceChannel | New service location channel data
+
+apiInstance.updateServiceLocationServiceChannel(serviceLocationServiceChannelId, serviceLocationChannel).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **serviceLocationServiceChannelId** | **String**| serviceLocationChannel id | 
+ **serviceLocationChannel** | [**ServiceLocationServiceChannel**](ServiceLocationServiceChannel.md)| New service location channel data | 
+
+### Return type
+
+[**ServiceLocationServiceChannel**](ServiceLocationServiceChannel.md)
 
 ### Authorization
 

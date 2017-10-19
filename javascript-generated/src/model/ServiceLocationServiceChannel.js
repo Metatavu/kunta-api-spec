@@ -45,7 +45,7 @@
   /**
    * The ServiceLocationServiceChannel model module.
    * @module model/ServiceLocationServiceChannel
-   * @version 0.0.106
+   * @version 0.0.107
    */
 
   /**
@@ -165,7 +165,7 @@
    */
   exports.prototype['languages'] = undefined;
   /**
-   * Is the phone service charged for.
+   * DEPRECATED. DO NOT USE!
    * @member {Boolean} phoneServiceCharge
    */
   exports.prototype['phoneServiceCharge'] = undefined;

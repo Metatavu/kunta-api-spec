@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **phoneNumbers** | [**[Phone]**](Phone.md) | List of phone numbers for the service channel. Includes also fax numbers. | [optional] 
 **emails** | [**[Email]**](Email.md) | List email addresses for the service channel. | [optional] 
 **languages** | **[String]** | List of languages the service channel is available in (two letter language code). | [optional] 
-**phoneServiceCharge** | **Boolean** | Is the phone service charged for. | [optional] 
+**phoneServiceCharge** | **Boolean** | DEPRECATED. DO NOT USE! | [optional] 
 **webPages** | [**[WebPage]**](WebPage.md) | List of service channel web pages. | [optional] 
 **areaType** | **String** | Area type (WholeCountry, WholeCountryExceptAlandIslands, AreaType). | [optional] 
 **areas** | [**[Area]**](Area.md) | List of service channel areas. | [optional] 

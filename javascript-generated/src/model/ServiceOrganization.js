@@ -45,7 +45,7 @@
   /**
    * The ServiceOrganization model module.
    * @module model/ServiceOrganization
-   * @version 0.0.106
+   * @version 0.0.107
    */
 
   /**
@@ -115,7 +115,7 @@
    */
   exports.prototype['provisionType'] = undefined;
   /**
-   * List of web pages.
+   * DEPRECATED. DO NOT USE
    * @member {Array.<module:model/WebPage>} webPages
    */
   exports.prototype['webPages'] = undefined;
