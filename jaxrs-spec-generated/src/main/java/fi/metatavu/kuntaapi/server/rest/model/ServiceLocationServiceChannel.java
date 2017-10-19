@@ -153,7 +153,7 @@ public class ServiceLocationServiceChannel   {
   }
 
   /**
-   * Is the phone service charged for.
+   * DEPRECATED. DO NOT USE!
    **/
   public ServiceLocationServiceChannel phoneServiceCharge(Boolean phoneServiceCharge) {
     this.phoneServiceCharge = phoneServiceCharge;
@@ -161,7 +161,7 @@ public class ServiceLocationServiceChannel   {
   }
 
   
-  @ApiModelProperty(example = "null", value = "Is the phone service charged for.")
+  @ApiModelProperty(example = "null", value = "DEPRECATED. DO NOT USE!")
   public Boolean getPhoneServiceCharge() {
     return phoneServiceCharge;
   }

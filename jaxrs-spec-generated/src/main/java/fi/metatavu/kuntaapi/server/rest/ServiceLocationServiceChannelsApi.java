@@ -20,7 +20,7 @@ import java.util.List;
 @Api(description = "the serviceLocationServiceChannels API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-10-15T15:37:20.269+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-10-19T14:31:29.525+03:00")
 
 public abstract class ServiceLocationServiceChannelsApi extends AbstractApi {
 
@@ -45,7 +45,7 @@ public abstract class ServiceLocationServiceChannelsApi extends AbstractApi {
     @Produces({ "application/json;charset=utf-8" })
     @ApiOperation(value = "Lists service location service channels", notes = "Lists service location service channels", response = ServiceLocationServiceChannel.class, responseContainer = "List", authorizations = {
         @Authorization(value = "basicAuth")
-    }, tags={ "ServiceChannels", "ServiceLocationServiceChannels" })
+    }, tags={ "ServiceChannels", "ServiceLocationServiceChannels",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns array of service location service channels", response = ServiceLocationServiceChannel.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = ServiceLocationServiceChannel.class, responseContainer = "List"),
@@ -53,6 +53,21 @@ public abstract class ServiceLocationServiceChannelsApi extends AbstractApi {
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = ServiceLocationServiceChannel.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = ServiceLocationServiceChannel.class, responseContainer = "List") })
     public abstract Response listServiceLocationServiceChannels(@QueryParam("organizationId") String organizationId,@QueryParam("search") String search,@QueryParam("sortBy") String sortBy,@QueryParam("sortDir") String sortDir,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
+
+    @PUT
+    @Path("/{serviceLocationServiceChannelId}")
+    @Consumes({ "application/json;charset=utf-8" })
+    @Produces({ "application/json;charset=utf-8" })
+    @ApiOperation(value = "Updates a service location channel", notes = "Updates a service location channel", response = ServiceLocationServiceChannel.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "ServiceChannels", "ServiceLocationServiceChannels" })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Returns a service location service channel", response = ServiceLocationServiceChannel.class),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = ServiceLocationServiceChannel.class),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = ServiceLocationServiceChannel.class),
+        @ApiResponse(code = 404, message = "Resource was not found from the server", response = ServiceLocationServiceChannel.class),
+        @ApiResponse(code = 500, message = "Internal server error", response = ServiceLocationServiceChannel.class) })
+    public abstract Response updateServiceLocationServiceChannel(@PathParam("serviceLocationServiceChannelId") String serviceLocationServiceChannelId,ServiceLocationServiceChannel serviceLocationChannel,@Context Request request);
 
 }
 

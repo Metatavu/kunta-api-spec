@@ -4309,6 +4309,60 @@
             }
           }
         }
+      },
+      "put" : {
+        "tags" : [ "ServiceChannels", "ServiceLocationServiceChannels" ],
+        "summary" : "Updates a service location channel",
+        "description" : "Updates a service location channel",
+        "operationId" : "updateServiceLocationServiceChannel",
+        "parameters" : [ {
+          "name" : "serviceLocationServiceChannelId",
+          "in" : "path",
+          "description" : "serviceLocationChannel id",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        }, {
+          "in" : "body",
+          "name" : "serviceLocationChannel",
+          "description" : "New service location channel data",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ServiceLocationServiceChannel"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a service location service channel",
+            "schema" : {
+              "$ref" : "#/definitions/ServiceLocationServiceChannel"
+            }
+          },
+          "400" : {
+            "description" : "Invalid request was sent to the server",
+            "schema" : {
+              "$ref" : "#/definitions/BadRequest"
+            }
+          },
+          "403" : {
+            "description" : "Attempted to make a call with unauthorized client",
+            "schema" : {
+              "$ref" : "#/definitions/Forbidden"
+            }
+          },
+          "404" : {
+            "description" : "Resource was not found from the server",
+            "schema" : {
+              "$ref" : "#/definitions/NotFound"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "schema" : {
+              "$ref" : "#/definitions/InternalServerError"
+            }
+          }
+        }
       }
     },
     "/services" : {
@@ -5548,7 +5602,7 @@
         },
         "webPages" : {
           "type" : "array",
-          "description" : "List of web pages.",
+          "description" : "DEPRECATED. DO NOT USE",
           "items" : {
             "$ref" : "#/definitions/WebPage"
           }
@@ -5892,7 +5946,7 @@
         },
         "phoneServiceCharge" : {
           "type" : "boolean",
-          "description" : "Is the phone service charged for."
+          "description" : "DEPRECATED. DO NOT USE!"
         },
         "webPages" : {
           "type" : "array",

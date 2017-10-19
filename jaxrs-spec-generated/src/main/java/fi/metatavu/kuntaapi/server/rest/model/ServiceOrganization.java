@@ -92,7 +92,7 @@ public class ServiceOrganization   {
   }
 
   /**
-   * List of web pages.
+   * DEPRECATED. DO NOT USE
    **/
   public ServiceOrganization webPages(List<WebPage> webPages) {
     this.webPages = webPages;
@@ -100,7 +100,7 @@ public class ServiceOrganization   {
   }
 
   
-  @ApiModelProperty(example = "null", value = "List of web pages.")
+  @ApiModelProperty(example = "null", value = "DEPRECATED. DO NOT USE")
   public List<WebPage> getWebPages() {
     return webPages;
   }
