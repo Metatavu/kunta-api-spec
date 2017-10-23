@@ -17,6 +17,7 @@ public class Address   {
   private String longitude = null;
   private String coordinateState = null;
   private String type = null;
+  private String subtype = null;
   private List<LocalizedValue> postOfficeBox = new ArrayList<LocalizedValue>();
   private String postalCode = null;
   private List<LocalizedValue> postOffice = new ArrayList<LocalizedValue>();
@@ -95,7 +96,24 @@ public class Address   {
   }
 
   /**
-   * List of localized post office box addresses.
+   * Address sub type, Street, PostOfficeBox or NoAddress.
+   **/
+  public Address subtype(String subtype) {
+    this.subtype = subtype;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "Address sub type, Street, PostOfficeBox or NoAddress.")
+  public String getSubtype() {
+    return subtype;
+  }
+  public void setSubtype(String subtype) {
+    this.subtype = subtype;
+  }
+
+  /**
+   * Post office box like PL 310
    **/
   public Address postOfficeBox(List<LocalizedValue> postOfficeBox) {
     this.postOfficeBox = postOfficeBox;
@@ -103,7 +121,7 @@ public class Address   {
   }
 
   
-  @ApiModelProperty(example = "null", value = "List of localized post office box addresses.")
+  @ApiModelProperty(example = "null", value = "Post office box like PL 310")
   public List<LocalizedValue> getPostOfficeBox() {
     return postOfficeBox;
   }
@@ -243,6 +261,7 @@ public class Address   {
         Objects.equals(longitude, address.longitude) &&
         Objects.equals(coordinateState, address.coordinateState) &&
         Objects.equals(type, address.type) &&
+        Objects.equals(subtype, address.subtype) &&
         Objects.equals(postOfficeBox, address.postOfficeBox) &&
         Objects.equals(postalCode, address.postalCode) &&
         Objects.equals(postOffice, address.postOffice) &&
@@ -255,7 +274,7 @@ public class Address   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(latitude, longitude, coordinateState, type, postOfficeBox, postalCode, postOffice, streetAddress, streetNumber, municipality, country, additionalInformations);
+    return Objects.hash(latitude, longitude, coordinateState, type, subtype, postOfficeBox, postalCode, postOffice, streetAddress, streetNumber, municipality, country, additionalInformations);
   }
 
   @Override
@@ -267,6 +286,7 @@ public class Address   {
     sb.append("    longitude: ").append(toIndentedString(longitude)).append("\n");
     sb.append("    coordinateState: ").append(toIndentedString(coordinateState)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
     sb.append("    postOfficeBox: ").append(toIndentedString(postOfficeBox)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    postOffice: ").append(toIndentedString(postOffice)).append("\n");

@@ -6570,9 +6570,13 @@
           "type" : "string",
           "description" : "Address type, Visiting or Postal."
         },
+        "subtype" : {
+          "type" : "string",
+          "description" : "Address sub type, Street, PostOfficeBox or NoAddress."
+        },
         "postOfficeBox" : {
           "type" : "array",
-          "description" : "List of localized post office box addresses.",
+          "description" : "Post office box like PL 310",
           "items" : {
             "$ref" : "#/definitions/LocalizedValue"
           }
