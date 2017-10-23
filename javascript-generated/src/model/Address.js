@@ -45,7 +45,7 @@
   /**
    * The Address model module.
    * @module model/Address
-   * @version 0.0.107
+   * @version 0.0.108
    */
 
   /**
@@ -142,7 +142,7 @@
    */
   exports.prototype['type'] = undefined;
   /**
-   * Post office box like PL 310
+   * List of localized post office box addresses.
    * @member {Array.<module:model/LocalizedValue>} postOfficeBox
    */
   exports.prototype['postOfficeBox'] = undefined;
