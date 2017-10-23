@@ -5014,6 +5014,11 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/LocalizedValue'
+      postOfficeBox:
+        description: List of localized post office box addresses.
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
       streetNumber:
         description: Street number for street address.
         type: string
