@@ -6617,6 +6617,13 @@
             "$ref" : "#/definitions/LocalizedValue"
           }
         },
+        "multipointLocation" : {
+          "type" : "array",
+          "description" : "Moving address. Includes several street addresses.",
+          "items" : {
+            "$ref" : "#/definitions/Address"
+          }
+        },
         "additionalInformations" : {
           "type" : "array",
           "description" : "Localized list of additional information about the address.",

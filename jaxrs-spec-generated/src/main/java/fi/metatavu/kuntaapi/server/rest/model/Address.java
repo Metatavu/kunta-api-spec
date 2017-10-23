@@ -1,5 +1,6 @@
 package fi.metatavu.kuntaapi.server.rest.model;
 
+import fi.metatavu.kuntaapi.server.rest.model.Address;
 import fi.metatavu.kuntaapi.server.rest.model.LocalizedValue;
 import fi.metatavu.kuntaapi.server.rest.model.Municipality;
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ public class Address   {
   private Municipality municipality = null;
   private String country = null;
   private List<LocalizedValue> locationAbroad = new ArrayList<LocalizedValue>();
+  private List<Address> multipointLocation = new ArrayList<Address>();
   private List<LocalizedValue> additionalInformations = new ArrayList<LocalizedValue>();
 
   /**
@@ -249,6 +251,23 @@ public class Address   {
   }
 
   /**
+   * Moving address. Includes several street addresses.
+   **/
+  public Address multipointLocation(List<Address> multipointLocation) {
+    this.multipointLocation = multipointLocation;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "Moving address. Includes several street addresses.")
+  public List<Address> getMultipointLocation() {
+    return multipointLocation;
+  }
+  public void setMultipointLocation(List<Address> multipointLocation) {
+    this.multipointLocation = multipointLocation;
+  }
+
+  /**
    * Localized list of additional information about the address.
    **/
   public Address additionalInformations(List<LocalizedValue> additionalInformations) {
@@ -288,12 +307,13 @@ public class Address   {
         Objects.equals(municipality, address.municipality) &&
         Objects.equals(country, address.country) &&
         Objects.equals(locationAbroad, address.locationAbroad) &&
+        Objects.equals(multipointLocation, address.multipointLocation) &&
         Objects.equals(additionalInformations, address.additionalInformations);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(latitude, longitude, coordinateState, type, subtype, postOfficeBox, postalCode, postOffice, streetAddress, streetNumber, municipality, country, locationAbroad, additionalInformations);
+    return Objects.hash(latitude, longitude, coordinateState, type, subtype, postOfficeBox, postalCode, postOffice, streetAddress, streetNumber, municipality, country, locationAbroad, multipointLocation, additionalInformations);
   }
 
   @Override
@@ -314,6 +334,7 @@ public class Address   {
     sb.append("    municipality: ").append(toIndentedString(municipality)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    locationAbroad: ").append(toIndentedString(locationAbroad)).append("\n");
+    sb.append("    multipointLocation: ").append(toIndentedString(multipointLocation)).append("\n");
     sb.append("    additionalInformations: ").append(toIndentedString(additionalInformations)).append("\n");
     sb.append("}");
     return sb.toString();
