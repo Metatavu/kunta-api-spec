@@ -5030,6 +5030,11 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/LocalizedValue'
+      multipointLocation:
+        description: Moving address. Includes several street addresses.
+        type: array
+        items:
+          $ref: '#/definitions/Address'
       additionalInformations:
         description: Localized list of additional information about the address.
         type: array
