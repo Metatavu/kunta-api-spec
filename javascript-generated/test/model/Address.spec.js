@@ -89,6 +89,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property subtype (base name: "subtype")', function() {
+      // uncomment below and update the code to test the property subtype
+      //var instane = new KuntaApiClient.Address();
+      //expect(instance).to.be();
+    });
+
     it('should have the property postOfficeBox (base name: "postOfficeBox")', function() {
       // uncomment below and update the code to test the property postOfficeBox
       //var instane = new KuntaApiClient.Address();

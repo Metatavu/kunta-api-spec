@@ -45,7 +45,7 @@
   /**
    * The Address model module.
    * @module model/Address
-   * @version 0.0.108
+   * @version 0.0.109
    */
 
   /**
@@ -55,6 +55,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -92,6 +93,9 @@
       }
       if (data.hasOwnProperty('type')) {
         obj['type'] = ApiClient.convertToType(data['type'], 'String');
+      }
+      if (data.hasOwnProperty('subtype')) {
+        obj['subtype'] = ApiClient.convertToType(data['subtype'], 'String');
       }
       if (data.hasOwnProperty('postOfficeBox')) {
         obj['postOfficeBox'] = ApiClient.convertToType(data['postOfficeBox'], [LocalizedValue]);
@@ -142,7 +146,12 @@
    */
   exports.prototype['type'] = undefined;
   /**
-   * List of localized post office box addresses.
+   * Address sub type, Street, PostOfficeBox or NoAddress.
+   * @member {String} subtype
+   */
+  exports.prototype['subtype'] = undefined;
+  /**
+   * Post office box like PL 310
    * @member {Array.<module:model/LocalizedValue>} postOfficeBox
    */
   exports.prototype['postOfficeBox'] = undefined;
