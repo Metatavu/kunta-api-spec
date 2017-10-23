@@ -42,7 +42,7 @@
   /**
    * Pages service.
    * @module api/PagesApi
-   * @version 0.0.109
+   * @version 0.0.110
    */
 
   /**

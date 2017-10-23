@@ -137,6 +137,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property locationAbroad (base name: "locationAbroad")', function() {
+      // uncomment below and update the code to test the property locationAbroad
+      //var instane = new KuntaApiClient.Address();
+      //expect(instance).to.be();
+    });
+
     it('should have the property additionalInformations (base name: "additionalInformations")', function() {
       // uncomment below and update the code to test the property additionalInformations
       //var instane = new KuntaApiClient.Address();

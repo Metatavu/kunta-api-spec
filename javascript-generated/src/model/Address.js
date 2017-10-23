@@ -45,7 +45,7 @@
   /**
    * The Address model module.
    * @module model/Address
-   * @version 0.0.109
+   * @version 0.0.110
    */
 
   /**
@@ -55,6 +55,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -118,6 +119,9 @@
       if (data.hasOwnProperty('country')) {
         obj['country'] = ApiClient.convertToType(data['country'], 'String');
       }
+      if (data.hasOwnProperty('locationAbroad')) {
+        obj['locationAbroad'] = ApiClient.convertToType(data['locationAbroad'], [LocalizedValue]);
+      }
       if (data.hasOwnProperty('additionalInformations')) {
         obj['additionalInformations'] = ApiClient.convertToType(data['additionalInformations'], [LocalizedValue]);
       }
@@ -146,7 +150,7 @@
    */
   exports.prototype['type'] = undefined;
   /**
-   * Address sub type, Street, PostOfficeBox or NoAddress.
+   * Address sub type, Single, Street, PostOfficeBox, Abroad or Multipoint or NoAddress.
    * @member {String} subtype
    */
   exports.prototype['subtype'] = undefined;
@@ -184,6 +188,11 @@
    * @member {String} country
    */
   exports.prototype['country'] = undefined;
+  /**
+   * Localized list of foreign address information.
+   * @member {Array.<module:model/LocalizedValue>} locationAbroad
+   */
+  exports.prototype['locationAbroad'] = undefined;
   /**
    * Localized list of additional information about the address.
    * @member {Array.<module:model/LocalizedValue>} additionalInformations

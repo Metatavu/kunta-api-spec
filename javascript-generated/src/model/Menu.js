@@ -45,7 +45,7 @@
   /**
    * The Menu model module.
    * @module model/Menu
-   * @version 0.0.109
+   * @version 0.0.110
    */
 
   /**
