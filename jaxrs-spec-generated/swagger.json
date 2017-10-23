@@ -6572,7 +6572,7 @@
         },
         "subtype" : {
           "type" : "string",
-          "description" : "Address sub type, Street, PostOfficeBox or NoAddress."
+          "description" : "Address sub type, Single, Street, PostOfficeBox, Abroad or Multipoint or NoAddress."
         },
         "postOfficeBox" : {
           "type" : "array",
@@ -6609,6 +6609,13 @@
         "country" : {
           "type" : "string",
           "description" : "Country code (ISO 3166-1 alpha-2), for example FI."
+        },
+        "locationAbroad" : {
+          "type" : "array",
+          "description" : "Localized list of foreign address information.",
+          "items" : {
+            "$ref" : "#/definitions/LocalizedValue"
+          }
         },
         "additionalInformations" : {
           "type" : "array",
