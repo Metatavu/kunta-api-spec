@@ -4997,7 +4997,7 @@ definitions:
         description: 'Address type, Visiting or Postal.'
         type: string
       subtype:
-        description: 'Address sub type, Street, PostOfficeBox or NoAddress.'
+        description: 'Address sub type, Single, Street, PostOfficeBox, Abroad or Multipoint or NoAddress.'
         type: string
       postOfficeBox:
         description: Post office box like PL 310
@@ -5025,6 +5025,11 @@ definitions:
       country:
         description: 'Country code (ISO 3166-1 alpha-2), for example FI.'
         type: string
+      locationAbroad:
+        description: Localized list of foreign address information.
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
       additionalInformations:
         description: Localized list of additional information about the address.
         type: array
