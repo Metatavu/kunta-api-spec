@@ -95,7 +95,7 @@ public class Address   {
   }
 
   /**
-   * Post office box like PL 310
+   * List of localized post office box addresses.
    **/
   public Address postOfficeBox(List<LocalizedValue> postOfficeBox) {
     this.postOfficeBox = postOfficeBox;
@@ -103,7 +103,7 @@ public class Address   {
   }
 
   
-  @ApiModelProperty(example = "null", value = "Post office box like PL 310")
+  @ApiModelProperty(example = "null", value = "List of localized post office box addresses.")
   public List<LocalizedValue> getPostOfficeBox() {
     return postOfficeBox;
   }

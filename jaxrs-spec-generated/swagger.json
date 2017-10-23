@@ -6572,7 +6572,7 @@
         },
         "postOfficeBox" : {
           "type" : "array",
-          "description" : "Post office box like PL 310",
+          "description" : "List of localized post office box addresses.",
           "items" : {
             "$ref" : "#/definitions/LocalizedValue"
           }
