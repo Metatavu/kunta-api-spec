@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/LocalizedValue', 'model/Municipality'], factory);
+    define(['ApiClient', 'model/Address', 'model/LocalizedValue', 'model/Municipality'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./LocalizedValue'), require('./Municipality'));
+    module.exports = factory(require('../ApiClient'), require('./Address'), require('./LocalizedValue'), require('./Municipality'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.Address = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.Municipality);
+    root.KuntaApiClient.Address = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Address, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.Municipality);
   }
-}(this, function(ApiClient, LocalizedValue, Municipality) {
+}(this, function(ApiClient, Address, LocalizedValue, Municipality) {
   'use strict';
 
 
@@ -45,7 +45,7 @@
   /**
    * The Address model module.
    * @module model/Address
-   * @version 0.0.110
+   * @version 0.0.111
    */
 
   /**
@@ -55,6 +55,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -121,6 +122,9 @@
       }
       if (data.hasOwnProperty('locationAbroad')) {
         obj['locationAbroad'] = ApiClient.convertToType(data['locationAbroad'], [LocalizedValue]);
+      }
+      if (data.hasOwnProperty('multipointLocation')) {
+        obj['multipointLocation'] = ApiClient.convertToType(data['multipointLocation'], [Address]);
       }
       if (data.hasOwnProperty('additionalInformations')) {
         obj['additionalInformations'] = ApiClient.convertToType(data['additionalInformations'], [LocalizedValue]);
@@ -193,6 +197,11 @@
    * @member {Array.<module:model/LocalizedValue>} locationAbroad
    */
   exports.prototype['locationAbroad'] = undefined;
+  /**
+   * Moving address. Includes several street addresses.
+   * @member {Array.<module:model/Address>} multipointLocation
+   */
+  exports.prototype['multipointLocation'] = undefined;
   /**
    * Localized list of additional information about the address.
    * @member {Array.<module:model/LocalizedValue>} additionalInformations

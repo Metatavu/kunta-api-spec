@@ -45,7 +45,7 @@
   /**
    * The Law model module.
    * @module model/Law
-   * @version 0.0.110
+   * @version 0.0.111
    */
 
   /**

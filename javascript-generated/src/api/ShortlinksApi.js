@@ -42,7 +42,7 @@
   /**
    * Shortlinks service.
    * @module api/ShortlinksApi
-   * @version 0.0.110
+   * @version 0.0.111
    */
 
   /**

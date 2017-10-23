@@ -42,7 +42,7 @@
   /**
    * ServiceLocationChannels service.
    * @module api/ServiceLocationChannelsApi
-   * @version 0.0.110
+   * @version 0.0.111
    */
 
   /**
