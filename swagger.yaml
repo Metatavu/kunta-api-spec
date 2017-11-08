@@ -5407,15 +5407,7 @@ definitions:
     properties:
       type: 
         type: string
-        description: Type of the code
-        enum:
-          - MUNICIPALITY
-          - PROVINCE
-          - HOSPITALREGIONS
-          - BUSINESSREGIONS
-          - COUNTRY
-          - LANGUAGE
-          - POSTAL
+        description: Type of the code. Value must be one of MUNICIPALITY, PROVINCE, HOSPITALREGIONS, BUSINESSREGIONS, COUNTRY, LANGUAGE, POSTAL
       code:
         description: Code
         type: string
