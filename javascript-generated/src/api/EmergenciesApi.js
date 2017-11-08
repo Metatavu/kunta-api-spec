@@ -42,7 +42,7 @@
   /**
    * Emergencies service.
    * @module api/EmergenciesApi
-   * @version 0.0.111
+   * @version 0.0.112
    */
 
   /**

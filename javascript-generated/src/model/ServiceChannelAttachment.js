@@ -45,7 +45,7 @@
   /**
    * The ServiceChannelAttachment model module.
    * @module model/ServiceChannelAttachment
-   * @version 0.0.111
+   * @version 0.0.112
    */
 
   /**

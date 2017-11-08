@@ -34,7 +34,7 @@
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.Fragment = factory(root.KuntaApiClient.ApiClient);
+    root.KuntaApiClient.CodeExtra = factory(root.KuntaApiClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -43,14 +43,15 @@
 
 
   /**
-   * The Fragment model module.
-   * @module model/Fragment
+   * The CodeExtra model module.
+   * @module model/CodeExtra
    * @version 0.0.112
    */
 
   /**
-   * Constructs a new <code>Fragment</code>.
-   * @alias module:model/Fragment
+   * Constructs a new <code>CodeExtra</code>.
+   * Extra field for Code
+   * @alias module:model/CodeExtra
    * @class
    */
   var exports = function() {
@@ -58,45 +59,37 @@
 
 
 
-
   };
 
   /**
-   * Constructs a <code>Fragment</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>CodeExtra</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Fragment} obj Optional instance to populate.
-   * @return {module:model/Fragment} The populated <code>Fragment</code> instance.
+   * @param {module:model/CodeExtra} obj Optional instance to populate.
+   * @return {module:model/CodeExtra} The populated <code>CodeExtra</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'String');
+      if (data.hasOwnProperty('key')) {
+        obj['key'] = ApiClient.convertToType(data['key'], 'String');
       }
-      if (data.hasOwnProperty('slug')) {
-        obj['slug'] = ApiClient.convertToType(data['slug'], 'String');
-      }
-      if (data.hasOwnProperty('contents')) {
-        obj['contents'] = ApiClient.convertToType(data['contents'], 'String');
+      if (data.hasOwnProperty('value')) {
+        obj['value'] = ApiClient.convertToType(data['value'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * @member {String} id
+   * @member {String} key
    */
-  exports.prototype['id'] = undefined;
+  exports.prototype['key'] = undefined;
   /**
-   * @member {String} slug
+   * @member {String} value
    */
-  exports.prototype['slug'] = undefined;
-  /**
-   * @member {String} contents
-   */
-  exports.prototype['contents'] = undefined;
+  exports.prototype['value'] = undefined;
 
 
 
