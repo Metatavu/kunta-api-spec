@@ -4086,6 +4086,54 @@ paths:
           description: Internal server error
           schema:
             $ref: '#/definitions/InternalServerError'
+  /codes:
+    get:
+      operationId: listCodes
+      summary: Lists codes
+      description: Lists codes
+      parameters:
+        - name: types
+          in: query
+          description: Filter results by types
+          required: false
+          type: array
+          items:
+            type: string
+        - name: search
+          in: query
+          description: Search codes by free-text query
+          required: false
+          type: string
+        - name: firstResult
+          in: query
+          description: first index of results
+          type: integer
+          format: int32
+        - name: maxResults
+          in: query
+          description: maximum number of results. If not defined, default 50 is used
+          type: integer
+          format: int32
+      tags:
+        - Codes
+      responses:
+        200:
+          description: Returns a list of codes
+          schema:
+            $ref: '#/definitions/Code'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+            
 definitions:
   Attachment:
     properties:
@@ -5352,6 +5400,42 @@ definitions:
         type: string
       language:
         description: Language code.
+        type: string
+  Code:
+    type: object
+    description: Generic code item describing code / name pair (e.g. LanguageCode, MunicipalityCode, etc...)
+    properties:
+      type: 
+        type: string
+        description: Type of the code
+        enum:
+          - MUNICIPALITY
+          - PROVINCE
+          - HOSPITALREGIONS
+          - BUSINESSREGIONS
+          - COUNTRY
+          - LANGUAGE
+          - POSTAL
+      code:
+        description: Code
+        type: string
+      names:
+        description: Names
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      extra:
+        description: Names
+        type: array
+        items:
+          $ref: '#/definitions/CodeExtra'
+  CodeExtra:
+    type: object
+    description: Extra field for Code
+    properties:
+      key:
+        type: string
+      value:
         type: string
   InternalServerError:
     type: object
