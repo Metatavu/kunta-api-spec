@@ -33,19 +33,31 @@
           "required" : false,
           "type" : "string"
         }, {
+          "name" : "sortBy",
+          "in" : "query",
+          "description" : "define order (NATURAL or SCORE). Default is SCORE",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "sortDir",
+          "in" : "query",
+          "description" : "ASC or DESC. Default is ASC",
+          "required" : false,
+          "type" : "string"
+        }, {
           "name" : "firstResult",
           "in" : "query",
-          "description" : "first index of results",
+          "description" : "First result",
           "required" : false,
           "type" : "integer",
-          "format" : "int32"
+          "format" : "int64"
         }, {
           "name" : "maxResults",
           "in" : "query",
-          "description" : "maximum number of results. If not defined, default 50 is used",
+          "description" : "Max results",
           "required" : false,
           "type" : "integer",
-          "format" : "int32"
+          "format" : "int64"
         } ],
         "responses" : {
           "200" : {
