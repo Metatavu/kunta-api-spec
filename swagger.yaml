@@ -4126,11 +4126,13 @@ paths:
           format: int64
       tags:
         - Codes
-      responses:
+      responses:      
         200:
           description: Returns a list of codes
           schema:
-            $ref: '#/definitions/Code'
+            type: array
+            items:
+              $ref: '#/definitions/Code'
         400:
           description: Invalid request was sent to the server
           schema:
