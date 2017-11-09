@@ -65,6 +65,12 @@
       //expect(instance).to.be.a(KuntaApiClient.Code);
     });
 
+    it('should have the property id (base name: "id")', function() {
+      // uncomment below and update the code to test the property id
+      //var instane = new KuntaApiClient.Code();
+      //expect(instance).to.be();
+    });
+
     it('should have the property type (base name: "type")', function() {
       // uncomment below and update the code to test the property type
       //var instane = new KuntaApiClient.Code();

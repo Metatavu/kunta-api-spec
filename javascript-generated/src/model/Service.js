@@ -45,7 +45,7 @@
   /**
    * The Service model module.
    * @module model/Service
-   * @version 0.0.113
+   * @version 0.0.114
    */
 
   /**

@@ -45,7 +45,7 @@
   /**
    * The Code model module.
    * @module model/Code
-   * @version 0.0.113
+   * @version 0.0.114
    */
 
   /**
@@ -56,6 +56,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -74,6 +75,9 @@
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('id')) {
+        obj['id'] = ApiClient.convertToType(data['id'], 'String');
+      }
       if (data.hasOwnProperty('type')) {
         obj['type'] = ApiClient.convertToType(data['type'], 'String');
       }
@@ -90,6 +94,11 @@
     return obj;
   }
 
+  /**
+   * Kunta API id for code
+   * @member {String} id
+   */
+  exports.prototype['id'] = undefined;
   /**
    * Type of the code. Value must be one of MUNICIPALITY, PROVINCE, HOSPITALREGIONS, BUSINESSREGIONS, COUNTRY, LANGUAGE, POSTAL
    * @member {String} type
