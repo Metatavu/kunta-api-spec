@@ -5415,6 +5415,10 @@ definitions:
     type: object
     description: Generic code item describing code / name pair (e.g. LanguageCode, MunicipalityCode, etc...)
     properties:
+      id:
+        type: string
+        format: uuid
+        description: Kunta API id for code
       type: 
         type: string
         description: Type of the code. Value must be one of MUNICIPALITY, PROVINCE, HOSPITALREGIONS, BUSINESSREGIONS, COUNTRY, LANGUAGE, POSTAL
