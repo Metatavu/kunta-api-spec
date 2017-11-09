@@ -63,7 +63,10 @@
           "200" : {
             "description" : "Returns a list of codes",
             "schema" : {
-              "$ref" : "#/definitions/Code"
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Code"
+              }
             }
           },
           "400" : {

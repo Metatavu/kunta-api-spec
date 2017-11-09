@@ -19,7 +19,7 @@ import java.util.List;
 @Api(description = "the codes API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-11-09T13:52:13.713+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-11-09T15:11:59.514+02:00")
 
 public abstract class CodesApi extends AbstractApi {
 
@@ -27,14 +27,14 @@ public abstract class CodesApi extends AbstractApi {
     
     @Consumes({ "application/json;charset=utf-8" })
     @Produces({ "application/json;charset=utf-8" })
-    @ApiOperation(value = "Lists codes", notes = "Lists codes", response = Code.class, authorizations = {
+    @ApiOperation(value = "Lists codes", notes = "Lists codes", response = Code.class, responseContainer = "List", authorizations = {
         @Authorization(value = "basicAuth")
     }, tags={ "Codes" })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Returns a list of codes", response = Code.class),
-        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Code.class),
-        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Code.class),
-        @ApiResponse(code = 500, message = "Internal server error", response = Code.class) })
+        @ApiResponse(code = 200, message = "Returns a list of codes", response = Code.class, responseContainer = "List"),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Code.class, responseContainer = "List"),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Code.class, responseContainer = "List"),
+        @ApiResponse(code = 500, message = "Internal server error", response = Code.class, responseContainer = "List") })
     public abstract Response listCodes(@QueryParam("types") List<String> types,@QueryParam("search") String search,@QueryParam("sortBy") String sortBy,@QueryParam("sortDir") String sortDir,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
 
 }
