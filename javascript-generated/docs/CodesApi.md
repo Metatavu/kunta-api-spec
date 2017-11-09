@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="listCodes"></a>
 # **listCodes**
-> Code listCodes(opts)
+> [Code] listCodes(opts)
 
 Lists codes
 
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Code**](Code.md)
+[**[Code]**](Code.md)
 
 ### Authorization
 

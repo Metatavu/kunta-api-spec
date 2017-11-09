@@ -45,7 +45,7 @@
   /**
    * The NewsArticle model module.
    * @module model/NewsArticle
-   * @version 0.0.114
+   * @version 0.0.115
    */
 
   /**

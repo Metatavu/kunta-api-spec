@@ -45,7 +45,7 @@
   /**
    * The NameTypeByLanguage model module.
    * @module model/NameTypeByLanguage
-   * @version 0.0.114
+   * @version 0.0.115
    */
 
   /**

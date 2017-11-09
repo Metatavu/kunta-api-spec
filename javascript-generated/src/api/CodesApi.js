@@ -42,7 +42,7 @@
   /**
    * Codes service.
    * @module api/CodesApi
-   * @version 0.0.114
+   * @version 0.0.115
    */
 
   /**
@@ -67,7 +67,7 @@
      * @param {String} opts.sortDir ASC or DESC. Default is ASC
      * @param {Integer} opts.firstResult First result
      * @param {Integer} opts.maxResults Max results
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Code}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Code>}
      */
     this.listCodes = function(opts) {
       opts = opts || {};
@@ -92,7 +92,7 @@
       var authNames = ['basicAuth'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = Code;
+      var returnType = [Code];
 
       return this.apiClient.callApi(
         '/codes', 'GET',
