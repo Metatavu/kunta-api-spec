@@ -45,7 +45,7 @@
   /**
    * The PhoneServiceChannel model module.
    * @module model/PhoneServiceChannel
-   * @version 0.0.112
+   * @version 0.0.113
    */
 
   /**

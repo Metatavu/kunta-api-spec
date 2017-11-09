@@ -42,7 +42,7 @@
   /**
    * Codes service.
    * @module api/CodesApi
-   * @version 0.0.112
+   * @version 0.0.113
    */
 
   /**
@@ -63,8 +63,10 @@
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.types Filter results by types
      * @param {String} opts.search Search codes by free-text query
-     * @param {Integer} opts.firstResult first index of results
-     * @param {Integer} opts.maxResults maximum number of results. If not defined, default 50 is used
+     * @param {String} opts.sortBy define order (NATURAL or SCORE). Default is SCORE
+     * @param {String} opts.sortDir ASC or DESC. Default is ASC
+     * @param {Integer} opts.firstResult First result
+     * @param {Integer} opts.maxResults Max results
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Code}
      */
     this.listCodes = function(opts) {
@@ -77,6 +79,8 @@
       var queryParams = {
         'types': this.apiClient.buildCollectionParam(opts['types'], 'csv'),
         'search': opts['search'],
+        'sortBy': opts['sortBy'],
+        'sortDir': opts['sortDir'],
         'firstResult': opts['firstResult'],
         'maxResults': opts['maxResults']
       };
