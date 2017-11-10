@@ -65,14 +65,14 @@
       //expect(instance).to.be.a(KuntaApiClient.Coordinates);
     });
 
-    it('should have the property ePSG3067 (base name: "EPSG3067")', function() {
-      // uncomment below and update the code to test the property ePSG3067
+    it('should have the property epsg3067 (base name: "epsg3067")', function() {
+      // uncomment below and update the code to test the property epsg3067
       //var instane = new KuntaApiClient.Coordinates();
       //expect(instance).to.be();
     });
 
-    it('should have the property ePSG4326 (base name: "EPSG4326")', function() {
-      // uncomment below and update the code to test the property ePSG4326
+    it('should have the property epsg4326 (base name: "epsg4326")', function() {
+      // uncomment below and update the code to test the property epsg4326
       //var instane = new KuntaApiClient.Coordinates();
       //expect(instance).to.be();
     });

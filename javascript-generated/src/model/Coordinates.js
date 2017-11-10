@@ -45,7 +45,7 @@
   /**
    * The Coordinates model module.
    * @module model/Coordinates
-   * @version 0.0.117
+   * @version 0.0.118
    */
 
   /**
@@ -71,24 +71,24 @@
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('EPSG3067')) {
-        obj['EPSG3067'] = Coordinate.constructFromObject(data['EPSG3067']);
+      if (data.hasOwnProperty('epsg3067')) {
+        obj['epsg3067'] = Coordinate.constructFromObject(data['epsg3067']);
       }
-      if (data.hasOwnProperty('EPSG4326')) {
-        obj['EPSG4326'] = Coordinate.constructFromObject(data['EPSG4326']);
+      if (data.hasOwnProperty('epsg4326')) {
+        obj['epsg4326'] = Coordinate.constructFromObject(data['epsg4326']);
       }
     }
     return obj;
   }
 
   /**
-   * @member {module:model/Coordinate} EPSG3067
+   * @member {module:model/Coordinate} epsg3067
    */
-  exports.prototype['EPSG3067'] = undefined;
+  exports.prototype['epsg3067'] = undefined;
   /**
-   * @member {module:model/Coordinate} EPSG4326
+   * @member {module:model/Coordinate} epsg4326
    */
-  exports.prototype['EPSG4326'] = undefined;
+  exports.prototype['epsg4326'] = undefined;
 
 
 
