@@ -6641,6 +6641,9 @@
           "type" : "string",
           "description" : "Service location longitude coordinate."
         },
+        "coordinates" : {
+          "$ref" : "#/definitions/Coordinates"
+        },
         "coordinateState" : {
           "type" : "string",
           "description" : "State of coordinates. Coordinates are fetched from a service provided by Maanmittauslaitos (WFS).\r\nPossible values are: Loading, Ok, Failed, NotReceived, EmptyInputReceived, MultipleResultsReceived or WrongFormatReceived."
@@ -6709,6 +6712,32 @@
           "items" : {
             "$ref" : "#/definitions/LocalizedValue"
           }
+        }
+      }
+    },
+    "Coordinates" : {
+      "type" : "object",
+      "properties" : {
+        "EPSG3067" : {
+          "$ref" : "#/definitions/Coordinate"
+        },
+        "EPSG4326" : {
+          "$ref" : "#/definitions/Coordinate"
+        }
+      }
+    },
+    "Coordinate" : {
+      "type" : "object",
+      "properties" : {
+        "latitude" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "latitude coordinate."
+        },
+        "longitude" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "longitude coordinate."
         }
       }
     },

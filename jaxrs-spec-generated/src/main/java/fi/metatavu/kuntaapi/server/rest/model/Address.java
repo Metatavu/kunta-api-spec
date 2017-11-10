@@ -1,6 +1,7 @@
 package fi.metatavu.kuntaapi.server.rest.model;
 
 import fi.metatavu.kuntaapi.server.rest.model.Address;
+import fi.metatavu.kuntaapi.server.rest.model.Coordinates;
 import fi.metatavu.kuntaapi.server.rest.model.LocalizedValue;
 import fi.metatavu.kuntaapi.server.rest.model.Municipality;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ public class Address   {
   
   private String latitude = null;
   private String longitude = null;
+  private Coordinates coordinates = null;
   private String coordinateState = null;
   private String type = null;
   private String subtype = null;
@@ -62,6 +64,22 @@ public class Address   {
   }
   public void setLongitude(String longitude) {
     this.longitude = longitude;
+  }
+
+  /**
+   **/
+  public Address coordinates(Coordinates coordinates) {
+    this.coordinates = coordinates;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "")
+  public Coordinates getCoordinates() {
+    return coordinates;
+  }
+  public void setCoordinates(Coordinates coordinates) {
+    this.coordinates = coordinates;
   }
 
   /**
@@ -296,6 +314,7 @@ public class Address   {
     Address address = (Address) o;
     return Objects.equals(latitude, address.latitude) &&
         Objects.equals(longitude, address.longitude) &&
+        Objects.equals(coordinates, address.coordinates) &&
         Objects.equals(coordinateState, address.coordinateState) &&
         Objects.equals(type, address.type) &&
         Objects.equals(subtype, address.subtype) &&
@@ -313,7 +332,7 @@ public class Address   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(latitude, longitude, coordinateState, type, subtype, postOfficeBox, postalCode, postOffice, streetAddress, streetNumber, municipality, country, locationAbroad, multipointLocation, additionalInformations);
+    return Objects.hash(latitude, longitude, coordinates, coordinateState, type, subtype, postOfficeBox, postalCode, postOffice, streetAddress, streetNumber, municipality, country, locationAbroad, multipointLocation, additionalInformations);
   }
 
   @Override
@@ -323,6 +342,7 @@ public class Address   {
     
     sb.append("    latitude: ").append(toIndentedString(latitude)).append("\n");
     sb.append("    longitude: ").append(toIndentedString(longitude)).append("\n");
+    sb.append("    coordinates: ").append(toIndentedString(coordinates)).append("\n");
     sb.append("    coordinateState: ").append(toIndentedString(coordinateState)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
