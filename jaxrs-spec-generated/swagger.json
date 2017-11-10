@@ -6730,13 +6730,11 @@
       "type" : "object",
       "properties" : {
         "latitude" : {
-          "type" : "number",
-          "format" : "double",
+          "type" : "string",
           "description" : "latitude coordinate."
         },
         "longitude" : {
-          "type" : "number",
-          "format" : "double",
+          "type" : "string",
           "description" : "longitude coordinate."
         }
       }

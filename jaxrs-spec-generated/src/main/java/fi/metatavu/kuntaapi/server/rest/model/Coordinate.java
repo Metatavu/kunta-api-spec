@@ -9,40 +9,40 @@ import java.util.Objects;
 
 public class Coordinate   {
   
-  private Double latitude = null;
-  private Double longitude = null;
+  private String latitude = null;
+  private String longitude = null;
 
   /**
    * latitude coordinate.
    **/
-  public Coordinate latitude(Double latitude) {
+  public Coordinate latitude(String latitude) {
     this.latitude = latitude;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "latitude coordinate.")
-  public Double getLatitude() {
+  public String getLatitude() {
     return latitude;
   }
-  public void setLatitude(Double latitude) {
+  public void setLatitude(String latitude) {
     this.latitude = latitude;
   }
 
   /**
    * longitude coordinate.
    **/
-  public Coordinate longitude(Double longitude) {
+  public Coordinate longitude(String longitude) {
     this.longitude = longitude;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "longitude coordinate.")
-  public Double getLongitude() {
+  public String getLongitude() {
     return longitude;
   }
-  public void setLongitude(Double longitude) {
+  public void setLongitude(String longitude) {
     this.longitude = longitude;
   }
 
