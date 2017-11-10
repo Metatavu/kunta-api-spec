@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**latitude** | **Number** | latitude coordinate. | [optional] 
-**longitude** | **Number** | longitude coordinate. | [optional] 
+**latitude** | **String** | latitude coordinate. | [optional] 
+**longitude** | **String** | longitude coordinate. | [optional] 
 
 

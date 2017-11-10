@@ -42,7 +42,7 @@
   /**
    * ServiceChannels service.
    * @module api/ServiceChannelsApi
-   * @version 0.0.118
+   * @version 0.0.119
    */
 
   /**

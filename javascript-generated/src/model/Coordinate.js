@@ -45,7 +45,7 @@
   /**
    * The Coordinate model module.
    * @module model/Coordinate
-   * @version 0.0.118
+   * @version 0.0.119
    */
 
   /**
@@ -72,10 +72,10 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('latitude')) {
-        obj['latitude'] = ApiClient.convertToType(data['latitude'], 'Number');
+        obj['latitude'] = ApiClient.convertToType(data['latitude'], 'String');
       }
       if (data.hasOwnProperty('longitude')) {
-        obj['longitude'] = ApiClient.convertToType(data['longitude'], 'Number');
+        obj['longitude'] = ApiClient.convertToType(data['longitude'], 'String');
       }
     }
     return obj;
@@ -83,12 +83,12 @@
 
   /**
    * latitude coordinate.
-   * @member {Number} latitude
+   * @member {String} latitude
    */
   exports.prototype['latitude'] = undefined;
   /**
    * longitude coordinate.
-   * @member {Number} longitude
+   * @member {String} longitude
    */
   exports.prototype['longitude'] = undefined;
 

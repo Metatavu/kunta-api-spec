@@ -42,7 +42,7 @@
   /**
    * PrintableFormChannels service.
    * @module api/PrintableFormChannelsApi
-   * @version 0.0.118
+   * @version 0.0.119
    */
 
   /**
