@@ -5050,6 +5050,8 @@ definitions:
       longitude:
         description: Service location longitude coordinate.
         type: string
+      coordinates:
+        $ref: '#/definitions/Coordinates'
       coordinateState:
         description: "State of coordinates. Coordinates are fetched from a service provided by Maanmittauslaitos (WFS).\r\nPossible values are: Loading, Ok, Failed, NotReceived, EmptyInputReceived, MultipleResultsReceived or WrongFormatReceived."
         type: string
@@ -5100,6 +5102,24 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/LocalizedValue'
+  Coordinates:
+    type: object
+    properties:
+      EPSG3067:
+        $ref: '#/definitions/Coordinate'
+      EPSG4326:
+        $ref: '#/definitions/Coordinate'
+  Coordinate:
+    type: object
+    properties:
+      latitude:
+        description: latitude coordinate.
+        type: number
+        format: double
+      longitude:
+        description: longitude coordinate.
+        type: number
+        format: double
   ServiceHour:
     type: object
     properties:
