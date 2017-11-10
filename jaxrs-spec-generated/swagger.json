@@ -6718,10 +6718,10 @@
     "Coordinates" : {
       "type" : "object",
       "properties" : {
-        "EPSG3067" : {
+        "epsg3067" : {
           "$ref" : "#/definitions/Coordinate"
         },
-        "EPSG4326" : {
+        "epsg4326" : {
           "$ref" : "#/definitions/Coordinate"
         }
       }

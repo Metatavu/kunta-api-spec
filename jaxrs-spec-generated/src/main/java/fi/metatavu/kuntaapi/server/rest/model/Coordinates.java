@@ -10,39 +10,39 @@ import java.util.Objects;
 
 public class Coordinates   {
   
-  private Coordinate ePSG3067 = null;
-  private Coordinate ePSG4326 = null;
+  private Coordinate epsg3067 = null;
+  private Coordinate epsg4326 = null;
 
   /**
    **/
-  public Coordinates ePSG3067(Coordinate ePSG3067) {
-    this.ePSG3067 = ePSG3067;
+  public Coordinates epsg3067(Coordinate epsg3067) {
+    this.epsg3067 = epsg3067;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "")
-  public Coordinate getEPSG3067() {
-    return ePSG3067;
+  public Coordinate getEpsg3067() {
+    return epsg3067;
   }
-  public void setEPSG3067(Coordinate ePSG3067) {
-    this.ePSG3067 = ePSG3067;
+  public void setEpsg3067(Coordinate epsg3067) {
+    this.epsg3067 = epsg3067;
   }
 
   /**
    **/
-  public Coordinates ePSG4326(Coordinate ePSG4326) {
-    this.ePSG4326 = ePSG4326;
+  public Coordinates epsg4326(Coordinate epsg4326) {
+    this.epsg4326 = epsg4326;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "")
-  public Coordinate getEPSG4326() {
-    return ePSG4326;
+  public Coordinate getEpsg4326() {
+    return epsg4326;
   }
-  public void setEPSG4326(Coordinate ePSG4326) {
-    this.ePSG4326 = ePSG4326;
+  public void setEpsg4326(Coordinate epsg4326) {
+    this.epsg4326 = epsg4326;
   }
 
 
@@ -55,13 +55,13 @@ public class Coordinates   {
       return false;
     }
     Coordinates coordinates = (Coordinates) o;
-    return Objects.equals(ePSG3067, coordinates.ePSG3067) &&
-        Objects.equals(ePSG4326, coordinates.ePSG4326);
+    return Objects.equals(epsg3067, coordinates.epsg3067) &&
+        Objects.equals(epsg4326, coordinates.epsg4326);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ePSG3067, ePSG4326);
+    return Objects.hash(epsg3067, epsg4326);
   }
 
   @Override
@@ -69,8 +69,8 @@ public class Coordinates   {
     StringBuilder sb = new StringBuilder();
     sb.append("class Coordinates {\n");
     
-    sb.append("    ePSG3067: ").append(toIndentedString(ePSG3067)).append("\n");
-    sb.append("    ePSG4326: ").append(toIndentedString(ePSG4326)).append("\n");
+    sb.append("    epsg3067: ").append(toIndentedString(epsg3067)).append("\n");
+    sb.append("    epsg4326: ").append(toIndentedString(epsg4326)).append("\n");
     sb.append("}");
     return sb.toString();
   }
