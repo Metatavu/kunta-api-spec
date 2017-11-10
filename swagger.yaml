@@ -5114,12 +5114,10 @@ definitions:
     properties:
       latitude:
         description: latitude coordinate.
-        type: number
-        format: double
+        type: string
       longitude:
         description: longitude coordinate.
-        type: number
-        format: double
+        type: string
   ServiceHour:
     type: object
     properties:
