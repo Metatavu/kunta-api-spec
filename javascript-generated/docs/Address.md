@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **latitude** | **String** | Service location latitude coordinate. | [optional] 
 **longitude** | **String** | Service location longitude coordinate. | [optional] 
+**coordinates** | [**Coordinates**](Coordinates.md) |  | [optional] 
 **coordinateState** | **String** | State of coordinates. Coordinates are fetched from a service provided by Maanmittauslaitos (WFS).  Possible values are: Loading, Ok, Failed, NotReceived, EmptyInputReceived, MultipleResultsReceived or WrongFormatReceived. | [optional] 
 **type** | **String** | Address type, Visiting or Postal. | [optional] 
 **subtype** | **String** | Address sub type, Single, Street, PostOfficeBox, Abroad or Multipoint or NoAddress. | [optional] 

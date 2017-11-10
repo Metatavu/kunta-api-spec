@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Address', 'model/LocalizedValue', 'model/Municipality'], factory);
+    define(['ApiClient', 'model/Address', 'model/Coordinates', 'model/LocalizedValue', 'model/Municipality'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Address'), require('./LocalizedValue'), require('./Municipality'));
+    module.exports = factory(require('../ApiClient'), require('./Address'), require('./Coordinates'), require('./LocalizedValue'), require('./Municipality'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.Address = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Address, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.Municipality);
+    root.KuntaApiClient.Address = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Address, root.KuntaApiClient.Coordinates, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.Municipality);
   }
-}(this, function(ApiClient, Address, LocalizedValue, Municipality) {
+}(this, function(ApiClient, Address, Coordinates, LocalizedValue, Municipality) {
   'use strict';
 
 
@@ -45,7 +45,7 @@
   /**
    * The Address model module.
    * @module model/Address
-   * @version 0.0.115
+   * @version 0.0.116
    */
 
   /**
@@ -55,6 +55,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -89,6 +90,9 @@
       }
       if (data.hasOwnProperty('longitude')) {
         obj['longitude'] = ApiClient.convertToType(data['longitude'], 'String');
+      }
+      if (data.hasOwnProperty('coordinates')) {
+        obj['coordinates'] = Coordinates.constructFromObject(data['coordinates']);
       }
       if (data.hasOwnProperty('coordinateState')) {
         obj['coordinateState'] = ApiClient.convertToType(data['coordinateState'], 'String');
@@ -143,6 +147,10 @@
    * @member {String} longitude
    */
   exports.prototype['longitude'] = undefined;
+  /**
+   * @member {module:model/Coordinates} coordinates
+   */
+  exports.prototype['coordinates'] = undefined;
   /**
    * State of coordinates. Coordinates are fetched from a service provided by Maanmittauslaitos (WFS).  Possible values are: Loading, Ok, Failed, NotReceived, EmptyInputReceived, MultipleResultsReceived or WrongFormatReceived.
    * @member {String} coordinateState

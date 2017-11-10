@@ -77,6 +77,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property coordinates (base name: "coordinates")', function() {
+      // uncomment below and update the code to test the property coordinates
+      //var instane = new KuntaApiClient.Address();
+      //expect(instance).to.be();
+    });
+
     it('should have the property coordinateState (base name: "coordinateState")', function() {
       // uncomment below and update the code to test the property coordinateState
       //var instane = new KuntaApiClient.Address();

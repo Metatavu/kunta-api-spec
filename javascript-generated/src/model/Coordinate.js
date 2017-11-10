@@ -34,7 +34,7 @@
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.NotImplemented = factory(root.KuntaApiClient.ApiClient);
+    root.KuntaApiClient.Coordinate = factory(root.KuntaApiClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -43,14 +43,14 @@
 
 
   /**
-   * The NotImplemented model module.
-   * @module model/NotImplemented
+   * The Coordinate model module.
+   * @module model/Coordinate
    * @version 0.0.116
    */
 
   /**
-   * Constructs a new <code>NotImplemented</code>.
-   * @alias module:model/NotImplemented
+   * Constructs a new <code>Coordinate</code>.
+   * @alias module:model/Coordinate
    * @class
    */
   var exports = function() {
@@ -61,34 +61,36 @@
   };
 
   /**
-   * Constructs a <code>NotImplemented</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>Coordinate</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/NotImplemented} obj Optional instance to populate.
-   * @return {module:model/NotImplemented} The populated <code>NotImplemented</code> instance.
+   * @param {module:model/Coordinate} obj Optional instance to populate.
+   * @return {module:model/Coordinate} The populated <code>Coordinate</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('code')) {
-        obj['code'] = ApiClient.convertToType(data['code'], 'Integer');
+      if (data.hasOwnProperty('latitude')) {
+        obj['latitude'] = ApiClient.convertToType(data['latitude'], 'Number');
       }
-      if (data.hasOwnProperty('message')) {
-        obj['message'] = ApiClient.convertToType(data['message'], 'String');
+      if (data.hasOwnProperty('longitude')) {
+        obj['longitude'] = ApiClient.convertToType(data['longitude'], 'Number');
       }
     }
     return obj;
   }
 
   /**
-   * @member {Integer} code
+   * latitude coordinate.
+   * @member {Number} latitude
    */
-  exports.prototype['code'] = undefined;
+  exports.prototype['latitude'] = undefined;
   /**
-   * @member {String} message
+   * longitude coordinate.
+   * @member {Number} longitude
    */
-  exports.prototype['message'] = undefined;
+  exports.prototype['longitude'] = undefined;
 
 
 
