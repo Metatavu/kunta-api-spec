@@ -19,9 +19,23 @@ import java.util.List;
 @Api(description = "the codes API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-11-10T17:32:29.877+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-11-16T07:30:32.602+02:00")
 
 public abstract class CodesApi extends AbstractApi {
+
+    @GET
+    @Path("/{codeId}")
+    @Consumes({ "application/json;charset=utf-8" })
+    @Produces({ "application/json;charset=utf-8" })
+    @ApiOperation(value = "Finds a code", notes = "Finds a code", response = Code.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "Codes",  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Returns a find code", response = Code.class),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = Code.class),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Code.class),
+        @ApiResponse(code = 500, message = "Internal server error", response = Code.class) })
+    public abstract Response findCode(@PathParam("codeId") String codeId,@Context Request request);
 
     @GET
     
