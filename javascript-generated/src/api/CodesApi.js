@@ -42,7 +42,7 @@
   /**
    * Codes service.
    * @module api/CodesApi
-   * @version 0.0.119
+   * @version 0.0.120
    */
 
   /**
@@ -55,6 +55,44 @@
   var exports = function(apiClient) {
     this.apiClient = apiClient || ApiClient.instance;
 
+
+
+    /**
+     * Finds a code
+     * Finds a code
+     * @param {String} codeId Id of the code
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Code}
+     */
+    this.findCode = function(codeId) {
+      var postBody = null;
+
+      // verify the required parameter 'codeId' is set
+      if (codeId == undefined || codeId == null) {
+        throw "Missing the required parameter 'codeId' when calling findCode";
+      }
+
+
+      var pathParams = {
+        'codeId': codeId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['basicAuth'];
+      var contentTypes = ['application/json;charset=utf-8'];
+      var accepts = ['application/json;charset=utf-8'];
+      var returnType = Code;
+
+      return this.apiClient.callApi(
+        '/codes/{codeId}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
 
 
     /**

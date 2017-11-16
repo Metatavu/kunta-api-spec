@@ -59,6 +59,16 @@
   }
 
   describe('CodesApi', function() {
+    describe('findCode', function() {
+      it('should call findCode successfully', function(done) {
+        //uncomment below and update the code to test findCode
+        //instance.findCode(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('listCodes', function() {
       it('should call listCodes successfully', function(done) {
         //uncomment below and update the code to test listCodes
