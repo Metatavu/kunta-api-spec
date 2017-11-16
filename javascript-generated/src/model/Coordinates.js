@@ -45,7 +45,7 @@
   /**
    * The Coordinates model module.
    * @module model/Coordinates
-   * @version 0.0.120
+   * @version 0.0.121
    */
 
   /**

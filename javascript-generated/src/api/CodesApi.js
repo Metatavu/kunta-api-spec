@@ -42,7 +42,7 @@
   /**
    * Codes service.
    * @module api/CodesApi
-   * @version 0.0.120
+   * @version 0.0.121
    */
 
   /**
