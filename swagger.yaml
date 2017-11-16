@@ -4145,7 +4145,37 @@ paths:
           description: Internal server error
           schema:
             $ref: '#/definitions/InternalServerError'
-            
+  /codes/{codeId}:
+    get:
+      operationId: findCode
+      summary: Finds a code
+      description: Finds a code
+      parameters:
+        - name: codeId
+          in: path
+          description: Id of the code
+          required: true
+          type: string
+      tags:
+        - Codes
+      responses:      
+        200:
+          description: Returns a find code
+          schema:
+            $ref: '#/definitions/Code'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+                        
 definitions:
   Attachment:
     properties:
