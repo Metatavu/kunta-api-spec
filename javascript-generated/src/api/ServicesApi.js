@@ -42,7 +42,7 @@
   /**
    * Services service.
    * @module api/ServicesApi
-   * @version 0.0.121
+   * @version 0.0.122
    */
 
   /**
@@ -587,6 +587,11 @@
      * @param {String} opts.sortDir ASC or DESC. Default is ASC
      * @param {Integer} opts.firstResult First result
      * @param {Integer} opts.maxResults Max results
+     * @param {String} opts.electronicServiceChannelId Return only services that are connected to specified electronic service channel
+     * @param {String} opts.phoneServiceChannelId Return only services that are connected to specified phone service channel
+     * @param {String} opts.printableFormServiceChannelId Return only services that are connected to specified printable form service channel
+     * @param {String} opts.serviceLocationServiceChannelId Return only services that are connected to specified location service channel
+     * @param {String} opts.webPageServiceChannelId Return only services that are connected to specified webpage service channel
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Service>}
      */
     this.listServices = function(opts) {
@@ -602,7 +607,12 @@
         'sortBy': opts['sortBy'],
         'sortDir': opts['sortDir'],
         'firstResult': opts['firstResult'],
-        'maxResults': opts['maxResults']
+        'maxResults': opts['maxResults'],
+        'electronicServiceChannelId': opts['electronicServiceChannelId'],
+        'phoneServiceChannelId': opts['phoneServiceChannelId'],
+        'printableFormServiceChannelId': opts['printableFormServiceChannelId'],
+        'serviceLocationServiceChannelId': opts['serviceLocationServiceChannelId'],
+        'webPageServiceChannelId': opts['webPageServiceChannelId']
       };
       var headerParams = {
       };

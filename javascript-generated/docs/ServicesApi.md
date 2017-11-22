@@ -679,7 +679,12 @@ var opts = {
   'sortBy': "sortBy_example", // String | define order (NATURAL or SCORE). Default is NATURAL
   'sortDir': "sortDir_example", // String | ASC or DESC. Default is ASC
   'firstResult': 789, // Integer | First result
-  'maxResults': 789 // Integer | Max results
+  'maxResults': 789, // Integer | Max results
+  'electronicServiceChannelId': "electronicServiceChannelId_example", // String | Return only services that are connected to specified electronic service channel
+  'phoneServiceChannelId': "phoneServiceChannelId_example", // String | Return only services that are connected to specified phone service channel
+  'printableFormServiceChannelId': "printableFormServiceChannelId_example", // String | Return only services that are connected to specified printable form service channel
+  'serviceLocationServiceChannelId': "serviceLocationServiceChannelId_example", // String | Return only services that are connected to specified location service channel
+  'webPageServiceChannelId': "webPageServiceChannelId_example" // String | Return only services that are connected to specified webpage service channel
 };
 apiInstance.listServices(opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -699,6 +704,11 @@ Name | Type | Description  | Notes
  **sortDir** | **String**| ASC or DESC. Default is ASC | [optional] 
  **firstResult** | **Integer**| First result | [optional] 
  **maxResults** | **Integer**| Max results | [optional] 
+ **electronicServiceChannelId** | **String**| Return only services that are connected to specified electronic service channel | [optional] 
+ **phoneServiceChannelId** | **String**| Return only services that are connected to specified phone service channel | [optional] 
+ **printableFormServiceChannelId** | **String**| Return only services that are connected to specified printable form service channel | [optional] 
+ **serviceLocationServiceChannelId** | **String**| Return only services that are connected to specified location service channel | [optional] 
+ **webPageServiceChannelId** | **String**| Return only services that are connected to specified webpage service channel | [optional] 
 
 ### Return type
 
