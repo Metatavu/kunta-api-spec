@@ -25,7 +25,7 @@ import java.util.List;
 @Api(description = "the services API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-11-16T07:38:00.212+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-11-22T12:59:09.246+02:00")
 
 public abstract class ServicesApi extends AbstractApi {
 
@@ -221,7 +221,7 @@ public abstract class ServicesApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Service.class, responseContainer = "List"),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = Service.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = Service.class, responseContainer = "List") })
-    public abstract Response listServices(@QueryParam("organizationId") String organizationId,@QueryParam("search") String search,@QueryParam("sortBy") String sortBy,@QueryParam("sortDir") String sortDir,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
+    public abstract Response listServices(@QueryParam("organizationId") String organizationId,@QueryParam("search") String search,@QueryParam("sortBy") String sortBy,@QueryParam("sortDir") String sortDir,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@QueryParam("electronicServiceChannelId") String electronicServiceChannelId,@QueryParam("phoneServiceChannelId") String phoneServiceChannelId,@QueryParam("printableFormServiceChannelId") String printableFormServiceChannelId,@QueryParam("serviceLocationServiceChannelId") String serviceLocationServiceChannelId,@QueryParam("webPageServiceChannelId") String webPageServiceChannelId,@Context Request request);
 
     @PUT
     @Path("/{serviceId}")
