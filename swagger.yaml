@@ -4378,6 +4378,11 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/ServiceOrganization'
+      serviceVouchers:
+        description: List of service vouchers.
+        type: array
+        items:
+          $ref: '#/definitions/ServiceVoucher'    
       electronicServiceChannelIds:
         type: array
         items:
@@ -4431,6 +4436,24 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/WebPage'
+  ServiceVoucher:
+    description: Service voucher
+    required:
+      - language
+    type: object
+    properties:
+      value:
+        description: Name of the service voucher.
+        type: string
+      language:
+        description: Language code.
+        type: string
+      url:
+        description: 'Web page url'
+        type: string
+      additionalInformation:
+        description: 'Service voucher additional information'
+        type: string
   OrganizationService:
     description: Organization service
     type: object

@@ -1,2 +1,4 @@
 swagger-codegen-cli.jar
 node_modules
+/nbproject/
+/.project
