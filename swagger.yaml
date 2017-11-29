@@ -4378,7 +4378,7 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/ServiceOrganization'
-      serviceVouchers:
+      vouchers:
         description: List of service vouchers.
         type: array
         items:
