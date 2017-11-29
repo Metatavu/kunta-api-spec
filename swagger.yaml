@@ -4315,6 +4315,9 @@ definitions:
         type: string
       chargeType:
         type: string
+      fundingType:
+        description: 'Service funding type. Possible values are: PubliclyFunded or MarketFunded.'
+        type: string
       names:
         type: array
         items:
