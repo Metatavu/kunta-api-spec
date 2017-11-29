@@ -34,7 +34,7 @@
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.Fragment = factory(root.KuntaApiClient.ApiClient);
+    root.KuntaApiClient.ServiceVoucher = factory(root.KuntaApiClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -43,60 +43,74 @@
 
 
   /**
-   * The Fragment model module.
-   * @module model/Fragment
+   * The ServiceVoucher model module.
+   * @module model/ServiceVoucher
    * @version 0.0.124
    */
 
   /**
-   * Constructs a new <code>Fragment</code>.
-   * @alias module:model/Fragment
+   * Constructs a new <code>ServiceVoucher</code>.
+   * Service voucher
+   * @alias module:model/ServiceVoucher
    * @class
+   * @param language {String} Language code.
    */
-  var exports = function() {
+  var exports = function(language) {
     var _this = this;
 
 
+    _this['language'] = language;
 
 
   };
 
   /**
-   * Constructs a <code>Fragment</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>ServiceVoucher</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Fragment} obj Optional instance to populate.
-   * @return {module:model/Fragment} The populated <code>Fragment</code> instance.
+   * @param {module:model/ServiceVoucher} obj Optional instance to populate.
+   * @return {module:model/ServiceVoucher} The populated <code>ServiceVoucher</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'String');
+      if (data.hasOwnProperty('value')) {
+        obj['value'] = ApiClient.convertToType(data['value'], 'String');
       }
-      if (data.hasOwnProperty('slug')) {
-        obj['slug'] = ApiClient.convertToType(data['slug'], 'String');
+      if (data.hasOwnProperty('language')) {
+        obj['language'] = ApiClient.convertToType(data['language'], 'String');
       }
-      if (data.hasOwnProperty('contents')) {
-        obj['contents'] = ApiClient.convertToType(data['contents'], 'String');
+      if (data.hasOwnProperty('url')) {
+        obj['url'] = ApiClient.convertToType(data['url'], 'String');
+      }
+      if (data.hasOwnProperty('additionalInformation')) {
+        obj['additionalInformation'] = ApiClient.convertToType(data['additionalInformation'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * @member {String} id
+   * Name of the service voucher.
+   * @member {String} value
    */
-  exports.prototype['id'] = undefined;
+  exports.prototype['value'] = undefined;
   /**
-   * @member {String} slug
+   * Language code.
+   * @member {String} language
    */
-  exports.prototype['slug'] = undefined;
+  exports.prototype['language'] = undefined;
   /**
-   * @member {String} contents
+   * Web page url
+   * @member {String} url
    */
-  exports.prototype['contents'] = undefined;
+  exports.prototype['url'] = undefined;
+  /**
+   * Service voucher additional information
+   * @member {String} additionalInformation
+   */
+  exports.prototype['additionalInformation'] = undefined;
 
 
 

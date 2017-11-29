@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Area', 'model/Law', 'model/LocalizedValue', 'model/OntologyItem', 'model/ServiceOrganization'], factory);
+    define(['ApiClient', 'model/Area', 'model/Law', 'model/LocalizedValue', 'model/OntologyItem', 'model/ServiceOrganization', 'model/ServiceVoucher'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Area'), require('./Law'), require('./LocalizedValue'), require('./OntologyItem'), require('./ServiceOrganization'));
+    module.exports = factory(require('../ApiClient'), require('./Area'), require('./Law'), require('./LocalizedValue'), require('./OntologyItem'), require('./ServiceOrganization'), require('./ServiceVoucher'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.Service = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Area, root.KuntaApiClient.Law, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.OntologyItem, root.KuntaApiClient.ServiceOrganization);
+    root.KuntaApiClient.Service = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Area, root.KuntaApiClient.Law, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.OntologyItem, root.KuntaApiClient.ServiceOrganization, root.KuntaApiClient.ServiceVoucher);
   }
-}(this, function(ApiClient, Area, Law, LocalizedValue, OntologyItem, ServiceOrganization) {
+}(this, function(ApiClient, Area, Law, LocalizedValue, OntologyItem, ServiceOrganization, ServiceVoucher) {
   'use strict';
 
 
@@ -45,7 +45,7 @@
   /**
    * The Service model module.
    * @module model/Service
-   * @version 0.0.123
+   * @version 0.0.124
    */
 
   /**
@@ -55,6 +55,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -149,6 +150,9 @@
       }
       if (data.hasOwnProperty('organizations')) {
         obj['organizations'] = ApiClient.convertToType(data['organizations'], [ServiceOrganization]);
+      }
+      if (data.hasOwnProperty('serviceVouchers')) {
+        obj['serviceVouchers'] = ApiClient.convertToType(data['serviceVouchers'], [ServiceVoucher]);
       }
       if (data.hasOwnProperty('electronicServiceChannelIds')) {
         obj['electronicServiceChannelIds'] = ApiClient.convertToType(data['electronicServiceChannelIds'], ['String']);
@@ -250,6 +254,11 @@
    * @member {Array.<module:model/ServiceOrganization>} organizations
    */
   exports.prototype['organizations'] = undefined;
+  /**
+   * List of service vouchers.
+   * @member {Array.<module:model/ServiceVoucher>} serviceVouchers
+   */
+  exports.prototype['serviceVouchers'] = undefined;
   /**
    * @member {Array.<String>} electronicServiceChannelIds
    */

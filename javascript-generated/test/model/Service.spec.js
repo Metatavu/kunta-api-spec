@@ -179,6 +179,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property serviceVouchers (base name: "serviceVouchers")', function() {
+      // uncomment below and update the code to test the property serviceVouchers
+      //var instane = new KuntaApiClient.Service();
+      //expect(instance).to.be();
+    });
+
     it('should have the property electronicServiceChannelIds (base name: "electronicServiceChannelIds")', function() {
       // uncomment below and update the code to test the property electronicServiceChannelIds
       //var instane = new KuntaApiClient.Service();
