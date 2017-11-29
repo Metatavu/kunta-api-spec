@@ -36,7 +36,7 @@ public class Service   {
   private List<LocalizedValue> requirements = new ArrayList<LocalizedValue>();
   private String publishingStatus = null;
   private List<ServiceOrganization> organizations = new ArrayList<ServiceOrganization>();
-  private List<ServiceVoucher> serviceVouchers = new ArrayList<ServiceVoucher>();
+  private List<ServiceVoucher> vouchers = new ArrayList<ServiceVoucher>();
   private List<String> electronicServiceChannelIds = new ArrayList<String>();
   private List<String> phoneServiceChannelIds = new ArrayList<String>();
   private List<String> printableFormServiceChannelIds = new ArrayList<String>();
@@ -355,18 +355,18 @@ public class Service   {
   /**
    * List of service vouchers.
    **/
-  public Service serviceVouchers(List<ServiceVoucher> serviceVouchers) {
-    this.serviceVouchers = serviceVouchers;
+  public Service vouchers(List<ServiceVoucher> vouchers) {
+    this.vouchers = vouchers;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "List of service vouchers.")
-  public List<ServiceVoucher> getServiceVouchers() {
-    return serviceVouchers;
+  public List<ServiceVoucher> getVouchers() {
+    return vouchers;
   }
-  public void setServiceVouchers(List<ServiceVoucher> serviceVouchers) {
-    this.serviceVouchers = serviceVouchers;
+  public void setVouchers(List<ServiceVoucher> vouchers) {
+    this.vouchers = vouchers;
   }
 
   /**
@@ -478,7 +478,7 @@ public class Service   {
         Objects.equals(requirements, service.requirements) &&
         Objects.equals(publishingStatus, service.publishingStatus) &&
         Objects.equals(organizations, service.organizations) &&
-        Objects.equals(serviceVouchers, service.serviceVouchers) &&
+        Objects.equals(vouchers, service.vouchers) &&
         Objects.equals(electronicServiceChannelIds, service.electronicServiceChannelIds) &&
         Objects.equals(phoneServiceChannelIds, service.phoneServiceChannelIds) &&
         Objects.equals(printableFormServiceChannelIds, service.printableFormServiceChannelIds) &&
@@ -488,7 +488,7 @@ public class Service   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, statutoryDescriptionId, chargeType, names, areaType, areas, descriptions, languages, serviceClasses, ontologyTerms, targetGroups, lifeEvents, industrialClasses, legislation, keywords, requirements, publishingStatus, organizations, serviceVouchers, electronicServiceChannelIds, phoneServiceChannelIds, printableFormServiceChannelIds, serviceLocationServiceChannelIds, webPageServiceChannelIds);
+    return Objects.hash(id, type, statutoryDescriptionId, chargeType, names, areaType, areas, descriptions, languages, serviceClasses, ontologyTerms, targetGroups, lifeEvents, industrialClasses, legislation, keywords, requirements, publishingStatus, organizations, vouchers, electronicServiceChannelIds, phoneServiceChannelIds, printableFormServiceChannelIds, serviceLocationServiceChannelIds, webPageServiceChannelIds);
   }
 
   @Override
@@ -515,7 +515,7 @@ public class Service   {
     sb.append("    requirements: ").append(toIndentedString(requirements)).append("\n");
     sb.append("    publishingStatus: ").append(toIndentedString(publishingStatus)).append("\n");
     sb.append("    organizations: ").append(toIndentedString(organizations)).append("\n");
-    sb.append("    serviceVouchers: ").append(toIndentedString(serviceVouchers)).append("\n");
+    sb.append("    vouchers: ").append(toIndentedString(vouchers)).append("\n");
     sb.append("    electronicServiceChannelIds: ").append(toIndentedString(electronicServiceChannelIds)).append("\n");
     sb.append("    phoneServiceChannelIds: ").append(toIndentedString(phoneServiceChannelIds)).append("\n");
     sb.append("    printableFormServiceChannelIds: ").append(toIndentedString(printableFormServiceChannelIds)).append("\n");

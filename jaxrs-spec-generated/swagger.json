@@ -5696,7 +5696,7 @@
             "$ref" : "#/definitions/ServiceOrganization"
           }
         },
-        "serviceVouchers" : {
+        "vouchers" : {
           "type" : "array",
           "description" : "List of service vouchers.",
           "items" : {
