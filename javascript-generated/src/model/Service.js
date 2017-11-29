@@ -45,7 +45,7 @@
   /**
    * The Service model module.
    * @module model/Service
-   * @version 0.0.124
+   * @version 0.0.125
    */
 
   /**
@@ -151,8 +151,8 @@
       if (data.hasOwnProperty('organizations')) {
         obj['organizations'] = ApiClient.convertToType(data['organizations'], [ServiceOrganization]);
       }
-      if (data.hasOwnProperty('serviceVouchers')) {
-        obj['serviceVouchers'] = ApiClient.convertToType(data['serviceVouchers'], [ServiceVoucher]);
+      if (data.hasOwnProperty('vouchers')) {
+        obj['vouchers'] = ApiClient.convertToType(data['vouchers'], [ServiceVoucher]);
       }
       if (data.hasOwnProperty('electronicServiceChannelIds')) {
         obj['electronicServiceChannelIds'] = ApiClient.convertToType(data['electronicServiceChannelIds'], ['String']);
@@ -256,9 +256,9 @@
   exports.prototype['organizations'] = undefined;
   /**
    * List of service vouchers.
-   * @member {Array.<module:model/ServiceVoucher>} serviceVouchers
+   * @member {Array.<module:model/ServiceVoucher>} vouchers
    */
-  exports.prototype['serviceVouchers'] = undefined;
+  exports.prototype['vouchers'] = undefined;
   /**
    * @member {Array.<String>} electronicServiceChannelIds
    */

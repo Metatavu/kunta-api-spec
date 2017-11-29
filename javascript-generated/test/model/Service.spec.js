@@ -179,8 +179,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property serviceVouchers (base name: "serviceVouchers")', function() {
-      // uncomment below and update the code to test the property serviceVouchers
+    it('should have the property vouchers (base name: "vouchers")', function() {
+      // uncomment below and update the code to test the property vouchers
       //var instane = new KuntaApiClient.Service();
       //expect(instance).to.be();
     });

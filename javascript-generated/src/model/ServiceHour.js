@@ -45,7 +45,7 @@
   /**
    * The ServiceHour model module.
    * @module model/ServiceHour
-   * @version 0.0.124
+   * @version 0.0.125
    */
 
   /**

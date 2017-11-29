@@ -45,7 +45,7 @@
   /**
    * The OrganizationSetting model module.
    * @module model/OrganizationSetting
-   * @version 0.0.124
+   * @version 0.0.125
    */
 
   /**

@@ -45,7 +45,7 @@
   /**
    * The Contact model module.
    * @module model/Contact
-   * @version 0.0.124
+   * @version 0.0.125
    */
 
   /**

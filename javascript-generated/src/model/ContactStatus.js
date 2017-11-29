@@ -45,7 +45,7 @@
   /**
    * The ContactStatus model module.
    * @module model/ContactStatus
-   * @version 0.0.124
+   * @version 0.0.125
    */
 
   /**

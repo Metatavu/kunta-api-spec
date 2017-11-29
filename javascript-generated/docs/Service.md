@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **requirements** | [**[LocalizedValue]**](LocalizedValue.md) |  | [optional] 
 **publishingStatus** | **String** | Publishing status. Possible values are: Draft, Published, Deleted, Modified or OldPublished. | [optional] 
 **organizations** | [**[ServiceOrganization]**](ServiceOrganization.md) |  | [optional] 
-**serviceVouchers** | [**[ServiceVoucher]**](ServiceVoucher.md) | List of service vouchers. | [optional] 
+**vouchers** | [**[ServiceVoucher]**](ServiceVoucher.md) | List of service vouchers. | [optional] 
 **electronicServiceChannelIds** | **[String]** |  | [optional] 
 **phoneServiceChannelIds** | **[String]** |  | [optional] 
 **printableFormServiceChannelIds** | **[String]** |  | [optional] 
