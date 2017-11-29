@@ -5607,6 +5607,10 @@
         "chargeType" : {
           "type" : "string"
         },
+        "fundingType" : {
+          "type" : "string",
+          "description" : "Service funding type. Possible values are: PubliclyFunded or MarketFunded."
+        },
         "names" : {
           "type" : "array",
           "items" : {

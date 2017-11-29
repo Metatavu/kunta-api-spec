@@ -21,6 +21,7 @@ public class Service   {
   private String type = null;
   private String statutoryDescriptionId = null;
   private String chargeType = null;
+  private String fundingType = null;
   private List<LocalizedValue> names = new ArrayList<LocalizedValue>();
   private String areaType = null;
   private List<Area> areas = new ArrayList<Area>();
@@ -105,6 +106,23 @@ public class Service   {
   }
   public void setChargeType(String chargeType) {
     this.chargeType = chargeType;
+  }
+
+  /**
+   * Service funding type. Possible values are: PubliclyFunded or MarketFunded.
+   **/
+  public Service fundingType(String fundingType) {
+    this.fundingType = fundingType;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "Service funding type. Possible values are: PubliclyFunded or MarketFunded.")
+  public String getFundingType() {
+    return fundingType;
+  }
+  public void setFundingType(String fundingType) {
+    this.fundingType = fundingType;
   }
 
   /**
@@ -463,6 +481,7 @@ public class Service   {
         Objects.equals(type, service.type) &&
         Objects.equals(statutoryDescriptionId, service.statutoryDescriptionId) &&
         Objects.equals(chargeType, service.chargeType) &&
+        Objects.equals(fundingType, service.fundingType) &&
         Objects.equals(names, service.names) &&
         Objects.equals(areaType, service.areaType) &&
         Objects.equals(areas, service.areas) &&
@@ -488,7 +507,7 @@ public class Service   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, statutoryDescriptionId, chargeType, names, areaType, areas, descriptions, languages, serviceClasses, ontologyTerms, targetGroups, lifeEvents, industrialClasses, legislation, keywords, requirements, publishingStatus, organizations, vouchers, electronicServiceChannelIds, phoneServiceChannelIds, printableFormServiceChannelIds, serviceLocationServiceChannelIds, webPageServiceChannelIds);
+    return Objects.hash(id, type, statutoryDescriptionId, chargeType, fundingType, names, areaType, areas, descriptions, languages, serviceClasses, ontologyTerms, targetGroups, lifeEvents, industrialClasses, legislation, keywords, requirements, publishingStatus, organizations, vouchers, electronicServiceChannelIds, phoneServiceChannelIds, printableFormServiceChannelIds, serviceLocationServiceChannelIds, webPageServiceChannelIds);
   }
 
   @Override
@@ -500,6 +519,7 @@ public class Service   {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    statutoryDescriptionId: ").append(toIndentedString(statutoryDescriptionId)).append("\n");
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
+    sb.append("    fundingType: ").append(toIndentedString(fundingType)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");
     sb.append("    areaType: ").append(toIndentedString(areaType)).append("\n");
     sb.append("    areas: ").append(toIndentedString(areas)).append("\n");
