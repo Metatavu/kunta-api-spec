@@ -45,7 +45,7 @@
   /**
    * The DailyOpeningTime model module.
    * @module model/DailyOpeningTime
-   * @version 0.0.125
+   * @version 0.0.126
    */
 
   /**

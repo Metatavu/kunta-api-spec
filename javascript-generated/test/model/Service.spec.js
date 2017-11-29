@@ -89,6 +89,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property fundingType (base name: "fundingType")', function() {
+      // uncomment below and update the code to test the property fundingType
+      //var instane = new KuntaApiClient.Service();
+      //expect(instance).to.be();
+    });
+
     it('should have the property names (base name: "names")', function() {
       // uncomment below and update the code to test the property names
       //var instane = new KuntaApiClient.Service();

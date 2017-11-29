@@ -45,7 +45,7 @@
   /**
    * The Service model module.
    * @module model/Service
-   * @version 0.0.125
+   * @version 0.0.126
    */
 
   /**
@@ -55,6 +55,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -105,6 +106,9 @@
       }
       if (data.hasOwnProperty('chargeType')) {
         obj['chargeType'] = ApiClient.convertToType(data['chargeType'], 'String');
+      }
+      if (data.hasOwnProperty('fundingType')) {
+        obj['fundingType'] = ApiClient.convertToType(data['fundingType'], 'String');
       }
       if (data.hasOwnProperty('names')) {
         obj['names'] = ApiClient.convertToType(data['names'], [LocalizedValue]);
@@ -189,6 +193,11 @@
    * @member {String} chargeType
    */
   exports.prototype['chargeType'] = undefined;
+  /**
+   * Service funding type. Possible values are: PubliclyFunded or MarketFunded.
+   * @member {String} fundingType
+   */
+  exports.prototype['fundingType'] = undefined;
   /**
    * @member {Array.<module:model/LocalizedValue>} names
    */

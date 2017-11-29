@@ -45,7 +45,7 @@
   /**
    * The EmergencySource model module.
    * @module model/EmergencySource
-   * @version 0.0.125
+   * @version 0.0.126
    */
 
   /**

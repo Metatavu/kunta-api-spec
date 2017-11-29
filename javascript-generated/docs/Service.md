@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **type** | **String** |  | [optional] 
 **statutoryDescriptionId** | **String** |  | [optional] 
 **chargeType** | **String** |  | [optional] 
+**fundingType** | **String** | Service funding type. Possible values are: PubliclyFunded or MarketFunded. | [optional] 
 **names** | [**[LocalizedValue]**](LocalizedValue.md) |  | [optional] 
 **areaType** | **String** | Area type (WholeCountry, WholeCountryExceptAlandIslands, AreaType). | [optional] 
 **areas** | [**[Area]**](Area.md) | List of service areas. | [optional] 
