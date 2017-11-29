@@ -5696,6 +5696,13 @@
             "$ref" : "#/definitions/ServiceOrganization"
           }
         },
+        "serviceVouchers" : {
+          "type" : "array",
+          "description" : "List of service vouchers.",
+          "items" : {
+            "$ref" : "#/definitions/ServiceVoucher"
+          }
+        },
         "electronicServiceChannelIds" : {
           "type" : "array",
           "items" : {
@@ -5764,6 +5771,29 @@
         }
       },
       "description" : "Service organization"
+    },
+    "ServiceVoucher" : {
+      "type" : "object",
+      "required" : [ "language" ],
+      "properties" : {
+        "value" : {
+          "type" : "string",
+          "description" : "Name of the service voucher."
+        },
+        "language" : {
+          "type" : "string",
+          "description" : "Language code."
+        },
+        "url" : {
+          "type" : "string",
+          "description" : "Web page url"
+        },
+        "additionalInformation" : {
+          "type" : "string",
+          "description" : "Service voucher additional information"
+        }
+      },
+      "description" : "Service voucher"
     },
     "OrganizationService" : {
       "type" : "object",
