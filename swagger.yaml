@@ -3479,6 +3479,24 @@ paths:
         - ServiceChannels
         - ElectronicServiceChannels
       parameters:
+        - name: organizationId
+          in: query
+          description: Organization id
+          type: string
+          format: uuid
+        - name: search
+          in: query
+          description: Search channels by free-text query
+          required: false
+          type: string
+        - name: sortBy
+          in: query
+          description: define order (NATURAL or SCORE). Default is NATURAL
+          type: string
+        - name: sortDir
+          in: query
+          description: ASC or DESC. Default is ASC
+          type: string          
         - name: firstResult
           in: query
           description: First result
@@ -3490,7 +3508,7 @@ paths:
           description: Max results
           required: false
           type: integer
-          format: int64       
+          format: int64
       responses:
         200:
           description: Returns array of electronic service channels
