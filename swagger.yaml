@@ -3508,7 +3508,7 @@ paths:
           description: Max results
           required: false
           type: integer
-          format: int64
+          format: int64      
       responses:
         200:
           description: Returns array of electronic service channels
