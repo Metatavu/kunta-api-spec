@@ -42,7 +42,7 @@
   /**
    * Events service.
    * @module api/EventsApi
-   * @version 0.0.127
+   * @version 0.0.128
    */
 
   /**
