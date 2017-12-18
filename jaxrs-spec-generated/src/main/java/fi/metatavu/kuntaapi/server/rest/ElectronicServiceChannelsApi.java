@@ -20,7 +20,7 @@ import java.util.List;
 @Api(description = "the electronicServiceChannels API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-12-15T06:58:38.936+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-12-18T11:08:21.496+02:00")
 
 public abstract class ElectronicServiceChannelsApi extends AbstractApi {
 
@@ -52,7 +52,7 @@ public abstract class ElectronicServiceChannelsApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = ElectronicServiceChannel.class, responseContainer = "List"),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = ElectronicServiceChannel.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = ElectronicServiceChannel.class, responseContainer = "List") })
-    public abstract Response listElectronicServiceChannels(@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
+    public abstract Response listElectronicServiceChannels(@QueryParam("organizationId") String organizationId,@QueryParam("search") String search,@QueryParam("sortBy") String sortBy,@QueryParam("sortDir") String sortDir,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
 
 }
 
