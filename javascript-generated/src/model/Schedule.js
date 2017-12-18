@@ -45,7 +45,7 @@
   /**
    * The Schedule model module.
    * @module model/Schedule
-   * @version 0.0.128
+   * @version 0.0.129
    */
 
   /**

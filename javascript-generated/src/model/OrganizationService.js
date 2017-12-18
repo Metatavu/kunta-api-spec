@@ -45,7 +45,7 @@
   /**
    * The OrganizationService model module.
    * @module model/OrganizationService
-   * @version 0.0.128
+   * @version 0.0.129
    */
 
   /**
