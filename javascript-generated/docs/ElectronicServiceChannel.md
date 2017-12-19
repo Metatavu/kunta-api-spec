@@ -18,5 +18,7 @@ Name | Type | Description | Notes
 **webPages** | [**[WebPage]**](WebPage.md) |  | [optional] 
 **serviceHours** | [**[ServiceHour]**](ServiceHour.md) |  | [optional] 
 **publishingStatus** | **String** |  | [optional] 
+**areaType** | **String** | Area type (WholeCountry, WholeCountryExceptAlandIslands, AreaType). | [optional] 
+**areas** | [**[Area]**](Area.md) | List of service channel areas. | [optional] 
 
 
