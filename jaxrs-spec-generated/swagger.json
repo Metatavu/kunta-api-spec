@@ -260,6 +260,60 @@
             }
           }
         }
+      },
+      "put" : {
+        "tags" : [ "ServiceChannels", "ElectronicServiceChannels" ],
+        "summary" : "Updates a channel",
+        "description" : "Updates a service channel",
+        "operationId" : "updateElectronicServiceChannel",
+        "parameters" : [ {
+          "name" : "electronicServiceChannelId",
+          "in" : "path",
+          "description" : "electronicChannel id",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        }, {
+          "in" : "body",
+          "name" : "payload",
+          "description" : "New electronic service data",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ElectronicServiceChannel"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a service location service channel",
+            "schema" : {
+              "$ref" : "#/definitions/ElectronicServiceChannel"
+            }
+          },
+          "400" : {
+            "description" : "Invalid request was sent to the server",
+            "schema" : {
+              "$ref" : "#/definitions/BadRequest"
+            }
+          },
+          "403" : {
+            "description" : "Attempted to make a call with unauthorized client",
+            "schema" : {
+              "$ref" : "#/definitions/Forbidden"
+            }
+          },
+          "404" : {
+            "description" : "Resource was not found from the server",
+            "schema" : {
+              "$ref" : "#/definitions/NotFound"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "schema" : {
+              "$ref" : "#/definitions/InternalServerError"
+            }
+          }
+        }
       }
     },
     "/organizations" : {

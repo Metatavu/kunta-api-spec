@@ -20,7 +20,7 @@ import java.util.List;
 @Api(description = "the electronicServiceChannels API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-12-19T10:38:21.433+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-12-19T11:49:20.595+02:00")
 
 public abstract class ElectronicServiceChannelsApi extends AbstractApi {
 
@@ -45,7 +45,7 @@ public abstract class ElectronicServiceChannelsApi extends AbstractApi {
     @Produces({ "application/json;charset=utf-8" })
     @ApiOperation(value = "Lists electronic service channels", notes = "Lists electronic service channels", response = ElectronicServiceChannel.class, responseContainer = "List", authorizations = {
         @Authorization(value = "basicAuth")
-    }, tags={ "ServiceChannels", "ElectronicServiceChannels" })
+    }, tags={ "ServiceChannels", "ElectronicServiceChannels",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns array of electronic service channels", response = ElectronicServiceChannel.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = ElectronicServiceChannel.class, responseContainer = "List"),
@@ -53,6 +53,21 @@ public abstract class ElectronicServiceChannelsApi extends AbstractApi {
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = ElectronicServiceChannel.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = ElectronicServiceChannel.class, responseContainer = "List") })
     public abstract Response listElectronicServiceChannels(@QueryParam("organizationId") String organizationId,@QueryParam("search") String search,@QueryParam("sortBy") String sortBy,@QueryParam("sortDir") String sortDir,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
+
+    @PUT
+    @Path("/{electronicServiceChannelId}")
+    @Consumes({ "application/json;charset=utf-8" })
+    @Produces({ "application/json;charset=utf-8" })
+    @ApiOperation(value = "Updates a channel", notes = "Updates a service channel", response = ElectronicServiceChannel.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "ServiceChannels", "ElectronicServiceChannels" })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Returns a service location service channel", response = ElectronicServiceChannel.class),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = ElectronicServiceChannel.class),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = ElectronicServiceChannel.class),
+        @ApiResponse(code = 404, message = "Resource was not found from the server", response = ElectronicServiceChannel.class),
+        @ApiResponse(code = 500, message = "Internal server error", response = ElectronicServiceChannel.class) })
+    public abstract Response updateElectronicServiceChannel(@PathParam("electronicServiceChannelId") String electronicServiceChannelId,ElectronicServiceChannel payload,@Context Request request);
 
 }
 
