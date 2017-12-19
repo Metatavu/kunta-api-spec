@@ -42,7 +42,7 @@
   /**
    * Services service.
    * @module api/ServicesApi
-   * @version 0.0.130
+   * @version 0.0.131
    */
 
   /**

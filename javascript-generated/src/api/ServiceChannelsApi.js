@@ -42,7 +42,7 @@
   /**
    * ServiceChannels service.
    * @module api/ServiceChannelsApi
-   * @version 0.0.130
+   * @version 0.0.131
    */
 
   /**
@@ -442,6 +442,50 @@
 
       return this.apiClient.callApi(
         '/webPageServiceChannels', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+
+    /**
+     * Updates a channel
+     * Updates a service channel
+     * @param {String} electronicServiceChannelId electronicChannel id
+     * @param {module:model/ElectronicServiceChannel} payload New electronic service data
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ElectronicServiceChannel}
+     */
+    this.updateElectronicServiceChannel = function(electronicServiceChannelId, payload) {
+      var postBody = payload;
+
+      // verify the required parameter 'electronicServiceChannelId' is set
+      if (electronicServiceChannelId == undefined || electronicServiceChannelId == null) {
+        throw "Missing the required parameter 'electronicServiceChannelId' when calling updateElectronicServiceChannel";
+      }
+
+      // verify the required parameter 'payload' is set
+      if (payload == undefined || payload == null) {
+        throw "Missing the required parameter 'payload' when calling updateElectronicServiceChannel";
+      }
+
+
+      var pathParams = {
+        'electronicServiceChannelId': electronicServiceChannelId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['basicAuth'];
+      var contentTypes = ['application/json;charset=utf-8'];
+      var accepts = ['application/json;charset=utf-8'];
+      var returnType = ElectronicServiceChannel;
+
+      return this.apiClient.callApi(
+        '/electronicServiceChannels/{electronicServiceChannelId}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );

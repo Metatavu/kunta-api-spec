@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**findElectronicServiceChannel**](ElectronicServiceChannelsApi.md#findElectronicServiceChannel) | **GET** /electronicServiceChannels/{electronicServiceChannelId} | Finds an electronic service channel by id
 [**listElectronicServiceChannels**](ElectronicServiceChannelsApi.md#listElectronicServiceChannels) | **GET** /electronicServiceChannels | Lists electronic service channels
+[**updateElectronicServiceChannel**](ElectronicServiceChannelsApi.md#updateElectronicServiceChannel) | **PUT** /electronicServiceChannels/{electronicServiceChannelId} | Updates a channel
 
 
 <a name="findElectronicServiceChannel"></a>
@@ -107,6 +108,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[ElectronicServiceChannel]**](ElectronicServiceChannel.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
+
+<a name="updateElectronicServiceChannel"></a>
+# **updateElectronicServiceChannel**
+> ElectronicServiceChannel updateElectronicServiceChannel(electronicServiceChannelId, payload)
+
+Updates a channel
+
+Updates a service channel
+
+### Example
+```javascript
+var KuntaApiClient = require('kunta-api-client');
+var defaultClient = KuntaApiClient.ApiClient.default;
+
+// Configure HTTP basic authorization: basicAuth
+var basicAuth = defaultClient.authentications['basicAuth'];
+basicAuth.username = 'YOUR USERNAME';
+basicAuth.password = 'YOUR PASSWORD';
+
+var apiInstance = new KuntaApiClient.ElectronicServiceChannelsApi();
+
+var electronicServiceChannelId = "electronicServiceChannelId_example"; // String | electronicChannel id
+
+var payload = new KuntaApiClient.ElectronicServiceChannel(); // ElectronicServiceChannel | New electronic service data
+
+apiInstance.updateElectronicServiceChannel(electronicServiceChannelId, payload).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **electronicServiceChannelId** | **String**| electronicChannel id | 
+ **payload** | [**ElectronicServiceChannel**](ElectronicServiceChannel.md)| New electronic service data | 
+
+### Return type
+
+[**ElectronicServiceChannel**](ElectronicServiceChannel.md)
 
 ### Authorization
 
