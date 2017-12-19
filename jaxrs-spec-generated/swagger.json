@@ -5939,6 +5939,17 @@
         },
         "publishingStatus" : {
           "type" : "string"
+        },
+        "areaType" : {
+          "type" : "string",
+          "description" : "Area type (WholeCountry, WholeCountryExceptAlandIslands, AreaType)."
+        },
+        "areas" : {
+          "type" : "array",
+          "description" : "List of service channel areas.",
+          "items" : {
+            "$ref" : "#/definitions/Area"
+          }
         }
       }
     },

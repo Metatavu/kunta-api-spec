@@ -1,5 +1,6 @@
 package fi.metatavu.kuntaapi.server.rest.model;
 
+import fi.metatavu.kuntaapi.server.rest.model.Area;
 import fi.metatavu.kuntaapi.server.rest.model.Email;
 import fi.metatavu.kuntaapi.server.rest.model.LocalizedValue;
 import fi.metatavu.kuntaapi.server.rest.model.Phone;
@@ -32,6 +33,8 @@ public class ElectronicServiceChannel   {
   private List<WebPage> webPages = new ArrayList<WebPage>();
   private List<ServiceHour> serviceHours = new ArrayList<ServiceHour>();
   private String publishingStatus = null;
+  private String areaType = null;
+  private List<Area> areas = new ArrayList<Area>();
 
   /**
    **/
@@ -275,6 +278,40 @@ public class ElectronicServiceChannel   {
     this.publishingStatus = publishingStatus;
   }
 
+  /**
+   * Area type (WholeCountry, WholeCountryExceptAlandIslands, AreaType).
+   **/
+  public ElectronicServiceChannel areaType(String areaType) {
+    this.areaType = areaType;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "Area type (WholeCountry, WholeCountryExceptAlandIslands, AreaType).")
+  public String getAreaType() {
+    return areaType;
+  }
+  public void setAreaType(String areaType) {
+    this.areaType = areaType;
+  }
+
+  /**
+   * List of service channel areas.
+   **/
+  public ElectronicServiceChannel areas(List<Area> areas) {
+    this.areas = areas;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "List of service channel areas.")
+  public List<Area> getAreas() {
+    return areas;
+  }
+  public void setAreas(List<Area> areas) {
+    this.areas = areas;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -299,12 +336,14 @@ public class ElectronicServiceChannel   {
         Objects.equals(attachments, electronicServiceChannel.attachments) &&
         Objects.equals(webPages, electronicServiceChannel.webPages) &&
         Objects.equals(serviceHours, electronicServiceChannel.serviceHours) &&
-        Objects.equals(publishingStatus, electronicServiceChannel.publishingStatus);
+        Objects.equals(publishingStatus, electronicServiceChannel.publishingStatus) &&
+        Objects.equals(areaType, electronicServiceChannel.areaType) &&
+        Objects.equals(areas, electronicServiceChannel.areas);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, organizationId, names, descriptions, signatureQuantity, requiresSignature, supportPhones, supportEmails, requiresAuthentication, urls, languages, attachments, webPages, serviceHours, publishingStatus);
+    return Objects.hash(id, organizationId, names, descriptions, signatureQuantity, requiresSignature, supportPhones, supportEmails, requiresAuthentication, urls, languages, attachments, webPages, serviceHours, publishingStatus, areaType, areas);
   }
 
   @Override
@@ -327,6 +366,8 @@ public class ElectronicServiceChannel   {
     sb.append("    webPages: ").append(toIndentedString(webPages)).append("\n");
     sb.append("    serviceHours: ").append(toIndentedString(serviceHours)).append("\n");
     sb.append("    publishingStatus: ").append(toIndentedString(publishingStatus)).append("\n");
+    sb.append("    areaType: ").append(toIndentedString(areaType)).append("\n");
+    sb.append("    areas: ").append(toIndentedString(areas)).append("\n");
     sb.append("}");
     return sb.toString();
   }
