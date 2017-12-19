@@ -4560,6 +4560,14 @@ definitions:
           $ref: '#/definitions/ServiceHour'
       publishingStatus:
         type: string
+      areaType:
+        description: 'Area type (WholeCountry, WholeCountryExceptAlandIslands, AreaType).'
+        type: string
+      areas:
+        description: List of service channel areas.
+        type: array
+        items:
+          $ref: '#/definitions/Area'
   PhoneServiceChannel:
     type: object
     properties:

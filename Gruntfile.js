@@ -5,7 +5,7 @@ var fs = require('fs');
 module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
   
-  var PHP_CLIENT_VERSION = '1.0.8';
+  var PHP_CLIENT_VERSION = '1.0.9';
   
   grunt.initConfig({
     'clean': {
