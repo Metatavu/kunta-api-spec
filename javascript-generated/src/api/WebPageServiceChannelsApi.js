@@ -42,7 +42,7 @@
   /**
    * WebPageServiceChannels service.
    * @module api/WebPageServiceChannelsApi
-   * @version 0.0.131
+   * @version 0.0.132
    */
 
   /**
@@ -99,6 +99,10 @@
      * Lists web page service channels
      * Lists web page service channels
      * @param {Object} opts Optional parameters
+     * @param {String} opts.organizationId Organization id
+     * @param {String} opts.search Search channels by free-text query
+     * @param {String} opts.sortBy define order (NATURAL or SCORE). Default is NATURAL
+     * @param {String} opts.sortDir ASC or DESC. Default is ASC
      * @param {Integer} opts.firstResult First result
      * @param {Integer} opts.maxResults Max results
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/WebPageServiceChannel>}
@@ -111,6 +115,10 @@
       var pathParams = {
       };
       var queryParams = {
+        'organizationId': opts['organizationId'],
+        'search': opts['search'],
+        'sortBy': opts['sortBy'],
+        'sortDir': opts['sortDir'],
         'firstResult': opts['firstResult'],
         'maxResults': opts['maxResults']
       };
