@@ -4174,6 +4174,31 @@
         "description" : "Lists phone service channels",
         "operationId" : "listPhoneServiceChannels",
         "parameters" : [ {
+          "name" : "organizationId",
+          "in" : "query",
+          "description" : "Organization id",
+          "required" : false,
+          "type" : "string",
+          "format" : "uuid"
+        }, {
+          "name" : "search",
+          "in" : "query",
+          "description" : "Search channels by free-text query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "sortBy",
+          "in" : "query",
+          "description" : "define order (NATURAL or SCORE). Default is NATURAL",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "sortDir",
+          "in" : "query",
+          "description" : "ASC or DESC. Default is ASC",
+          "required" : false,
+          "type" : "string"
+        }, {
           "name" : "firstResult",
           "in" : "query",
           "description" : "First result",
@@ -4280,6 +4305,31 @@
         "description" : "Lists printable form service channels",
         "operationId" : "listPrintableFormServiceChannels",
         "parameters" : [ {
+          "name" : "organizationId",
+          "in" : "query",
+          "description" : "Organization id",
+          "required" : false,
+          "type" : "string",
+          "format" : "uuid"
+        }, {
+          "name" : "search",
+          "in" : "query",
+          "description" : "Search channels by free-text query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "sortBy",
+          "in" : "query",
+          "description" : "define order (NATURAL or SCORE). Default is NATURAL",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "sortDir",
+          "in" : "query",
+          "description" : "ASC or DESC. Default is ASC",
+          "required" : false,
+          "type" : "string"
+        }, {
           "name" : "firstResult",
           "in" : "query",
           "description" : "First result",
@@ -5442,6 +5492,31 @@
         "description" : "Lists web page service channels",
         "operationId" : "listWebPageServiceChannels",
         "parameters" : [ {
+          "name" : "organizationId",
+          "in" : "query",
+          "description" : "Organization id",
+          "required" : false,
+          "type" : "string",
+          "format" : "uuid"
+        }, {
+          "name" : "search",
+          "in" : "query",
+          "description" : "Search channels by free-text query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "sortBy",
+          "in" : "query",
+          "description" : "define order (NATURAL or SCORE). Default is NATURAL",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "sortDir",
+          "in" : "query",
+          "description" : "ASC or DESC. Default is ASC",
+          "required" : false,
+          "type" : "string"
+        }, {
           "name" : "firstResult",
           "in" : "query",
           "description" : "First result",

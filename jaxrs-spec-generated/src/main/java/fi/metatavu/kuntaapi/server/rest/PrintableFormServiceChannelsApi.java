@@ -20,7 +20,7 @@ import java.util.List;
 @Api(description = "the printableFormServiceChannels API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-12-19T11:49:20.595+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-12-20T15:06:08.082+02:00")
 
 public abstract class PrintableFormServiceChannelsApi extends AbstractApi {
 
@@ -52,7 +52,7 @@ public abstract class PrintableFormServiceChannelsApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = PrintableFormServiceChannel.class, responseContainer = "List"),
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = PrintableFormServiceChannel.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = PrintableFormServiceChannel.class, responseContainer = "List") })
-    public abstract Response listPrintableFormServiceChannels(@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
+    public abstract Response listPrintableFormServiceChannels(@QueryParam("organizationId") String organizationId,@QueryParam("search") String search,@QueryParam("sortBy") String sortBy,@QueryParam("sortDir") String sortDir,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
 
 }
 
