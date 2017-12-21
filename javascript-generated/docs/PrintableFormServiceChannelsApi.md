@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**findPrintableFormServiceChannel**](PrintableFormServiceChannelsApi.md#findPrintableFormServiceChannel) | **GET** /printableFormServiceChannels/{printableFormServiceChannelId} | Finds a printable form service channel
 [**listPrintableFormServiceChannels**](PrintableFormServiceChannelsApi.md#listPrintableFormServiceChannels) | **GET** /printableFormServiceChannels | Lists printable form service channels
+[**updatePrintableFormServiceChannel**](PrintableFormServiceChannelsApi.md#updatePrintableFormServiceChannel) | **PUT** /printableFormServiceChannels/{printableFormServiceChannelId} | Updates a channel
 
 
 <a name="findPrintableFormServiceChannel"></a>
@@ -107,6 +108,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[PrintableFormServiceChannel]**](PrintableFormServiceChannel.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
+
+<a name="updatePrintableFormServiceChannel"></a>
+# **updatePrintableFormServiceChannel**
+> PrintableFormServiceChannel updatePrintableFormServiceChannel(printableFormServiceChannelId, payload)
+
+Updates a channel
+
+Updates a service channel
+
+### Example
+```javascript
+var KuntaApiClient = require('kunta-api-client');
+var defaultClient = KuntaApiClient.ApiClient.default;
+
+// Configure HTTP basic authorization: basicAuth
+var basicAuth = defaultClient.authentications['basicAuth'];
+basicAuth.username = 'YOUR USERNAME';
+basicAuth.password = 'YOUR PASSWORD';
+
+var apiInstance = new KuntaApiClient.PrintableFormServiceChannelsApi();
+
+var printableFormServiceChannelId = "printableFormServiceChannelId_example"; // String | printable form channel id
+
+var payload = new KuntaApiClient.PrintableFormServiceChannel(); // PrintableFormServiceChannel | New printable form service data
+
+apiInstance.updatePrintableFormServiceChannel(printableFormServiceChannelId, payload).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **printableFormServiceChannelId** | **String**| printable form channel id | 
+ **payload** | [**PrintableFormServiceChannel**](PrintableFormServiceChannel.md)| New printable form service data | 
+
+### Return type
+
+[**PrintableFormServiceChannel**](PrintableFormServiceChannel.md)
 
 ### Authorization
 

@@ -42,7 +42,7 @@
   /**
    * PrintableFormServiceChannels service.
    * @module api/PrintableFormServiceChannelsApi
-   * @version 0.0.134
+   * @version 0.0.135
    */
 
   /**
@@ -134,6 +134,50 @@
 
       return this.apiClient.callApi(
         '/printableFormServiceChannels', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+
+    /**
+     * Updates a channel
+     * Updates a service channel
+     * @param {String} printableFormServiceChannelId printable form channel id
+     * @param {module:model/PrintableFormServiceChannel} payload New printable form service data
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PrintableFormServiceChannel}
+     */
+    this.updatePrintableFormServiceChannel = function(printableFormServiceChannelId, payload) {
+      var postBody = payload;
+
+      // verify the required parameter 'printableFormServiceChannelId' is set
+      if (printableFormServiceChannelId == undefined || printableFormServiceChannelId == null) {
+        throw "Missing the required parameter 'printableFormServiceChannelId' when calling updatePrintableFormServiceChannel";
+      }
+
+      // verify the required parameter 'payload' is set
+      if (payload == undefined || payload == null) {
+        throw "Missing the required parameter 'payload' when calling updatePrintableFormServiceChannel";
+      }
+
+
+      var pathParams = {
+        'printableFormServiceChannelId': printableFormServiceChannelId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['basicAuth'];
+      var contentTypes = ['application/json;charset=utf-8'];
+      var accepts = ['application/json;charset=utf-8'];
+      var returnType = PrintableFormServiceChannel;
+
+      return this.apiClient.callApi(
+        '/printableFormServiceChannels/{printableFormServiceChannelId}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );

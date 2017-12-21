@@ -155,6 +155,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property areaType (base name: "areaType")', function() {
+      // uncomment below and update the code to test the property areaType
+      //var instane = new KuntaApiClient.PrintableFormServiceChannel();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property areas (base name: "areas")', function() {
+      // uncomment below and update the code to test the property areas
+      //var instane = new KuntaApiClient.PrintableFormServiceChannel();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

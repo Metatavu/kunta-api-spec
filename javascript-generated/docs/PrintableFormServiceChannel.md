@@ -18,5 +18,7 @@ Name | Type | Description | Notes
 **webPages** | [**[WebPage]**](WebPage.md) | List of service channel web pages. | [optional] 
 **serviceHours** | [**[ServiceHour]**](ServiceHour.md) | List of service channel service hours. | [optional] 
 **publishingStatus** | **String** | Service channel publishing status. Values: Draft, Published, Deleted, Modified or OldPublished. | [optional] 
+**areaType** | **String** | Area type (WholeCountry, WholeCountryExceptAlandIslands, AreaType). | [optional] 
+**areas** | [**[Area]**](Area.md) | List of service channel areas. | [optional] 
 
 
