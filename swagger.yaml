@@ -3846,6 +3846,47 @@ paths:
           description: Internal server error
           schema:
             $ref: '#/definitions/InternalServerError'
+    put:
+      operationId: updatePrintableFormServiceChannel
+      summary: Updates a channel
+      description: Updates a service channel
+      tags:
+        - ServiceChannels
+        - PrintableFormServiceChannels
+      parameters:
+        - name: printableFormServiceChannelId
+          in: path
+          description: printable form channel id
+          required: true
+          type: string
+          format: uuid
+        - name: payload
+          in: body
+          description: New printable form service data
+          required: true
+          schema:
+            $ref: '#/definitions/PrintableFormServiceChannel'
+      responses:
+        200:
+          description: Returns a printableForm service channel
+          schema:
+            $ref: '#/definitions/PrintableFormServiceChannel'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        404:
+          description: Resource was not found from the server
+          schema:
+            $ref: '#/definitions/NotFound'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
   /serviceLocationServiceChannels:
     get:
       operationId: listServiceLocationServiceChannels
@@ -4841,6 +4882,14 @@ definitions:
           Service channel publishing status. Values: Draft, Published, Deleted,
           Modified or OldPublished.
         type: string
+      areaType:
+        description: 'Area type (WholeCountry, WholeCountryExceptAlandIslands, AreaType).'
+        type: string
+      areas:
+        description: List of service channel areas.
+        type: array
+        items:
+          $ref: '#/definitions/Area'
   ServiceLocationServiceChannel:
     type: object
     properties:
