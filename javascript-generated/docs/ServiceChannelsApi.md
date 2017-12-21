@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**listServiceLocationServiceChannels**](ServiceChannelsApi.md#listServiceLocationServiceChannels) | **GET** /serviceLocationServiceChannels | Lists service location service channels
 [**listWebPageServiceChannels**](ServiceChannelsApi.md#listWebPageServiceChannels) | **GET** /webPageServiceChannels | Lists web page service channels
 [**updateElectronicServiceChannel**](ServiceChannelsApi.md#updateElectronicServiceChannel) | **PUT** /electronicServiceChannels/{electronicServiceChannelId} | Updates a channel
+[**updatePhoneServiceChannel**](ServiceChannelsApi.md#updatePhoneServiceChannel) | **PUT** /phoneServiceChannels/{phoneServiceChannelId} | Updates a channel
 [**updateServiceLocationServiceChannel**](ServiceChannelsApi.md#updateServiceLocationServiceChannel) | **PUT** /serviceLocationServiceChannels/{serviceLocationServiceChannelId} | Updates a service location channel
 
 
@@ -605,6 +606,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ElectronicServiceChannel**](ElectronicServiceChannel.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
+
+<a name="updatePhoneServiceChannel"></a>
+# **updatePhoneServiceChannel**
+> PhoneServiceChannel updatePhoneServiceChannel(phoneServiceChannelId, payload)
+
+Updates a channel
+
+Updates a service channel
+
+### Example
+```javascript
+var KuntaApiClient = require('kunta-api-client');
+var defaultClient = KuntaApiClient.ApiClient.default;
+
+// Configure HTTP basic authorization: basicAuth
+var basicAuth = defaultClient.authentications['basicAuth'];
+basicAuth.username = 'YOUR USERNAME';
+basicAuth.password = 'YOUR PASSWORD';
+
+var apiInstance = new KuntaApiClient.ServiceChannelsApi();
+
+var phoneServiceChannelId = "phoneServiceChannelId_example"; // String | phone channel id
+
+var payload = new KuntaApiClient.PhoneServiceChannel(); // PhoneServiceChannel | New phone service data
+
+apiInstance.updatePhoneServiceChannel(phoneServiceChannelId, payload).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **phoneServiceChannelId** | **String**| phone channel id | 
+ **payload** | [**PhoneServiceChannel**](PhoneServiceChannel.md)| New phone service data | 
+
+### Return type
+
+[**PhoneServiceChannel**](PhoneServiceChannel.md)
 
 ### Authorization
 

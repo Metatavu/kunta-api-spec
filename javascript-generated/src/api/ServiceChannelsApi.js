@@ -42,7 +42,7 @@
   /**
    * ServiceChannels service.
    * @module api/ServiceChannelsApi
-   * @version 0.0.132
+   * @version 0.0.133
    */
 
   /**
@@ -510,6 +510,50 @@
 
       return this.apiClient.callApi(
         '/electronicServiceChannels/{electronicServiceChannelId}', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+
+    /**
+     * Updates a channel
+     * Updates a service channel
+     * @param {String} phoneServiceChannelId phone channel id
+     * @param {module:model/PhoneServiceChannel} payload New phone service data
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PhoneServiceChannel}
+     */
+    this.updatePhoneServiceChannel = function(phoneServiceChannelId, payload) {
+      var postBody = payload;
+
+      // verify the required parameter 'phoneServiceChannelId' is set
+      if (phoneServiceChannelId == undefined || phoneServiceChannelId == null) {
+        throw "Missing the required parameter 'phoneServiceChannelId' when calling updatePhoneServiceChannel";
+      }
+
+      // verify the required parameter 'payload' is set
+      if (payload == undefined || payload == null) {
+        throw "Missing the required parameter 'payload' when calling updatePhoneServiceChannel";
+      }
+
+
+      var pathParams = {
+        'phoneServiceChannelId': phoneServiceChannelId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['basicAuth'];
+      var contentTypes = ['application/json;charset=utf-8'];
+      var accepts = ['application/json;charset=utf-8'];
+      var returnType = PhoneServiceChannel;
+
+      return this.apiClient.callApi(
+        '/phoneServiceChannels/{phoneServiceChannelId}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );
