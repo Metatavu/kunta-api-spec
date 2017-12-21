@@ -1,6 +1,7 @@
 package fi.metatavu.kuntaapi.server.rest.model;
 
 import fi.metatavu.kuntaapi.server.rest.model.Address;
+import fi.metatavu.kuntaapi.server.rest.model.Area;
 import fi.metatavu.kuntaapi.server.rest.model.Email;
 import fi.metatavu.kuntaapi.server.rest.model.LocalizedValue;
 import fi.metatavu.kuntaapi.server.rest.model.Phone;
@@ -33,6 +34,8 @@ public class PrintableFormServiceChannel   {
   private List<WebPage> webPages = new ArrayList<WebPage>();
   private List<ServiceHour> serviceHours = new ArrayList<ServiceHour>();
   private String publishingStatus = null;
+  private String areaType = null;
+  private List<Area> areas = new ArrayList<Area>();
 
   /**
    * Identifier for the service channel.
@@ -289,6 +292,40 @@ public class PrintableFormServiceChannel   {
     this.publishingStatus = publishingStatus;
   }
 
+  /**
+   * Area type (WholeCountry, WholeCountryExceptAlandIslands, AreaType).
+   **/
+  public PrintableFormServiceChannel areaType(String areaType) {
+    this.areaType = areaType;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "Area type (WholeCountry, WholeCountryExceptAlandIslands, AreaType).")
+  public String getAreaType() {
+    return areaType;
+  }
+  public void setAreaType(String areaType) {
+    this.areaType = areaType;
+  }
+
+  /**
+   * List of service channel areas.
+   **/
+  public PrintableFormServiceChannel areas(List<Area> areas) {
+    this.areas = areas;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "List of service channel areas.")
+  public List<Area> getAreas() {
+    return areas;
+  }
+  public void setAreas(List<Area> areas) {
+    this.areas = areas;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -313,12 +350,14 @@ public class PrintableFormServiceChannel   {
         Objects.equals(languages, printableFormServiceChannel.languages) &&
         Objects.equals(webPages, printableFormServiceChannel.webPages) &&
         Objects.equals(serviceHours, printableFormServiceChannel.serviceHours) &&
-        Objects.equals(publishingStatus, printableFormServiceChannel.publishingStatus);
+        Objects.equals(publishingStatus, printableFormServiceChannel.publishingStatus) &&
+        Objects.equals(areaType, printableFormServiceChannel.areaType) &&
+        Objects.equals(areas, printableFormServiceChannel.areas);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, organizationId, names, descriptions, formIdentifier, formReceiver, deliveryAddress, channelUrls, attachments, supportPhones, supportEmails, languages, webPages, serviceHours, publishingStatus);
+    return Objects.hash(id, organizationId, names, descriptions, formIdentifier, formReceiver, deliveryAddress, channelUrls, attachments, supportPhones, supportEmails, languages, webPages, serviceHours, publishingStatus, areaType, areas);
   }
 
   @Override
@@ -341,6 +380,8 @@ public class PrintableFormServiceChannel   {
     sb.append("    webPages: ").append(toIndentedString(webPages)).append("\n");
     sb.append("    serviceHours: ").append(toIndentedString(serviceHours)).append("\n");
     sb.append("    publishingStatus: ").append(toIndentedString(publishingStatus)).append("\n");
+    sb.append("    areaType: ").append(toIndentedString(areaType)).append("\n");
+    sb.append("    areas: ").append(toIndentedString(areas)).append("\n");
     sb.append("}");
     return sb.toString();
   }

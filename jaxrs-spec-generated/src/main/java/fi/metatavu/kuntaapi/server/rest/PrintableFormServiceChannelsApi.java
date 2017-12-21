@@ -20,7 +20,7 @@ import java.util.List;
 @Api(description = "the printableFormServiceChannels API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-12-21T10:14:43.962+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-12-21T13:08:42.206+02:00")
 
 public abstract class PrintableFormServiceChannelsApi extends AbstractApi {
 
@@ -45,7 +45,7 @@ public abstract class PrintableFormServiceChannelsApi extends AbstractApi {
     @Produces({ "application/json;charset=utf-8" })
     @ApiOperation(value = "Lists printable form service channels", notes = "Lists printable form service channels", response = PrintableFormServiceChannel.class, responseContainer = "List", authorizations = {
         @Authorization(value = "basicAuth")
-    }, tags={ "ServiceChannels", "PrintableFormServiceChannels" })
+    }, tags={ "ServiceChannels", "PrintableFormServiceChannels",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns array of printable form service channels", response = PrintableFormServiceChannel.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = PrintableFormServiceChannel.class, responseContainer = "List"),
@@ -53,6 +53,21 @@ public abstract class PrintableFormServiceChannelsApi extends AbstractApi {
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = PrintableFormServiceChannel.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = PrintableFormServiceChannel.class, responseContainer = "List") })
     public abstract Response listPrintableFormServiceChannels(@QueryParam("organizationId") String organizationId,@QueryParam("search") String search,@QueryParam("sortBy") String sortBy,@QueryParam("sortDir") String sortDir,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
+
+    @PUT
+    @Path("/{printableFormServiceChannelId}")
+    @Consumes({ "application/json;charset=utf-8" })
+    @Produces({ "application/json;charset=utf-8" })
+    @ApiOperation(value = "Updates a channel", notes = "Updates a service channel", response = PrintableFormServiceChannel.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "ServiceChannels", "PrintableFormServiceChannels" })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Returns a printableForm service channel", response = PrintableFormServiceChannel.class),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = PrintableFormServiceChannel.class),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = PrintableFormServiceChannel.class),
+        @ApiResponse(code = 404, message = "Resource was not found from the server", response = PrintableFormServiceChannel.class),
+        @ApiResponse(code = 500, message = "Internal server error", response = PrintableFormServiceChannel.class) })
+    public abstract Response updatePrintableFormServiceChannel(@PathParam("printableFormServiceChannelId") String printableFormServiceChannelId,PrintableFormServiceChannel payload,@Context Request request);
 
 }
 
