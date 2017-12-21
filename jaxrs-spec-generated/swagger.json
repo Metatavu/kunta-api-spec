@@ -6201,6 +6201,17 @@
         "publishingStatus" : {
           "type" : "string",
           "description" : "Service channel publishing status. Values: Draft, Published, Deleted, Modified or OldPublished."
+        },
+        "areaType" : {
+          "type" : "string",
+          "description" : "Area type (WholeCountry, WholeCountryExceptAlandIslands, AreaType)."
+        },
+        "areas" : {
+          "type" : "array",
+          "description" : "List of organization areas.",
+          "items" : {
+            "$ref" : "#/definitions/Area"
+          }
         }
       }
     },

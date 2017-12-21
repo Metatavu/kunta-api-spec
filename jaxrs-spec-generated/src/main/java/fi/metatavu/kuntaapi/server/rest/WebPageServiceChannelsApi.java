@@ -20,7 +20,7 @@ import java.util.List;
 @Api(description = "the webPageServiceChannels API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-12-21T08:11:58.236+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-12-21T10:14:43.962+02:00")
 
 public abstract class WebPageServiceChannelsApi extends AbstractApi {
 
