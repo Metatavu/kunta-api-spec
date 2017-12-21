@@ -20,7 +20,7 @@ import java.util.List;
 @Api(description = "the phoneServiceChannels API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-12-20T15:06:08.082+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-12-21T08:11:58.236+02:00")
 
 public abstract class PhoneServiceChannelsApi extends AbstractApi {
 
@@ -45,7 +45,7 @@ public abstract class PhoneServiceChannelsApi extends AbstractApi {
     @Produces({ "application/json;charset=utf-8" })
     @ApiOperation(value = "Lists phone service channels", notes = "Lists phone service channels", response = PhoneServiceChannel.class, responseContainer = "List", authorizations = {
         @Authorization(value = "basicAuth")
-    }, tags={ "ServiceChannels", "PhoneServiceChannels" })
+    }, tags={ "ServiceChannels", "PhoneServiceChannels",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns array of phone service channels", response = PhoneServiceChannel.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = PhoneServiceChannel.class, responseContainer = "List"),
@@ -53,6 +53,21 @@ public abstract class PhoneServiceChannelsApi extends AbstractApi {
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = PhoneServiceChannel.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = PhoneServiceChannel.class, responseContainer = "List") })
     public abstract Response listPhoneServiceChannels(@QueryParam("organizationId") String organizationId,@QueryParam("search") String search,@QueryParam("sortBy") String sortBy,@QueryParam("sortDir") String sortDir,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
+
+    @PUT
+    @Path("/{phoneServiceChannelId}")
+    @Consumes({ "application/json;charset=utf-8" })
+    @Produces({ "application/json;charset=utf-8" })
+    @ApiOperation(value = "Updates a channel", notes = "Updates a service channel", response = PhoneServiceChannel.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "ServiceChannels", "PhoneServiceChannels" })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Returns a phone service channel", response = PhoneServiceChannel.class),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = PhoneServiceChannel.class),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = PhoneServiceChannel.class),
+        @ApiResponse(code = 404, message = "Resource was not found from the server", response = PhoneServiceChannel.class),
+        @ApiResponse(code = 500, message = "Internal server error", response = PhoneServiceChannel.class) })
+    public abstract Response updatePhoneServiceChannel(@PathParam("phoneServiceChannelId") String phoneServiceChannelId,PhoneServiceChannel payload,@Context Request request);
 
 }
 

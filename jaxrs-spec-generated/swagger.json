@@ -4296,6 +4296,60 @@
             }
           }
         }
+      },
+      "put" : {
+        "tags" : [ "ServiceChannels", "PhoneServiceChannels" ],
+        "summary" : "Updates a channel",
+        "description" : "Updates a service channel",
+        "operationId" : "updatePhoneServiceChannel",
+        "parameters" : [ {
+          "name" : "phoneServiceChannelId",
+          "in" : "path",
+          "description" : "phone channel id",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        }, {
+          "in" : "body",
+          "name" : "payload",
+          "description" : "New phone service data",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/PhoneServiceChannel"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a phone service channel",
+            "schema" : {
+              "$ref" : "#/definitions/PhoneServiceChannel"
+            }
+          },
+          "400" : {
+            "description" : "Invalid request was sent to the server",
+            "schema" : {
+              "$ref" : "#/definitions/BadRequest"
+            }
+          },
+          "403" : {
+            "description" : "Attempted to make a call with unauthorized client",
+            "schema" : {
+              "$ref" : "#/definitions/Forbidden"
+            }
+          },
+          "404" : {
+            "description" : "Resource was not found from the server",
+            "schema" : {
+              "$ref" : "#/definitions/NotFound"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "schema" : {
+              "$ref" : "#/definitions/InternalServerError"
+            }
+          }
+        }
       }
     },
     "/printableFormServiceChannels" : {
