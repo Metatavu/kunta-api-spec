@@ -4757,6 +4757,14 @@ definitions:
           Service channel publishing status. Values: Draft, Published, Deleted,
           Modified or OldPublished.
         type: string
+      areaType:
+        description: 'Area type (WholeCountry, WholeCountryExceptAlandIslands, AreaType).'
+        type: string
+      areas:
+        description: List of organization areas.
+        type: array
+        items:
+          $ref: '#/definitions/Area'
   PrintableFormServiceChannel:
     type: object
     properties:
