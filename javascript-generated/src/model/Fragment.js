@@ -45,7 +45,7 @@
   /**
    * The Fragment model module.
    * @module model/Fragment
-   * @version 0.0.133
+   * @version 0.0.134
    */
 
   /**

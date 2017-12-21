@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Email', 'model/LocalizedValue', 'model/Phone', 'model/ServiceHour', 'model/WebPage'], factory);
+    define(['ApiClient', 'model/Area', 'model/Email', 'model/LocalizedValue', 'model/Phone', 'model/ServiceHour', 'model/WebPage'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Email'), require('./LocalizedValue'), require('./Phone'), require('./ServiceHour'), require('./WebPage'));
+    module.exports = factory(require('../ApiClient'), require('./Area'), require('./Email'), require('./LocalizedValue'), require('./Phone'), require('./ServiceHour'), require('./WebPage'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.PhoneServiceChannel = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Email, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.Phone, root.KuntaApiClient.ServiceHour, root.KuntaApiClient.WebPage);
+    root.KuntaApiClient.PhoneServiceChannel = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Area, root.KuntaApiClient.Email, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.Phone, root.KuntaApiClient.ServiceHour, root.KuntaApiClient.WebPage);
   }
-}(this, function(ApiClient, Email, LocalizedValue, Phone, ServiceHour, WebPage) {
+}(this, function(ApiClient, Area, Email, LocalizedValue, Phone, ServiceHour, WebPage) {
   'use strict';
 
 
@@ -45,7 +45,7 @@
   /**
    * The PhoneServiceChannel model module.
    * @module model/PhoneServiceChannel
-   * @version 0.0.133
+   * @version 0.0.134
    */
 
   /**
@@ -55,6 +55,8 @@
    */
   var exports = function() {
     var _this = this;
+
+
 
 
 
@@ -108,6 +110,12 @@
       }
       if (data.hasOwnProperty('publishingStatus')) {
         obj['publishingStatus'] = ApiClient.convertToType(data['publishingStatus'], 'String');
+      }
+      if (data.hasOwnProperty('areaType')) {
+        obj['areaType'] = ApiClient.convertToType(data['areaType'], 'String');
+      }
+      if (data.hasOwnProperty('areas')) {
+        obj['areas'] = ApiClient.convertToType(data['areas'], [Area]);
       }
     }
     return obj;
@@ -163,6 +171,16 @@
    * @member {String} publishingStatus
    */
   exports.prototype['publishingStatus'] = undefined;
+  /**
+   * Area type (WholeCountry, WholeCountryExceptAlandIslands, AreaType).
+   * @member {String} areaType
+   */
+  exports.prototype['areaType'] = undefined;
+  /**
+   * List of organization areas.
+   * @member {Array.<module:model/Area>} areas
+   */
+  exports.prototype['areas'] = undefined;
 
 
 
