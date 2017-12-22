@@ -20,7 +20,7 @@ import java.util.List;
 @Api(description = "the webPageServiceChannels API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-12-21T13:08:42.206+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2017-12-22T15:19:27.701+02:00")
 
 public abstract class WebPageServiceChannelsApi extends AbstractApi {
 
@@ -45,7 +45,7 @@ public abstract class WebPageServiceChannelsApi extends AbstractApi {
     @Produces({ "application/json;charset=utf-8" })
     @ApiOperation(value = "Lists web page service channels", notes = "Lists web page service channels", response = WebPageServiceChannel.class, responseContainer = "List", authorizations = {
         @Authorization(value = "basicAuth")
-    }, tags={ "ServiceChannels", "WebPageServiceChannels" })
+    }, tags={ "ServiceChannels", "WebPageServiceChannels",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns array of web page service channels", response = WebPageServiceChannel.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = WebPageServiceChannel.class, responseContainer = "List"),
@@ -53,6 +53,21 @@ public abstract class WebPageServiceChannelsApi extends AbstractApi {
         @ApiResponse(code = 404, message = "Resource was not found from the server", response = WebPageServiceChannel.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = WebPageServiceChannel.class, responseContainer = "List") })
     public abstract Response listWebPageServiceChannels(@QueryParam("organizationId") String organizationId,@QueryParam("search") String search,@QueryParam("sortBy") String sortBy,@QueryParam("sortDir") String sortDir,@QueryParam("firstResult") Long firstResult,@QueryParam("maxResults") Long maxResults,@Context Request request);
+
+    @PUT
+    @Path("/{webPageServiceChannelId}")
+    @Consumes({ "application/json;charset=utf-8" })
+    @Produces({ "application/json;charset=utf-8" })
+    @ApiOperation(value = "Updates a channel", notes = "Updates a service channel", response = WebPageServiceChannel.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "ServiceChannels", "WebPageServiceChannels" })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Returns updated channel", response = WebPageServiceChannel.class),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = WebPageServiceChannel.class),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = WebPageServiceChannel.class),
+        @ApiResponse(code = 404, message = "Resource was not found from the server", response = WebPageServiceChannel.class),
+        @ApiResponse(code = 500, message = "Internal server error", response = WebPageServiceChannel.class) })
+    public abstract Response updateWebPageServiceChannel(@PathParam("webPageServiceChannelId") String webPageServiceChannelId,WebPageServiceChannel payload,@Context Request request);
 
 }
 
