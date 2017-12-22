@@ -42,7 +42,7 @@
   /**
    * ServiceChannels service.
    * @module api/ServiceChannelsApi
-   * @version 0.0.135
+   * @version 0.0.136
    */
 
   /**
@@ -642,6 +642,50 @@
 
       return this.apiClient.callApi(
         '/serviceLocationServiceChannels/{serviceLocationServiceChannelId}', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+
+    /**
+     * Updates a channel
+     * Updates a service channel
+     * @param {String} webPageServiceChannelId webPageChannel id
+     * @param {module:model/WebPageServiceChannel} payload New webPage service data
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/WebPageServiceChannel}
+     */
+    this.updateWebPageServiceChannel = function(webPageServiceChannelId, payload) {
+      var postBody = payload;
+
+      // verify the required parameter 'webPageServiceChannelId' is set
+      if (webPageServiceChannelId == undefined || webPageServiceChannelId == null) {
+        throw "Missing the required parameter 'webPageServiceChannelId' when calling updateWebPageServiceChannel";
+      }
+
+      // verify the required parameter 'payload' is set
+      if (payload == undefined || payload == null) {
+        throw "Missing the required parameter 'payload' when calling updateWebPageServiceChannel";
+      }
+
+
+      var pathParams = {
+        'webPageServiceChannelId': webPageServiceChannelId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['basicAuth'];
+      var contentTypes = ['application/json;charset=utf-8'];
+      var accepts = ['application/json;charset=utf-8'];
+      var returnType = WebPageServiceChannel;
+
+      return this.apiClient.callApi(
+        '/webPageServiceChannels/{webPageServiceChannelId}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );

@@ -18,6 +18,7 @@ Method | HTTP request | Description
 [**updatePhoneServiceChannel**](ServiceChannelsApi.md#updatePhoneServiceChannel) | **PUT** /phoneServiceChannels/{phoneServiceChannelId} | Updates a channel
 [**updatePrintableFormServiceChannel**](ServiceChannelsApi.md#updatePrintableFormServiceChannel) | **PUT** /printableFormServiceChannels/{printableFormServiceChannelId} | Updates a channel
 [**updateServiceLocationServiceChannel**](ServiceChannelsApi.md#updateServiceLocationServiceChannel) | **PUT** /serviceLocationServiceChannels/{serviceLocationServiceChannelId} | Updates a service location channel
+[**updateWebPageServiceChannel**](ServiceChannelsApi.md#updateWebPageServiceChannel) | **PUT** /webPageServiceChannels/{webPageServiceChannelId} | Updates a channel
 
 
 <a name="findElectronicServiceChannel"></a>
@@ -763,6 +764,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ServiceLocationServiceChannel**](ServiceLocationServiceChannel.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
+
+<a name="updateWebPageServiceChannel"></a>
+# **updateWebPageServiceChannel**
+> WebPageServiceChannel updateWebPageServiceChannel(webPageServiceChannelId, payload)
+
+Updates a channel
+
+Updates a service channel
+
+### Example
+```javascript
+var KuntaApiClient = require('kunta-api-client');
+var defaultClient = KuntaApiClient.ApiClient.default;
+
+// Configure HTTP basic authorization: basicAuth
+var basicAuth = defaultClient.authentications['basicAuth'];
+basicAuth.username = 'YOUR USERNAME';
+basicAuth.password = 'YOUR PASSWORD';
+
+var apiInstance = new KuntaApiClient.ServiceChannelsApi();
+
+var webPageServiceChannelId = "webPageServiceChannelId_example"; // String | webPageChannel id
+
+var payload = new KuntaApiClient.WebPageServiceChannel(); // WebPageServiceChannel | New webPage service data
+
+apiInstance.updateWebPageServiceChannel(webPageServiceChannelId, payload).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **webPageServiceChannelId** | **String**| webPageChannel id | 
+ **payload** | [**WebPageServiceChannel**](WebPageServiceChannel.md)| New webPage service data | 
+
+### Return type
+
+[**WebPageServiceChannel**](WebPageServiceChannel.md)
 
 ### Authorization
 
