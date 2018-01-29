@@ -35,7 +35,7 @@ import java.time.OffsetDateTime;
 /**
  * Event
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-29T11:32:50.272+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-29T11:37:35.612+02:00")
 public class Event   {
   @SerializedName("id")
   private String id = null;

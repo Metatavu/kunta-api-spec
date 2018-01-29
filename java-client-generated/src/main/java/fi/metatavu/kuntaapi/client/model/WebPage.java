@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * WebPage
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-29T11:32:50.272+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-29T11:37:35.612+02:00")
 public class WebPage   {
   @SerializedName("description")
   private String description = null;

@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * OntologyItem
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-29T11:32:50.272+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-29T11:37:35.612+02:00")
 public class OntologyItem   {
   @SerializedName("system")
   private String system = null;
