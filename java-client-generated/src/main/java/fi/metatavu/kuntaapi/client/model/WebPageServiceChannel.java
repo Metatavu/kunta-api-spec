@@ -41,7 +41,7 @@ import java.util.List;
 /**
  * WebPageServiceChannel
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-29T11:29:05.481+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-29T11:32:50.272+02:00")
 public class WebPageServiceChannel   {
   @SerializedName("id")
   private String id = null;
