@@ -35,7 +35,7 @@ import java.time.OffsetDateTime;
 /**
  * Announcement
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-29T11:37:35.612+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-29T11:59:09.948+02:00")
 public class Announcement   {
   @SerializedName("id")
   private String id = null;
