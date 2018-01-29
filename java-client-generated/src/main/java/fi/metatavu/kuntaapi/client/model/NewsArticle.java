@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * NewsArticle
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-29T11:59:09.948+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-29T12:08:20.780+02:00")
 public class NewsArticle   {
   @SerializedName("id")
   private String id = null;

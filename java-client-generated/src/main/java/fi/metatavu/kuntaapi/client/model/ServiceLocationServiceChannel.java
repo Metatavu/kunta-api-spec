@@ -43,7 +43,7 @@ import java.util.List;
 /**
  * ServiceLocationServiceChannel
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-29T11:59:09.948+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-29T12:08:20.780+02:00")
 public class ServiceLocationServiceChannel   {
   @SerializedName("id")
   private String id = null;

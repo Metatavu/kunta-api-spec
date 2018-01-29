@@ -35,7 +35,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Service voucher
  */
 @ApiModel(description = "Service voucher")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-29T11:59:09.948+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-29T12:08:20.780+02:00")
 public class ServiceVoucher   {
   @SerializedName("value")
   private String value = null;
