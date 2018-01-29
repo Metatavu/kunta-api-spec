@@ -13,6 +13,7 @@ module.exports = function(grunt) {
         'jaxrs-spec-generated/src/main/java/fi/metatavu/kuntaapi/server/RestApplication.java'
       ],
       'jaxrs-spec-sources': ['jaxrs-spec-generated/src'],
+      'java-client-sources': ['java-client-generated/src'],
       'javascript-sources': ['javascript-generated/docs', 'javascript-generated/src', 'javascript-generated/test']
     },
     'copy': {
@@ -30,6 +31,36 @@ module.exports = function(grunt) {
       }
     },
     'shell': {
+      'java-client-generate': {
+        command : 'mv java-client-generated/pom.xml java-client-generated/pom.xml.before && ' +
+          'java -jar swagger-codegen-cli.jar generate ' +
+          '-i ./swagger.yaml ' +
+          '-l java ' +
+          '--api-package fi.metatavu.kuntaapi.client ' +
+          '--model-package fi.metatavu.kuntaapi.client.model ' +
+          '--group-id fi.metatavu.kunta-api ' +
+          '--artifact-id kunta-api-client ' +
+          '--artifact-version `cat java-client-generated/pom.xml.before|grep version -m 1|sed -e \'s/.*<version>//\'|sed -e \'s/<.*//\'` ' +
+          '--template-dir java-client-templates ' +
+          '--additional-properties dateLibrary=java8 ' +
+          '-o java-client-generated/'
+      },
+      'java-client-install': {
+          command : 'mvn install',
+          options: {
+            execOptions: {
+              cwd: 'java-client-generated'
+            }
+          }
+        },
+        'java-client-release': {
+          command : 'git add src pom.xml && git commit -m "Generated source" && git push && mvn -B release:clean release:prepare release:perform',
+          options: {
+            execOptions: {
+              cwd: 'java-client-generated'
+            }
+          }
+      },
       'jaxrs-spec-generate': {
         command : 'mv jaxrs-spec-generated/pom.xml jaxrs-spec-generated/pom.xml.before && ' +
           'java -jar swagger-codegen-cli.jar generate ' +
@@ -109,12 +140,14 @@ module.exports = function(grunt) {
   });
   
   grunt.registerTask('download-dependencies', 'if-missing:curl:swagger-codegen');
+  grunt.registerTask('java-client-gen', [ 'download-dependencies', 'clean:java-client-sources', 'shell:java-client-generate', 'shell:java-client-install' ]);
+  grunt.registerTask('java-client', [ 'java-client-gen', 'shell:java-client-release' ]);
   grunt.registerTask('jaxrs-gen', [ 'download-dependencies', 'clean:jaxrs-spec-sources', 'shell:jaxrs-spec-generate', 'clean:jaxrs-spec-cruft', 'copy:jaxrs-spec-extras', 'shell:jaxrs-spec-install' ]);
   grunt.registerTask('jaxrs-spec', [ 'jaxrs-gen', 'shell:jaxrs-spec-release' ]);
   grunt.registerTask('javascript-gen', [ 'download-dependencies', 'clean:javascript-sources', 'shell:javascript-generate' ]);
   grunt.registerTask('javascript', [ 'javascript-gen', 'shell:javascript-bump-version', 'shell:javascript-push', 'publish:publish-javascript-client']);
   grunt.registerTask('php', ['shell:php-client-generate', 'shell:php-client-publish']);
 
-  grunt.registerTask('default', ['jaxrs-spec', 'javascript', 'php']);
+  grunt.registerTask('default', ['jaxrs-spec', 'java-client', 'javascript', 'php']);
   
 };
