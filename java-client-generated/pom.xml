@@ -5,7 +5,7 @@
   <artifactId>kunta-api-client</artifactId>
   <packaging>jar</packaging>
   <name>kunta-api-client</name>
-  <version>0.0.1</version>
+  <version>0.0.1-SNAPSHOT</version>
   <description>Kunta API client library</description>
   <url>https://github.com/Metatavu/kunta-api-spec</url>
 

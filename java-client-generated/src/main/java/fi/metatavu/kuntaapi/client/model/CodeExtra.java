@@ -35,7 +35,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Extra field for Code
  */
 @ApiModel(description = "Extra field for Code")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-29T11:26:32.352+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-29T11:29:05.481+02:00")
 public class CodeExtra   {
   @SerializedName("key")
   private String key = null;

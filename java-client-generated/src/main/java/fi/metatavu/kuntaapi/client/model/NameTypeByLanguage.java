@@ -35,7 +35,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Name type by language
  */
 @ApiModel(description = "Name type by language")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-29T11:26:32.352+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-29T11:29:05.481+02:00")
 public class NameTypeByLanguage   {
   @SerializedName("type")
   private String type = null;

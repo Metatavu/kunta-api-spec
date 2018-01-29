@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * LocalizedValue
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-29T11:26:32.352+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-29T11:29:05.481+02:00")
 public class LocalizedValue   {
   @SerializedName("language")
   private String language = null;
