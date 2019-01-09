@@ -11,7 +11,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 @ApiModel(description = "Name type by language")
 
-public class NameTypeByLanguage   {
+public class NameTypeByLanguage  implements java.io.Serializable {
   
   private String type = null;
   private String language = null;

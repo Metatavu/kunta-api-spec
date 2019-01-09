@@ -11,7 +11,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 @ApiModel(description = "Extra field for Code")
 
-public class CodeExtra   {
+public class CodeExtra  implements java.io.Serializable {
   
   private String key = null;
   private String value = null;

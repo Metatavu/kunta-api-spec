@@ -8,7 +8,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class ScheduleException   {
+public class ScheduleException  implements java.io.Serializable {
   
   private String type = null;
   private OffsetDateTime date = null;

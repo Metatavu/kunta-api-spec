@@ -7,7 +7,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class Agency   {
+public class Agency  implements java.io.Serializable {
   
   private String id = null;
   private String name = null;

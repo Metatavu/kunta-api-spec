@@ -11,7 +11,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class Emergency   {
+public class Emergency  implements java.io.Serializable {
   
   private String id = null;
   private String location = null;

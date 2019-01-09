@@ -15,7 +15,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 @ApiModel(description = "Generic code item describing code / name pair (e.g. LanguageCode, MunicipalityCode, etc...)")
 
-public class Code   {
+public class Code  implements java.io.Serializable {
   
   private String id = null;
   private String type = null;

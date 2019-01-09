@@ -7,7 +7,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class Phone   {
+public class Phone  implements java.io.Serializable {
   
   private String additionalInformation = null;
   private String serviceChargeType = null;

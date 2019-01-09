@@ -7,7 +7,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class EmergencySource   {
+public class EmergencySource  implements java.io.Serializable {
   
   private String name = null;
   private String url = null;

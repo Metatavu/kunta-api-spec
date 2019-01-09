@@ -12,7 +12,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class Contact   {
+public class Contact  implements java.io.Serializable {
   
   private String id = null;
   private String displayName = null;

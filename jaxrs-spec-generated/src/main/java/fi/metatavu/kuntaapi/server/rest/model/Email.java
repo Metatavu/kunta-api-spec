@@ -7,7 +7,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class Email   {
+public class Email  implements java.io.Serializable {
   
   private String value = null;
   private String description = null;

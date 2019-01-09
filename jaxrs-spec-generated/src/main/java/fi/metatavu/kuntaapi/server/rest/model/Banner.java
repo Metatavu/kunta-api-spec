@@ -7,7 +7,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class Banner   {
+public class Banner  implements java.io.Serializable {
   
   private String id = null;
   private String title = null;

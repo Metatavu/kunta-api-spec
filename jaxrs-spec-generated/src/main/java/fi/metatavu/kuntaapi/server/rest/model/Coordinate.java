@@ -7,7 +7,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class Coordinate   {
+public class Coordinate  implements java.io.Serializable {
   
   private String latitude = null;
   private String longitude = null;

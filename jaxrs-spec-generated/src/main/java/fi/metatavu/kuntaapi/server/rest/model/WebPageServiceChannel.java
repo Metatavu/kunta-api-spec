@@ -14,7 +14,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class WebPageServiceChannel   {
+public class WebPageServiceChannel  implements java.io.Serializable {
   
   private String id = null;
   private String organizationId = null;

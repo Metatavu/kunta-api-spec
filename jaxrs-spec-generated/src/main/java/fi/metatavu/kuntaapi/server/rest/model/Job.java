@@ -8,7 +8,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class Job   {
+public class Job  implements java.io.Serializable {
   
   private String id = null;
   private String title = null;

@@ -7,7 +7,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class PageMeta   {
+public class PageMeta  implements java.io.Serializable {
   
   private Boolean hideMenuChildren = null;
   private String unmappedParentId = null;

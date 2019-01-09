@@ -10,7 +10,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class Municipality   {
+public class Municipality  implements java.io.Serializable {
   
   private String code = null;
   private List<LocalizedValue> names = new ArrayList<LocalizedValue>();

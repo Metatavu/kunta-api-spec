@@ -8,7 +8,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class Event   {
+public class Event  implements java.io.Serializable {
   
   private String id = null;
   private String originalUrl = null;

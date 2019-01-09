@@ -15,7 +15,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 @ApiModel(description = "Service organization")
 
-public class ServiceOrganization   {
+public class ServiceOrganization  implements java.io.Serializable {
   
   private List<LocalizedValue> additionalInformation = new ArrayList<LocalizedValue>();
   private String organizationId = null;

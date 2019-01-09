@@ -7,7 +7,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class WebPage   {
+public class WebPage  implements java.io.Serializable {
   
   private String description = null;
   private String url = null;

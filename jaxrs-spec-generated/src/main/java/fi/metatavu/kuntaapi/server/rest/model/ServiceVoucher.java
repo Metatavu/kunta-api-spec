@@ -11,7 +11,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 @ApiModel(description = "Service voucher")
 
-public class ServiceVoucher   {
+public class ServiceVoucher  implements java.io.Serializable {
   
   private String value = null;
   private String language = null;

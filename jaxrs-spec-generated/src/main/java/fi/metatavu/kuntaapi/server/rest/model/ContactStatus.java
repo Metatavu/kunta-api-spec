@@ -8,7 +8,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class ContactStatus   {
+public class ContactStatus  implements java.io.Serializable {
   
   private String text = null;
   private OffsetDateTime start = null;

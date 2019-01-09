@@ -10,7 +10,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class OntologyItem   {
+public class OntologyItem  implements java.io.Serializable {
   
   private String system = null;
   private List<LocalizedValue> name = new ArrayList<LocalizedValue>();

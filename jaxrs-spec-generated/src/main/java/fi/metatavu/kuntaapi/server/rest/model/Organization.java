@@ -22,7 +22,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 @ApiModel(description = "Organization")
 
-public class Organization   {
+public class Organization  implements java.io.Serializable {
   
   private String id = null;
   private String parentOrganization = null;

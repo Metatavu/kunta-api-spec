@@ -16,7 +16,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class ServiceLocationServiceChannel   {
+public class ServiceLocationServiceChannel  implements java.io.Serializable {
   
   private String id = null;
   private String organizationId = null;

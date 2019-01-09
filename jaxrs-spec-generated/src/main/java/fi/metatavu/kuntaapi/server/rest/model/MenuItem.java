@@ -7,7 +7,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class MenuItem   {
+public class MenuItem  implements java.io.Serializable {
   
   private String id = null;
   private String label = null;

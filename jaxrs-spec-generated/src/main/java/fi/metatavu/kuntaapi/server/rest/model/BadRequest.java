@@ -7,7 +7,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class BadRequest   {
+public class BadRequest  implements java.io.Serializable {
   
   private Integer code = null;
   private String message = null;

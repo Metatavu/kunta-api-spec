@@ -8,7 +8,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class Coordinates   {
+public class Coordinates  implements java.io.Serializable {
   
   private Coordinate epsg3067 = null;
   private Coordinate epsg4326 = null;

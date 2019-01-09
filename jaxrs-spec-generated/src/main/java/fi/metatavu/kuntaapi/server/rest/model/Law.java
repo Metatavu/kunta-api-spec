@@ -15,7 +15,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 @ApiModel(description = "a Law")
 
-public class Law   {
+public class Law  implements java.io.Serializable {
   
   private List<LocalizedValue> names = new ArrayList<LocalizedValue>();
   private List<WebPage> webPages = new ArrayList<WebPage>();

@@ -8,7 +8,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class Announcement   {
+public class Announcement  implements java.io.Serializable {
   
   private String id = null;
   private String slug = null;

@@ -7,7 +7,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class Route   {
+public class Route  implements java.io.Serializable {
   
   private String id = null;
   private String agencyId = null;

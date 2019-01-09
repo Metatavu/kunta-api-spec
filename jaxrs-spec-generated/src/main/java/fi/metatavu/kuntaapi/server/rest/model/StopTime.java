@@ -7,7 +7,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class StopTime   {
+public class StopTime  implements java.io.Serializable {
   
   private String id = null;
   private String tripId = null;

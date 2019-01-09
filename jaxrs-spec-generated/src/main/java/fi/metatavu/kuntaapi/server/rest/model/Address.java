@@ -13,7 +13,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class Address   {
+public class Address  implements java.io.Serializable {
   
   private String latitude = null;
   private String longitude = null;

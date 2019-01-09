@@ -7,7 +7,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class Trip   {
+public class Trip  implements java.io.Serializable {
   
   private String id = null;
   private String routeId = null;

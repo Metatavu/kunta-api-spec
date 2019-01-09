@@ -7,7 +7,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class Stop   {
+public class Stop  implements java.io.Serializable {
   
   private String id = null;
   private String name = null;

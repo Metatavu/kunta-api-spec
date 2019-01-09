@@ -15,7 +15,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 @ApiModel(description = "Area")
 
-public class Area   {
+public class Area  implements java.io.Serializable {
   
   private String type = null;
   private String code = null;

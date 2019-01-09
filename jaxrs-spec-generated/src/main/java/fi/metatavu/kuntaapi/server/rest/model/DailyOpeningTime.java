@@ -7,7 +7,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class DailyOpeningTime   {
+public class DailyOpeningTime  implements java.io.Serializable {
   
   private Integer dayFrom = null;
   private Integer dayTo = null;

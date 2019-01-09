@@ -7,7 +7,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class NotImplemented   {
+public class NotImplemented  implements java.io.Serializable {
   
   private Integer code = null;
   private String message = null;

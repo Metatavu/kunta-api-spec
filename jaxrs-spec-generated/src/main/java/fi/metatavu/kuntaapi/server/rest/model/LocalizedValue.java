@@ -7,7 +7,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class LocalizedValue   {
+public class LocalizedValue  implements java.io.Serializable {
   
   private String language = null;
   private String value = null;

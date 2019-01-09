@@ -7,7 +7,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class ServiceChannelAttachment   {
+public class ServiceChannelAttachment  implements java.io.Serializable {
   
   private String type = null;
   private String name = null;

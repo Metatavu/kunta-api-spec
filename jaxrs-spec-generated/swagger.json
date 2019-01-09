@@ -2558,7 +2558,7 @@
         }, {
           "name" : "sortBy",
           "in" : "query",
-          "description" : "define order (NATURAL or SCORE). Default is NATURAL",
+          "description" : "define order (NATURAL, SCORE or MENU). Default is NATURAL",
           "required" : false,
           "type" : "string"
         }, {

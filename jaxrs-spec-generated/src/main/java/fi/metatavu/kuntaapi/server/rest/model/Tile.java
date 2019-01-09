@@ -7,7 +7,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class Tile   {
+public class Tile  implements java.io.Serializable {
   
   private String id = null;
   private String title = null;

@@ -12,7 +12,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class ServiceHour   {
+public class ServiceHour  implements java.io.Serializable {
   
   private String serviceHourType = null;
   private OffsetDateTime validFrom = null;

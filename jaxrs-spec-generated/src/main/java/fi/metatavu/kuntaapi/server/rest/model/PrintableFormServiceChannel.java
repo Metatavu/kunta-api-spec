@@ -17,7 +17,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class PrintableFormServiceChannel   {
+public class PrintableFormServiceChannel  implements java.io.Serializable {
   
   private String id = null;
   private String organizationId = null;

@@ -7,7 +7,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class FileDef   {
+public class FileDef  implements java.io.Serializable {
   
   private String id = null;
   private String pageId = null;

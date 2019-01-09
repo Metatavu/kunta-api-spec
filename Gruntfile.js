@@ -72,7 +72,7 @@ module.exports = function(grunt) {
           '--artifact-id kunta-api-spec ' +
           '--artifact-version `cat jaxrs-spec-generated/pom.xml.before|grep version -m 1|sed -e \'s/.*<version>//\'|sed -e \'s/<.*//\'` ' +
           '--template-dir jaxrs-spec-templates ' +
-          '--additional-properties dateLibrary=java8 ' +
+          '--additional-properties dateLibrary=java8,serializableModel=true ' +
           '-o jaxrs-spec-generated/'
       },
       'jaxrs-spec-install': {

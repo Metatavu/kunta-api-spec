@@ -7,7 +7,7 @@ import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-public class Fragment   {
+public class Fragment  implements java.io.Serializable {
   
   private String id = null;
   private String slug = null;
