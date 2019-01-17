@@ -5817,9 +5817,10 @@ definitions:
         format: uuid
       type:
         type: string
-        enum:
-          - WEATHER
-          - FLOOD
+        description: |
+          Possible values
+            - WEATHER
+            - FLOOD
       context:
         type: string
         description: |
@@ -5859,11 +5860,12 @@ definitions:
         format: date-time
       severity:
         type: string
-        enum:
-          - level-1
-          - level-2
-          - level-3
-          - level-4
+        description: |
+          Possible values
+            - level-1
+            - level-2
+            - level-3
+            - level-4
 
   Emergency:
     type: object

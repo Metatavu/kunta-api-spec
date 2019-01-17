@@ -1096,6 +1096,144 @@
         }
       }
     },
+    "/organizations/{organizationId}/environmentalWarnings" : {
+      "get" : {
+        "tags" : [ "EnvironmentalWarnings" ],
+        "summary" : "Lists organizations environmentalWarnings",
+        "description" : "Lists organizations environmentalWarnings\n",
+        "operationId" : "listOrganizationEnvironmentalWarnings",
+        "parameters" : [ {
+          "name" : "organizationId",
+          "in" : "path",
+          "description" : "Organization id",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        }, {
+          "name" : "firstResult",
+          "in" : "query",
+          "description" : "First index of results",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "contexts",
+          "in" : "query",
+          "description" : "Return environmental warnings by contexts.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "before",
+          "in" : "query",
+          "description" : "Return environmental warnings before specified time",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "after",
+          "in" : "query",
+          "description" : "Return environmental warnings after specified time",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "description" : "Maximum number of results",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "orderBy",
+          "in" : "query",
+          "description" : "Define order (NATURAL, START)",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "orderDir",
+          "in" : "query",
+          "description" : "Order direction (ASC, DESC). Default is ASC",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a list of environmental warnings",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/EnvironmentalWarning"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid request was sent to the server",
+            "schema" : {
+              "$ref" : "#/definitions/BadRequest"
+            }
+          },
+          "403" : {
+            "description" : "Attempted to make a call with unauthorized client",
+            "schema" : {
+              "$ref" : "#/definitions/Forbidden"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "schema" : {
+              "$ref" : "#/definitions/InternalServerError"
+            }
+          }
+        }
+      }
+    },
+    "/organizations/{organizationId}/environmentalWarnings/{environmentalWarningId}" : {
+      "get" : {
+        "tags" : [ "EnvironmentalWarnings" ],
+        "summary" : "Returns organizations environmental warning by id",
+        "description" : "Returns organizations environmental warning by id\n",
+        "operationId" : "findOrganizationEnvironmentalWarning",
+        "parameters" : [ {
+          "name" : "organizationId",
+          "in" : "path",
+          "description" : "Organization id",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        }, {
+          "name" : "environmentalWarningId",
+          "in" : "path",
+          "description" : "Environmental warning id",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a single environmentalWarning",
+            "schema" : {
+              "$ref" : "#/definitions/EnvironmentalWarning"
+            }
+          },
+          "400" : {
+            "description" : "Invalid request was sent to the server",
+            "schema" : {
+              "$ref" : "#/definitions/BadRequest"
+            }
+          },
+          "403" : {
+            "description" : "Attempted to make a call with unauthorized client",
+            "schema" : {
+              "$ref" : "#/definitions/Forbidden"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "schema" : {
+              "$ref" : "#/definitions/InternalServerError"
+            }
+          }
+        }
+      }
+    },
     "/organizations/{organizationId}/events" : {
       "get" : {
         "tags" : [ "Events" ],
@@ -7536,6 +7674,52 @@
           "items" : {
             "$ref" : "#/definitions/LocalizedValue"
           }
+        }
+      }
+    },
+    "EnvironmentalWarning" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "Possible values\n  - WEATHER\n  - FLOOD\n"
+        },
+        "context" : {
+          "type" : "string",
+          "description" : "Possible values\n  - cold-weather\n  - forest-fire-weather\n  - grass-fire-weather\n  - hot-weather\n  - pedestrian-safety\n  - rain\n  - sea-icing\n  - sea-thunder-storm\n  - sea-water-height\n  - sea-wave-height\n  - sea-wind\n  - thunder-storm\n  - traffic-weather\n  - uv-note\n  - wind\n"
+        },
+        "description" : {
+          "type" : "array",
+          "description" : "Description of environmental warning",
+          "items" : {
+            "$ref" : "#/definitions/LocalizedValue"
+          }
+        },
+        "causes" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "actualizationProbability" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "start" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "end" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "severity" : {
+          "type" : "string",
+          "description" : "Possible values\n  - level-1\n  - level-2\n  - level-3\n  - level-4\n"
         }
       }
     },

@@ -10,6 +10,7 @@ import fi.metatavu.kuntaapi.server.rest.model.NewsArticle;
 import fi.metatavu.kuntaapi.server.rest.model.Attachment;
 import fi.metatavu.kuntaapi.server.rest.model.Contact;
 import fi.metatavu.kuntaapi.server.rest.model.Emergency;
+import fi.metatavu.kuntaapi.server.rest.model.EnvironmentalWarning;
 import fi.metatavu.kuntaapi.server.rest.model.Event;
 import fi.metatavu.kuntaapi.server.rest.model.FileDef;
 import fi.metatavu.kuntaapi.server.rest.model.Fragment;
@@ -43,7 +44,7 @@ import java.util.List;
 @Api(description = "the organizations API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2019-01-09T15:13:31.881+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2019-01-17T19:50:46.604+02:00")
 
 public abstract class OrganizationsApi extends AbstractApi {
 
@@ -186,6 +187,20 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Emergency.class),
         @ApiResponse(code = 500, message = "Internal server error", response = Emergency.class) })
     public abstract Response findOrganizationEmergency(@PathParam("organizationId") String organizationId,@PathParam("emergencyId") String emergencyId,@Context Request request);
+
+    @GET
+    @Path("/{organizationId}/environmentalWarnings/{environmentalWarningId}")
+    @Consumes({ "application/json;charset=utf-8" })
+    @Produces({ "application/json;charset=utf-8" })
+    @ApiOperation(value = "Returns organizations environmental warning by id", notes = "Returns organizations environmental warning by id ", response = EnvironmentalWarning.class, authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "EnvironmentalWarnings",  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Returns a single environmentalWarning", response = EnvironmentalWarning.class),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = EnvironmentalWarning.class),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = EnvironmentalWarning.class),
+        @ApiResponse(code = 500, message = "Internal server error", response = EnvironmentalWarning.class) })
+    public abstract Response findOrganizationEnvironmentalWarning(@PathParam("organizationId") String organizationId,@PathParam("environmentalWarningId") String environmentalWarningId,@Context Request request);
 
     @GET
     @Path("/{organizationId}/events/{eventId}")
@@ -662,6 +677,20 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Emergency.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = Emergency.class, responseContainer = "List") })
     public abstract Response listOrganizationEmergencies(@PathParam("organizationId") String organizationId,@QueryParam("location") String location,@QueryParam("before") String before,@QueryParam("after") String after,@QueryParam("firstResult") Integer firstResult,@QueryParam("maxResults") Integer maxResults,@QueryParam("orderBy") String orderBy,@QueryParam("orderDir") String orderDir,@Context Request request);
+
+    @GET
+    @Path("/{organizationId}/environmentalWarnings")
+    @Consumes({ "application/json;charset=utf-8" })
+    @Produces({ "application/json;charset=utf-8" })
+    @ApiOperation(value = "Lists organizations environmentalWarnings", notes = "Lists organizations environmentalWarnings ", response = EnvironmentalWarning.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "basicAuth")
+    }, tags={ "EnvironmentalWarnings",  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Returns a list of environmental warnings", response = EnvironmentalWarning.class, responseContainer = "List"),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = EnvironmentalWarning.class, responseContainer = "List"),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = EnvironmentalWarning.class, responseContainer = "List"),
+        @ApiResponse(code = 500, message = "Internal server error", response = EnvironmentalWarning.class, responseContainer = "List") })
+    public abstract Response listOrganizationEnvironmentalWarnings(@PathParam("organizationId") String organizationId,@QueryParam("firstResult") Integer firstResult,@QueryParam("contexts") String contexts,@QueryParam("before") String before,@QueryParam("after") String after,@QueryParam("maxResults") Integer maxResults,@QueryParam("orderBy") String orderBy,@QueryParam("orderDir") String orderDir,@Context Request request);
 
     @GET
     @Path("/{organizationId}/events/{eventId}/images")
