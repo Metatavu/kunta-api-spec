@@ -2803,6 +2803,108 @@ paths:
           description: Internal server error
           schema:
             $ref: '#/definitions/InternalServerError'
+  /organizations/{organizationId}/environmentalWarnings:
+    get:
+      operationId: listOrganizationEnvironmentalWarnings
+      summary: Lists organizations environmentalWarnings
+      description: |
+        Lists organizations environmentalWarnings
+      parameters:
+        - name: organizationId
+          in: path
+          description: Organization id
+          required: true
+          type: string
+          format: uuid
+        - name: firstResult
+          in: query
+          description: First index of results
+          type: integer
+          format: int32
+        - name: contexts
+          in: query
+          description: Return environmental warnings by contexts.
+          type: string
+        - name: before
+          in: query
+          description: Return environmental warnings before specified time
+          type: string
+        - name: after
+          in: query
+          description: Return environmental warnings after specified time
+          type: string          
+        - name: maxResults
+          in: query
+          description: Maximum number of results
+          type: integer
+          format: int32
+        - name: orderBy
+          in: query
+          description: Define order (NATURAL, START)
+          type: string
+        - name: orderDir
+          in: query
+          description: Order direction (ASC, DESC). Default is ASC
+          type: string
+      tags:
+        - EnvironmentalWarnings
+      responses:
+        200:
+          description: Returns a list of environmental warnings
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/EnvironmentalWarning'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  /organizations/{organizationId}/environmentalWarnings/{environmentalWarningId}:
+    get:
+      operationId: findOrganizationEnvironmentalWarning
+      summary: Returns organizations environmental warning by id
+      description: |
+        Returns organizations environmental warning by id
+      parameters:
+        - name: organizationId
+          in: path
+          description: Organization id
+          required: true
+          type: string
+          format: uuid
+        - name: environmentalWarningId
+          in: path
+          description: Environmental warning id
+          required: true
+          type: string
+          format: uuid
+      tags:
+        - EnvironmentalWarnings
+      responses:
+        200:
+          description: Returns a single environmentalWarning
+          schema:
+            $ref: '#/definitions/EnvironmentalWarning'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
   /services:
     get:
       operationId: listServices
@@ -5706,6 +5808,63 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/LocalizedValue'
+
+  EnvironmentalWarning:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+      type:
+        type: string
+        enum:
+          - WEATHER
+          - FLOOD
+      context:
+        type: string
+        description: |
+          Possible values
+            - cold-weather
+            - forest-fire-weather
+            - grass-fire-weather
+            - hot-weather
+            - pedestrian-safety
+            - rain
+            - sea-icing
+            - sea-thunder-storm
+            - sea-water-height
+            - sea-wave-height
+            - sea-wind
+            - thunder-storm
+            - traffic-weather
+            - uv-note
+            - wind
+      description:
+        description: Description of environmental warning
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      causes: 
+        type: array
+        items:
+          type: string
+      actualizationProbability:
+        type: number
+        format: double
+      start:
+        type: string
+        format: date-time
+      end:
+        type: string
+        format: date-time
+      severity:
+        type: string
+        enum:
+          - level-1
+          - level-2
+          - level-3
+          - level-4
+
   Emergency:
     type: object
     properties:
