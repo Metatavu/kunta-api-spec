@@ -204,9 +204,10 @@
           <tagNameFormat>@{project.version}</tagNameFormat>
           <autoVersionSubmodules>true</autoVersionSubmodules>
           <checkModificationExcludes>
-            <checkModificationExclude>jaxrs-spec-generated/pom.xml</checkModificationExclude>
-            <checkModificationExclude>jaxrs-spec-generated/src/**</checkModificationExclude>
-            <checkModificationExclude>jaxrs-spec-generated/pom.xml.before</checkModificationExclude>
+            <checkModificationExclude>java-client-generated/pom.xml</checkModificationExclude>
+            <checkModificationExclude>java-client-generated/src/**</checkModificationExclude>
+            <checkModificationExclude>java-client-generated/docs/**</checkModificationExclude>
+            <checkModificationExclude>java-client-generated/pom.xml.before</checkModificationExclude>
           </checkModificationExcludes>
         </configuration>
       </plugin>

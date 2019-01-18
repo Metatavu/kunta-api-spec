@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ServiceChannelAttachment
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T06:46:40.585+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T06:52:51.644+02:00")
 public class ServiceChannelAttachment   {
   @SerializedName("type")
   private String type = null;
