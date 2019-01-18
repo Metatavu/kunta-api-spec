@@ -385,7 +385,7 @@ String organizationId = "organizationId_example"; // String | Organization id
 String parentId = "parentId_example"; // String | Filter results by parent id
 String path = "path_example"; // String | Filter results by page path
 String search = "search_example"; // String | Search pages by free-text query
-String sortBy = "sortBy_example"; // String | define order (NATURAL or SCORE). Default is NATURAL
+String sortBy = "sortBy_example"; // String | define order (NATURAL, SCORE or MENU). Default is NATURAL
 String sortDir = "sortDir_example"; // String | ASC or DESC. Default is ASC
 Long firstResult = 789L; // Long | First result
 Long maxResults = 789L; // Long | Max results
@@ -406,7 +406,7 @@ Name | Type | Description  | Notes
  **parentId** | **String**| Filter results by parent id | [optional]
  **path** | **String**| Filter results by page path | [optional]
  **search** | **String**| Search pages by free-text query | [optional]
- **sortBy** | **String**| define order (NATURAL or SCORE). Default is NATURAL | [optional]
+ **sortBy** | **String**| define order (NATURAL, SCORE or MENU). Default is NATURAL | [optional]
  **sortDir** | **String**| ASC or DESC. Default is ASC | [optional]
  **firstResult** | **Long**| First result | [optional]
  **maxResults** | **Long**| Max results | [optional]
