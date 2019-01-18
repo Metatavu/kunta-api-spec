@@ -38,7 +38,7 @@ import java.util.List;
 /**
  * Emergency
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-17T23:30:05.514+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T06:46:40.585+02:00")
 public class Emergency   {
   @SerializedName("id")
   private String id = null;
