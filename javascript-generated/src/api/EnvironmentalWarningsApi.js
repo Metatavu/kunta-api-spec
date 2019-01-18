@@ -25,29 +25,29 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/BadRequest', 'model/Forbidden', 'model/Job', 'model/InternalServerError'], factory);
+    define(['ApiClient', 'model/BadRequest', 'model/EnvironmentalWarning', 'model/Forbidden', 'model/InternalServerError'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/Forbidden'), require('../model/Job'), require('../model/InternalServerError'));
+    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/EnvironmentalWarning'), require('../model/Forbidden'), require('../model/InternalServerError'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.JobsApi = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.BadRequest, root.KuntaApiClient.Forbidden, root.KuntaApiClient.Job, root.KuntaApiClient.InternalServerError);
+    root.KuntaApiClient.EnvironmentalWarningsApi = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.BadRequest, root.KuntaApiClient.EnvironmentalWarning, root.KuntaApiClient.Forbidden, root.KuntaApiClient.InternalServerError);
   }
-}(this, function(ApiClient, BadRequest, Forbidden, Job, InternalServerError) {
+}(this, function(ApiClient, BadRequest, EnvironmentalWarning, Forbidden, InternalServerError) {
   'use strict';
 
   /**
-   * Jobs service.
-   * @module api/JobsApi
+   * EnvironmentalWarnings service.
+   * @module api/EnvironmentalWarningsApi
    * @version 0.0.137
    */
 
   /**
-   * Constructs a new JobsApi. 
-   * @alias module:api/JobsApi
+   * Constructs a new EnvironmentalWarningsApi. 
+   * @alias module:api/EnvironmentalWarningsApi
    * @class
    * @param {module:ApiClient} apiClient Optional API client implementation to use,
    * default to {@link module:ApiClient#instance} if unspecified.
@@ -58,29 +58,29 @@
 
 
     /**
-     * Finds organizations job
-     * Finds single organization job 
+     * Returns organizations environmental warning by id
+     * Returns organizations environmental warning by id 
      * @param {String} organizationId Organization id
-     * @param {String} jobId job id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Job}
+     * @param {String} environmentalWarningId Environmental warning id
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EnvironmentalWarning}
      */
-    this.findOrganizationJob = function(organizationId, jobId) {
+    this.findOrganizationEnvironmentalWarning = function(organizationId, environmentalWarningId) {
       var postBody = null;
 
       // verify the required parameter 'organizationId' is set
       if (organizationId == undefined || organizationId == null) {
-        throw "Missing the required parameter 'organizationId' when calling findOrganizationJob";
+        throw "Missing the required parameter 'organizationId' when calling findOrganizationEnvironmentalWarning";
       }
 
-      // verify the required parameter 'jobId' is set
-      if (jobId == undefined || jobId == null) {
-        throw "Missing the required parameter 'jobId' when calling findOrganizationJob";
+      // verify the required parameter 'environmentalWarningId' is set
+      if (environmentalWarningId == undefined || environmentalWarningId == null) {
+        throw "Missing the required parameter 'environmentalWarningId' when calling findOrganizationEnvironmentalWarning";
       }
 
 
       var pathParams = {
         'organizationId': organizationId,
-        'jobId': jobId
+        'environmentalWarningId': environmentalWarningId
       };
       var queryParams = {
       };
@@ -92,10 +92,10 @@
       var authNames = ['basicAuth'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = Job;
+      var returnType = EnvironmentalWarning;
 
       return this.apiClient.callApi(
-        '/organizations/{organizationId}/jobs/{jobId}', 'GET',
+        '/organizations/{organizationId}/environmentalWarnings/{environmentalWarningId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );
@@ -103,23 +103,26 @@
 
 
     /**
-     * Lists organizations jobs
-     * Lists organizations jobs 
+     * Lists organizations environmentalWarnings
+     * Lists organizations environmentalWarnings 
      * @param {String} organizationId Organization id
      * @param {Object} opts Optional parameters
-     * @param {String} opts.sortBy PUBLICATION_START or PUBLICATION_END
-     * @param {String} opts.sortDir ASC or DESC
-     * @param {Integer} opts.firstResult First result
-     * @param {Integer} opts.maxResults Max results
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Job>}
+     * @param {Integer} opts.firstResult First index of results
+     * @param {String} opts.contexts Return environmental warnings by contexts.
+     * @param {String} opts.before Return environmental warnings before specified time
+     * @param {String} opts.after Return environmental warnings after specified time
+     * @param {Integer} opts.maxResults Maximum number of results
+     * @param {String} opts.orderBy Define order (NATURAL, START)
+     * @param {String} opts.orderDir Order direction (ASC, DESC). Default is ASC
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/EnvironmentalWarning>}
      */
-    this.listOrganizationJobs = function(organizationId, opts) {
+    this.listOrganizationEnvironmentalWarnings = function(organizationId, opts) {
       opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'organizationId' is set
       if (organizationId == undefined || organizationId == null) {
-        throw "Missing the required parameter 'organizationId' when calling listOrganizationJobs";
+        throw "Missing the required parameter 'organizationId' when calling listOrganizationEnvironmentalWarnings";
       }
 
 
@@ -127,10 +130,13 @@
         'organizationId': organizationId
       };
       var queryParams = {
-        'sortBy': opts['sortBy'],
-        'sortDir': opts['sortDir'],
         'firstResult': opts['firstResult'],
-        'maxResults': opts['maxResults']
+        'contexts': opts['contexts'],
+        'before': opts['before'],
+        'after': opts['after'],
+        'maxResults': opts['maxResults'],
+        'orderBy': opts['orderBy'],
+        'orderDir': opts['orderDir']
       };
       var headerParams = {
       };
@@ -140,10 +146,10 @@
       var authNames = ['basicAuth'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = [Job];
+      var returnType = [EnvironmentalWarning];
 
       return this.apiClient.callApi(
-        '/organizations/{organizationId}/jobs', 'GET',
+        '/organizations/{organizationId}/environmentalWarnings', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );

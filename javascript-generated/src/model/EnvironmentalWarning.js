@@ -25,32 +25,32 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/LocalizedValue'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./LocalizedValue'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.Incident = factory(root.KuntaApiClient.ApiClient);
+    root.KuntaApiClient.EnvironmentalWarning = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.LocalizedValue);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, LocalizedValue) {
   'use strict';
 
 
 
 
   /**
-   * The Incident model module.
-   * @module model/Incident
+   * The EnvironmentalWarning model module.
+   * @module model/EnvironmentalWarning
    * @version 0.0.137
    */
 
   /**
-   * Constructs a new <code>Incident</code>.
-   * @alias module:model/Incident
+   * Constructs a new <code>EnvironmentalWarning</code>.
+   * @alias module:model/EnvironmentalWarning
    * @class
    */
   var exports = function() {
@@ -65,15 +65,14 @@
 
 
 
-
   };
 
   /**
-   * Constructs a <code>Incident</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>EnvironmentalWarning</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Incident} obj Optional instance to populate.
-   * @return {module:model/Incident} The populated <code>Incident</code> instance.
+   * @param {module:model/EnvironmentalWarning} obj Optional instance to populate.
+   * @return {module:model/EnvironmentalWarning} The populated <code>EnvironmentalWarning</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -82,23 +81,20 @@
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
-      if (data.hasOwnProperty('slug')) {
-        obj['slug'] = ApiClient.convertToType(data['slug'], 'String');
+      if (data.hasOwnProperty('type')) {
+        obj['type'] = ApiClient.convertToType(data['type'], 'String');
       }
-      if (data.hasOwnProperty('severity')) {
-        obj['severity'] = ApiClient.convertToType(data['severity'], 'String');
-      }
-      if (data.hasOwnProperty('title')) {
-        obj['title'] = ApiClient.convertToType(data['title'], 'String');
+      if (data.hasOwnProperty('context')) {
+        obj['context'] = ApiClient.convertToType(data['context'], 'String');
       }
       if (data.hasOwnProperty('description')) {
-        obj['description'] = ApiClient.convertToType(data['description'], 'String');
+        obj['description'] = ApiClient.convertToType(data['description'], [LocalizedValue]);
       }
-      if (data.hasOwnProperty('detailsLink')) {
-        obj['detailsLink'] = ApiClient.convertToType(data['detailsLink'], 'String');
+      if (data.hasOwnProperty('causes')) {
+        obj['causes'] = ApiClient.convertToType(data['causes'], ['String']);
       }
-      if (data.hasOwnProperty('detailsLinkText')) {
-        obj['detailsLinkText'] = ApiClient.convertToType(data['detailsLinkText'], 'String');
+      if (data.hasOwnProperty('actualizationProbability')) {
+        obj['actualizationProbability'] = ApiClient.convertToType(data['actualizationProbability'], 'Number');
       }
       if (data.hasOwnProperty('start')) {
         obj['start'] = ApiClient.convertToType(data['start'], 'Date');
@@ -106,8 +102,8 @@
       if (data.hasOwnProperty('end')) {
         obj['end'] = ApiClient.convertToType(data['end'], 'Date');
       }
-      if (data.hasOwnProperty('areas')) {
-        obj['areas'] = ApiClient.convertToType(data['areas'], ['String']);
+      if (data.hasOwnProperty('severity')) {
+        obj['severity'] = ApiClient.convertToType(data['severity'], 'String');
       }
     }
     return obj;
@@ -118,29 +114,28 @@
    */
   exports.prototype['id'] = undefined;
   /**
-   * @member {String} slug
+   * Possible values   - WEATHER   - FLOOD 
+   * @member {String} type
    */
-  exports.prototype['slug'] = undefined;
+  exports.prototype['type'] = undefined;
   /**
-   * @member {String} severity
+   * Possible values   - cold-weather   - forest-fire-weather   - grass-fire-weather   - hot-weather   - pedestrian-safety   - rain   - sea-icing   - sea-thunder-storm   - sea-water-height   - sea-wave-height   - sea-wind   - thunder-storm   - traffic-weather   - uv-note   - wind 
+   * @member {String} context
    */
-  exports.prototype['severity'] = undefined;
+  exports.prototype['context'] = undefined;
   /**
-   * @member {String} title
-   */
-  exports.prototype['title'] = undefined;
-  /**
-   * @member {String} description
+   * Description of environmental warning
+   * @member {Array.<module:model/LocalizedValue>} description
    */
   exports.prototype['description'] = undefined;
   /**
-   * @member {String} detailsLink
+   * @member {Array.<String>} causes
    */
-  exports.prototype['detailsLink'] = undefined;
+  exports.prototype['causes'] = undefined;
   /**
-   * @member {String} detailsLinkText
+   * @member {Number} actualizationProbability
    */
-  exports.prototype['detailsLinkText'] = undefined;
+  exports.prototype['actualizationProbability'] = undefined;
   /**
    * @member {Date} start
    */
@@ -150,9 +145,10 @@
    */
   exports.prototype['end'] = undefined;
   /**
-   * @member {Array.<String>} areas
+   * Possible values   - level-1   - level-2   - level-3   - level-4 
+   * @member {String} severity
    */
-  exports.prototype['areas'] = undefined;
+  exports.prototype['severity'] = undefined;
 
 
 

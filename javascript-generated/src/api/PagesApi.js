@@ -42,7 +42,7 @@
   /**
    * Pages service.
    * @module api/PagesApi
-   * @version 0.0.136
+   * @version 0.0.137
    */
 
   /**
@@ -357,7 +357,7 @@
      * @param {String} opts.parentId Filter results by parent id
      * @param {String} opts.path Filter results by page path
      * @param {String} opts.search Search pages by free-text query
-     * @param {String} opts.sortBy define order (NATURAL or SCORE). Default is NATURAL
+     * @param {String} opts.sortBy define order (NATURAL, SCORE or MENU). Default is NATURAL
      * @param {String} opts.sortDir ASC or DESC. Default is ASC
      * @param {Integer} opts.firstResult First result
      * @param {Integer} opts.maxResults Max results

@@ -365,7 +365,7 @@ var opts = {
   'parentId': "parentId_example", // String | Filter results by parent id
   'path': "path_example", // String | Filter results by page path
   'search': "search_example", // String | Search pages by free-text query
-  'sortBy': "sortBy_example", // String | define order (NATURAL or SCORE). Default is NATURAL
+  'sortBy': "sortBy_example", // String | define order (NATURAL, SCORE or MENU). Default is NATURAL
   'sortDir': "sortDir_example", // String | ASC or DESC. Default is ASC
   'firstResult': 789, // Integer | First result
   'maxResults': 789 // Integer | Max results
@@ -386,7 +386,7 @@ Name | Type | Description  | Notes
  **parentId** | **String**| Filter results by parent id | [optional] 
  **path** | **String**| Filter results by page path | [optional] 
  **search** | **String**| Search pages by free-text query | [optional] 
- **sortBy** | **String**| define order (NATURAL or SCORE). Default is NATURAL | [optional] 
+ **sortBy** | **String**| define order (NATURAL, SCORE or MENU). Default is NATURAL | [optional] 
  **sortDir** | **String**| ASC or DESC. Default is ASC | [optional] 
  **firstResult** | **Integer**| First result | [optional] 
  **maxResults** | **Integer**| Max results | [optional] 
