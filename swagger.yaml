@@ -2838,13 +2838,13 @@ paths:
           description: Maximum number of results
           type: integer
           format: int32
-        - name: orderBy
+        - name: sortBy
           in: query
-          description: Define order (NATURAL, START)
+          description: define order (NATURAL, START). Default is NATURAL
           type: string
-        - name: orderDir
+        - name: sortDir
           in: query
-          description: Order direction (ASC, DESC). Default is ASC
+          description: ASC or DESC. Default is ASC
           type: string
       tags:
         - EnvironmentalWarnings
