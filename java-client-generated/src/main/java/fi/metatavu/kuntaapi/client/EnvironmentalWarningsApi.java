@@ -185,7 +185,7 @@ public class EnvironmentalWarningsApi {
         return call;
     }
     /* Build call for listOrganizationEnvironmentalWarnings */
-    private com.squareup.okhttp.Call listOrganizationEnvironmentalWarningsCall(String organizationId, Integer firstResult, String contexts, String before, String after, Integer maxResults, String orderBy, String orderDir, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call listOrganizationEnvironmentalWarningsCall(String organizationId, Integer firstResult, String contexts, String before, String after, Integer maxResults, String sortBy, String sortDir, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // verify the required parameter 'organizationId' is set
@@ -209,10 +209,10 @@ public class EnvironmentalWarningsApi {
         localVarQueryParams.addAll(apiClient.parameterToPairs("", "after", after));
         if (maxResults != null)
         localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxResults", maxResults));
-        if (orderBy != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "orderBy", orderBy));
-        if (orderDir != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "orderDir", orderDir));
+        if (sortBy != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "sortBy", sortBy));
+        if (sortDir != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "sortDir", sortDir));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -255,13 +255,13 @@ public class EnvironmentalWarningsApi {
      * @param before Return environmental warnings before specified time (optional)
      * @param after Return environmental warnings after specified time (optional)
      * @param maxResults Maximum number of results (optional)
-     * @param orderBy Define order (NATURAL, START) (optional)
-     * @param orderDir Order direction (ASC, DESC). Default is ASC (optional)
+     * @param sortBy define order (NATURAL, START). Default is NATURAL (optional)
+     * @param sortDir ASC or DESC. Default is ASC (optional)
      * @return List&lt;EnvironmentalWarning&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<EnvironmentalWarning> listOrganizationEnvironmentalWarnings(String organizationId, Integer firstResult, String contexts, String before, String after, Integer maxResults, String orderBy, String orderDir) throws ApiException {
-        ApiResponse<List<EnvironmentalWarning>> resp = listOrganizationEnvironmentalWarningsWithHttpInfo(organizationId, firstResult, contexts, before, after, maxResults, orderBy, orderDir);
+    public List<EnvironmentalWarning> listOrganizationEnvironmentalWarnings(String organizationId, Integer firstResult, String contexts, String before, String after, Integer maxResults, String sortBy, String sortDir) throws ApiException {
+        ApiResponse<List<EnvironmentalWarning>> resp = listOrganizationEnvironmentalWarningsWithHttpInfo(organizationId, firstResult, contexts, before, after, maxResults, sortBy, sortDir);
         return resp.getData();
     }
 
@@ -274,13 +274,13 @@ public class EnvironmentalWarningsApi {
      * @param before Return environmental warnings before specified time (optional)
      * @param after Return environmental warnings after specified time (optional)
      * @param maxResults Maximum number of results (optional)
-     * @param orderBy Define order (NATURAL, START) (optional)
-     * @param orderDir Order direction (ASC, DESC). Default is ASC (optional)
+     * @param sortBy define order (NATURAL, START). Default is NATURAL (optional)
+     * @param sortDir ASC or DESC. Default is ASC (optional)
      * @return ApiResponse&lt;List&lt;EnvironmentalWarning&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<EnvironmentalWarning>> listOrganizationEnvironmentalWarningsWithHttpInfo(String organizationId, Integer firstResult, String contexts, String before, String after, Integer maxResults, String orderBy, String orderDir) throws ApiException {
-        com.squareup.okhttp.Call call = listOrganizationEnvironmentalWarningsCall(organizationId, firstResult, contexts, before, after, maxResults, orderBy, orderDir, null, null);
+    public ApiResponse<List<EnvironmentalWarning>> listOrganizationEnvironmentalWarningsWithHttpInfo(String organizationId, Integer firstResult, String contexts, String before, String after, Integer maxResults, String sortBy, String sortDir) throws ApiException {
+        com.squareup.okhttp.Call call = listOrganizationEnvironmentalWarningsCall(organizationId, firstResult, contexts, before, after, maxResults, sortBy, sortDir, null, null);
         Type localVarReturnType = new TypeToken<List<EnvironmentalWarning>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -294,13 +294,13 @@ public class EnvironmentalWarningsApi {
      * @param before Return environmental warnings before specified time (optional)
      * @param after Return environmental warnings after specified time (optional)
      * @param maxResults Maximum number of results (optional)
-     * @param orderBy Define order (NATURAL, START) (optional)
-     * @param orderDir Order direction (ASC, DESC). Default is ASC (optional)
+     * @param sortBy define order (NATURAL, START). Default is NATURAL (optional)
+     * @param sortDir ASC or DESC. Default is ASC (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listOrganizationEnvironmentalWarningsAsync(String organizationId, Integer firstResult, String contexts, String before, String after, Integer maxResults, String orderBy, String orderDir, final ApiCallback<List<EnvironmentalWarning>> callback) throws ApiException {
+    public com.squareup.okhttp.Call listOrganizationEnvironmentalWarningsAsync(String organizationId, Integer firstResult, String contexts, String before, String after, Integer maxResults, String sortBy, String sortDir, final ApiCallback<List<EnvironmentalWarning>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -321,7 +321,7 @@ public class EnvironmentalWarningsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = listOrganizationEnvironmentalWarningsCall(organizationId, firstResult, contexts, before, after, maxResults, orderBy, orderDir, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = listOrganizationEnvironmentalWarningsCall(organizationId, firstResult, contexts, before, after, maxResults, sortBy, sortDir, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<EnvironmentalWarning>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

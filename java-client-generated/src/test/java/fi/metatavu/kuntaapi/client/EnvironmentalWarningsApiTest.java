@@ -78,9 +78,9 @@ public class EnvironmentalWarningsApiTest {
         String before = null;
         String after = null;
         Integer maxResults = null;
-        String orderBy = null;
-        String orderDir = null;
-        // List<EnvironmentalWarning> response = api.listOrganizationEnvironmentalWarnings(organizationId, firstResult, contexts, before, after, maxResults, orderBy, orderDir);
+        String sortBy = null;
+        String sortDir = null;
+        // List<EnvironmentalWarning> response = api.listOrganizationEnvironmentalWarnings(organizationId, firstResult, contexts, before, after, maxResults, sortBy, sortDir);
 
         // TODO: test validations
     }
