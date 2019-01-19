@@ -44,7 +44,7 @@ import java.util.List;
 @Api(description = "the organizations API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2019-01-17T23:25:50.598+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2019-01-19T09:18:57.097+02:00")
 
 public abstract class OrganizationsApi extends AbstractApi {
 
@@ -690,7 +690,7 @@ public abstract class OrganizationsApi extends AbstractApi {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = EnvironmentalWarning.class, responseContainer = "List"),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = EnvironmentalWarning.class, responseContainer = "List"),
         @ApiResponse(code = 500, message = "Internal server error", response = EnvironmentalWarning.class, responseContainer = "List") })
-    public abstract Response listOrganizationEnvironmentalWarnings(@PathParam("organizationId") String organizationId,@QueryParam("firstResult") Integer firstResult,@QueryParam("contexts") String contexts,@QueryParam("before") String before,@QueryParam("after") String after,@QueryParam("maxResults") Integer maxResults,@QueryParam("orderBy") String orderBy,@QueryParam("orderDir") String orderDir,@Context Request request);
+    public abstract Response listOrganizationEnvironmentalWarnings(@PathParam("organizationId") String organizationId,@QueryParam("firstResult") Integer firstResult,@QueryParam("contexts") String contexts,@QueryParam("before") String before,@QueryParam("after") String after,@QueryParam("maxResults") Integer maxResults,@QueryParam("sortBy") String sortBy,@QueryParam("sortDir") String sortDir,@Context Request request);
 
     @GET
     @Path("/{organizationId}/events/{eventId}/images")
