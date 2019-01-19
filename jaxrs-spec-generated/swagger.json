@@ -1123,15 +1123,15 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "before",
+          "name" : "startBefore",
           "in" : "query",
-          "description" : "Return environmental warnings before specified time",
+          "description" : "Return environmental warnings starting before specified time",
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "after",
+          "name" : "startAfter",
           "in" : "query",
-          "description" : "Return environmental warnings after specified time",
+          "description" : "Return environmental warnings starting after specified time",
           "required" : false,
           "type" : "string"
         }, {
