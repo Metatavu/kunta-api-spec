@@ -85,11 +85,11 @@ var organizationId = "organizationId_example"; // String | Organization id
 var opts = { 
   'firstResult': 56, // Integer | First index of results
   'contexts': "contexts_example", // String | Return environmental warnings by contexts.
-  'before': "before_example", // String | Return environmental warnings before specified time
-  'after': "after_example", // String | Return environmental warnings after specified time
+  'startBefore': "startBefore_example", // String | Return environmental warnings starting before specified time
+  'startAfter': "startAfter_example", // String | Return environmental warnings starting after specified time
   'maxResults': 56, // Integer | Maximum number of results
-  'orderBy': "orderBy_example", // String | Define order (NATURAL, START)
-  'orderDir': "orderDir_example" // String | Order direction (ASC, DESC). Default is ASC
+  'sortBy': "sortBy_example", // String | define order (NATURAL, START). Default is NATURAL
+  'sortDir': "sortDir_example" // String | ASC or DESC. Default is ASC
 };
 apiInstance.listOrganizationEnvironmentalWarnings(organizationId, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -106,11 +106,11 @@ Name | Type | Description  | Notes
  **organizationId** | **String**| Organization id | 
  **firstResult** | **Integer**| First index of results | [optional] 
  **contexts** | **String**| Return environmental warnings by contexts. | [optional] 
- **before** | **String**| Return environmental warnings before specified time | [optional] 
- **after** | **String**| Return environmental warnings after specified time | [optional] 
+ **startBefore** | **String**| Return environmental warnings starting before specified time | [optional] 
+ **startAfter** | **String**| Return environmental warnings starting after specified time | [optional] 
  **maxResults** | **Integer**| Maximum number of results | [optional] 
- **orderBy** | **String**| Define order (NATURAL, START) | [optional] 
- **orderDir** | **String**| Order direction (ASC, DESC). Default is ASC | [optional] 
+ **sortBy** | **String**| define order (NATURAL, START). Default is NATURAL | [optional] 
+ **sortDir** | **String**| ASC or DESC. Default is ASC | [optional] 
 
 ### Return type
 

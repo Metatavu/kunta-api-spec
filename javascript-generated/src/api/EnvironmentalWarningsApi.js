@@ -42,7 +42,7 @@
   /**
    * EnvironmentalWarnings service.
    * @module api/EnvironmentalWarningsApi
-   * @version 0.0.137
+   * @version 0.0.138
    */
 
   /**
@@ -109,11 +109,11 @@
      * @param {Object} opts Optional parameters
      * @param {Integer} opts.firstResult First index of results
      * @param {String} opts.contexts Return environmental warnings by contexts.
-     * @param {String} opts.before Return environmental warnings before specified time
-     * @param {String} opts.after Return environmental warnings after specified time
+     * @param {String} opts.startBefore Return environmental warnings starting before specified time
+     * @param {String} opts.startAfter Return environmental warnings starting after specified time
      * @param {Integer} opts.maxResults Maximum number of results
-     * @param {String} opts.orderBy Define order (NATURAL, START)
-     * @param {String} opts.orderDir Order direction (ASC, DESC). Default is ASC
+     * @param {String} opts.sortBy define order (NATURAL, START). Default is NATURAL
+     * @param {String} opts.sortDir ASC or DESC. Default is ASC
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/EnvironmentalWarning>}
      */
     this.listOrganizationEnvironmentalWarnings = function(organizationId, opts) {
@@ -132,11 +132,11 @@
       var queryParams = {
         'firstResult': opts['firstResult'],
         'contexts': opts['contexts'],
-        'before': opts['before'],
-        'after': opts['after'],
+        'startBefore': opts['startBefore'],
+        'startAfter': opts['startAfter'],
         'maxResults': opts['maxResults'],
-        'orderBy': opts['orderBy'],
-        'orderDir': opts['orderDir']
+        'sortBy': opts['sortBy'],
+        'sortDir': opts['sortDir']
       };
       var headerParams = {
       };
