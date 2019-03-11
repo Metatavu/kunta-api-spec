@@ -6837,6 +6837,9 @@
         "unmappedParentId" : {
           "type" : "string",
           "format" : "uuid"
+        },
+        "siteRootPage" : {
+          "type" : "boolean"
         }
       }
     },

@@ -11,6 +11,7 @@ public class PageMeta  implements java.io.Serializable {
   
   private Boolean hideMenuChildren = null;
   private String unmappedParentId = null;
+  private Boolean siteRootPage = null;
 
   /**
    **/
@@ -44,6 +45,22 @@ public class PageMeta  implements java.io.Serializable {
     this.unmappedParentId = unmappedParentId;
   }
 
+  /**
+   **/
+  public PageMeta siteRootPage(Boolean siteRootPage) {
+    this.siteRootPage = siteRootPage;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "")
+  public Boolean getSiteRootPage() {
+    return siteRootPage;
+  }
+  public void setSiteRootPage(Boolean siteRootPage) {
+    this.siteRootPage = siteRootPage;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -55,12 +72,13 @@ public class PageMeta  implements java.io.Serializable {
     }
     PageMeta pageMeta = (PageMeta) o;
     return Objects.equals(hideMenuChildren, pageMeta.hideMenuChildren) &&
-        Objects.equals(unmappedParentId, pageMeta.unmappedParentId);
+        Objects.equals(unmappedParentId, pageMeta.unmappedParentId) &&
+        Objects.equals(siteRootPage, pageMeta.siteRootPage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hideMenuChildren, unmappedParentId);
+    return Objects.hash(hideMenuChildren, unmappedParentId, siteRootPage);
   }
 
   @Override
@@ -70,6 +88,7 @@ public class PageMeta  implements java.io.Serializable {
     
     sb.append("    hideMenuChildren: ").append(toIndentedString(hideMenuChildren)).append("\n");
     sb.append("    unmappedParentId: ").append(toIndentedString(unmappedParentId)).append("\n");
+    sb.append("    siteRootPage: ").append(toIndentedString(siteRootPage)).append("\n");
     sb.append("}");
     return sb.toString();
   }
