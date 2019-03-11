@@ -34,13 +34,16 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * PageMeta
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-19T09:20:34.808+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-11T07:41:30.697+02:00")
 public class PageMeta   {
   @SerializedName("hideMenuChildren")
   private Boolean hideMenuChildren = null;
 
   @SerializedName("unmappedParentId")
   private String unmappedParentId = null;
+
+  @SerializedName("siteRootPage")
+  private Boolean siteRootPage = null;
 
   public PageMeta hideMenuChildren(Boolean hideMenuChildren) {
     this.hideMenuChildren = hideMenuChildren;
@@ -78,6 +81,24 @@ public class PageMeta   {
     this.unmappedParentId = unmappedParentId;
   }
 
+  public PageMeta siteRootPage(Boolean siteRootPage) {
+    this.siteRootPage = siteRootPage;
+    return this;
+  }
+
+   /**
+   * Get siteRootPage
+   * @return siteRootPage
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Boolean getSiteRootPage() {
+    return siteRootPage;
+  }
+
+  public void setSiteRootPage(Boolean siteRootPage) {
+    this.siteRootPage = siteRootPage;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -89,12 +110,13 @@ public class PageMeta   {
     }
     PageMeta pageMeta = (PageMeta) o;
     return Objects.equals(this.hideMenuChildren, pageMeta.hideMenuChildren) &&
-        Objects.equals(this.unmappedParentId, pageMeta.unmappedParentId);
+        Objects.equals(this.unmappedParentId, pageMeta.unmappedParentId) &&
+        Objects.equals(this.siteRootPage, pageMeta.siteRootPage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hideMenuChildren, unmappedParentId);
+    return Objects.hash(hideMenuChildren, unmappedParentId, siteRootPage);
   }
 
   @Override
@@ -104,6 +126,7 @@ public class PageMeta   {
     
     sb.append("    hideMenuChildren: ").append(toIndentedString(hideMenuChildren)).append("\n");
     sb.append("    unmappedParentId: ").append(toIndentedString(unmappedParentId)).append("\n");
+    sb.append("    siteRootPage: ").append(toIndentedString(siteRootPage)).append("\n");
     sb.append("}");
     return sb.toString();
   }
