@@ -42,7 +42,7 @@
   /**
    * Incidents service.
    * @module api/IncidentsApi
-   * @version 0.0.138
+   * @version 0.0.139
    */
 
   /**

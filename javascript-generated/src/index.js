@@ -62,7 +62,7 @@
    * </pre>
    * </p>
    * @module index
-   * @version 0.0.138
+   * @version 0.0.139
    */
   var exports = {
     /**

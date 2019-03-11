@@ -45,7 +45,7 @@
   /**
    * The PageMeta model module.
    * @module model/PageMeta
-   * @version 0.0.138
+   * @version 0.0.139
    */
 
   /**
@@ -55,6 +55,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -77,6 +78,9 @@
       if (data.hasOwnProperty('unmappedParentId')) {
         obj['unmappedParentId'] = ApiClient.convertToType(data['unmappedParentId'], 'String');
       }
+      if (data.hasOwnProperty('siteRootPage')) {
+        obj['siteRootPage'] = ApiClient.convertToType(data['siteRootPage'], 'Boolean');
+      }
     }
     return obj;
   }
@@ -89,6 +93,10 @@
    * @member {String} unmappedParentId
    */
   exports.prototype['unmappedParentId'] = undefined;
+  /**
+   * @member {Boolean} siteRootPage
+   */
+  exports.prototype['siteRootPage'] = undefined;
 
 
 

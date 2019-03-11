@@ -45,7 +45,7 @@
   /**
    * The ServiceVoucher model module.
    * @module model/ServiceVoucher
-   * @version 0.0.138
+   * @version 0.0.139
    */
 
   /**

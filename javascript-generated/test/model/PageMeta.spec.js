@@ -77,6 +77,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property siteRootPage (base name: "siteRootPage")', function() {
+      // uncomment below and update the code to test the property siteRootPage
+      //var instane = new KuntaApiClient.PageMeta();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

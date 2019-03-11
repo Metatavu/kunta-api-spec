@@ -5,5 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **hideMenuChildren** | **Boolean** |  | [optional] 
 **unmappedParentId** | **String** |  | [optional] 
+**siteRootPage** | **Boolean** |  | [optional] 
 
 
