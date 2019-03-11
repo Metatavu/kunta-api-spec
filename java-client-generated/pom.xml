@@ -208,6 +208,7 @@
             <checkModificationExclude>java-client-generated/src/**</checkModificationExclude>
             <checkModificationExclude>java-client-generated/docs/**</checkModificationExclude>
             <checkModificationExclude>java-client-generated/pom.xml.before</checkModificationExclude>
+            <checkModificationExclude>java-client-generated/.gitignore</checkModificationExclude>
           </checkModificationExcludes>
         </configuration>
       </plugin>
