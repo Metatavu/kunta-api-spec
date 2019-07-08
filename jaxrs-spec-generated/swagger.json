@@ -7384,11 +7384,24 @@
           "type" : "array",
           "description" : "List of localized sentences.",
           "items" : {
-            "$ref" : "#/definitions/LocalizedValue"
+            "$ref" : "#/definitions/AccessibilitySentenceValue"
           }
         }
       },
       "description" : "Accessibility sentences."
+    },
+    "AccessibilitySentenceValue" : {
+      "type" : "object",
+      "properties" : {
+        "sentence" : {
+          "type" : "array",
+          "description" : "List of localized sentences.",
+          "items" : {
+            "$ref" : "#/definitions/LocalizedValue"
+          }
+        }
+      },
+      "description" : "Accessibility sentence."
     },
     "Coordinates" : {
       "type" : "object",

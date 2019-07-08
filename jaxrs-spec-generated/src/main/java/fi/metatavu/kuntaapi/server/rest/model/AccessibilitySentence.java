@@ -1,5 +1,6 @@
 package fi.metatavu.kuntaapi.server.rest.model;
 
+import fi.metatavu.kuntaapi.server.rest.model.AccessibilitySentenceValue;
 import fi.metatavu.kuntaapi.server.rest.model.LocalizedValue;
 import io.swagger.annotations.ApiModel;
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ import java.util.Objects;
 public class AccessibilitySentence  implements java.io.Serializable {
   
   private List<LocalizedValue> sentenceGroup = new ArrayList<LocalizedValue>();
-  private List<LocalizedValue> sentences = new ArrayList<LocalizedValue>();
+  private List<AccessibilitySentenceValue> sentences = new ArrayList<AccessibilitySentenceValue>();
 
   /**
    * List of localized sentence group names.
@@ -39,17 +40,17 @@ public class AccessibilitySentence  implements java.io.Serializable {
   /**
    * List of localized sentences.
    **/
-  public AccessibilitySentence sentences(List<LocalizedValue> sentences) {
+  public AccessibilitySentence sentences(List<AccessibilitySentenceValue> sentences) {
     this.sentences = sentences;
     return this;
   }
 
   
   @ApiModelProperty(example = "null", value = "List of localized sentences.")
-  public List<LocalizedValue> getSentences() {
+  public List<AccessibilitySentenceValue> getSentences() {
     return sentences;
   }
-  public void setSentences(List<LocalizedValue> sentences) {
+  public void setSentences(List<AccessibilitySentenceValue> sentences) {
     this.sentences = sentences;
   }
 
