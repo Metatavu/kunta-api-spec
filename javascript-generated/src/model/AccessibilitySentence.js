@@ -25,32 +25,33 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/LocalizedValue'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./LocalizedValue'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.Email = factory(root.KuntaApiClient.ApiClient);
+    root.KuntaApiClient.AccessibilitySentence = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.LocalizedValue);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, LocalizedValue) {
   'use strict';
 
 
 
 
   /**
-   * The Email model module.
-   * @module model/Email
+   * The AccessibilitySentence model module.
+   * @module model/AccessibilitySentence
    * @version 0.0.140
    */
 
   /**
-   * Constructs a new <code>Email</code>.
-   * @alias module:model/Email
+   * Constructs a new <code>AccessibilitySentence</code>.
+   * Accessibility sentences.
+   * @alias module:model/AccessibilitySentence
    * @class
    */
   var exports = function() {
@@ -58,45 +59,39 @@
 
 
 
-
   };
 
   /**
-   * Constructs a <code>Email</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>AccessibilitySentence</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Email} obj Optional instance to populate.
-   * @return {module:model/Email} The populated <code>Email</code> instance.
+   * @param {module:model/AccessibilitySentence} obj Optional instance to populate.
+   * @return {module:model/AccessibilitySentence} The populated <code>AccessibilitySentence</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('value')) {
-        obj['value'] = ApiClient.convertToType(data['value'], 'String');
+      if (data.hasOwnProperty('sentenceGroup')) {
+        obj['sentenceGroup'] = ApiClient.convertToType(data['sentenceGroup'], [LocalizedValue]);
       }
-      if (data.hasOwnProperty('description')) {
-        obj['description'] = ApiClient.convertToType(data['description'], 'String');
-      }
-      if (data.hasOwnProperty('language')) {
-        obj['language'] = ApiClient.convertToType(data['language'], 'String');
+      if (data.hasOwnProperty('sentences')) {
+        obj['sentences'] = ApiClient.convertToType(data['sentences'], [LocalizedValue]);
       }
     }
     return obj;
   }
 
   /**
-   * @member {String} value
+   * List of localized sentence group names.
+   * @member {Array.<module:model/LocalizedValue>} sentenceGroup
    */
-  exports.prototype['value'] = undefined;
+  exports.prototype['sentenceGroup'] = undefined;
   /**
-   * @member {String} description
+   * List of localized sentences.
+   * @member {Array.<module:model/LocalizedValue>} sentences
    */
-  exports.prototype['description'] = undefined;
-  /**
-   * @member {String} language
-   */
-  exports.prototype['language'] = undefined;
+  exports.prototype['sentences'] = undefined;
 
 
 

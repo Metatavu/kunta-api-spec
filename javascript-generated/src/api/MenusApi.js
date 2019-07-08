@@ -42,7 +42,7 @@
   /**
    * Menus service.
    * @module api/MenusApi
-   * @version 0.0.139
+   * @version 0.0.140
    */
 
   /**

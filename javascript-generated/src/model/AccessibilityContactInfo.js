@@ -34,7 +34,7 @@
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.Email = factory(root.KuntaApiClient.ApiClient);
+    root.KuntaApiClient.AccessibilityContactInfo = factory(root.KuntaApiClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -43,14 +43,15 @@
 
 
   /**
-   * The Email model module.
-   * @module model/Email
+   * The AccessibilityContactInfo model module.
+   * @module model/AccessibilityContactInfo
    * @version 0.0.140
    */
 
   /**
-   * Constructs a new <code>Email</code>.
-   * @alias module:model/Email
+   * Constructs a new <code>AccessibilityContactInfo</code>.
+   * Accessibility contact info
+   * @alias module:model/AccessibilityContactInfo
    * @class
    */
   var exports = function() {
@@ -62,41 +63,44 @@
   };
 
   /**
-   * Constructs a <code>Email</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>AccessibilityContactInfo</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Email} obj Optional instance to populate.
-   * @return {module:model/Email} The populated <code>Email</code> instance.
+   * @param {module:model/AccessibilityContactInfo} obj Optional instance to populate.
+   * @return {module:model/AccessibilityContactInfo} The populated <code>AccessibilityContactInfo</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('value')) {
-        obj['value'] = ApiClient.convertToType(data['value'], 'String');
+      if (data.hasOwnProperty('phone')) {
+        obj['phone'] = ApiClient.convertToType(data['phone'], 'String');
       }
-      if (data.hasOwnProperty('description')) {
-        obj['description'] = ApiClient.convertToType(data['description'], 'String');
+      if (data.hasOwnProperty('email')) {
+        obj['email'] = ApiClient.convertToType(data['email'], 'String');
       }
-      if (data.hasOwnProperty('language')) {
-        obj['language'] = ApiClient.convertToType(data['language'], 'String');
+      if (data.hasOwnProperty('url')) {
+        obj['url'] = ApiClient.convertToType(data['url'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * @member {String} value
+   * Phone
+   * @member {String} phone
    */
-  exports.prototype['value'] = undefined;
+  exports.prototype['phone'] = undefined;
   /**
-   * @member {String} description
+   * Email
+   * @member {String} email
    */
-  exports.prototype['description'] = undefined;
+  exports.prototype['email'] = undefined;
   /**
-   * @member {String} language
+   * Url
+   * @member {String} url
    */
-  exports.prototype['language'] = undefined;
+  exports.prototype['url'] = undefined;
 
 
 

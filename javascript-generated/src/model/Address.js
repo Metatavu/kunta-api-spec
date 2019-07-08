@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Address', 'model/Coordinates', 'model/LocalizedValue', 'model/Municipality'], factory);
+    define(['ApiClient', 'model/Address', 'model/AddressEntrance', 'model/Coordinates', 'model/LocalizedValue', 'model/Municipality'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Address'), require('./Coordinates'), require('./LocalizedValue'), require('./Municipality'));
+    module.exports = factory(require('../ApiClient'), require('./Address'), require('./AddressEntrance'), require('./Coordinates'), require('./LocalizedValue'), require('./Municipality'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.Address = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Address, root.KuntaApiClient.Coordinates, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.Municipality);
+    root.KuntaApiClient.Address = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.Address, root.KuntaApiClient.AddressEntrance, root.KuntaApiClient.Coordinates, root.KuntaApiClient.LocalizedValue, root.KuntaApiClient.Municipality);
   }
-}(this, function(ApiClient, Address, Coordinates, LocalizedValue, Municipality) {
+}(this, function(ApiClient, Address, AddressEntrance, Coordinates, LocalizedValue, Municipality) {
   'use strict';
 
 
@@ -45,7 +45,7 @@
   /**
    * The Address model module.
    * @module model/Address
-   * @version 0.0.139
+   * @version 0.0.140
    */
 
   /**
@@ -55,6 +55,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -132,6 +133,9 @@
       }
       if (data.hasOwnProperty('additionalInformations')) {
         obj['additionalInformations'] = ApiClient.convertToType(data['additionalInformations'], [LocalizedValue]);
+      }
+      if (data.hasOwnProperty('entrances')) {
+        obj['entrances'] = ApiClient.convertToType(data['entrances'], [AddressEntrance]);
       }
     }
     return obj;
@@ -215,6 +219,11 @@
    * @member {Array.<module:model/LocalizedValue>} additionalInformations
    */
   exports.prototype['additionalInformations'] = undefined;
+  /**
+   * Entrances for an address. Includes accessibility sentences.
+   * @member {Array.<module:model/AddressEntrance>} entrances
+   */
+  exports.prototype['entrances'] = undefined;
 
 
 

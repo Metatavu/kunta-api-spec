@@ -19,5 +19,6 @@ Name | Type | Description | Notes
 **locationAbroad** | [**[LocalizedValue]**](LocalizedValue.md) | Localized list of foreign address information. | [optional] 
 **multipointLocation** | [**[Address]**](Address.md) | Moving address. Includes several street addresses. | [optional] 
 **additionalInformations** | [**[LocalizedValue]**](LocalizedValue.md) | Localized list of additional information about the address. | [optional] 
+**entrances** | [**[AddressEntrance]**](AddressEntrance.md) | Entrances for an address. Includes accessibility sentences. | [optional] 
 
 

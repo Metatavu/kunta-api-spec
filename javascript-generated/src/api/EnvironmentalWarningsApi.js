@@ -42,7 +42,7 @@
   /**
    * EnvironmentalWarnings service.
    * @module api/EnvironmentalWarningsApi
-   * @version 0.0.139
+   * @version 0.0.140
    */
 
   /**
