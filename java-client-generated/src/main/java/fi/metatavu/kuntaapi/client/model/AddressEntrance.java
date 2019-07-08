@@ -41,7 +41,7 @@ import java.util.List;
  * Entrance for address
  */
 @ApiModel(description = "Entrance for address")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-08T15:25:34.363+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-08T18:08:24.691+03:00")
 public class AddressEntrance   {
   @SerializedName("name")
   private List<LocalizedValue> name = new ArrayList<LocalizedValue>();

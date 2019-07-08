@@ -39,7 +39,7 @@ import java.util.List;
  * Generic code item describing code / name pair (e.g. LanguageCode, MunicipalityCode, etc...)
  */
 @ApiModel(description = "Generic code item describing code / name pair (e.g. LanguageCode, MunicipalityCode, etc...)")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-08T15:25:34.363+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-08T18:08:24.691+03:00")
 public class Code   {
   @SerializedName("id")
   private String id = null;

@@ -35,7 +35,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Accessibility contact info
  */
 @ApiModel(description = "Accessibility contact info")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-08T15:25:34.363+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-08T18:08:24.691+03:00")
 public class AccessibilityContactInfo   {
   @SerializedName("phone")
   private String phone = null;

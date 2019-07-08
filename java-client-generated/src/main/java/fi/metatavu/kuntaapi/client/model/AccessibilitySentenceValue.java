@@ -28,7 +28,6 @@ package fi.metatavu.kuntaapi.client.model;
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import fi.metatavu.kuntaapi.client.model.LocalizedValue;
-import fi.metatavu.kuntaapi.client.model.WebPage;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -36,61 +35,35 @@ import java.util.List;
 
 
 /**
- * a Law
+ * Accessibility sentence.
  */
-@ApiModel(description = "a Law")
+@ApiModel(description = "Accessibility sentence.")
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-08T18:08:24.691+03:00")
-public class Law   {
-  @SerializedName("names")
-  private List<LocalizedValue> names = new ArrayList<LocalizedValue>();
+public class AccessibilitySentenceValue   {
+  @SerializedName("sentence")
+  private List<LocalizedValue> sentence = new ArrayList<LocalizedValue>();
 
-  @SerializedName("webPages")
-  private List<WebPage> webPages = new ArrayList<WebPage>();
-
-  public Law names(List<LocalizedValue> names) {
-    this.names = names;
+  public AccessibilitySentenceValue sentence(List<LocalizedValue> sentence) {
+    this.sentence = sentence;
     return this;
   }
 
-  public Law addNamesItem(LocalizedValue namesItem) {
-    this.names.add(namesItem);
-    return this;
-  }
-
-   /**
-   * Get names
-   * @return names
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public List<LocalizedValue> getNames() {
-    return names;
-  }
-
-  public void setNames(List<LocalizedValue> names) {
-    this.names = names;
-  }
-
-  public Law webPages(List<WebPage> webPages) {
-    this.webPages = webPages;
-    return this;
-  }
-
-  public Law addWebPagesItem(WebPage webPagesItem) {
-    this.webPages.add(webPagesItem);
+  public AccessibilitySentenceValue addSentenceItem(LocalizedValue sentenceItem) {
+    this.sentence.add(sentenceItem);
     return this;
   }
 
    /**
-   * List of localized web page urls.
-   * @return webPages
+   * List of localized sentences.
+   * @return sentence
   **/
-  @ApiModelProperty(example = "null", value = "List of localized web page urls.")
-  public List<WebPage> getWebPages() {
-    return webPages;
+  @ApiModelProperty(example = "null", value = "List of localized sentences.")
+  public List<LocalizedValue> getSentence() {
+    return sentence;
   }
 
-  public void setWebPages(List<WebPage> webPages) {
-    this.webPages = webPages;
+  public void setSentence(List<LocalizedValue> sentence) {
+    this.sentence = sentence;
   }
 
 
@@ -102,23 +75,21 @@ public class Law   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Law law = (Law) o;
-    return Objects.equals(this.names, law.names) &&
-        Objects.equals(this.webPages, law.webPages);
+    AccessibilitySentenceValue accessibilitySentenceValue = (AccessibilitySentenceValue) o;
+    return Objects.equals(this.sentence, accessibilitySentenceValue.sentence);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(names, webPages);
+    return Objects.hash(sentence);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Law {\n");
+    sb.append("class AccessibilitySentenceValue {\n");
     
-    sb.append("    names: ").append(toIndentedString(names)).append("\n");
-    sb.append("    webPages: ").append(toIndentedString(webPages)).append("\n");
+    sb.append("    sentence: ").append(toIndentedString(sentence)).append("\n");
     sb.append("}");
     return sb.toString();
   }

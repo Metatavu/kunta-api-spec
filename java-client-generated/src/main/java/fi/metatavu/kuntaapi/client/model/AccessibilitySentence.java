@@ -27,6 +27,7 @@ package fi.metatavu.kuntaapi.client.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+import fi.metatavu.kuntaapi.client.model.AccessibilitySentenceValue;
 import fi.metatavu.kuntaapi.client.model.LocalizedValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -38,13 +39,13 @@ import java.util.List;
  * Accessibility sentences.
  */
 @ApiModel(description = "Accessibility sentences.")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-08T15:25:34.363+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-08T18:08:24.691+03:00")
 public class AccessibilitySentence   {
   @SerializedName("sentenceGroup")
   private List<LocalizedValue> sentenceGroup = new ArrayList<LocalizedValue>();
 
   @SerializedName("sentences")
-  private List<LocalizedValue> sentences = new ArrayList<LocalizedValue>();
+  private List<AccessibilitySentenceValue> sentences = new ArrayList<AccessibilitySentenceValue>();
 
   public AccessibilitySentence sentenceGroup(List<LocalizedValue> sentenceGroup) {
     this.sentenceGroup = sentenceGroup;
@@ -69,12 +70,12 @@ public class AccessibilitySentence   {
     this.sentenceGroup = sentenceGroup;
   }
 
-  public AccessibilitySentence sentences(List<LocalizedValue> sentences) {
+  public AccessibilitySentence sentences(List<AccessibilitySentenceValue> sentences) {
     this.sentences = sentences;
     return this;
   }
 
-  public AccessibilitySentence addSentencesItem(LocalizedValue sentencesItem) {
+  public AccessibilitySentence addSentencesItem(AccessibilitySentenceValue sentencesItem) {
     this.sentences.add(sentencesItem);
     return this;
   }
@@ -84,11 +85,11 @@ public class AccessibilitySentence   {
    * @return sentences
   **/
   @ApiModelProperty(example = "null", value = "List of localized sentences.")
-  public List<LocalizedValue> getSentences() {
+  public List<AccessibilitySentenceValue> getSentences() {
     return sentences;
   }
 
-  public void setSentences(List<LocalizedValue> sentences) {
+  public void setSentences(List<AccessibilitySentenceValue> sentences) {
     this.sentences = sentences;
   }
 

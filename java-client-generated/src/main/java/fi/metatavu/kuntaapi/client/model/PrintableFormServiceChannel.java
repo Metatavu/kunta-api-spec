@@ -44,7 +44,7 @@ import java.util.List;
 /**
  * PrintableFormServiceChannel
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-08T15:25:34.363+03:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-08T18:08:24.691+03:00")
 public class PrintableFormServiceChannel   {
   @SerializedName("id")
   private String id = null;
