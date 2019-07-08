@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 <a name="listOrganizationEnvironmentalWarnings"></a>
 # **listOrganizationEnvironmentalWarnings**
-> List&lt;EnvironmentalWarning&gt; listOrganizationEnvironmentalWarnings(organizationId, firstResult, contexts, before, after, maxResults, orderBy, orderDir)
+> List&lt;EnvironmentalWarning&gt; listOrganizationEnvironmentalWarnings(organizationId, firstResult, contexts, startBefore, startAfter, maxResults, sortBy, sortDir)
 
 Lists organizations environmentalWarnings
 
@@ -92,13 +92,13 @@ EnvironmentalWarningsApi apiInstance = new EnvironmentalWarningsApi();
 String organizationId = "organizationId_example"; // String | Organization id
 Integer firstResult = 56; // Integer | First index of results
 String contexts = "contexts_example"; // String | Return environmental warnings by contexts.
-String before = "before_example"; // String | Return environmental warnings before specified time
-String after = "after_example"; // String | Return environmental warnings after specified time
+String startBefore = "startBefore_example"; // String | Return environmental warnings starting before specified time
+String startAfter = "startAfter_example"; // String | Return environmental warnings starting after specified time
 Integer maxResults = 56; // Integer | Maximum number of results
-String orderBy = "orderBy_example"; // String | Define order (NATURAL, START)
-String orderDir = "orderDir_example"; // String | Order direction (ASC, DESC). Default is ASC
+String sortBy = "sortBy_example"; // String | define order (NATURAL, START). Default is NATURAL
+String sortDir = "sortDir_example"; // String | ASC or DESC. Default is ASC
 try {
-    List<EnvironmentalWarning> result = apiInstance.listOrganizationEnvironmentalWarnings(organizationId, firstResult, contexts, before, after, maxResults, orderBy, orderDir);
+    List<EnvironmentalWarning> result = apiInstance.listOrganizationEnvironmentalWarnings(organizationId, firstResult, contexts, startBefore, startAfter, maxResults, sortBy, sortDir);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EnvironmentalWarningsApi#listOrganizationEnvironmentalWarnings");
@@ -113,11 +113,11 @@ Name | Type | Description  | Notes
  **organizationId** | **String**| Organization id |
  **firstResult** | **Integer**| First index of results | [optional]
  **contexts** | **String**| Return environmental warnings by contexts. | [optional]
- **before** | **String**| Return environmental warnings before specified time | [optional]
- **after** | **String**| Return environmental warnings after specified time | [optional]
+ **startBefore** | **String**| Return environmental warnings starting before specified time | [optional]
+ **startAfter** | **String**| Return environmental warnings starting after specified time | [optional]
  **maxResults** | **Integer**| Maximum number of results | [optional]
- **orderBy** | **String**| Define order (NATURAL, START) | [optional]
- **orderDir** | **String**| Order direction (ASC, DESC). Default is ASC | [optional]
+ **sortBy** | **String**| define order (NATURAL, START). Default is NATURAL | [optional]
+ **sortDir** | **String**| ASC or DESC. Default is ASC | [optional]
 
 ### Return type
 

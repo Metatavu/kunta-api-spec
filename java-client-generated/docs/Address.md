@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **locationAbroad** | [**List&lt;LocalizedValue&gt;**](LocalizedValue.md) | Localized list of foreign address information. |  [optional]
 **multipointLocation** | [**List&lt;Address&gt;**](Address.md) | Moving address. Includes several street addresses. |  [optional]
 **additionalInformations** | [**List&lt;LocalizedValue&gt;**](LocalizedValue.md) | Localized list of additional information about the address. |  [optional]
+**entrances** | [**List&lt;AddressEntrance&gt;**](AddressEntrance.md) | Entrances for an address. Includes accessibility sentences. |  [optional]
 
 
 
