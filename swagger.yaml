@@ -5552,6 +5552,66 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/LocalizedValue'
+      entrances:
+        description: Entrances for an address. Includes accessibility sentences.
+        uniqueItems: false
+        type: array
+        items:
+          $ref: '#/definitions/AddressEntrance'
+          
+  AddressEntrance:
+    description: Entrance for address
+    type: object
+    properties:
+      name:
+        description: List of localized service names.
+        uniqueItems: false
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      isMainEntrance:
+        description: Indicates if entrance is main entrance.
+        type: boolean
+      coordinates:
+        $ref: '#/definitions/Coordinates'
+      contactInfo:
+        $ref: '#/definitions/AccessibilityContactInfo'
+      accessibilitySentences:
+        description: List of accessibility sentences.
+        uniqueItems: false
+        type: array
+        items:
+          $ref: '#/definitions/AccessibilitySentence'
+          
+  AccessibilityContactInfo:
+    description: Accessibility contact info
+    type: object
+    properties:
+      phone:
+        description: Phone
+        type: string
+      email:
+        description: Email
+        type: string
+      url:
+        description: Url
+        type: string
+        
+  AccessibilitySentence:
+    description: Accessibility sentences.
+    type: object
+    properties:
+      sentenceGroup:
+        description: List of localized sentence group names.
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      sentences:
+        description: List of localized sentences.
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+        
   Coordinates:
     type: object
     properties:
