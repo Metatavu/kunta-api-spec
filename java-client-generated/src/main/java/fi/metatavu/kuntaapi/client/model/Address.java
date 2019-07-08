@@ -28,6 +28,7 @@ package fi.metatavu.kuntaapi.client.model;
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import fi.metatavu.kuntaapi.client.model.Address;
+import fi.metatavu.kuntaapi.client.model.AddressEntrance;
 import fi.metatavu.kuntaapi.client.model.Coordinates;
 import fi.metatavu.kuntaapi.client.model.LocalizedValue;
 import fi.metatavu.kuntaapi.client.model.Municipality;
@@ -40,7 +41,7 @@ import java.util.List;
 /**
  * Address
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-11T07:46:02.491+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-08T15:25:34.363+03:00")
 public class Address   {
   @SerializedName("latitude")
   private String latitude = null;
@@ -89,6 +90,9 @@ public class Address   {
 
   @SerializedName("additionalInformations")
   private List<LocalizedValue> additionalInformations = new ArrayList<LocalizedValue>();
+
+  @SerializedName("entrances")
+  private List<AddressEntrance> entrances = new ArrayList<AddressEntrance>();
 
   public Address latitude(String latitude) {
     this.latitude = latitude;
@@ -408,6 +412,29 @@ public class Address   {
     this.additionalInformations = additionalInformations;
   }
 
+  public Address entrances(List<AddressEntrance> entrances) {
+    this.entrances = entrances;
+    return this;
+  }
+
+  public Address addEntrancesItem(AddressEntrance entrancesItem) {
+    this.entrances.add(entrancesItem);
+    return this;
+  }
+
+   /**
+   * Entrances for an address. Includes accessibility sentences.
+   * @return entrances
+  **/
+  @ApiModelProperty(example = "null", value = "Entrances for an address. Includes accessibility sentences.")
+  public List<AddressEntrance> getEntrances() {
+    return entrances;
+  }
+
+  public void setEntrances(List<AddressEntrance> entrances) {
+    this.entrances = entrances;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -433,12 +460,13 @@ public class Address   {
         Objects.equals(this.country, address.country) &&
         Objects.equals(this.locationAbroad, address.locationAbroad) &&
         Objects.equals(this.multipointLocation, address.multipointLocation) &&
-        Objects.equals(this.additionalInformations, address.additionalInformations);
+        Objects.equals(this.additionalInformations, address.additionalInformations) &&
+        Objects.equals(this.entrances, address.entrances);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(latitude, longitude, coordinates, coordinateState, type, subtype, postOfficeBox, postalCode, postOffice, streetAddress, streetNumber, municipality, country, locationAbroad, multipointLocation, additionalInformations);
+    return Objects.hash(latitude, longitude, coordinates, coordinateState, type, subtype, postOfficeBox, postalCode, postOffice, streetAddress, streetNumber, municipality, country, locationAbroad, multipointLocation, additionalInformations, entrances);
   }
 
   @Override
@@ -462,6 +490,7 @@ public class Address   {
     sb.append("    locationAbroad: ").append(toIndentedString(locationAbroad)).append("\n");
     sb.append("    multipointLocation: ").append(toIndentedString(multipointLocation)).append("\n");
     sb.append("    additionalInformations: ").append(toIndentedString(additionalInformations)).append("\n");
+    sb.append("    entrances: ").append(toIndentedString(entrances)).append("\n");
     sb.append("}");
     return sb.toString();
   }

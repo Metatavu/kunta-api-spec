@@ -32,92 +32,72 @@ import io.swagger.annotations.ApiModelProperty;
 
 
 /**
- * Tile
+ * Accessibility contact info
  */
+@ApiModel(description = "Accessibility contact info")
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-08T15:25:34.363+03:00")
-public class Tile   {
-  @SerializedName("id")
-  private String id = null;
+public class AccessibilityContactInfo   {
+  @SerializedName("phone")
+  private String phone = null;
 
-  @SerializedName("title")
-  private String title = null;
+  @SerializedName("email")
+  private String email = null;
 
-  @SerializedName("contents")
-  private String contents = null;
+  @SerializedName("url")
+  private String url = null;
 
-  @SerializedName("link")
-  private String link = null;
-
-  public Tile id(String id) {
-    this.id = id;
+  public AccessibilityContactInfo phone(String phone) {
+    this.phone = phone;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Phone
+   * @return phone
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getId() {
-    return id;
+  @ApiModelProperty(example = "null", value = "Phone")
+  public String getPhone() {
+    return phone;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setPhone(String phone) {
+    this.phone = phone;
   }
 
-  public Tile title(String title) {
-    this.title = title;
+  public AccessibilityContactInfo email(String email) {
+    this.email = email;
     return this;
   }
 
    /**
-   * Get title
-   * @return title
+   * Email
+   * @return email
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getTitle() {
-    return title;
+  @ApiModelProperty(example = "null", value = "Email")
+  public String getEmail() {
+    return email;
   }
 
-  public void setTitle(String title) {
-    this.title = title;
+  public void setEmail(String email) {
+    this.email = email;
   }
 
-  public Tile contents(String contents) {
-    this.contents = contents;
+  public AccessibilityContactInfo url(String url) {
+    this.url = url;
     return this;
   }
 
    /**
-   * Get contents
-   * @return contents
+   * Url
+   * @return url
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getContents() {
-    return contents;
+  @ApiModelProperty(example = "null", value = "Url")
+  public String getUrl() {
+    return url;
   }
 
-  public void setContents(String contents) {
-    this.contents = contents;
-  }
-
-  public Tile link(String link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Get link
-   * @return link
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getLink() {
-    return link;
-  }
-
-  public void setLink(String link) {
-    this.link = link;
+  public void setUrl(String url) {
+    this.url = url;
   }
 
 
@@ -129,27 +109,25 @@ public class Tile   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Tile tile = (Tile) o;
-    return Objects.equals(this.id, tile.id) &&
-        Objects.equals(this.title, tile.title) &&
-        Objects.equals(this.contents, tile.contents) &&
-        Objects.equals(this.link, tile.link);
+    AccessibilityContactInfo accessibilityContactInfo = (AccessibilityContactInfo) o;
+    return Objects.equals(this.phone, accessibilityContactInfo.phone) &&
+        Objects.equals(this.email, accessibilityContactInfo.email) &&
+        Objects.equals(this.url, accessibilityContactInfo.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, contents, link);
+    return Objects.hash(phone, email, url);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Tile {\n");
+    sb.append("class AccessibilityContactInfo {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    contents: ").append(toIndentedString(contents)).append("\n");
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();
   }

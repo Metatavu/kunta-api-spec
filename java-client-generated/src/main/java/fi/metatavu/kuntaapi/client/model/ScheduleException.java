@@ -35,7 +35,7 @@ import java.time.OffsetDateTime;
 /**
  * ScheduleException
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-11T07:46:02.491+02:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-08T15:25:34.363+03:00")
 public class ScheduleException   {
   @SerializedName("type")
   private String type = null;

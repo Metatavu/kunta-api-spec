@@ -35,55 +35,61 @@ import java.util.List;
 
 
 /**
- * Municipality
+ * Accessibility sentences.
  */
+@ApiModel(description = "Accessibility sentences.")
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2019-07-08T15:25:34.363+03:00")
-public class Municipality   {
-  @SerializedName("code")
-  private String code = null;
+public class AccessibilitySentence   {
+  @SerializedName("sentenceGroup")
+  private List<LocalizedValue> sentenceGroup = new ArrayList<LocalizedValue>();
 
-  @SerializedName("names")
-  private List<LocalizedValue> names = new ArrayList<LocalizedValue>();
+  @SerializedName("sentences")
+  private List<LocalizedValue> sentences = new ArrayList<LocalizedValue>();
 
-  public Municipality code(String code) {
-    this.code = code;
+  public AccessibilitySentence sentenceGroup(List<LocalizedValue> sentenceGroup) {
+    this.sentenceGroup = sentenceGroup;
+    return this;
+  }
+
+  public AccessibilitySentence addSentenceGroupItem(LocalizedValue sentenceGroupItem) {
+    this.sentenceGroup.add(sentenceGroupItem);
     return this;
   }
 
    /**
-   * Municipality code (like 491 or 091).
-   * @return code
+   * List of localized sentence group names.
+   * @return sentenceGroup
   **/
-  @ApiModelProperty(example = "null", value = "Municipality code (like 491 or 091).")
-  public String getCode() {
-    return code;
+  @ApiModelProperty(example = "null", value = "List of localized sentence group names.")
+  public List<LocalizedValue> getSentenceGroup() {
+    return sentenceGroup;
   }
 
-  public void setCode(String code) {
-    this.code = code;
+  public void setSentenceGroup(List<LocalizedValue> sentenceGroup) {
+    this.sentenceGroup = sentenceGroup;
   }
 
-  public Municipality names(List<LocalizedValue> names) {
-    this.names = names;
+  public AccessibilitySentence sentences(List<LocalizedValue> sentences) {
+    this.sentences = sentences;
     return this;
   }
 
-  public Municipality addNamesItem(LocalizedValue namesItem) {
-    this.names.add(namesItem);
+  public AccessibilitySentence addSentencesItem(LocalizedValue sentencesItem) {
+    this.sentences.add(sentencesItem);
     return this;
   }
 
    /**
-   * Get names
-   * @return names
+   * List of localized sentences.
+   * @return sentences
   **/
-  @ApiModelProperty(example = "null", value = "")
-  public List<LocalizedValue> getNames() {
-    return names;
+  @ApiModelProperty(example = "null", value = "List of localized sentences.")
+  public List<LocalizedValue> getSentences() {
+    return sentences;
   }
 
-  public void setNames(List<LocalizedValue> names) {
-    this.names = names;
+  public void setSentences(List<LocalizedValue> sentences) {
+    this.sentences = sentences;
   }
 
 
@@ -95,23 +101,23 @@ public class Municipality   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Municipality municipality = (Municipality) o;
-    return Objects.equals(this.code, municipality.code) &&
-        Objects.equals(this.names, municipality.names);
+    AccessibilitySentence accessibilitySentence = (AccessibilitySentence) o;
+    return Objects.equals(this.sentenceGroup, accessibilitySentence.sentenceGroup) &&
+        Objects.equals(this.sentences, accessibilitySentence.sentences);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, names);
+    return Objects.hash(sentenceGroup, sentences);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Municipality {\n");
+    sb.append("class AccessibilitySentence {\n");
     
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    names: ").append(toIndentedString(names)).append("\n");
+    sb.append("    sentenceGroup: ").append(toIndentedString(sentenceGroup)).append("\n");
+    sb.append("    sentences: ").append(toIndentedString(sentences)).append("\n");
     sb.append("}");
     return sb.toString();
   }
