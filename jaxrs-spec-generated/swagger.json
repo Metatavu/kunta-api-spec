@@ -7312,8 +7312,83 @@
           "items" : {
             "$ref" : "#/definitions/LocalizedValue"
           }
+        },
+        "entrances" : {
+          "type" : "array",
+          "description" : "Entrances for an address. Includes accessibility sentences.",
+          "items" : {
+            "$ref" : "#/definitions/AddressEntrance"
+          }
         }
       }
+    },
+    "AddressEntrance" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "array",
+          "description" : "List of localized service names.",
+          "items" : {
+            "$ref" : "#/definitions/LocalizedValue"
+          }
+        },
+        "isMainEntrance" : {
+          "type" : "boolean",
+          "description" : "Indicates if entrance is main entrance."
+        },
+        "coordinates" : {
+          "$ref" : "#/definitions/Coordinates"
+        },
+        "contactInfo" : {
+          "$ref" : "#/definitions/AccessibilityContactInfo"
+        },
+        "accessibilitySentences" : {
+          "type" : "array",
+          "description" : "List of accessibility sentences.",
+          "items" : {
+            "$ref" : "#/definitions/AccessibilitySentence"
+          }
+        }
+      },
+      "description" : "Entrance for address"
+    },
+    "AccessibilityContactInfo" : {
+      "type" : "object",
+      "properties" : {
+        "phone" : {
+          "type" : "string",
+          "description" : "Phone"
+        },
+        "email" : {
+          "type" : "string",
+          "description" : "Email"
+        },
+        "url" : {
+          "type" : "string",
+          "description" : "Url"
+        }
+      },
+      "description" : "Accessibility contact info"
+    },
+    "AccessibilitySentence" : {
+      "type" : "object",
+      "properties" : {
+        "sentenceGroup" : {
+          "type" : "array",
+          "description" : "List of localized sentence group names.",
+          "items" : {
+            "$ref" : "#/definitions/LocalizedValue"
+          }
+        },
+        "sentences" : {
+          "type" : "array",
+          "description" : "List of localized sentences.",
+          "items" : {
+            "$ref" : "#/definitions/LocalizedValue"
+          }
+        }
+      },
+      "description" : "Accessibility sentences."
     },
     "Coordinates" : {
       "type" : "object",

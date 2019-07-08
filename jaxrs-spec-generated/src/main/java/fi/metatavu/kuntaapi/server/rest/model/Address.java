@@ -1,6 +1,7 @@
 package fi.metatavu.kuntaapi.server.rest.model;
 
 import fi.metatavu.kuntaapi.server.rest.model.Address;
+import fi.metatavu.kuntaapi.server.rest.model.AddressEntrance;
 import fi.metatavu.kuntaapi.server.rest.model.Coordinates;
 import fi.metatavu.kuntaapi.server.rest.model.LocalizedValue;
 import fi.metatavu.kuntaapi.server.rest.model.Municipality;
@@ -31,6 +32,7 @@ public class Address  implements java.io.Serializable {
   private List<LocalizedValue> locationAbroad = new ArrayList<LocalizedValue>();
   private List<Address> multipointLocation = new ArrayList<Address>();
   private List<LocalizedValue> additionalInformations = new ArrayList<LocalizedValue>();
+  private List<AddressEntrance> entrances = new ArrayList<AddressEntrance>();
 
   /**
    * Service location latitude coordinate.
@@ -302,6 +304,23 @@ public class Address  implements java.io.Serializable {
     this.additionalInformations = additionalInformations;
   }
 
+  /**
+   * Entrances for an address. Includes accessibility sentences.
+   **/
+  public Address entrances(List<AddressEntrance> entrances) {
+    this.entrances = entrances;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "null", value = "Entrances for an address. Includes accessibility sentences.")
+  public List<AddressEntrance> getEntrances() {
+    return entrances;
+  }
+  public void setEntrances(List<AddressEntrance> entrances) {
+    this.entrances = entrances;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -327,12 +346,13 @@ public class Address  implements java.io.Serializable {
         Objects.equals(country, address.country) &&
         Objects.equals(locationAbroad, address.locationAbroad) &&
         Objects.equals(multipointLocation, address.multipointLocation) &&
-        Objects.equals(additionalInformations, address.additionalInformations);
+        Objects.equals(additionalInformations, address.additionalInformations) &&
+        Objects.equals(entrances, address.entrances);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(latitude, longitude, coordinates, coordinateState, type, subtype, postOfficeBox, postalCode, postOffice, streetAddress, streetNumber, municipality, country, locationAbroad, multipointLocation, additionalInformations);
+    return Objects.hash(latitude, longitude, coordinates, coordinateState, type, subtype, postOfficeBox, postalCode, postOffice, streetAddress, streetNumber, municipality, country, locationAbroad, multipointLocation, additionalInformations, entrances);
   }
 
   @Override
@@ -356,6 +376,7 @@ public class Address  implements java.io.Serializable {
     sb.append("    locationAbroad: ").append(toIndentedString(locationAbroad)).append("\n");
     sb.append("    multipointLocation: ").append(toIndentedString(multipointLocation)).append("\n");
     sb.append("    additionalInformations: ").append(toIndentedString(additionalInformations)).append("\n");
+    sb.append("    entrances: ").append(toIndentedString(entrances)).append("\n");
     sb.append("}");
     return sb.toString();
   }
