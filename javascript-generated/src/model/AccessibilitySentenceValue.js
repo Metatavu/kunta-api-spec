@@ -34,7 +34,7 @@
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.Municipality = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.LocalizedValue);
+    root.KuntaApiClient.AccessibilitySentenceValue = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.LocalizedValue);
   }
 }(this, function(ApiClient, LocalizedValue) {
   'use strict';
@@ -43,53 +43,46 @@
 
 
   /**
-   * The Municipality model module.
-   * @module model/Municipality
+   * The AccessibilitySentenceValue model module.
+   * @module model/AccessibilitySentenceValue
    * @version 0.0.141
    */
 
   /**
-   * Constructs a new <code>Municipality</code>.
-   * @alias module:model/Municipality
+   * Constructs a new <code>AccessibilitySentenceValue</code>.
+   * Accessibility sentence.
+   * @alias module:model/AccessibilitySentenceValue
    * @class
    */
   var exports = function() {
     var _this = this;
 
 
-
   };
 
   /**
-   * Constructs a <code>Municipality</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>AccessibilitySentenceValue</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Municipality} obj Optional instance to populate.
-   * @return {module:model/Municipality} The populated <code>Municipality</code> instance.
+   * @param {module:model/AccessibilitySentenceValue} obj Optional instance to populate.
+   * @return {module:model/AccessibilitySentenceValue} The populated <code>AccessibilitySentenceValue</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('code')) {
-        obj['code'] = ApiClient.convertToType(data['code'], 'String');
-      }
-      if (data.hasOwnProperty('names')) {
-        obj['names'] = ApiClient.convertToType(data['names'], [LocalizedValue]);
+      if (data.hasOwnProperty('sentence')) {
+        obj['sentence'] = ApiClient.convertToType(data['sentence'], [LocalizedValue]);
       }
     }
     return obj;
   }
 
   /**
-   * Municipality code (like 491 or 091).
-   * @member {String} code
+   * List of localized sentences.
+   * @member {Array.<module:model/LocalizedValue>} sentence
    */
-  exports.prototype['code'] = undefined;
-  /**
-   * @member {Array.<module:model/LocalizedValue>} names
-   */
-  exports.prototype['names'] = undefined;
+  exports.prototype['sentence'] = undefined;
 
 
 

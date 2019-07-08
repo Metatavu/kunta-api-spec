@@ -45,7 +45,7 @@
   /**
    * The AccessibilityContactInfo model module.
    * @module model/AccessibilityContactInfo
-   * @version 0.0.140
+   * @version 0.0.141
    */
 
   /**

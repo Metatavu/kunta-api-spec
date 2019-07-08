@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/LocalizedValue'], factory);
+    define(['ApiClient', 'model/AccessibilitySentenceValue', 'model/LocalizedValue'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./LocalizedValue'));
+    module.exports = factory(require('../ApiClient'), require('./AccessibilitySentenceValue'), require('./LocalizedValue'));
   } else {
     // Browser globals (root is window)
     if (!root.KuntaApiClient) {
       root.KuntaApiClient = {};
     }
-    root.KuntaApiClient.AccessibilitySentence = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.LocalizedValue);
+    root.KuntaApiClient.AccessibilitySentence = factory(root.KuntaApiClient.ApiClient, root.KuntaApiClient.AccessibilitySentenceValue, root.KuntaApiClient.LocalizedValue);
   }
-}(this, function(ApiClient, LocalizedValue) {
+}(this, function(ApiClient, AccessibilitySentenceValue, LocalizedValue) {
   'use strict';
 
 
@@ -45,7 +45,7 @@
   /**
    * The AccessibilitySentence model module.
    * @module model/AccessibilitySentence
-   * @version 0.0.140
+   * @version 0.0.141
    */
 
   /**
@@ -76,7 +76,7 @@
         obj['sentenceGroup'] = ApiClient.convertToType(data['sentenceGroup'], [LocalizedValue]);
       }
       if (data.hasOwnProperty('sentences')) {
-        obj['sentences'] = ApiClient.convertToType(data['sentences'], [LocalizedValue]);
+        obj['sentences'] = ApiClient.convertToType(data['sentences'], [AccessibilitySentenceValue]);
       }
     }
     return obj;
@@ -89,7 +89,7 @@
   exports.prototype['sentenceGroup'] = undefined;
   /**
    * List of localized sentences.
-   * @member {Array.<module:model/LocalizedValue>} sentences
+   * @member {Array.<module:model/AccessibilitySentenceValue>} sentences
    */
   exports.prototype['sentences'] = undefined;
 
