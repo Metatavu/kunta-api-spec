@@ -1,11 +1,10 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>fi.metatavu.kunta-api</groupId>
   <artifactId>kunta-api-client</artifactId>
   <packaging>jar</packaging>
   <name>kunta-api-client</name>
-  <version>0.0.6-SNAPSHOT</version>
+  <version>0.0.6</version>
   <description>Kunta API client library</description>
   <url>https://github.com/Metatavu/kunta-api-spec</url>
 
@@ -34,7 +33,7 @@
     <developerConnection>scm:git:git@github.com:Metatavu/kunta-api-spec.git</developerConnection>
     <url>git@github.com:Metatavu/kunta-api-spec.git</url>
     <connection>scm:git:git@github.com:Metatavu/kunta-api-spec.git</connection>
-    <tag>HEAD</tag>
+    <tag>0.0.6</tag>
   </scm>
 
   <organization>
