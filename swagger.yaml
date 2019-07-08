@@ -5610,6 +5610,17 @@ definitions:
         description: List of localized sentences.
         type: array
         items:
+          $ref: '#/definitions/AccessibilitySentenceValue'
+          
+  AccessibilitySentenceValue:
+    description: Accessibility sentence.
+    type: object
+    properties:
+      sentence:
+        description: List of localized sentences.
+        uniqueItems: false
+        type: array
+        items:
           $ref: '#/definitions/LocalizedValue'
         
   Coordinates:
